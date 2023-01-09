@@ -3,9 +3,8 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-    </li>
+    <li><a href="#about-the-project">About The Project</a></li>
+    <li><a href="#to-do">To Do</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -35,17 +34,24 @@ The final chapter deals with multilinear algebra. We drop the universal property
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- TO DO -->
+## To Do
+
+<ul>
+  <li>As an application of the spectral theorem, I cover singular value decomposition. A chapter on that subject is missing.</li>
+  <li>So far there are only exercises for the appendix. Exercises are missing in every chapter.</li>
+  <li>Sometimes many useful properties of determinants are not covered in a first course in linear algebra. An appendix covering determinant is missing.</li>
+</ul>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- CONTRIBUTING -->
 ## Contributing
 
-<ol>
-  <li>Fork the project</li>
-  <li>Create your feature branch (`git checkout -b feature/branch_name`)</li>
-  <li>Commit your changes (`git commit -m 'Add a feature'`)</li>
-  <li>Push to the branch (`git push origin feature/branch_name`)</li>
-  <li>Open a Pull Request</li>
-</ol>
-  
+Fork the project<br>
+Create your feature branch `git checkout -b feature/branch_name`<br>
+Commit your changes `git commit -m 'Add a feature'`<br>
+Push to the branch `git push origin feature/branch_name`<br>
+Open a Pull Request
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
