@@ -1,0 +1,606 @@
+\chapter{\'Algebra Multilineal}
+
+Sea $K$ un cuerpo y $V, W$ espacios vectoriales sobre $K$.
+
+\begin{nota}
+Dado $k\in\mathbb{Z}_{> 0}$ denotamos
+$$V^k=\underbrace{V\times\cdots\times V}_{k-\text{veces}}$$
+y para $k=0$ usamos la convenci\'on $V^0=K$.
+\end{nota}
+
+\section{Tensores}
+
+\begin{defn}
+Sea $k\in\mathbb{Z}_{\ge 0}$ y $T:V^k\longrightarrow K$ una funci\'on. Decimos que $T$ es \emph{multilineal} si para $i=1\ldots k$ tenemos
+$$ T(v_1,\ldots,c_iv_i+c_i'v_i',\ldots,v_k)=c_iT(v_1,\ldots,v_i,\ldots,v_k)+c_i'T(v_1,\ldots,v_i',\ldots,v_k)$$
+para todo $v_1,\ldots,v_i,v_i',\ldots,v_k\in V$ y $c_i,c_i'\in K$. Si $T$ es multilineal decimos que $T$ es un \emph{$k$-tensor}. Al conjunto de $k$-tensores lo denotamos por $T^k(V)$.
+\end{defn}
+
+\begin{obs}
+Para todo $k\in\mathbb{Z}_{\ge 0}$ el conjunto $T^k(V)$ es un espacio vectorial sobre $K$ bajo las operaciones:
+$$
+\begin{array}{rccl}
+S+T:& V^k &\longrightarrow & K\\
+&(v_1,\ldots,v_k) & \longmapsto & S(v_1,\ldots,v_k)+T(v_1,\ldots,v_k)\\
+\\
+cT:& V^k &\longrightarrow & K\\
+&(v_1,\ldots,v_k) & \longmapsto & cT(v_1,\ldots,v_k)\\
+\end{array}
+$$
+para todo $S,T\in T^k(V)$ y $c\in K$.
+\end{obs}
+
+\begin{obs}
+$T^0(V)\simeq K$ y $T^1(V)=V^*$.
+\end{obs}
+
+\begin{ejem} Sea $n\in\mathbb{Z}_{>0}$.
+\begin{enumerate}
+\item La funci\'on
+$$\begin{array}{rccl}
+\langle\bullet;\bullet\rangle: & K^n\times K^n &\longrightarrow & K\\
+&\Big((x_1,\ldots,x_n),(y_1,\ldots,y_n)\Big) & \longmapsto & \sum_{i=1}^nx_iy_i
+\end{array}
+$$
+define un $2$-tensor.
+\item Sea $a_{ij}\in K$, $i,j=1,\ldots,n$. La funci\'on
+$$\begin{array}{rccl}
+T: & K^n\times K^n&\longrightarrow & K\\
+&\Big((x_1,\ldots,x_n),(y_1,\ldots,y_n)\Big) & \longmapsto & \sum_{i,j=1}^nx_ia_{ij}y_j
+\end{array}
+$$
+define un $2$-tensor.
+\item La funci\'on
+$$\begin{array}{rccl}
+\det: & \Big(K^n\Big)^n &\longrightarrow & K\\
+&\big(\overline{x}_1,\ldots,\overline{x}_n\big) & \longmapsto & \det(x_{ij})=\sum_{\sigma\in S_n}\sgn(\sigma)x_{\sigma(1)1}\ldots x_{\sigma(n)n}
+\end{array}
+$$
+donde $\overline{x}_j=(x_{1j},\ldots,x_{nj})$ para $j=1,\ldots,n$ define un $n$-tensor.
+\end{enumerate}
+\end{ejem}
+
+\begin{defn}
+Sean $k,l\in\mathbb{Z}_{\ge 0}$. Dados $S\in T^k(V)$ y $T\in T^l(V)$ definimos su \emph{producto tensorial} $S\otimes T\in T^{k+l}(V)$ por
+$$ S\otimes T(v_1,\ldots,v_k,v_{k+1},\ldots,v_{k+l})= S(v_1,\ldots,v_k)T(v_{k+1},\ldots,v_{k+l}) $$
+para todo $v_1,\ldots,v_{k+l}\in V$.
+\end{defn}
+
+\begin{obs}
+El producto tensorial no es conmutativo pues no siempre es cierto que $S\otimes T$ y $S\otimes T$ coincidan.
+\end{obs}
+
+\begin{pro}\label{ptbya}
+El producto tensorial es bilineal y asociativo. Es decir, dados $k,l,m\in\mathbb{Z}_{\ge 0}$ y $S,S'\in T^k(V)$, $T,T'\in T^l(V)$, $U\in T^m(V)$, $c\in K$ tenemos:
+\begin{enumerate}
+\item $(S+S')\otimes T=S\otimes T + S'\otimes T$,
+\item $S\otimes (T+T')=S\otimes T + S\otimes T'$,
+\item $(cS)\otimes T=c(S\otimes T)=S\otimes(cT)$,
+\item $(S\otimes T)\otimes U=S\otimes (T\otimes U)$.
+\end{enumerate} 
+\end{pro}
+
+\dem La demostraci\'on es una verificaci\'on directa.\qed
+
+\begin{nota}
+Por la Proposici\'on \ref{ptbya} 4. denotamos $S\otimes T\otimes U= (S\otimes T)\otimes U$ y as\'i podemos definir producto tensorial de m\'as de dos tensores.
+\end{nota}
+
+\begin{teo}\label{bt}
+Suponga que $\dim_K(V)=n<\infty$. Sea $\{v_1,\ldots,v_n\}$ una base de $V$ y $\{\lambda_1,\ldots,\lambda_n\}$ la base dual. Para todo $k\in\mathbb{Z}_{>0}$, la colecci\'on de $k$-tensores
+$$\Big\{\lambda_{i_1}\otimes\cdots\otimes\lambda_{i_k}\Big\}_{i_1,\ldots,i_k=1}^n$$
+es una base de $T^k(V)$. En particular $$\dim_K(T^k)=n^k.$$
+\end{teo}
+
+\dem Veamos primero que $$T^k(V)=\langle \lambda_{i_1}\otimes\cdots\otimes\lambda_{i_k} \rangle_{i_1,\ldots,i_k=1}^n.$$ Note que para todo $i_1\ldots,i_k,j_1,\ldots,j_k\in\{1,\ldots,n\}$
+$$\lambda_{i_1}\otimes\cdots\otimes\lambda_{i_k}(v_{j_1},\ldots,v_{j_k})= \delta_{i_1j_1}\cdots\delta_{i_kj_k}=\left\{\begin{array}{rl}
+1 & \text{si } i_1=j_1,\ldots, i_k=j_k \\
+0 & \text{si no}
+\end{array}\right. .$$
+As\'i, si $w_1,\dots,w_k\in V$ y $w_j=\sum_{i=1}^n a_{ij}v_i$, $a_{ij}\in K$, $j=1,\ldots,k$ entonces
+\begin{align*}
+\lambda_{i_1}\otimes\cdots\otimes\lambda_{i_k}(w_1,\ldots,w_k) &= \sum_{j_1,\ldots,j_k=1}^n a_{j_11}\cdots a_{j_kk} \lambda_{i_1}\otimes\cdots\otimes\lambda_{i_k}(v_{j_1},\ldots,v_{j_k})\\
+&= \sum_{j_1,\ldots,j_k=1}^n a_{j_11}\cdots a_{j_kk}\delta_{i_1j_1}\cdots\delta_{i_kj_k}\\
+&= a_{i_11}\cdots a_{i_kk}\\
+\end{align*}
+Ahora, dado $T\in T^k(V)$
+\begin{align*}
+T(w_1,\ldots,w_k) &= \sum_{i_1,\ldots,i_k=1}^n a_{i_11}\cdots a_{i_kk} T(v_{i_1},\ldots,v_{i_k})\\
+&= \sum_{i_1,\ldots,i_k=1}^n T(v_{i_1},\ldots,v_{i_k})\lambda_{i_1}\otimes\cdots\otimes\lambda_{i_k}(w_1,\ldots,w_k)
+\end{align*}
+luego
+$$T=\sum_{i_1,\ldots,i_k=1}^n T(v_{i_1},\ldots,v_{i_k})\lambda_{i_1}\otimes\cdots\otimes\lambda_{i_k},$$
+y $T^k(V)=\langle \lambda_{i_1}\otimes\cdots\otimes\lambda_{i_k} \rangle_{i_1,\ldots,i_k=1}^n$.
+
+Establezcamos ahora la independencia lineal. Suponga que
+$$0=\sum_{i_1,\ldots,i_k=1}^n c_{i_1\ldots i_k}\lambda_{i_1}\otimes\cdots\otimes\lambda_{i_k}.$$
+Si evaluamos en $(v_{j_1},\ldots,v_{j_k})$ obtenemos
+\begin{align*}
+0 &=\sum_{i_1,\ldots,i_k=1}^n c_{i_1\ldots i_k}\lambda_{i_1}\otimes\cdots\otimes\lambda_{i_k}(v_{j_1},\ldots,v_{j_k})\\
+ &=c_{j_1,\ldots,j_k}.
+\end{align*}
+\qed
+
+\begin{ejem} Sea $n\in\mathbb{Z}_{>0}$, $\{e_i\}_{i=1}^n$ la base can\'onica de $K^n$ y $\{f_1,\ldots,f_n\}$ la base dual.
+\begin{enumerate}
+\item Si
+$$\begin{array}{rccl}
+\langle\bullet;\bullet\rangle: & K^n\times K^n &\longrightarrow & K\\
+&\Big((x_1,\ldots,x_n),(y_1,\ldots,y_n)\Big) & \longmapsto & \sum_{i=1}^nx_iy_i
+\end{array}
+$$
+entonces $\langle\bullet;\bullet\rangle=\sum_{i=1}^n f_i\otimes f_i$.
+\item Sea $a_{ij}\in K$, $i,j=1,\ldots,n$. Si
+$$\begin{array}{rccl}
+T: & K^n\times K^n&\longrightarrow & K\\
+&\Big((x_1,\ldots,x_n),(y_1,\ldots,y_n)\Big) & \longmapsto & \sum_{i,j=1}^nx_ia_{ij}y_j
+\end{array}
+$$
+entonces $T=\sum_{i,j=1}^na_{ij}f_i\otimes f_j$.
+\item Si
+$$\begin{array}{rccl}
+\det: & \Big(K^n\Big)^n &\longrightarrow & K\\
+&\big(\overline{x}_1,\ldots,\overline{x}_n\big) & \longmapsto & \sum_{\sigma\in S_n}\sgn(\sigma)x_{\sigma(1)1}\ldots x_{\sigma(n)n}
+\end{array}
+$$
+donde $\overline{x}_j=(x_{1j},\ldots,x_{nj})$ para $j=1,\ldots,n$ entonces $$\det=\sum_{\sigma\in S_n}\sgn(\sigma)f_{\sigma(1)}\otimes\cdots\otimes f_{\sigma(n)}.$$
+\end{enumerate}
+\end{ejem}
+
+\begin{defn}
+Sea $f\in\Hom_K(V,W)$. Dado $k\in\mathbb{Z}_{\ge 0}$ definimos
+\begin{eqnarray*}
+f^*: T^k(W) & \longrightarrow & T^k(V)\\
+  T & \longmapsto & f^*T: (v_1,\ldots,v_k) \mapsto T\big(f(v_1),\ldots,f(v_k)\big).
+\end{eqnarray*}
+\end{defn}
+
+\begin{prop}
+Sea $f\in\Hom_K(V,W)$ y $k,l\in\mathbb{Z}_{\ge 0}$. Para todo $S\in T^k(W)$ y $T\in T^l(W)$ tenemos
+$$f^*(S\otimes T)=f^*S\otimes f^*T.$$
+\end{prop}
+
+\dem La demostraci\'on es una verificaci\'on inmediata.\qed
+
+\section{Tensores alternantes}
+
+\begin{defn}
+Sea $k\in\mathbb{Z}_{\ge 0}$ y $\omega\in T^k(V)$, decimos que $\omega$ es \emph{alternante} si
+$$\omega(v_1,\ldots,v_i,\ldots,v_j,\ldots,v_k)=0,\quad v_1,\ldots,v_k\in V$$
+siempre que $v_i=v_j$ para alg\'un par $i,j\in\{1,\ldots,k\}$, $i\ne j$. Denotamos por $\Lambda^k(V)$ al subespacio de $T^k(V)$ de $k$-tensores alternantes.  
+\end{defn}
+
+\begin{pro}
+Sea $k\in\mathbb{Z}_{\ge 0}$ y $\omega\in T^k(V)$ un $k$-tensor alternante, entonces 
+$$\omega(v_1,\ldots,v_i,\ldots,v_j,\ldots,v_k)=-\omega(v_1,\ldots,v_j,\ldots,v_i,\ldots,v_k)$$
+para todo $v_1,\ldots,v_k\in V$ y todo $1\le i<j\le k$.
+\end{pro}
+
+\dem \begin{align*}
+0 =&  \omega(v_1,\ldots,v_i+v_j,\ldots,v_i+v_j,\ldots,v_k)\\
+ =& \omega(v_1,\ldots,v_i,\ldots,v_i,\ldots,v_k)+\omega(v_1,\ldots,v_i,\ldots,v_j,\ldots,v_k)\\
+ & \quad +\omega(v_1,\ldots,v_j,\ldots,v_i,\ldots,v_k)+\omega(v_1,\ldots,v_j,\ldots,v_j,\ldots,v_k)\\
+ = &\omega(v_1,\ldots,v_i,\ldots,v_j,\ldots,v_k)+\omega(v_1,\ldots,v_j,\ldots,v_i,\ldots,v_k)\\
+\end{align*}\qed
+
+\begin{obs}
+Sea $k\in\mathbb{Z}_{\ge 0}$ y $\omega\in \Lambda^k(V)$, para toda permutaci\'on $\sigma\in S_k$ tenemos
+$$\omega(v_{\sigma(1)},\ldots,v_{\sigma(k)})=-\sgn(\sigma)\omega(v_1,\ldots,v_k).$$
+Esta \'ultima igualdad es la que justifica el nombre de alternante.
+\end{obs}
+
+\begin{obs}
+$\Lambda^0(V)=T^0(V)\simeq K$ y $\Lambda^1(V)=T^1(V)=V^*$.
+\end{obs}
+
+\begin{ejem} Sea $n\in\mathbb{Z}_{>0}$.
+\begin{enumerate}
+\item La funci\'on determinante
+$$\begin{array}{rccl}
+\det: & \Big(K^n\Big)^n &\longrightarrow & K\\
+&\big(\overline{x}_1,\ldots,\overline{x}_n\big) & \longmapsto & \sum_{\sigma\in S_n}\sgn(\sigma)x_{\sigma(1)1}\ldots x_{\sigma(n)n}
+\end{array}
+$$
+donde $\overline{x}_j=(x_{1j},\ldots,x_{nj})$ para $j=1,\ldots,n$ define un $n$-tensor alternante.
+\item Sea $k\in\{1,\ldots,n\}$ y $1\le i_1<\ldots<i_k\le n$. La funci\'on determinante menor
+$$\begin{array}{rccl}
+\det_{i_1\ldots i_k}: & \Big(K^n\Big)^k &\longrightarrow & K\\
+&\big(\overline{x}_1,\ldots,\overline{x}_k\big) & \longmapsto & \sum_{\sigma\in S_k}\sgn(\sigma)x_{i_{\sigma(1)}1}\ldots x_{i_{\sigma(k)}k}
+\end{array}
+$$
+donde $\overline{x}_j=(x_{1j},\ldots,x_{nj})$ para $j=1,\ldots,n$ define un $k$-tensor alternante.
+\end{enumerate}
+\end{ejem}
+
+\begin{obs}
+Sea $k,l\in\mathbb{Z}_{\ge 0}$ y $\omega\in\Lambda^k(V)$, $\eta\in\Lambda^l(V)$, el $k+l$-tensor $\omega\otimes\eta$ no es necesariamente alternante. Para obtener un tensor alternante hace falta proyectar sobre el subespacio $\Lambda^{k+l}(V)\le T^{k+l}(V)$.
+\end{obs}
+
+\begin{defn}
+Sea $k\in\mathbb{Z}_{\ge 0}$ tal que si $\chara(K)>0$ entonces $k<\chara(K)$. Definimos $\Alt\in\Hom_K\left(T^k(V),T^k(V)\right)$ por
+$$\Alt(T)(v_1,\ldots,v_k)=\dfrac{1}{k!}\sum_{\sigma\in S_k}\sgn(\sigma)T(v_{\sigma(1)},\ldots,v_{\sigma(k)})$$
+\end{defn}
+
+\begin{ejem} Sea $n\in\mathbb{Z}_{>0}$, $\{e_i\}_{i=1}^n$ la base can\'onica de $K^n$ y $\{f_1,\ldots,f_n\}$ la base dual.
+\begin{enumerate}
+\item Para $\chara(K)>0$ suponga que $n<\chara(K)$. Si $T=f_1\otimes\cdots\otimes f_n$, tenemos que para todo $\overline{x}_j=(x_{1j},\ldots,x_{nj})\in K^n$, $j=1,\ldots,n$,
+\begin{align*}
+\Alt(T)(\overline{x}_1,\ldots,\overline{x}_n) &= \dfrac{1}{n!}\sum_{\sigma\in S_n}\sgn(\sigma)f_1\otimes\cdots\otimes f_n(v_{\sigma(1)},\ldots,v_{\sigma(n)})\\
+&= \dfrac{1}{n!}\sum_{\sigma\in S_n}\sgn(\sigma)x_{1\sigma(1)}\cdots x_{n\sigma(n)}\\
+&= \dfrac{1}{n!}\sum_{\sigma\in S_n}\sgn(\sigma)x_{\sigma^{-1}(1)1}\cdots x_{\sigma^{-1}(n)n}\\
+&= \dfrac{1}{n!}\sum_{\sigma\in S_n}\sgn(\sigma^{-1})x_{\sigma^{-1}(1)1}\cdots x_{\sigma^{-1}(n)n}\\
+&= \dfrac{1}{n!}\sum_{\sigma\in S_n}\sgn(\sigma)x_{\sigma(1)1}\cdots x_{\sigma(n)n}\\
+&=\dfrac{1}{n!}\det\big(\overline{x}_1,\ldots,\overline{x}_n\big)
+\end{align*}
+as\'i $\Alt(f_1\otimes\cdots\otimes f_n)=\frac{1}{n!}\det$.
+\item Sea $k\in\{1,\ldots,n\}$ y $1\le i_1<\ldots<i_k\le n$. Para $\chara(K)>0$ suponga que $k<\chara(K)$. Si $T=f_{i_1}\otimes\cdots\otimes f_{i_k}$, tenemos que para todo $\overline{x}_j=(x_{1j},\ldots,x_{nj})\in K^n$, $j=1,\ldots,k$,
+\begin{align*}
+\Alt(T)(\overline{x}_1,\ldots,\overline{x}_k) &= \dfrac{1}{k!}\sum_{\sigma\in S_k}\sgn(\sigma)f_{i_1}\otimes\cdots\otimes f_{i_k}(v_{\sigma(1)},\ldots,v_{\sigma(k)})\\
+&= \dfrac{1}{k!}\sum_{\sigma\in S_k}\sgn(\sigma)x_{i_1\sigma(1)}\cdots x_{i_k\sigma(k)}\\
+&= \dfrac{1}{k!}\sum_{\sigma\in S_k}\sgn(\sigma)x_{i_{\sigma^{-1}(1)}1}\cdots x_{i_{\sigma^{-1}(k)}k}\\
+&= \dfrac{1}{k!}\sum_{\sigma\in S_k}\sgn(\sigma^{-1})x_{i_{\sigma^{-1}(1)}1}\cdots x_{i_{\sigma^{-1}(k)}k}\\
+&= \dfrac{1}{k!}\sum_{\sigma\in S_k}\sgn(\sigma)x_{i_{\sigma(1)}1}\cdots x_{i_{\sigma(k)}k}\\
+&=\dfrac{1}{k!}\det{}_{i_1\ldots i_k}\big(\overline{x}_1,\ldots,\overline{x}_k\big)
+\end{align*}
+as\'i $\Alt(f_{i_1}\otimes\cdots\otimes f_{i_k})=\frac{1}{k!}\det_{i_1\ldots i_k}$.
+\end{enumerate}
+\end{ejem}
+
+\begin{prop} Para todo $k\in\mathbb{Z}_{\ge 0}$ el operador $\Alt$ es una proyecci\'on sobre $\Lambda^k(V)$. Es decir:
+\begin{enumerate}
+\item para todo $T\in T^k(V)$, $\Alt(T)\in\Lambda^k(V)$,
+\item para todo $\omega\in\Lambda^k(V)$, $\Alt(\omega)=\omega$,
+\item $\Alt\circ\Alt=\Alt$. 
+\end{enumerate}
+\end{prop}
+
+\dem \begin{enumerate}
+\item Dados $1\le i<j \le k$, defina $\tau\in S_k$ la transposici\'on que intercambia $i$ y $j$ (y deja al resto de elementos en $\{1,\ldots,k\}$ fijos). Sea $A_k$ el subgrupo de $S_k$ formado por las permutaciones con signo $1$, de forma que si $\tau A_k=\{\tau\sigma\in S_k\|\ \sigma\in A_k\}$ entonces $S_k=A_k\cup \tau A_k$ es una partici\'on de $S_k$. Nota que $\sgn(\tau\sigma)=-\sgn(\sigma)$ para todo $\sigma\in S_k$. Sean $v_1,\ldots,v_k\in V$ tales que $v_i=v_j$, entonces para todo $\sigma\in S_k$ tenemos
+$$(v_{\sigma(1)},\ldots,v_{\sigma(k)})=(v_{\tau\sigma(1)},\ldots,v_{\tau\sigma(k)})$$
+y as\'i
+\begin{IEEEeqnarray*}{rCl}
+  \IEEEeqnarraymulticol{3}{l}{
+\Alt(T)(v_1,\ldots,v_k)}\\
+ &=& \dfrac{1}{k!}\sum_{\sigma\in S_k}\sgn(\sigma)T(v_{\sigma(1)}\ldots,v_{\sigma(k)})\\
+ &=& \dfrac{1}{k!}\left(\sum_{\sigma\in A_k}\sgn(\sigma)T(v_{\sigma(1)},\ldots,v_{\sigma(k)})+\sum_{\sigma\in \tau A_k}\sgn(\sigma)T(v_{\sigma(1)},\ldots,v_{\sigma(k)})\right)\\
+ &=&\dfrac{1}{k!}\left(\sum_{\sigma\in A_k}\sgn(\sigma)T(v_{\sigma(1)},\ldots,v_{\sigma(k)})+\sum_{\sigma\in A_k}\sgn(\tau\sigma)T(v_{\tau\sigma(1)},\ldots,v_{\tau\sigma(k)})\right)\\
+ &=&\dfrac{1}{k!}\left(\sum_{\sigma\in A_k}\sgn(\sigma)T(v_{\sigma(1)},\ldots,v_{\sigma(k)})-\sum_{\sigma\in A_k}\sgn(\sigma)T(v_{\tau\sigma(1)},\ldots,v_{\tau\sigma(k)})\right)\\
+ &=& 0
+\end{IEEEeqnarray*}
+luego $\Alt(T)\in\Lambda^k(V)$.
+\item Sea $\omega\in\Lambda^k(V)$, entonces para todo $v_1,\ldots,v_k\in V$ tenemos que
+\begin{align*}
+\Alt(\omega)(v_1,\ldots,v_k) &=\dfrac{1}{k!}\sum_{\sigma\in S_k}\sgn(\sigma)\omega(v_{\sigma(1)},\ldots,v_{\sigma(k)})\\
+&=\dfrac{1}{k!}\sum_{\sigma\in S_k}\sgn(\sigma)\sgn(\sigma)\omega(v_1,\ldots,v_k)\\
+&=\dfrac{1}{k!}\sum_{\sigma\in S_k}\omega(v_1,\ldots,v_k)\\
+&=\dfrac{1}{k!}k!\ \omega(v_1,\ldots,v_k)\\
+&=\omega(v_1,\ldots,v_k)
+\end{align*}
+luego $\Alt(\omega)=\omega$.
+\item Se sigue inmediatamente de 1. y 2.
+\end{enumerate}\qed
+
+\begin{defn}
+Sea $k,l\in\mathbb{Z}_{\ge 0}$ tal que si $\chara(K)>0$ entonces $k+l<\chara(K)$. Sea $\omega\in\Lambda^k{V}$ y $\eta\in\Lambda^l(V)$, definimos el \emph{producto exterior} $\omega\wedge\eta\in\Lambda^{k+l}(V)$ por
+$$\omega\wedge\eta=\dfrac{(k+l)!}{k!\ l!}\Alt(\omega\otimes\eta).$$
+\end{defn}
+
+\begin{lema}\label{lemaalt}
+Sea $k,l,m\in\mathbb{Z}_{\ge 0}$  tal que si $\chara(K)>0$ entonces $k+l+m<\chara(K)$.  Sea $S\in T^k(V)$, $T\in T^l(V)$ y $U\in T^m(V)$ tenemos que
+\begin{enumerate}
+\item si $\Alt(S)=0$ entonces $\Alt(S\otimes T)=0=\Alt(T\otimes S)$,
+\item $\Alt(\Alt(S\otimes T)\otimes U)=\Alt(S\otimes T\otimes U)=\Alt(S\otimes \Alt(T\otimes U))$
+\end{enumerate}
+\end{lema}
+
+\dem
+\begin{enumerate}
+\item Tome $S_k$ como el subgrupo de $S_{k+l}$ formado por la permutaciones que dejan fijos a $k+1,\ldots,k+l$ y sean $\sigma_1,\ldots,\sigma_{N}\in S_{k+l}$, $N=(k+l)!/(k!)$, representantes de los coconjuntos $S_k\sigma=\{\tau\sigma\in S_{k+l}|\ \tau\in S_{k}\}$, $\sigma\in S_{k+l}$, de forma que 
+$$ S_{k+l}=\cup_{i=1}^N \sigma_iS_k $$
+es una partici\'on de $S_{k+l}$. Entonces para todo $v_1,\ldots,v_{k+l}\in V$
+\begin{IEEEeqnarray*}{rCl}
+  \IEEEeqnarraymulticol{3}{l}{
+\Alt (S\otimes T)(v_1,\ldots,v_{k+l})} \\
+& = & \dfrac{1}{(k+l)!}\sum_{\sigma\in S_{k+l}} \sgn(\sigma) S\otimes T(v_{\sigma(1)},\ldots,v_{\sigma(k+l)})\\
+& = & \dfrac{1}{(k+l)!}\sum_{i=1}^N\sum_{\tau\in S_{k}} \sgn(\tau\sigma_i) S\otimes T(v_{\tau\sigma_i(1)},\ldots,v_{\tau\sigma_i(k+l)})\\
+& = & \dfrac{1}{(k+l)!}\sum_{i=1}^N\sgn(\sigma_i)\sum_{\tau\in S_{k}} \sgn(\tau) S(v_{\tau\sigma_i(1)},\ldots,v_{\tau\sigma_i(k)}) T(v_{\tau\sigma_i(k+1)},\ldots,v_{\tau\sigma_i(k+l)}).
+\end{IEEEeqnarray*}
+Para $i=1,\ldots,N$ y $j=1,\ldots,k+l$, denote $w^{(i)}_j=v_{\sigma_i(j)}$, as\'i, como $\Alt=0$ entonces
+\begin{IEEEeqnarray*}{rCl}
+  \IEEEeqnarraymulticol{3}{l}{
+\Alt (S\otimes T)(v_1,\ldots,v_{k+l})} \\
+& = & \dfrac{1}{(k+l)!}\sum_{i=1}^N\sgn(\sigma_i)\sum_{\tau\in S_{k}} \sgn(\tau) S(w^{(i)}_{\tau(1)},\ldots,w^{(i)}_{\tau(k)}) T(w^{(i)}_{\tau(k+1)},\ldots,w^{(i)}_{\tau(k+l)})\\
+& = & \dfrac{1}{(k+l)!}\sum_{i=1}^N\sgn(\sigma_i)\sum_{\tau\in S_{k}} \sgn(\tau) S(w^{(i)}_{\tau(1)},\ldots,w^{(i)}_{\tau(k)}) T(w^{(i)}_{k+1},\ldots,w^{(i)}_{k+l})\\
+& = & \dfrac{1}{(k+l)!}\sum_{i=1}^N\sgn(\sigma_i)\left(\sum_{\tau\in S_{k}} \sgn(\tau) S(w^{(i)}_{\tau(1)},\ldots,w^{(i)}_{\tau(k)})\right) T(w^{(i)}_{k+1},\ldots,w^{(i)}_{k+l})\\
+& = & \dfrac{k!}{(k+l)!}\sum_{i=1}^N\sgn(\sigma_i)\Alt(S)(w^{(i)}_1,\ldots,w^{(i)}_k)T(w^{(i)}_{k+1},\ldots,w^{(i)}_{k+l})\\
+& = & 0
+\end{IEEEeqnarray*}
+Similarmente, si tomamos $S_k$ como el subgrupo de $S_{k+l}$ formado por la permutaciones que dejan fijos a $1,\ldots,l$, obtenemos $\Alt(T\otimes S)=0$.
+\item $\Alt\left(\Alt(S\otimes T)-S\otimes T\right)=\Alt(S\otimes T)-\Alt(S\otimes T)=0$, luego por 1.
+\begin{align*}
+0 &= \Alt\left(\left(\Alt(S\otimes T)-S\otimes T\right)\otimes U\right)\\
+  &= \Alt\left(\Alt(S\otimes T)\otimes U\right)-\Alt(S\otimes T\otimes U)
+\end{align*}
+y as\'i $\Alt\left(\Alt(S\otimes T)\otimes U\right)=\Alt(S\otimes T\otimes U)$. Similarmente obtenemos $\Alt(S\otimes \Alt(T\otimes U))=\Alt(S\otimes T\otimes U)$.
+\end{enumerate}\qed
+
+
+\begin{pro}\label{pebya}
+El producto exterior es bilineal, asociativo y  anticonmutativo. Es decir, dados $k,l,m\in\mathbb{Z}_{\ge 0}$ tal que si $\chara(K)>0$ entonces $k+l+m<\chara(K)$ y $\omega,\omega'\in\Lambda^k(V)$, $\eta,\eta'\in\Lambda^l(V)$, $\theta\in\Lambda^m(V)$, $c\in K$ tenemos:
+\begin{enumerate}
+\item $(\omega+\omega')\wedge\eta=\omega\wedge\eta+\omega'\wedge\eta$,
+\item $\omega\wedge(\eta+\eta')=\omega\wedge\eta+\omega\wedge\eta'$,
+\item $(c\omega)\wedge\eta=c(\omega\wedge\eta)=\omega\wedge(c\eta)$,
+\item $\omega\wedge\eta=(-1)^{kl}\eta\wedge\omega$,
+\item $(\omega\wedge\eta)\wedge\theta=\omega\wedge(\eta\wedge\theta)=\frac{(k+l+m)!}{k!\ l!\ m!}\Alt(\omega\otimes\eta\otimes\theta)$.
+\end{enumerate}
+\end{pro}
+
+\dem Las propiedades 1., 2. y 3. se siguen inmediatamente de la bilinearidad de $\otimes$ y de la linearidad de $\Alt$.
+\begin{enumerate} \setcounter{enumi}{3}
+\item Sea $\tau\in S_{k+l}$ definida por
+$$\tau(i)=\left\{\begin{array}{rl}
+i+k & \text{ si } 1\le i\le l\\
+i-l & \text{ si } l+1\le i\le l+k
+\end{array}\right.$$
+Como $\sgn(\tau)=(-1)^{kl}$ y $\sgn(\sigma\tau)=(-1)^{kl}\sgn(\sigma)$ para toda $\sigma\in S_{k+l}$ entonces para todo $v_1,\ldots,v_{k+l}\in V$
+\begin{IEEEeqnarray*}{rCl}
+  \IEEEeqnarraymulticol{3}{l}{
+\omega\wedge\eta(v_1,\ldots,v_{k+l})}\\
+ &=&\dfrac{(k+l)!}{k!\ l!} \Alt(\omega\otimes\eta)(v_1,\ldots,v_{k+l})\\
+ &=& \dfrac{1}{k!\ l!}\sum_{\sigma\in S_{k+l}} \sgn(\sigma)\omega\otimes\eta(v_{\sigma(1)},\ldots,v_{\sigma(k)},v_{\sigma(k+1)},\ldots,v_{\sigma(k+l)})\\
+ &=& \dfrac{(1}{k!\ l!}\sum_{\sigma\in S_{k+l}} \sgn(\sigma)\omega(v_{\sigma(1)},\ldots,v_{\sigma(k)})\eta(v_{\sigma(k+1)},\ldots,v_{\sigma(k+l)})\\
+ &=& \dfrac{1}{k!\ l!}\sum_{\sigma\in S_{k+l}} \sgn(\sigma)\omega(v_{\sigma\tau(l+1)},\ldots,v_{\sigma\tau(l+k)})\eta(v_{\sigma\tau(1)},\ldots,v_{\sigma\tau(l)})\\
+ &=& \dfrac{1}{k!\ l!}\sum_{\sigma\in S_{k+l}} (-1)^{kl}\sgn(\sigma\tau)\eta(v_{\sigma\tau(1)},\ldots,v_{\sigma\tau(l)})\omega(v_{\sigma\tau(l+1)},\ldots,v_{\sigma\tau(l+k)})\\
+ &=& (-1)^{kl}\dfrac{1}{k!\ l!}\sum_{\sigma\tau\in S_{k+l}} \sgn(\sigma\tau)\eta(v_{\sigma\tau(1)},\ldots,v_{\sigma\tau(l)})\omega(v_{\sigma\tau(l+1)},\ldots,v_{\sigma\tau(l+k)})\\
+ &=& (-1)^{kl}\dfrac{1}{k!\ l!}\sum_{\sigma\tau\in S_{k+l}} \sgn(\sigma\tau)\eta\otimes\omega(v_{\sigma\tau(1)},\ldots,v_{\sigma\tau(k)},v_{\sigma\tau(k+1)},\ldots,v_{\sigma\tau(k+l)})\\
+ &=&(-1)^{kl}\dfrac{(k+l)!}{k!\ l!} \Alt(\eta\otimes\omega)(v_1,\ldots,v_{k+l})\\
+ &=&(-1)^{kl}\eta\wedge\omega(v_1,\ldots,v_{k+l}).
+\end{IEEEeqnarray*}
+as\'i $\omega\wedge\eta=(-1)^{kl}\eta\wedge\omega$.
+
+\item Por Lema \ref{lemaalt} 
+\begin{eqnarray*}
+(\omega\wedge\eta)\wedge\theta & = & \dfrac{(k+l+m)!}{(k+l)!\ m!}\Alt\left((\omega\wedge\eta)\otimes\theta\right)\\
+ & = & \dfrac{(k+l+m)!}{(k+l)!\ m!}\Alt\left(\dfrac{(k+l)!}{k!\ l!}\Alt(\omega\otimes\eta)\otimes\theta\right)\\
+ & = & \frac{(k+l+m)!}{k!\ l!\ m!}\Alt(\omega\otimes\eta\otimes\theta)
+\end{eqnarray*}
+Similarmente obtenemos $\omega\wedge(\eta\wedge\theta)=\frac{(k+l+m)!}{k!\ l!\ m!}\Alt(\omega\otimes\eta\otimes\theta)$.
+\end{enumerate}\qed
+
+\begin{obs}\label{pe0}
+Suponga que $\chara(K)\ne 2$ y que $\lambda$ es un $1$-tensor, entonces por Propiedad \ref{pebya} 4. $$\lambda\wedge\lambda=0.$$
+De hecho $\lambda\wedge\lambda=-\lambda\wedge\lambda$ luego $2\lambda\wedge\lambda=0$ y como $2\ne 0$ tenemos $\lambda\wedge\lambda=0$. Adem\'as si $\lambda_1,\lambda_2$ son $1$-tensores entonces por definici\'on
+$$\lambda_1\wedge\lambda_2=\lambda_1\otimes\lambda_2-\lambda_2\otimes\lambda_1,$$
+y en general para $\lambda_1,\ldots,\lambda_k\in T^1(V)$, $k\in\mathbb{Z}_{\ge 0}$ tal que si $\chara(K)>0$ entonces $k<\chara(K)$,
+$$\lambda_1\wedge\ldots\wedge\lambda_k=\sum_{\sigma\in S_k} \sgn(\sigma)\lambda_{\sigma(1)}\otimes\cdots\otimes\lambda_{\sigma(k)}.$$
+\end{obs}
+
+\begin{prop}
+Sea $f\in\Hom_K(V,W)$ y $k,l\in\mathbb{Z}_{\ge 0}$. Para todo $\omega\in \Lambda^k(W)$ y $\eta\in \Lambda^l(W)$ tenemos
+$$f^*(\omega\wedge \eta)=f^*\omega\wedge f^*\eta.$$
+\end{prop}
+
+\dem La demostraci\'on es una verificaci\'on inmediata.\qed
+
+\begin{nota}
+Por Propiedad \ref{pebya} 5. denotamos $(\omega\wedge\eta)\wedge\theta=\omega\wedge\eta\wedge\theta$ y as\'i podemos definir producto exterior de m\'as de dos tensores alternantes.
+\end{nota}
+
+\begin{coro}
+Sean $k_1,\ldots,k_r\in\mathbb{Z}_{\ge 0}$ tal que si $\chara(K)>0$ entonces $k_1+\ldots+k_r<\chara(K)$ y $\omega_i\in\Lambda^{k_i}(V)$, $i=1,\ldots,r$, entonces
+$$\omega_1\wedge\cdots\wedge\omega_r=\dfrac{(k_1+\ldots+k_r)!}{k_1!\cdots k_r!}\Alt(\omega_1\otimes\cdots\otimes\omega_r).$$
+\end{coro}
+
+\dem Se sigue de inmediatamente de Propiedad \ref{pebya} 5. por inducci\'on en $r$.\qed
+
+\begin{ejem}\label{peej} Sea $n\in\mathbb{Z}_{>0}$, $\{e_i\}_{i=1}^n$ la base can\'onica de $K^n$ y $\{f_1,\ldots,f_n\}$ la base dual.
+\begin{enumerate}
+\item Para $\chara(K)>0$ suponga que $n<\chara(K)$. Como $\Alt(f_1\otimes\cdots\otimes f_n)=\frac{1}{n!}\det$ entonces
+$$f_1\wedge\cdots\wedge f_n=\det.$$
+\item Sea $k\in\{1,\ldots,n\}$ y $1\le i_1<\ldots<i_k\le n$. Para $\chara(K)>0$ suponga que $k<\chara(K)$. Como $\Alt(f_{i_1}\otimes\cdots\otimes f_{i_k})=\frac{1}{k!}\det_{i_1\ldots i_k}$ entonces
+$$f_{i_1}\wedge\cdots\wedge f_{i_k}=\det_{i_1\ldots i_k}.$$
+\end{enumerate}
+\end{ejem}
+
+\begin{teo}
+Suponga que $\chara(K)\ne 2$ y $\dim_K(V)=n<\infty$. Sea $\{v_1,\ldots,v_n\}$ una base de $V$ y $\{\lambda_1,\ldots,\lambda_n\}$ la base dual. Sea $k\in\mathbb{Z}_{>0}$ tal que si $\chara(K)>0$ entonces $k<\chara(K)$. La colecci\'on de $k$-tensores
+$$\Big\{\lambda_{i_1}\wedge\cdots\wedge\lambda_{i_k}\Big\}_{1\le i_1<\ldots<i_k\le n}$$
+es una base de $\Lambda^k(V)$. En particular $$\dim_K\left(\Lambda^k(V)\right)=\binom{n}{k}.$$
+\end{teo}
+
+\dem Sea $k\in\mathbb{Z}_{\ge 0}$ y $\omega\in\Lambda^k(V)$, como $\omega\in T^k(V)$ y $\big\{\lambda_{i_1}\otimes\cdots\otimes\lambda_{i_k}\big\}_{i_1,\ldots,i_k=1}^n$ es un base de $T^k(V)$ entonces
+$$\omega=\sum_{j_1,\ldots,j_k=1}^n c_{j_1\ldots j_k}\lambda_{j_1}\otimes\cdots\otimes\lambda_{j_k}$$
+con $c_{j_1\ldots j_k}\in K$. As\'i
+\begin{eqnarray*}
+\omega & = & \Alt(\omega)\\
+ & = & \sum_{j_1,\ldots,j_k=1}^n c_{j_1\ldots j_k}\Alt(\lambda_{j_1}\otimes\cdots\otimes\lambda_{j_k})\\
+ & = & \sum_{j_1,\ldots,j_k=1}^n c_{j_1\ldots j_k}k!\lambda_{j_1}\wedge\cdots\wedge\lambda_{j_k}.\\
+\end{eqnarray*}
+Ahora, dados $j_1,\ldots,j_k\in\{1,\ldots,n\}$ por Propiedad \ref{pebya} 4. y Observaci\'on \ref{pe0}, si dos de los subindices $j_i$ coinciden entonces $\lambda_{j_1}\wedge\cdots\wedge\lambda_{j_k}=0$, luego podemos asumir que son todos distintos; en tal caso $\lambda_{j_1}\wedge\cdots\wedge\lambda_{j_k}=\sgn(\sigma_{j_1,\ldots,j_k})\lambda_{i_1}\wedge\cdots\wedge\lambda_{i_k}$ donde $i_1<\ldots<i_k$ son los mismos subindices $j_1,\ldots,j_k$ ordenados en forma creciente y $\sigma_{j_1,\ldots,j_k}\in S_k$ es la permutaci\'on que reorganiza los $j_1,\ldots,j_k$.
+Luego
+$$\omega=\sum_{1\le i_1<\ldots<i_k\le n} a_{i_1,\ldots,i_k}\lambda_{i_1}\wedge\cdots\wedge\lambda_{i_k}$$
+con $a_{i_1,\ldots,i_k}=k!\sum_{\sigma\in S_k}c_{i_{\sigma(1)}\ldots i_{\sigma(k)}}$, y as\'i  $\Lambda^k(V)=\langle \lambda_{i_1}\wedge\cdots\wedge\lambda_{i_k} \rangle_{1\le i_1<\ldots<i_k\le n}$.
+
+Para establecer la independencia lineal, note que si $1\le i_1<\ldots<i_k\le n$ y $1\le j_1<\ldots<j_k\le n$ entonces (ver Ejemplo \ref{peej} 2.)
+$$\lambda_{i_1}\wedge\cdots\wedge\lambda_{i_k}(v_{j_1},\ldots,v_{j_k})=\left\{\begin{array}{rl}
+1 & \text{si } i_1=j_1,\ldots, i_k=j_k \\
+0 & \text{si no}
+\end{array}\right. $$
+luego si $0=\sum_{1\le i_1<\ldots<i_k\le n} a_{i_1,\ldots,i_k}\lambda_{i_1}\wedge\cdots\wedge\lambda_{i_k}$ entonces
+\begin{align*}
+0 &=\sum_{1\le i_1<\ldots<i_k\le n} a_{i_1,\ldots,i_k}\lambda_{i_1}\wedge\cdots\wedge\lambda_{i_k}(v_{j_1},\ldots,v_{j_k})\\
+ &=a_{j_1,\ldots,j_k}.
+\end{align*}\qed
+
+\section{$(l,k)$-Tensores}
+
+En esta secci\'on asumiremos que $V$ tienen dimensi\'on finita.
+
+\begin{defn}
+Sean $l,k\in\mathbb{Z}_{\ge 0}$. Un \emph{$(l,k)$-tensor} es una funci\'on multilineal:
+$$T^{(l,k)}: (V^*)^l\times V^k=\underbrace{V^*\times\cdots\times V^*}_{l-\text{veces}}\times\underbrace{V\times\cdots\times V}_{k-\text{veces}}\longrightarrow K.$$
+Al espacio de $(l,k)$-tensores lo denotamos $T^{(l,k)}(V)$ \'o $T^l_k(V)$. 
+\end{defn}
+
+\begin{nota}
+Como $V$ tiene dimensi\'on finita, por Teorema \ref{dualdual} tenemos $V\simeq (V^*)^*$ can\'onicamente, en particular todo $v\in V$ lo identificaremos con el $(1,0)$-tensor
+\begin{eqnarray*}
+\widehat{v}: V^* & \longrightarrow & K\\
+\lambda & \longmapsto & \lambda(v) 
+\end{eqnarray*}
+y $T^(1,0)(V)\simeq V$ can\'onicamente.
+\end{nota}
+
+\begin{defn}
+Sean $l_1,l_2,k_1,k_2\in\mathbb{Z}_{\ge 0}$, $S\in T^{(l_1,k_1)}(V)$ y $T\in T^{(l_2,k_2)}(V)$ definimos su \emph{producto tensorial} $S\otimes T\in T^{(l_1+l_2,k_1+k_2)}(V)$ por
+\begin{IEEEeqnarray*}{rCl}
+  \IEEEeqnarraymulticol{3}{l}{
+S\otimes T(\lambda_1,\ldots,\lambda_{l_1+l_2},v_1,\ldots,v_{k_1+k_2})}\\
+&=&S(\lambda_1,\ldots,\lambda_{l_1},v_1,\ldots,v_{k_1})T(\lambda_{l_1+1},\ldots,\lambda_{l_1+l_2},v_{k_1+1},\ldots,v_{k_1+k_2})
+\end{IEEEeqnarray*}
+para todo $\lambda_1,\ldots,\lambda_{l_1+l_2}\in V^*$, $v_1,\ldots,v_{k_1+k_2}\in V$.
+\end{defn}
+
+\begin{pro}\label{ptgbya}
+El producto tensorial es bilineal y asociativo. Es decir, dados $l_1,l_2,l_3,k_1,k_2,k_3\in\mathbb{Z}_{\ge 0}$ y $S,S'\in T^{(l_1,k_1)}(V)$, $T,T'\in T^{(l_2,k_2)}(V)$, $U\in T^{(l_3,k_3)}(V)$, $c\in K$ tenemos:
+\begin{enumerate}
+\item $(S+S')\otimes T=S\otimes T + S'\otimes T$,
+\item $S\otimes (T+T')=S\otimes T + S\otimes T'$,
+\item $(cS)\otimes T=c(S\otimes T)=S\otimes(cT)$,
+\item $(S\otimes T)\otimes U=S\otimes (T\otimes U)$.
+\end{enumerate} 
+\end{pro}
+
+\dem La demostraci\'on es una verificaci\'on directa.\qed
+
+\begin{nota}
+Por la Proposici\'on \ref{ptgbya} 4. denotamos $S\otimes T\otimes U= (S\otimes T)\otimes U$ y as\'i podemos definir producto tensorial de m\'as de dos tensores.
+\end{nota}
+
+\begin{teo}
+Suponga que $\dim_K(V)=n$. Sea $\{v_1,\ldots,v_n\}$ una base de $V$ y $\{\lambda_1,\ldots,\lambda_n\}$ la base dual. Para todo $l,k\in\mathbb{Z}_{>0}$, la colecci\'on de $(l,k)$-tensores
+$$\Big\{v_{i_1}\otimes\cdots\otimes v_{i_l}\otimes\lambda_{j_1}\otimes\cdots\otimes\lambda_{j_k}\Big\}_{i_1,\ldots,i_l,j_1,\ldots,j_k=1}^n$$
+es una base de $T^{(l,k)}(V)$. En particular $$\dim_K\left(T^{(l,k)}(V)\right)=n^{(l+k)}.$$
+\end{teo}
+
+\dem Similar a la demostraci\'on de Teorema \ref{bt}. Note que para todo $T\in T^{(l,k)}(V)$
+$$T=\sum_{i_1,\ldots,i_l=1}^n\sum_{j_1,\ldots,j_k=1}^nT(\lambda_{i_1},\ldots,\lambda_{i_l},v_{j_1},\ldots,v_{j_k})v_{i_1}\otimes\cdots\otimes v_{i_l}\otimes\lambda_{j_1}\otimes\cdots\otimes\lambda_{j_k}.$$\qed
+
+\begin{ejem}\label{tlkej}
+Sea $\{e_1,\ldots,e_n\}$ la base can\'onica de $K^n$ y $\{f_1,\ldots,f_n\}$ la base dual.
+\begin{enumerate}
+\item Suponga que $\chara(K)\ne 2$. Para $n=3$ sea $T_{\times}\in T^{(1,2)}(K^3)$ el tensor
+$$T_\times=e_1\otimes(f_2\wedge f_3)-e_2\otimes(f_1\wedge f_3)+e_3\otimes(f_1\wedge f_2).$$
+\item Sea $A=(a_{ij})\in M_{n\times n}(K)$, y $T_A\in T^{(1,1)}(V)$ el tensor
+$$T_A=\sum_{i,j=1}^n a_{ij}e_i\otimes f_j.$$ 
+\end{enumerate}
+\end{ejem}
+
+\begin{defn}
+Suponga que $\dim_K(V)=n$. Sea $\{v_1,\ldots,v_n\}$ una base de $V$ y $\{\lambda_1,\ldots,\lambda_n\}$ la base dual. Sea $l,k\in\mathbb{Z}_{\ge 0}$ y
+$$t=v_{\alpha_1}\otimes\cdots\otimes v_{\alpha_l}\otimes\lambda_{\beta_1}\otimes\cdots\otimes\lambda_{\beta_k}\in T^{(l,k)}(V).$$
+Dados $l',k'\in\mathbb{Z}_{\ge 0}$ tales que $l'\ge k$ y $k'\ge l$ definimos la \emph{contracci\'on por $t$} como la transformaci\'on lineal
+\begin{eqnarray*}
+\widehat{t}: T^{(l',k')}(V) & \longrightarrow & T^{(l'-k,k'-l)}(V)\\
+T & \longmapsto & T(t):=\widehat{t}(T)
+\end{eqnarray*} 
+donde si
+$$T=v_{i_1}\otimes\cdots\otimes v_{i_{l'}}\otimes\lambda_{j_1}\otimes\cdots\otimes\lambda_{j_{k'}}$$
+entonces
+$$T(t)=\left(\prod_{s=1}^k\lambda_{\beta_s}(v_{i_s})\prod_{s=1}^l\lambda_{j_s}(v_{\alpha_s})\right)v_{i_{k+1}}\otimes\cdots\otimes v_{i_{l'}}\otimes\lambda_{j_{l+1}}\otimes\cdots\otimes\lambda_{j_{k'}}.$$
+Extendemos linealmente a todo los $(l,k)$-tensores $t\in T^{(l,k)}(V)$ para obtener
+\begin{eqnarray*}
+\widehat{\bullet}: T^{(l,k)}(V) & \longrightarrow & \Hom_K\left(T^{(l',k')}(V), T^{(l'-k,k'-l)}(V)\right)\\
+t & \longmapsto & \widehat{t}
+\end{eqnarray*}
+\end{defn}
+
+\begin{obs}
+Note que $$\left(\prod_{s=1}^k\lambda_{\beta_s}(v_{i_s})\prod_{s=1}^l\lambda_{j_s}(v_{\alpha_s})\right)=v_{i_1}\otimes\cdots\otimes v_{i_k}\otimes\lambda_{j_1}\otimes\cdots\otimes\lambda_{j_l}(v_{\alpha_1},\ldots, v_{\alpha_l},\lambda_{\beta_1},\ldots,\lambda_{\beta_k}).$$
+\end{obs}
+
+\begin{ejem}
+Sea $\{e_1,\ldots,e_n\}$ la base can\'onica de $K^n$ y $\{f_1,\ldots,f_n\}$ la base dual.
+\begin{enumerate}
+\item Sea $T_\times\in T^{(1,2)}(K^3)$ como en Ejemplo \ref{tlkej} 1., y
+$$v_1=\sum_{i=1}^3a_ie_i,\quad v_2=\sum_{i=1}^3 b_ie_i$$
+con $a_i,b_i\in K$, $i=1,\ldots,3$. Entonces $v_1\otimes v_2\in T^{(2,0)}(K^3)$ y $T_\times(v_1\otimes v_2)\in T^{(1,0)}(K^3)\simeq K^3$ con
+\begin{align*}
+T_\times(v_1\otimes v_2)&= (f_2\wedge f_3)(v_1,v_2)e_1-(f_1\wedge f_3)(v_1,v_2)e_2+(f_1\wedge f_2)(v_1,v_2)e_3\\
+&=(a_2b_3-a_3b_2)e_1-(a_1b_3-a_3b_1)e_2+(a_1b_2-a_2b_1)e_3\\
+&=: v_1\times v_2
+\end{align*}
+\item Sea $T_A\in T^{(1,1)}(K^n)$ como en Ejemplo \ref{tlkej} 2. y
+$$v=\sum_{i=1}^n c_ie_i$$
+con $c_i\in K$, $i=1,\ldots,n$. Entonces $T_A(v)\in T^{(1,0)}(K^n)\simeq K^n$ con
+\begin{align*}
+T_A(v) &=\sum_{i,j=1}^n a_{ij}f_j(v)e_i\\
+ &=\sum_{i,j=1}^n a_{ij}c_je_i\\
+ &=\sum_{i=1}^n\left(\sum_{j=1}^n a_{ij}c_j\right)e_i\\
+ &=f_A(v)
+\end{align*}
+donde $f_A\in\Hom_K(K^n,K^n)$ est\'a definida por $f_A(e_j)=\sum_{i=1}^na_{ij}e_i$.
+\item Sea $T_AT^{(1,1)}(K^n)$ como en Ejemplo \ref{tlkej} 2. y
+$$\lambda=\sum_{j=1}^n d_jf_j$$
+con $d_i\in K$, $i=1,\ldots,n$. Entonces $T_A(\lambda)\in T^{(0,1)}(K^n)\simeq (K^n)^*$ con
+\begin{align*}
+T_A(\lambda) &=\sum_{i,j=1}^n a_{ij}\lambda(e_i)f_j\\
+ &=\sum_{i,j=1}^n a_{ij}d_if_j\\
+ &=\sum_{j=1}^n\left(\sum_{i=1}^n a_{ij}d_i\right)f_j\\
+ &=f^*_A(\lambda)
+\end{align*}
+donde $f_A\in\Hom_K(K^n,K^n)$ est\'a definida por $f_A(e_j)=\sum_{i=1}^na_{ij}e_i$.
+\end{enumerate}
+\end{ejem}
+
+\section{Convenciones en notaci\'on de tensores}
+
+En esta secci\'on asumiremos que $V$ tienen dimensi\'on finita.
+
+\begin{nota}
+En esta secci\'on usaremos las siguientes convenciones.
+\begin{enumerate}
+\item Los elementos de $V$ los denotaremos con sub\'indices.
+\item Los elementos de $V^*$ los denotaremos con super\'indices.
+\item Al espacio de $(l,k)$-tensores lo denotaremos por $T^l_k(V)$.
+\item Convenci\'on de Einstein: si un indice se repite como sub\'indice y super\'indice se asume sumatoria sobre este.
+\end{enumerate}
+\end{nota}
+
+\begin{ejem}
+Sea $n=\dim(V)$, $\{v_1,\ldots,v_n\}$ una base de $V$ y $\{\lambda^1,\ldots,\lambda^n\}$ la base dual.
+\begin{enumerate}
+\item Dado $v\in V$ y $\lambda\in V^*$ si denotamos
+\begin{align*}
+v^i &= \lambda^i(v)\\
+\lambda_i &=\lambda(v_i)
+\end{align*}
+entonces
+\begin{align*}
+v &= v^iv_i\\
+\lambda &=\lambda_i\lambda^i
+\end{align*}
+\item Dado $T\in T^l_k(V)$ si denotamos
+$$T^{i_1\ldots i_l}_{j_1\ldots j_k}=T(\lambda^{i_1},\ldots,\lambda^{i_l},v_{j_1},\ldots,v_{j_k})$$
+entonces
+$$T=T^{i_1\ldots i_l}_{j_1\ldots j_k}v_{i_1}\otimes\cdots\otimes v_{i_l}\otimes\lambda^{j_1}\otimes\cdots\otimes\lambda^{j_k}$$
+\item Dado $f\in\Hom_K(V,V)$ si denotamos
+$$f^i_j=\lambda^i(f(v_j))$$
+entonces el tensor $T_f=f^i_jv_i\otimes\lambda^j\in T^1_1(V)$ es tal que
+\begin{align*}
+T_f(v) &= f^i_j\left(v_i\otimes\lambda^j\right)(v)\\
+ &= f^i_j\lambda^j(v)v_i\\
+ &= f^i_jv^jv_i\\
+ &= f(v)
+\end{align*}
+y
+\begin{align*}
+T_f(\lambda) &= f^i_j\left(v_i\otimes\lambda^j\right)(\lambda)\\
+ &= f^i_j\lambda(v_i)\lambda^j\\
+ &= f^i_j\lambda_i\lambda^j\\
+ &= f^*(\lambda)
+\end{align*}
+\end{enumerate}
+\end{ejem}
+

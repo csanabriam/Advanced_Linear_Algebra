@@ -1,0 +1,108 @@
+\documentclass{book}
+
+% \let\latexput\put
+% \usepackage{pictex}
+% \let\put\latexput
+
+\usepackage{etex}
+
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb} 
+\usepackage{latexsym}
+
+\usepackage[latin1]{inputenc}
+\usepackage[spanish,es-noquoting]{babel}
+\usepackage{varioref}
+
+% \usepackage{color}
+% \usepackage{psfrag}
+
+\usepackage{fancyhdr}
+\usepackage{makeidx}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows, matrix, decorations.pathreplacing}
+
+\usepackage[retainorgcmds]{IEEEtrantools}
+
+
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+\fancyhf{}
+\fancyhead[LE,RO]{\bfseries \thepage}
+\fancyhead[LO]{\bfseries \rightmark}
+\fancyhead[RE]{\bfseries \leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\headheight}{1pt}
+\fancypagestyle{plain}{\fancyhead{}\renewcommand{\headrulewidth}{0pt}}
+
+\title{{\Huge Un curso de \'Algebra Lineal II}\\
+\vspace{2cm}
+Camilo Sanabria\\
+\vspace{1cm}
+Universidad de los Andes\\
+Departamento de Matem\'aticas\\
+Bogot\'a - Colombia.
+}
+\frenchspacing
+\makeindex
+
+\date{}
+
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\rea}{Re}
+\DeclareMathOperator{\ima}{Im}
+\DeclareMathOperator{\chara}{char}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Alt}{Alt}
+
+
+
+\begin{document}
+\frontmatter
+\maketitle
+\tableofcontents
+\listoffigures 
+
+\mainmatter
+
+\theoremstyle{plain} \newtheorem{teo}{Teorema}[chapter]
+\theoremstyle{plain} \newtheorem{pro}[teo]{Propiedad}
+\theoremstyle{plain} \newtheorem{prop}[teo]{Proposici\'on}
+\theoremstyle{plain} \newtheorem{coro}[teo]{Corolario}
+\theoremstyle{plain} \newtheorem{lema}[teo]{Lema}
+\theoremstyle{definition} \newtheorem{defn}[teo]{Definici\'on}
+\theoremstyle{definition} \newtheorem{obs}[teo]{Observaci\'on}
+\theoremstyle{definition} \newtheorem{nota}[teo]{Notaci\'on}
+\theoremstyle{definition} \newtheorem{ejem}[teo]{Ejemplo}
+
+\newcommand{\dem}{\noindent\emph{Dem}. }
+
+
+\include{espacios_vectoriales}
+\include{transformaciones_lineales}
+\include{espacio_dual}
+\include{espacios_euclideos}
+\include{espacios_unitarios}
+\include{espacios_simplecticos}
+\include{algebra_multilineal}
+\include{apendice_cuerpos}
+
+\backmatter
+%\include{biblio}
+%\include{notacion}
+\printindex
+
+\end{document}
+ 

@@ -1,0 +1,772 @@
+\chapter{Espacios unitarios}
+
+Sea $V$ un espacio vectorial sobre $\mathbb{C}$.
+
+\begin{nota}
+Dado un escalar $c\in\mathbb{C}$, denotamos por $\overline{c}$ a su conjugado el cual est\'a definido por
+\[
+\overline{c}=a-bi,\textrm{ si } c=a+bi,\ a,b\in\mathbb{R},
+\]
+por $|c|=\sqrt{a^2+b^2}=\sqrt{c\overline{c}}$ a su norma, por $\rea(c)=a=(c+\overline{c})/2$ su parte real y por $\ima(c)=b=(c-\overline{c})/2i$ su parte imaginaria.
+\end{nota}
+
+\begin{obs}
+Bastantes elementos elaborados en este cap\'itulo se establecen por argumentos similares a los expuestos durante el desarrollo de la teor\'ia de espacios eucl\'ideos. En tales casos, dejaremos la verificaci\'on de los detalles al lector. 
+\end{obs}
+
+\section{Producto herm\'itico}
+
+\begin{defn}
+Un \emph{producto herm\'itico} en $V$ es una funci\'on
+\begin{eqnarray*}
+\langle\bullet,\bullet\rangle: V\times V & \longrightarrow & \mathbb{C}\\
+(v_1,v_2) & \longmapsto & \langle v_1;v_2\rangle
+\end{eqnarray*}
+tal que:
+\begin{enumerate}
+\item \emph{es sesquilineal}: para todo $v,v_1,v_2\in V$ y $c\in\mathbb{C}$
+\begin{eqnarray*}
+\langle v_1+v_2;v\rangle & = & \langle v_1;v\rangle+\langle v_2;v\rangle\\
+\langle cv_1;v_2\rangle & = & c\langle v_1;v_2\rangle\\
+\langle v;v_1+v_2\rangle & = & \langle v;v_1\rangle + \langle v;v_2\rangle
+\end{eqnarray*}
+\item \emph{es herm\'itica}: para todo $v_1,v_2\in V$
+\[
+\langle v_2;v_1\rangle=\overline{\langle v_1;v_2\rangle};
+\]
+\item \emph{es definitivamente positiva} para todo $v\in V$, $v\ne 0$,
+\[
+\langle v;v\rangle>0.
+\]
+\end{enumerate}
+Un \emph{espacio unitario} es un espacio vectorial sobre $\mathbb{C}$ provisto de un producto herm\'itico. 
+\end{defn}
+
+
+\begin{obs}
+Se sigue que $\langle v;v \rangle=0$ si y solo si $v=0$ y que para todo $v,v_1,v_2\in V$ y $c\in\mathbb{C}$
+\[
+\langle v_1;cv_2\rangle  =  \overline{c}\langle v_1;v_2\rangle
+\]
+\end{obs}
+
+\begin{ejem}
+\begin{enumerate}
+\item Sobre $V=\mathbb{C}^n$,
+\[
+\langle (z_1,\ldots,z_n);(w_1,\ldots,w_n)\rangle =\sum_{i=1}^n z_i\overline{w_i}.
+\]
+\item Sobre $V=M_{n\times n}(\mathbb{C})$,
+\[
+\langle A; B\rangle>=\tr(B^* A).
+\]
+donde $B^*=\overline{B}^\intercal$ es la matriz cuyas entradas son las conjugadas de las entradas de las matriz traspuesta de $B$.
+\item Sea $[a,b]\subseteq\mathbb{R}$ un intervalo cerrado. Sobre $V=C^0_{\mathbb{C}}[a,b]$, el conjunto de funciones continuas $[a,b]\rightarrow\mathbb{C}$,
+\[
+\langle f;g \rangle=\int_a^bf(x)\overline{g(x)}dx.
+\]
+\end{enumerate}
+\end{ejem}
+
+\begin{defn}
+Dado un espacio herm\'itico $V$, definimos la norma de $v\in V$ por $\|v\|=\sqrt{\langle v;v\rangle}$.
+\end{defn}
+
+\begin{pro}
+Sea $V$ un espacio unitario, entonces:
+\begin{enumerate}
+\item $\|cv\|=|c|\|v\|$, para todo $c\in\mathbb{C}$ y $v\in V$;
+\item \emph{Desigualdad de Cauchy-Schwarz}: $|\langle v_1;v_2\rangle|\le\|v_1\|\|v_2\|$, para todo $v_1,v_2\in V$, m\'as a\'un se tiene $\langle v_1,v_2\rangle=\|v_1\|\|v_2\|$ \'unicamente cuando $\{v_1,v_2\}$ es linealmente dependiente; y,
+\item \emph{Desigualdad triangular}: $\|v_1+v_2\|\le \|v_1\|+\|v_2\|$, para todo $v_1,v_2\in V$, m\'as a\'un se tiene $\|v_1+v_2\|\le \|v_1\|+\|v_2\|$ si y solo si $av_1=bv_2$ con $a,b\ge 0$.
+\end{enumerate}
+\end{pro}
+
+\dem\begin{enumerate}
+\item Dados $c\in\mathbb{C}$ y $v\in V$
+\[
+\|cv\|=\sqrt{\langle cv;cv\rangle}=\sqrt{c\overline{c}\langle v;v\rangle}=|c|\sqrt{\langle v;v\rangle}=|c|\|v\|.
+\]
+\item Si $v_1=0$ o $v_2=0$, se tiene $0=\langle v_1;v_2\rangle=\|v_1\|\|v_2\|$ y se sigue la desigualdad. En general, para todo $a,b\in\mathbb{C}$,
+\begin{eqnarray*}
+0 \le \|av_1-bv_2\|^2 & = & \langle av_1-bv_2 , av_1-bv_2\rangle\\
+   & = & a\overline{a}\langle v_1; v_1\rangle-b\overline{a}\langle v_2; v_1\rangle-a\overline{b}\langle v_1; v_2\rangle+b\overline{b}\langle v_2; v_2\rangle\\
+   & = & |a|^2\|v_1\|^2-\left(\overline{a}b\overline{\langle v_1; v_2\rangle}+a\overline{b}\langle v_1; v_2\rangle\right)+|b|^2\|v_2\|^2.
+\end{eqnarray*}
+En particular si $a=\|v_2\|^2$ y $b=\langle v_1; v_2\rangle$, obtenemos
+\begin{eqnarray*}
+0 & \le & \|v_2\|^4\|v_1\|^2-\|v_2\|^2|\langle v_1, v_2\rangle|^2,
+\end{eqnarray*}
+lo cual, si suponemos que $v_2\ne 0$ (e.d. $|v_2|^2\ne 0$), implica la desigualdad deseada. Ahora bien, remontando las igualdades, $|\langle v_1,v_2\rangle|=\|v_1\|\|v_2\|$ equivale a $\|av_1-bv_2\|^2=0$, donde  $a=\|v_2\|^2$ y $b=\langle v_1; v_2\rangle$.
+\item Tomando $a=1$ y $b=-1$, obtenemos
+\begin{eqnarray*}
+\|v_1+v_2\|^2 & = & \|v_1\|^2+\left(\overline{\langle v_1; v_2\rangle}+\langle v_1; v_2\rangle\right)+\|v_2\|^2\\
+ & = & \|v_1\|^2+2\rea\left(\langle v_1; v_2\rangle\right)+\|v_2\|^2\\
+ & \le & \|v_1\|^2+2|\langle v_1; v_2\rangle|+\|v_2\|^2
+\end{eqnarray*}
+La desigualdad de Cauchy-Schwarz implica
+\[
+\|v_1+v_2\|^2\le\|v_1\|^2+2\|v_1\|\|v_2\|+\|v_2\|^2=(\|v_1\|+\|v_2\|)^2
+\]
+que es equivalente a la desigualdad afirmada. La igualdad se obtiene si y solo si  $\rea\left(\langle v_1, v_2\rangle\right)=\langle v_1, v_2\rangle=\|v_1\|\|v_2\|$, lo cual equivale a $av_1-bv_2=0$ donde $a=\|v_2\|$ y $b=\|v_1\|$ pues
+\[
+\|av_1-bv_2\|^2=|a|^2\|v_1\|^2-2\rea\left(a\overline{b}\langle v_1; v_2\rangle\right)+|b|^2\|v_2\|^2.
+\]
+\qed
+\end{enumerate}
+
+\begin{defn}
+Sea $V$ un espacio unitario y $S\subseteq V$. Decimos que $S$ es \emph{ortogonal} si $\langle v_1,v_2\rangle=0$ para todo $v_1,v_2\in T$ tales que $v_1\ne v_2$. Si adem\'as $\|v\|=1$ para todo $v\in S$, decimos que $S$ es \emph{ortonormal}.
+\end{defn}
+
+\begin{obs}\label{ortokroher}
+Note que $S=\{v_i\}_{i\in I}$ es ortonormal si y solo si
+\[
+\langle v_i;v_j\rangle=\delta_{ij}.
+\]
+para todo $i,j\in I$.
+\end{obs}
+
+\begin{pro}
+Sea $V$ un espacio unitario. Si $S\subset V$ es ortogonal, y $0\not\in S$, entonces $S$ es linealmente independiente.
+\end{pro}
+
+\dem El argumento es similar al de la demostraci\'on de Propiedad \ref{ortlinind}.\qed
+
+\begin{teo}[Ortogonalizaci\'on de Gram-Schmidt]
+Sea $V$ un espacio unitario. Suponga que $V$ tiene dimensi\'on finita, entonces $V$ tiene una base ortonormal. M\'as a\'un, si $\{v_1,\ldots,v_n\}$ es una base de $V$, existe una base ortonormal $\{u_1,\ldots,u_n\}$ de $V$ tal que para $k=1,\ldots,n$
+\[
+\langle v_1,\ldots,v_k\rangle=\langle u_1,\ldots,u_k\rangle.
+\]
+\end{teo}
+
+\dem El argumento es similar al de la demostraci\'on de Teorema \ref{gramsch}.\qed
+
+\begin{pro}\label{coorortonorher}
+Sea $V$ un espacio unitario. Suponga que $V$ tiene dimensi\'on finita y $\{u_1,\ldots,u_n\}$ es una base ortonormal de $V$, entonces para todo $v\in V$
+\[
+v=\sum_{i=1}^n\langle v;u_i\rangle u_i.
+\]
+En particular, si $v_1,v_2\in V$ son tales que
+\[
+v_1=\sum_{i=1}^nz_iu_i\qquad v_2=\sum_{i=1}^nw_iu_i,
+\]
+entonces
+\[
+\langle v_1;v_2\rangle=\sum_{i=1}^nz_i\overline{w_i}.
+\]
+\end{pro}
+
+\dem Como $\{u_1,\ldots,u_n\}$ es base, existen $a_1,\ldots,a_n\in K$ tal que $v=\sum_{i=1}^na_iu_i$. De esta forma, para $j=1,\ldots,n$, 
+\[
+\langle v;u_j\rangle=\sum_{i=1}^na_i\langle u_i,u_j\rangle=\sum_{i=1}^n a_i\delta_{ij}=a_j
+\]
+(ver Observaci\'on \ref{ortokroher}). Finalmente,
+\[
+\langle v_1;v_2\rangle=\langle\sum_{i=1}^nz_iu_i,\sum_{j=1}^nw_ju_j\rangle=\sum_{i=1}^n\sum_{j=1}^nz_i\overline{w_j}\delta_{ij}=\sum_{i=1}^nz_i\overline{w_i}.
+\]
+\qed
+
+\begin{defn}
+Sean $V$ un espacio unitario y $S\subseteq V$, el \emph{conjunto ortogonal} a $S$ est\'a definido por
+\[
+S^\perp=\{v\in V|\ \langle v,u\rangle=0, \textrm{ para todo } u\in S\}
+\]
+\end{defn}
+
+\begin{pro}
+Sean $V$ un espacio unitario y $S\subseteq V$, entonces $S^\perp\le V$.
+\end{pro}
+
+\dem El argumento es similar al de la demostraci\'on de Propiedad \ref{ortsubesp}.\qed
+
+\begin{teo}
+Sea $V$ un espacio unitario. Suponga que $V$ tiene dimensi\'on finita y sea $U\le V$, entonces
+\[
+V=U\oplus U^\perp
+\]
+\end{teo}
+
+\dem El argumento es similar al de la demostraci\'on de Teorema \ref{complort}.\qed
+
+\begin{defn}
+Sea $V$ un espacio unitario. Suponga que $V$ tiene dimensi\'on finita y sea $U\le V$. Llamamos a $U^\perp$ el \emph{complemento ortogonal de $U$}. A la proyecci\'on
+\[
+p^\perp_U:V\longrightarrow V
+\]
+sobre $U$, definida por la descomposici\'on $V=U\oplus U^\perp$ la llamamos \emph{proyecci\'on ortogonal sobre $U$}.
+\end{defn}
+
+\begin{pro}
+Sea $V$ un espacio unitario. Suponga que $V$ tiene dimensi\'on finita y sea $U\le V$. Tenemos para todo $v_1,v_2\in V$
+\[
+\langle p^\perp_U(v_1);v_2\rangle=\langle v_1;p^\perp_U(v_2)\rangle
+\]
+Si $\{u_1,\ldots,u_m\}$ es una base ortonormal de $U$ entonces para todo $v\in V$
+\[
+p^\perp_U(v)=\sum_{i=1}^m\langle v;u_i\rangle u_i.
+\]
+\end{pro}
+
+\dem El argumento es similar al de la demostracci\'on de Propiedad \ref{proyautoadj}.\qed
+
+\section{Operador adjunto}
+
+Sea $V$ un espacio unitario y $f\in\Hom_\mathbb{C}(V,V)$ un operador.
+
+\begin{defn}
+Sea $g\in\Hom_\mathbb{C}(V,V)$, decimos que $g$ es un \emph{operador adjunto de $f$} si para todo $v_1,v_2\in V$
+\[
+\langle g(v_1);v_2 \rangle=\langle v_1;f(v_2)\rangle.
+\]
+Decimos que $f$ es \emph{auto-adjunto} si $f$ es un operador adjunto de $f$. 
+\end{defn}
+
+\begin{obs}
+Note que si $g$ es adjunto de $f$, entonces $f$ es adjunto de $g$. De hecho
+\[
+\langle f(v_1);v_2\rangle= \overline{\langle v_2;f(v_1)\rangle}= \overline{\langle g(v_2);v_1\rangle}= \langle v_1;g(v_2)\rangle
+\]
+\end{obs}
+
+\begin{defn}
+Sean $I,J$ conjuntos y $A\in M_{I\times J}(\mathbb{C})$, definimos la \emph{matriz adjunta} de $A$ por $A^*\in M_{J\times I}(\mathbb{C})$ tal que
+\[
+A^*(j,i)=\overline{A(i,j)}
+\]
+para todo $(j,i)\in J\times I$. Es decir el valor en $(j,i)$ de $A^*$ es el conjugado del valor en $(i,j)$ de $A$. Similarmente si $m,n\in\mathbb{Z}_{>0}$, y $A\in M_{m\times n}(\mathbb{C})$, definimos su adjunta por $A^*\in M_{n\times m}(\mathbb{C})$ tal que
+\[
+A^*(j,i)=\overline{A(i,j)}
+\]
+Sea $A\in M_{I\times I}(K)$, o $A\in M_{n\times n}(K)$, decimos que $A$ es \emph{herm\'itica} si $A^*=A$.
+\end{defn}
+
+\begin{prop}\label{adjtrasher}
+Suponga que $V$ tiene dimensi\'on finita, entonces existe un \'unico operador $g\in\Hom_{\mathbb{C}}(V,V)$ adjunto de $f$. M\'as a\'un, si $\mathcal{B}=\{u_1,\ldots,u_n\}$ es una base ortonormal de $V$, entonces
+\[
+\Big[g\Big]^\mathcal{B}_\mathcal{B}=\left(\Big[f\Big]^\mathcal{B}_\mathcal{B}\right)^*
+\]
+\end{prop}
+
+\dem Defina el operador $g\in\Hom_\mathbb{C}(V,V)$ por la imagen de la base $\mathcal{B}$:
+\[
+g(u_j)=\sum_{i=1}^n\langle u_j;f(u_i)\rangle u_i.
+\]
+De esta forma
+\[
+\langle g(u_j);u_i\rangle=\langle u_j;f(u_i)\rangle
+\]
+y por Propiedad \ref{coorortonorher}
+\begin{eqnarray*}
+\langle g(v_1); v_2\rangle & = & \sum_{i=1}^n\langle g(v_1);u_i\rangle\overline{\langle v_2;u_i\rangle}\\
+ & = & \sum_{i,j=1}^n\langle v_1;u_j\rangle\langle g(u_j);u_i\rangle \overline{\langle v_2;u_i\rangle}\\
+ & = & \sum_{i,j=1}^n\langle v_1;u_j\rangle\langle u_j;f(u_i)\rangle \overline{\langle v_2;u_i\rangle}\\
+ & = & \sum_{j=1}^n\langle v_1;u_j\rangle\langle u_j;f(v_2)\rangle\\
+ & = & \sum_{j=1}^n\langle v_1;u_j\rangle\overline{\langle f(v_2);u_j\rangle}\\
+ & = & \langle v_1; f(v_2)\rangle
+\end{eqnarray*}
+Por otro lado si, $h\in\Hom_\mathbb{C}(V,V)$ es adjunto de $f$, por Propiedad \ref{coorortonorher},
+\begin{eqnarray*}
+h(u_j) & = & \sum_{i=1}^n \langle h(u_j);u_i\rangle u_i\\
+         & = & \sum_{i=1}^n \langle u_j;f(u_i)\rangle u_i\\
+         & = & g(u_j),
+\end{eqnarray*}
+luego $h=g$.\\
+Ahora, para ver que la representaci\'on matricial de $g$ respecto a $\mathcal{B}$ es la adjunta de la de $f$ basta observar que
+\begin{eqnarray*}
+\Big[g\Big]^\mathcal{B}_{\mathcal{B},(j,i)} & = & \Big[g(u_i)\Big]^\mathcal{B}_j\\
+  & = & \langle g(u_i);u_j \rangle\\
+  & = & \langle u_i;f(u_j) \rangle\\
+  & = & \overline{\langle f(u_j);u_i\rangle}\\
+  & = & \overline{\Big[f(u_j)\Big]^\mathcal{B}_i}\\
+  & = & \overline{\Big[f\Big]^T_{\mathcal{B},(i,j)}}
+\end{eqnarray*}
+\qed
+
+\begin{nota}
+Si $V$ tiene dimensi\'on finita, a la adjunta de $f$ la denotaremos por $f^*$.
+\end{nota}
+
+\begin{pro}
+El mapa
+\begin{eqnarray*}
+h: V & \longrightarrow & V^*\\
+            v & \longmapsto & h_v=\langle \bullet; v\rangle: v'\mapsto\langle v';v\rangle
+\end{eqnarray*}
+es \emph{semilineal}, es decir para todo $v_1,v_2,v\in V$ y $c\in\mathbb{C}$
+\begin{eqnarray*}
+h(v_1+v_2) & = & h(v_1)+h(v_2)\\
+h(cv) & = & \overline{c}h(v),
+\end{eqnarray*}
+e inyectivo. Si adem\'as $V$ tiene dimensi\'on finita, $h$ es biyectivo.
+\end{pro}
+
+\dem Para todo $v'\in V$, dados $v_1,v_2,v\in V$ y $c\in\mathbb{C}$
+\begin{eqnarray*}
+h(v_1+v_2)(v') & = & \langle v';v_1+v_2\rangle\\
+  & = & \langle v';v_1\rangle + \langle v';v_2\rangle\\
+  & = & h(v_1)(v')+h(v_2)(v')\\
+  & = & \left(h(v_1)+h(v_2)\right)(v), \textrm{ y}\\
+h(cv)(v') & = & \langle v';cv \rangle\\
+  & = & \overline{c}\langle v';v\rangle\\
+  & = & \overline{c}h(v)(v')
+\end{eqnarray*}
+Suponga ahora que $v_1,v_2\in V$ son tales $h(v_1)=h(v_2)$, es decir $h(v_1-v_2)=0$, en particular $0=h(v_1-v_2)(v_1-v_2)=\langle v_1-v_2;v_1-v_2 \rangle=\|v_1-v_2\|^2$, luego $v_1-v_2=0$ y as\'i$v_1=v_2$, es decir $\imath$ es inyectiva. Finalmente suponga que $V$ tiene dimensi\'on finita y sea $\mathcal{B}=\{u_1,\ldots,u_n\}$ una base de $V$, entonces $h(T)=\{h(u_1),\ldots,h(u_n)\}$ es la base de $V^*$ dual de $V$, pues
+\[
+h(u_j)(u_i)=\langle u_i;u_j\rangle=\delta_{ij}.
+\] 
+En particular dado $\lambda\in V^*$, si $a_1,\ldots,a_n\in\mathbb{C}$ son tales que $\lambda=\sum_{i=1}^na_ih(u_i)$ entonces $h(\sum_{i=1}^n\overline{a_i}u_i)=\lambda$, luego $h$ es tambi\'en sobreyectiva y as\'i biyectiva.\qed
+
+\begin{obs}
+Note que si $V$ tiene dimensi\'on finita, para todo $v'\in V$,
+\begin{eqnarray*}
+f^*(h_v)(v') & = & h_v\left(f(v')\right)\\
+   & = & \langle f(v');v \rangle\\
+   & = & \langle v';f^*(v)\rangle\\
+   & = & h_{f^*(v)}(v')
+\end{eqnarray*}
+luego $f^*(h_v)=h_{f^*(v)}$, es decir
+\[
+f^*\circ h=h \circ f^*,
+\]
+donde, en esta igualdad, $f^*$ a la izquierda es el dual de $f$, mientras que a la derecha es el adjunto. A trav\'es de la biyecci\'on semilineal $h$, ambos conceptos coinciden.
+\end{obs}
+
+\begin{obs}
+Note que si $V$ tiene dimensi\'on finita, $f^*\circ f$ es auto-adjunta, de hecho para todo $v_1,v_2\in V$
+\[
+\langle f^*\circ f(v_1);v_2\rangle=\langle f(v_1);f(v_2)\rangle=\langle v_1;f^*\circ f(v_2)\rangle
+\]
+\end{obs}
+
+\begin{prop}
+Si $V$ tiene dimensi\'on finita, las siguientes dos propiedades son equivalentes:
+\begin{enumerate}
+\item $f$ es auto-adjunta; y,
+\item la representaci\'on matricial de $f$ respecto a una base ortonormal es herm\'itica.
+\end{enumerate}
+\end{prop}
+
+\dem Proposici\'on \ref{adjtrasher} implica que si $f$ es auto-adjunta, su representaci\'on matricial respecto a una base ortogonal es herm\'itica. Para obtener el converso, tomamos una base ortonormal de $V$, $\mathcal{B}=\{u_1,\ldots,u_n\}$ y asumimos que $\Big[f\Big]^\mathcal{B}_\mathcal{B}$ es herm\'itica, es decir para todo $i,j\in\{1,\ldots,n\}$
+\[
+\langle f(u_j);u_i \rangle= \Big[f\Big]^\mathcal{B}_{\mathcal{B},(i,j)}= \overline{\Big[f\Big]^\mathcal{B}_{\mathcal{B},(j,i)}}= \overline{\langle f(u_i);u_j \rangle}=\langle u_j;f(u_i) \rangle,
+\]
+luego si $v_1=\sum_{i=1}^{n}z_iu_i$ y $v_2=\sum_{j=1}^{n}w_ju_j$
+\begin{eqnarray*}
+\langle f(v_1);v_2 \rangle & = & \sum_{i,j=1}^nz_i\overline{w_j}\langle f(u_i);u_j\rangle\\
+  & = & \sum_{i,j=1}^nz_i\overline{w_j}\langle u_i;f(u_j)\rangle\\
+  & = & \langle v_1;f(v_2)\rangle
+\end{eqnarray*}
+\qed
+
+\begin{obs}
+La descomposici\'on de Jordan-Chevalley de los operadores auto-adjuntos sobre un espacio unitario empata con la descomposici\'on sobre espacios euclideos pues tienen la particularidad de tener todos sus valores propios reales. Esto nos permitir\'a relajar las hip\'otesis del teorema espectral ya demostrado. 
+\end{obs}
+
+\begin{lema} Suponga que $f$ es auto-adjunto, entonces
+\begin{enumerate}
+\item Para todo $P(t)\in\mathbb{R}[t]$, $P(f)$ es auto-adjunto;
+\item si $f$ es nilpotente, $f=0$;
+\item los valores propios de $f$ son reales; y,
+\item si $v_1,v_2\in V$ son vectores propios asociados a valores propios distintos, entonces $\langle v_1;v_2\rangle=0$.
+\end{enumerate}
+\end{lema}
+
+\dem
+\begin{enumerate}
+\item Note primero que para todo $v_1,v_2\in V$, recursivamente establecemos que para $k\in\mathbb{Z}_{\ge 0}$,
+\[
+\langle f^i(v_1);v_2\rangle = \langle v_1;f^i(v_2)\rangle.
+\]
+Ahora, si $P(t)=\sum_{k=0}^na_kx^k$, para $k=1,\ldots,n$ $a_k=\overline{a_k}$, y entonces para todo $v_1,v_2\in V$
+\begin{eqnarray*}
+\langle P(f)(v_1);v_2 \rangle & = & \langle \sum_{k=0}^na_kf^k(v_1); v_2 \rangle\\
+ & = & \sum_{k=0}^n a_k\langle f^k(v_1);v_2\rangle\\
+ & = & \sum_{k=0}^n a_k\langle v_1;f^k(v_2)\rangle\\
+ & = & \langle v_1;\sum_{k=0}^n\overline{a_k}f^k(v_2)\rangle\\
+ & = & \langle v_1;P(f)(v_2)\rangle.
+\end{eqnarray*}
+\item Sea $r\in\mathbb{Z}_{>0}$ el grado de nilpotencia de $f$. Asuma por contradicci\'on que $r>1$, luego $r\ge 2$, y existe $v\in V$ tal que $f^{r-1}(v)\ne 0$; pero en tal caso
+\[
+\| f^{r-1}(v)\|^2=\langle f^{r-1}(v);f^{r-1}(v) \rangle=\langle f^r(v);f^{r-2}(v)\rangle=\langle 0;f^{r-2}(v)\rangle=0
+\]
+luego $f^{r-1}(v)=0$, lo cual contradice la elecci\'on de $v$. Luego $r=1$ y as\'i $f=0$.
+\item Sean $\lambda\in\mathbb{C}$ y $v\in V$, $v\ne 0$, tales que $f(v)=\lambda v$. As\'i
+\[
+\lambda\langle v;v\rangle=\langle\lambda v;v\rangle=\langle f(v);v\rangle=\langle v;f(v)\rangle=\langle v;\lambda v\rangle=\overline{\lambda}\langle v;v\rangle,
+\]
+de donde $(\lambda-\overline{\lambda})\|v\|^2=0$, pero $v\ne 0$, entonces, $\lambda=\overline{\lambda}$, es decir $\lambda\in\mathbb{R}$.
+\item Sean $\lambda_1,\lambda_2\in\mathbb{R}$, $\lambda_1-\lambda_2\ne 0$, tales que $f(v_1)=\lambda_1v_1$ y $f(v_2)=\lambda_2v_2$. As\'i
+\[
+\lambda_1\langle v_1;v_2\rangle=\langle\lambda_1v_1;v_2\rangle=\langle f(v_1);v_2\rangle=\langle v_1;f(v_2)\rangle=\langle v_1;\lambda_2v_2\rangle=\lambda_2\langle v_1;v_2\rangle,
+\]
+luego
+\[
+(\lambda_1-\lambda_2)\langle v_1;v_2\rangle=0,
+\]
+pero como $\lambda_1-\lambda_2=\ne 0$, $\langle v_1;v_2\rangle=0$.\qed
+\end{enumerate}
+
+\begin{teo}[Teorema Espectral] Suponga que $V$ tiene dimensi\'on finita y $f$ es auto-adjunta entonces existe una base ortonormal $\mathcal{B}=\{u_1,\ldots,u_n\}$ de $V$ tal que $\Big[f\Big]^\mathcal{B}_\mathcal{B}$ es diagonal.
+\end{teo}
+
+\dem Como $\mathbb{C}$ es algebraicamente cerrado,
+\[
+P_f(t)=(t-\lambda_1)^{m_1}(t-\lambda_2)^{m_2}\ldots(t-\lambda_r)^{m_r}, \quad \lambda_1,\lambda_2,\ldots,\lambda_r\in \mathbb{C}.
+\]
+Como $\lambda_1,\lambda_2,\ldots,\lambda_r$ son valores propios, por el lema son valores reales y $P_f(t)\in\mathbb{R}[t]$. En particular, como $t-\lambda_1,t-\lambda_2,\ldots,t-\lambda_r\in\mathbb{R}[t]$, por la demostraci\'on de Teorema \ref{descjorche} existen $P_D(t),P_N(t)\in\mathbb{R}[t]$, tales que si $f_D=P_D(f)$ y $f_N=P_N(f)$ entonces $f=f_D+f_N$ es la descomposici\'on de Jordan-Chevalley, es decir $f_D$ es diagonalizable y $f_N$ nilpontente y estas conmutan. Ahora, por el lema, $f_N$ es auto-adjunta y as\'i, como es nilpotente, $f_N=0$. Luego $f=f_D$ es diagonalizable. Para $i=1,\ldots,r$, denote $V_i$ el espacio generado por los vectores propios de $f$ asociados a $\lambda_i$, es decir
+\[
+V_i=\{v\in V|\ f(v)=\lambda_iv\},
+\]
+de forma que, como $f$ es diagonalizable,
+\[
+V=V_1\oplus\ldots\oplus V_r.
+\]
+Por el lema tambi\'en sabemos que si $v_i\in V_i$ y $v_j\in V_j$, $i\ne j$, tenemos $\langle v_i,v_j \rangle=0$, luego si $\mathcal{B}_1,\ldots,\mathcal{B}_r$ son respectivamente bases ortonormales de $V_1,\ldots,V_r$,
+\[
+\mathcal{B}=\mathcal{B}_1\cup\ldots\cup \mathcal{B}_r
+\]
+es una base ortonormal de $V$ formada por vectores propios de $f$, en particular, $\Big[f\Big]^\mathcal{B}_\mathcal{B}$ es diagonal.\qed
+
+\begin{coro}
+Sea $V$ un espacio eucl\'ideo de dimensi\'on finita y $f\in\Hom_{\mathbb{R}}(V,V)$ un operador auto-adjunto, entonces una base ortonormal $\mathcal{B}=\{u_1,\ldots,u_n\}$ de $V$ tal que $\Big[f\Big]^\mathcal{B}_\mathcal{B}$ es diagonal.
+\end{coro}
+
+\dem Sea $\mathcal{B}$ una base ortonormal de $V$ y $A\in M_{n\times n}(\mathbb{R})$ la representaci\'on de $f$ respecto a la base $\mathcal{B}$ donde $n=\dim(V)$. Entonces $A$ es una matriz sim\'etrica con entradas reales. Sea
+\begin{eqnarray*}
+f_A:\mathbb{C}^n & \longrightarrow & \mathbb{C}^n\\
+(z_1,\ldots,z_n) & \longmapsto & \left(\sum_{k=1}^na_{1k}z_k,\ldots,\sum_{k=1}^na_{nk}z_k\right)
+\end{eqnarray*}
+donde la $kl$-\'esima entrada de es $A(k,l)=a_{kl}$. De forma que la representaci\'on matricial de $f_A$ respecto a la base can\'onica de $\mathbb{C}^n$ es $A$, la cual es herm\'itica pues es sim\'etrica con entradas reales, luego $f_A$ es auto-adjunta respecto al producto herm\'itico
+\[
+\langle (z_1,\ldots,z_n),(w_1,\ldots,w_n)\rangle =\sum_{k=1}^nz_k\overline{w_k}.
+\]
+As\'i
+\[
+P_f(t)=P_{f_A}(t)=(t-\lambda_1)^{m_1}(t-\lambda_2)^{m_2}\ldots(t-\lambda_r)^{m_r}, \quad \lambda_1,\lambda_2,\ldots,\lambda_r\in \mathbb{R}.
+\]
+y la conclusi\'on se sigue ahora de Teorema \ref{teoesp}.\qed
+
+\section{Operadores unitarios}
+
+Sea $V$ un espacio unitario y $f\in\Hom_\mathbb{C}(V,V)$ un operador.
+
+\begin{defn}
+Decimos que $f$ es un \emph{operador unitario} si para todo $v_1,v_2\in V$
+\[
+\langle f(v_1);f(v_2) \rangle =\langle v_1;v_2\rangle.
+\]
+\end{defn}
+
+\begin{obs}
+Tenemos
+\begin{eqnarray*}
+\|v_1+v_2\|^2 & = & \langle v_1+v_2;v_1+v_2 \rangle\\
+ & = & \langle v_1;v_1\rangle+\langle v_2;v_1\rangle+\langle v_1;v_2\rangle+\langle v_2;v_2\rangle\\
+ & = & \langle v_1;v_1\rangle+\overline{\langle v_1;v_2\rangle}+\langle v_1;v_2\rangle+\langle v_2;v_2\rangle\\
+ & = & \|v_1\|^2+2\rea\left(\langle v_1;v_2\rangle\right)+\|v_2\|^2,\textrm{ y }\\
+\|v_1+iv_2\|^2 & = & \langle v_1+iv_2;v_1+iv_2 \rangle\\
+ & = & \langle v_1;v_1\rangle+i\langle v_2;v_1\rangle-i\langle v_1;v_2\rangle+\langle v_2;v_2\rangle\\
+ & = & \langle v_1;v_1\rangle-i\left(\langle v_1;v_2\rangle-\overline{\langle v_1;v_2\rangle}\right)+\langle v_2;v_2\rangle\\
+ & = & \|v_1\|^2+2\ima\left(\langle v_1;v_2\rangle\right)+\|v_2\|^2,
+\end{eqnarray*}
+de forma que el producto interno se puede expresar en t\'erminos de la norma:
+\[
+\langle v_1;v_2\rangle=\frac{\|v_1+v_2\|^2-\left(\|v_1\|^2+\|v_2\|^2\right)}{2} + \frac{\|v_1+iv_2\|^2-\left(\|v_1\|^2+\|v_2\|^2\right)}{2}i.
+\]
+De esto podemos concluir que $f$ es unitario si y solo $f$ preserva la norma, es decir $\|f(v)\|=\|v\|$ para todo $v\in V$.
+\end{obs}
+
+\begin{prop}
+Si $V$ tiene dimensi\'on finita, las siguiente propiedades son equivalentes
+\begin{enumerate}
+\item $f$ es unitario;
+\item $f$ preserva la norma;
+\item $f^*\circ f=\id_V$; y,
+\item la imagen por $f$ de una base ortonormal es una base ortonormal.
+\end{enumerate}
+\end{prop}
+
+\dem El argumento es similar al de la demostraci\'on de Proposici\'on \ref{equivorto}
+\qed
+
+\begin{obs}
+Como en el caso de los operadores ortogonales sobre espacios eucl\'ideos, los operadores unitarios son invertibles y env\'ian bases ortogonales en bases ortogonales. 
+\end{obs}
+
+\begin{defn}
+Decimos que $A\in M_{n\times n}(\mathbb{C})$ es una \emph{matriz unitaria} si
+\[
+A^* A=I_n
+\]
+donde $I_n$ denota la matriz con unos en la diagonal y ceros en el resto de entradas.
+\end{defn}
+
+\begin{prop}
+Si $V$ tiene dimensi\'on finita y $\mathcal{B}=\{u_1,\ldots,u_n\}$ es una base ortonormal de $V$, $f$ es unitario si y solo si $\Big[f\Big]^\mathcal{B}_\mathcal{B}$ es unitaria. 
+\end{prop}
+
+\dem La proposici\'on se sigue del hecho que si $A=\Big[f\Big]^\mathcal{B}_\mathcal{B}$, entonces $A^*=\Big[f^*\Big]^\mathcal{B}_\mathcal{B}$ y
+\[
+A^* A=\Big[f^*\Big]^\mathcal{B}_\mathcal{B} \Big[f\Big]^\mathcal{B}_\mathcal{B}=\Big[f^*\circ f\Big]^\mathcal{B}_\mathcal{B}.
+\]
+Entonces $A^* A=I_n$ si y solo si $f^*\circ f=\id_V$.\qed
+
+\begin{teo}
+Si $V$ tiene dimensi\'on finita igual a $n$, la colecci\'on de operadores unitarios de $V$ est\'a en correspondencia biyectiva con la colecci\'on de $n$-tuplas $(v_1,\ldots,v_n)\in V\times\ldots\times V$ tales que $\{v_1,\ldots,v_n\}$ es una base ortonormal de $V$.
+\end{teo}
+
+\dem El argumento es similar al de la demostraci\'on de Teorema \ref{ortotorsor}.\qed
+
+\section{Estructura compleja}
+
+Sea $V$ un espacio vectorial sobre $\mathbb{R}$.
+
+\begin{pro}
+Suponga que $f\in\Hom_{\mathbb{R}}(V,V)$ es un operador simple, entonces: o bien,
+\begin{enumerate}
+\item $f=c\id_V$, para alg\'un $c\in\mathbb{R}$ y en tal caso $\dim(V)=1$; o bien,
+\item $f=a\id_V+bj$, donde $j\in\Hom_{\mathbb{R}}(V,V)$ es tal que $j^2=-\id_V$, $a,b\in\mathbb{R}$, y en tal caso $\dim(V)=R^2$.
+\end{enumerate}
+\end{pro}
+
+\dem Como $f$ es simple, su polinomio minimal es irreducible, en particular este es de la forma $t-c$, con $c\in\mathbb{R}$, \'o $(t-a)^2+b^2$, con $a,b\in\mathbb{R}$. En el primer caso $f-c\id_V=0$, es decir $f=c\id_V$; en el segundo, $(f-a\id_V)^2+b^2\id_V=0$, y si $j=\frac{1}{b}(f-a\id_V)$, tenemos $f=a\id_V+bj$ con
+\begin{eqnarray*}
+j^2 & = & \left(\frac{1}{b}(f-a\id_V)\right)\circ\left(\frac{1}{b}(f-a\id_V)\right)\\
+ & = & \frac{1}{b^2}\left(f-a\id_V\right)^2\\
+ & = & \frac{1}{b^2}\left(-b^2\id_V\right)=-\id_V.
+\end{eqnarray*}
+Como $f$ es simple, en el primer caso, dado $v\in V$, $v\ne 0$, $\langle v\rangle$ es invariante bajo $f$ y as\'i $V=\langle v\rangle$; en el segundo, dado $v\in V$, $v\ne 0$, $\{v,j(v)\}$ es linealmente independiente pues si
+\[
+\alpha v+\beta j(v)=0,
+\]
+$\alpha,\beta\in\mathbb{R}$, entonces operando por $j$,
+\[
+-\beta v+\alpha j(v)=0;
+\]
+combinando las dos relaciones obtenemos
+\[
+0=\alpha\left(\alpha v+\beta j(v)\right)-\beta\left(-\beta v+\alpha j(v)\right)=(\alpha^2+\beta^2)v
+\]
+pero $v\ne 0$, luego $\alpha^2+\beta^2=0$, de donde $\alpha=\beta=0$; ahora $\langle v,j(v)\rangle$ es invariante bajo $f$, as\'i $V=\langle v,j(v)\rangle$.\qed
+
+\begin{obs}
+Considere $\mathbb{C}$ como espacio vectorial sobre $\mathbb{R}$, con la base $\mathcal{B}=\{1,i\}$ (en particular $\mathbb{C}\simeq_\mathbb{R}\mathbb{R}^2$). Dado $a+bi\in\mathbb{C}$, con $a,b\in\mathbb{R}$, la funci\'on:
+\begin{eqnarray*}
+m_{a+bi}:\mathbb{C} & \longrightarrow & \mathbb{C}\\
+ z & \longrightarrow & (a+bi)z
+\end{eqnarray*}
+es un operador en $\Hom_{\mathbb{R}}(\mathbb{C},\mathbb{C})$, de hecho para todo $z,z_1,z_2\in\mathbb{C}$ y $c\in\mathbb{R}$
+\[
+(a+bi)\left(z_1+z_2\right)=(a+bi)z_1+(a+bi)z_2, (a+bi)cz=c(a+bi)z.
+\]
+Tenemos entonces que si $f=m_{a+ib}$, entonces
+\[
+\Big[f\Big]^\mathcal{B}_\mathcal{B}=\left[\begin{array}{rr} a & -b\\b & a\end{array}\right]
+\]
+y $f=a\id_\mathbb{C}+bj$ donde $j=m_i$. Note que
+\[
+\Big[j\Big]^\mathcal{B}_\mathcal{B}=\left[\begin{array}{rr} 0 & -1\\1 & 0\end{array}\right]
+\]
+\end{obs}
+
+\begin{obs}\label{estcomest}
+La observaci\'on anterior se puede generalizar a $\mathbb{C}^n$ el cual visto como espacio vectorial sobre $\mathbb{R}$ tiene dimensi\'on $2n$. Tome la base
+\[
+\mathcal{B}=\{e_1,\ldots,e_n,f_1,\ldots,f_n\}
+\]
+donde $\{e_1,\ldots,e_n\}$ es la base can\'onica de $\mathbb{C}^n$, visto
+como espacio vectorial sobre $\mathbb{C}$, y, $f_1=ie_i, \ldots, f_n=ie_n$. Tome $j\in\Hom_\mathbb{R}(\mathbb{C}^n,\mathbb{C}^n)$ definida por
+\begin{eqnarray*}
+j:\mathbb{C}^n &\longrightarrow &\mathbb{C}^n\\
+(z_1,\ldots,z_n) &\longmapsto & i(z_1,\ldots,z_n).
+\end{eqnarray*}
+Entonces $j^2=-\id_{\mathbb{C}^n}$ y
+\[
+\Big[j\Big]^\mathcal{B}_\mathcal{B}=\left[\begin{array}{cc} 0 & -I_n\\I_n & 0\end{array}\right]
+\]
+donde $0$ denota el origen de $M_{n\times n}(\mathbb{R})$ y $I_n\in\mathbb{M}_{n\times n}(\mathbb{R})$ es la matriz con unos en la diagonal y ceros en el resto de entradas.
+\end{obs}
+
+\begin{defn}
+Una \emph{estructura compleja} en $V$ es un operador $j\in\Hom_\mathbb{R}(V,V)$ tal que $j^2=-\id_V$.
+\end{defn}
+
+\begin{pro}\label{proestcom}
+Suponga que $V$ tiene dimensi\'on finita. Si $V$ admite una estructura compleja $j$, entonces la dimensi\'on de $V$ es par. En tal caso $V$ es un espacio vectorial sobre $\mathbb{C}$ mediante el producto por escalar definido por
+\[
+(a+bi)v=\left(a\id_V+bj\right)(v)
+\]
+para todo $a,b\in\mathbb{R}$ y $v\in V$. M\'as a\'un, existe una base de la forma $T=\{v_1,\ldots,v_n,j(v_1),\ldots,j(v_n)\}$ donde $2n=\dim(V)$. En particular
+\[
+\Big[j\Big]^\mathcal{B}_\mathcal{B}=\left[\begin{array}{cc} 0 & -I_n\\I_n & 0\end{array}\right]
+\]
+\end{pro}
+
+\dem Si $m$ es la dimensi\'on de $V$ entonces 
+\[
+0\le\left(\det(j)\right)^2=\det\left(j^2\right)=\det(-\id_V)=(-1)^m
+\]
+luego $m$ es par, es decir $m=2n$ para alg\'un $n\in\mathbb{Z}_{\ge 0}$. Para verificar que bajo la multiplicaci\'on por escalar definida $V$ es un espacio vectorial bajo $\mathbb{C}$ basta verificar que esta es unitaria, asociativa y que es distributiva. Lo cual se sigue de las siguientes igualdades
+\begin{eqnarray*}
+1v & = & \id_V(v)=v \\
+(a+bi)\left((c+di)v\right) & = &  \left(a\id_V+bj\right)\circ\left(c\id_V+dj\right)(v) \\
+                     & = & \left(ac\id_V+adj+bcj+bdj^2\right)(v)\\
+                     & = & \left((ac-bd)\id_V+(ad+bc)j\right)(v)\\
+                     & = & \left((a+bi)(c+di)\right)v\\
+(a+bi)(v+w) & = & \left(a\id_V+bj\right)(v+w)\\
+                   & = & \left(a\id_V+bj\right)(v)+\left(a\id_V+bj\right)(w)\\
+                   & = & (a+bi)v+(a+bi)w\\
+\left((a+bi)+(c+di)\right)v & = & \left((a+c)\id_V+(b+d)j\right)v\\
+    & = & \left(a\id_V+bj+c\id_V+dj\right)v\\
+    & = & \left(a\id_V+bj\right)(v)+\left(c\id_V+dj\right)(v)\\
+    & = & (a+bi)v+(c+di)v
+\end{eqnarray*}
+validas para todo $a,b,c,d\in\mathbb{R}$ y $v,w\in V$.\\
+Sea $\{v_1,\ldots,v_{n'}\}$ una base de $V$ como espacio vectorial sobre $\mathbb{C}$, donde $n'$ es su dimensi\'on. Entonces $V$ es generado como espacio vectorial sobre $\mathbb{R}$, por $\{v_1,\ldots,v_{n'},j(v_1),\ldots,j(v_{n'})\}$ pues
+\[
+\sum_{k=1}^{n'}z_kv_k=\sum_{k=1}^{n'}a_kv_k+b_kj(v_k),
+\]
+donde para $k=1,\ldots,n'$, $z_k=a_k+b_ki$ con $a_k,b_k\in\mathbb{R}$. M\'as este conjunto de generadores es linealmente independiente pues si $a_1,\ldots,a_{n'},b_1,\ldots,b_{n'}\in\mathbb{R}$ son tales que $\sum_{k=1}^{n'}a_kv_k+b_kj(v_k)=0$, entonces $\sum_{k=1}^{n'}z_kv_k=0$, con $z_k=a_k+b_ki$; luego todo $z_k=0$ y as\'i todo $a_k=b_k=0$. Tenemos $2n'=2n$ y $\mathcal{B}=\{v_1,\ldots,v_n,j(v_1),\ldots,j(v_n)\}$ es una base de $V$ como espacio vectorial sobre $\mathbb{R}$.\qed
+
+\begin{pro}\label{proestlcom}
+Sean $j$ una estructura compleja en $V$ y $f\in\Hom_{\mathbb{R}}(V,V)$. Entonces, tomando $V$ como un espacio vectorial sobre $\mathbb{C}$ mediante el producto por escalar definido por $(a+bi)v=\left(a\id_V+bj\right)(v)$, para todo $a,b\in\mathbb{R}$ y $v\in V$, tenemos $f\in\Hom_{\mathbb{C}}(V,V)$ si y solo si  $f\circ j=j\circ f$, o, equivalentemente, $-j\circ f\circ j=f$.
+\end{pro}
+
+\dem Suponga que $f\in\Hom_{\mathbb{C}}(V,V)$, entonces para todo $v\in V$
+\[
+f\circ j(v)=f(iv)=if(v)=j\circ f(v).
+\]
+Rec\'iprocamente, si $f\circ j=j\circ f$, para todo $a,b\in\mathbb{R}$ y $v\in V$,
+\begin{eqnarray*}
+f\left((a+bi)v\right) & = & f\circ(a\id_V+bj)(v)\\
+ & = & \left(af+bf\circ j\right)(v)\\
+ & = & \left(af+bj\circ f\right)(v)\\
+ & = & (a\id_V+bj)\circ f(v)\\
+ & = & (a+bi)f(v)
+\end{eqnarray*}
+luego $f\in\Hom_{\mathbb{C}}(V,V)$. Finalmente componemos ambos lados de la igualdad $f\circ j=j\circ f$ por $-j=j^{-1}$ para obtener  $-j\circ f\circ j=f$.\qed
+
+\begin{teo}
+Suponga que $V$ tiene dimensi\'on finita igual a $2n$ y sea $j\in\Hom_\mathbb{R}(\mathbb{C}^n,\mathbb{C}^n)$ el operador que corresponde a multiplicaci\'on por $i$. Entonces cada estructura complejas en $V$ es de la forma
+$$j_f=f\circ j\circ f^{-1}$$
+para alg\'un isomorfismos $f\in\Hom_{\mathbb{R}}(\mathbb{C}^n,V)$. M\'as a\'un $j_f=j_g$ si y solo si $g^{-1}\circ f\in\Hom_{\mathbb{C}}(\mathbb{C}^n,\mathbb{C}^n)$.
+\end{teo}
+
+\dem Dado un isomorfismo $f\in\Hom_{\mathbb{R}}(\mathbb{C}^n,V)$, el operador
+\[
+j_f=f\circ j\circ f^{-1}\in\Hom_\mathbb{R}(V,V)
+\]
+es una estructura compleja (ver Figura \ref{estcomp}), pues
+\begin{eqnarray*}
+j_f^2 & = & f\circ j\circ f^{-1}\circ f\circ j\circ f^{-1}\\
+         & = & f\circ j^2\circ f^{-1}\\
+         & = & f\circ-\id_{\mathbb{C}^n}\circ f^{-1}\\
+         & = & -f\circ f^{-1}\\
+         & = & -\id_V.
+\end{eqnarray*}
+\begin{figure}[!hbp]
+\centering
+\begin{tikzpicture}[auto, node distance=2cm,>=latex']
+    \node (C1){$\mathbb{C}^n$};
+    \node (C2) [below of=C1] {$\mathbb{C}^n$};
+    \node (V1) [right of=C1] {$V$};
+    \node (V2) [below of=V1] {$V$};
+    
+    \path[->] (C1) edge node {$f$} (V1);
+    \path[->] (C1) edge  node {$j$} (C2);
+    \path[->] (C2) edge  node {$f$} (V2);
+    \path[dashed,->] (V1) edge  node {$j_f$} (V2);
+\end{tikzpicture}
+\caption{Estructura compleja}
+\label{estcomp}
+\end{figure}
+Rec\'iprocamente, dada una estructura compleja $j_V$ en $V$, usando la notaci\'on en Observaci\'on \ref{estcomest}, Propiedad \ref{proestcom} implica que
+\begin{eqnarray*}
+f:\mathbb{C}^n & \longrightarrow & V\\
+e_k &\longmapsto & v_k\\
+f_k &\longmapsto & j_V(v_k)
+\end{eqnarray*}
+donde $\{v_1,\ldots,v_n,j_V(v_1),\ldots,j_V(v_n)\}$ es una base de $V$, es un isomorfismo de espacios vectoriales sobre $\mathbb{R}$ tal que $j_f=j_V$. Finalmente, suponga que $f,g\in\Hom_{\mathbb{R}}(\mathbb{C}^n,V)$ son isomorfismos tales que $j_f=j_g$, es decir
+$$f\circ j\circ f^{-1}=g\circ j\circ g^{-1}.$$
+Entonces, como $(g^{-1}\circ f)\circ j=j\circ (g^{-1}\circ f)$, por Propiedad \ref{proestlcom} tenemos que $g^{-1}\circ f\in\Hom_{\mathbb{C}}(\mathbb{C}^n,\mathbb{C}^n)$. \qed
+
+\begin{pro}
+Suponga que $V$ es un espacio euclideo con producto interno denotado por $\langle\bullet,\bullet\rangle$ y $j$ es una estructura compleja en $V$. Entonces, tomando $V$ como un espacio vectorial sobre $\mathbb{C}$ mediante el producto por escalar definido por $(a+bi)v=\left(a\id_V+bj\right)(v)$, para todo $a,b\in\mathbb{R}$ y $v\in V$,
+\begin{eqnarray*}
+\langle\bullet;\bullet\rangle_j: V\times V & \longrightarrow & \mathbb{C}\\
+(v_1,v_2) & \longmapsto & \langle v_1;v_2\rangle+\langle v_1;j(v_2)\rangle i
+\end{eqnarray*}
+es un producto de herm\'itico sobre $V$ si y solo si $j$ es ortogonal.
+\end{pro}
+
+\dem Suponga primero que $j$ es ortogonal. Entonces $j^*=j^{-1}=-j$. Note que $\langle\bullet,\bullet\rangle_f$ es sesquilineal y adem\'as herm\'itica pues
+\begin{eqnarray*}
+\langle v_2;v_1\rangle_j & = & \langle v_2;v_1\rangle+\langle v_2;j(v_1)\rangle i\\
+ & = & \langle v_2;v_1\rangle-\langle j(v_2);v_1\rangle i\\
+ & = & \langle v_1;v_2\rangle-\langle v_1;j(v_2)\rangle i\\
+ & = & \overline{\langle v_1;v_2\rangle_j}.
+\end{eqnarray*}
+Ahora, dado $v\in V$, 
+\[
+\langle v;j(v)\rangle=-\langle j(v);v\rangle=-\langle v;j(v)\rangle
+\]
+luego $\langle v;j(v)\rangle=0$. Si adem\'as $v\ne 0$,
+\[
+\langle v;v \rangle_j=\langle v;v \rangle+\langle v;j(v) \rangle i= \langle v;v \rangle>0
+\]
+luego $\langle\bullet;\bullet\rangle_f$ es definitivamente positiva y as\'i es un producto herm\'itico.\\
+Rec\'iprocamente suponga que $\langle\bullet;\bullet\rangle_f$ es producto herm\'itico, entonces para todo $v_1,v_2\in V$
+\begin{eqnarray*}
+\langle j(v_1);j(v_2)\rangle & = & \rea\left(\langle j(v_1);j(v_2)\rangle_j\right)\\
+ & = & \left(\langle j(v_1);j(v_2)\rangle_j+\langle j(v_2);j(v_1)\rangle_j\right)/2\\
+ & = & \left(\langle iv_1;iv_2\rangle_j+\langle iv_2;iv_1\rangle_j\right)/2\\
+ & = & \left(\langle v_1;v_2\rangle_j+\langle v_2;v_1\rangle_j\right)/2\\
+ & = & \rea\left(\langle v_1;v_2\rangle_j\right)\\
+ & = & \langle v_1;v_2\rangle
+\end{eqnarray*}
+luego $j$ es ortogonal.\qed
+
+\begin{obs}
+Note que la norma definida por $\langle\bullet;\bullet\rangle$ y por $\langle\bullet;\bullet\rangle_j$ coinciden.
+\end{obs}
+
+\begin{pro}
+Suponga que $V$ es un espacio euclideo con producto interno denotado por $\langle\bullet;\bullet\rangle$, $j$ es una estructura compleja ortogonal en $V$ y $f\in\Hom_\mathbb{R}(V,V)$. Entonces, tomando $V$ como un espacio unitario mediante el producto por escalar definido por $(a+bi)v=\left(a\id_V+bj\right)(v)$, para todo $a,b\in\mathbb{R}$ y $v\in V$, y el producto herm\'itico
+\[
+\langle\bullet;\bullet\rangle_j = \langle\bullet;\bullet\rangle+\langle\bullet;j(\bullet)\rangle i,
+\]
+tenemos $f$ es unitario si y solo si $f\circ j = j\circ f$ y $f$ es ortonormal.
+\end{pro}
+
+\dem Suponga primero que $f$ es unitaria, entonces $f\in\Hom_\mathbb{C}(V,V)$ y as\'i $f\circ j=j\circ f$; adem\'as para todo $v\in V$
+\[
+\|j(v)\|^2=\langle j(v);j(v)\rangle=\langle j(v);j(v)\rangle_j=\langle v;v\rangle_j=\langle v;v\rangle=\|v\|^2
+\]
+luego $f$ es ortonormal. Rec\'iprocamente, si $f\circ j=j\circ f$ y $f$ es ortogonal, 
+para todo $v_1,v_2\in V$,
+\begin{eqnarray*}
+\langle f(v_1);f(v_2)\rangle_j & = & \langle f(v_1);f(v_2)\rangle+\langle f(v_1);j\circ f(v_2)\rangle i\\
+ & = & \langle f(v_1);f(v_2)\rangle+\langle f(v_1);f\circ j(v_2)\rangle i\\
+ & = & \langle v_1;v_2\rangle+\langle v_1;j(v_2)\rangle i\\
+ & = & \langle v_1;v_2\rangle_j,
+\end{eqnarray*}
+es decir, $f$ es unitaria.\qed
+
+\begin{obs}
+Bajo las hip\'otesis de la propiedad, suponga adem\'as que $V$ tiene dimensi\'on finita. Si $f$ es unitaria, entonces
+\[
+j=f^*\circ j \circ f
+\]
+pues, como $f$ es ortogonal, $f^*=f^{-1}$ y, como $f\in\Hom_{\mathbb{C}}(V,V)$, $f\circ j=j\circ f$, as\'i $f^*\circ j \circ f=f^{-1}\circ f\circ j=j$. Rec\'iprocamente,
+suponga que $j=f^*\circ j \circ f$, entonces para todo $v_1,v_2\in V$
+\begin{eqnarray*}
+\langle f(v_1),j\circ f(v_2)\rangle & = & \langle v_1,f^*\circ j\circ f(v_2)\rangle\\
+  & = & \langle v_1,j(v_2)\rangle
+\end{eqnarray*}
+luego $f$ preserva la parte imaginaria del producto herm\'itico $\langle\bullet;\bullet\rangle_j$. Si ademas $f$ es ortogonal, $f$ preserva la parte real y como en tal caso $f^*=f^{-1}$,
+\[
+f\circ j=f\circ f^*\circ j\circ f=j\circ f,
+\]
+luego $f\in\Hom_{\mathbb{C}}(V,V)$ y $f$ es unitaria. Por otro lado si $f$ conmuta con $j$, entonces $j=f^*\circ j \circ f=f^*\circ f\circ j$ y as\'i $\id_V=f^*\circ f$, es decir $f$ es ortogonal y a su vez $f$ es entonces unitaria.\\
+El hecho que $j=f^*\circ j\circ f$ sea equivalente a que $f$ preserve la parte imaginaria del producto herm\'itico, $\langle\bullet;j(\bullet)\rangle$, es la motivaci\'on para el contenido del pr\'oximo capitulo donde entraremos a estudiar este tipo de estructuras que se llaman espacios simpl\'ecticos, las cuales generalizan est\'a intersecci\'on entre espacios ortogonales, espacios unitarios y estructuras complejas.
+\end{obs} 

@@ -1,0 +1,728 @@
+\chapter{Espacios simpl\'ecticos}
+
+Sea $K$ un cuerpo y $V$ un espacio vectorial sobre $K$.
+
+\section{Forma simpl\'ectica}
+
+\begin{defn}
+Una \emph{forma simpl\'ectica} en $V$ es una funci\'on
+\begin{eqnarray*}
+\sigma: V\times V & \longrightarrow & K\\
+(v_1,v_2) & \longmapsto & \sigma(v_1,v_2)
+\end{eqnarray*}
+tal que:
+\begin{enumerate}
+\item \emph{es bilineal}: para todo $v,v_1,v_2\in V$ y $c\in\mathbb{C}$
+\begin{eqnarray*}
+\sigma(v_1+v_2,v) & = & \sigma(v_1,v)+\sigma(v_2,v)\\
+\sigma(cv_1,v_2) & = & c\sigma(v_1,v_2)\\
+\sigma(v,v_1+v_2) & = & \sigma(v,v_1) + \sigma(v,v_2)\\
+\sigma(v_1,cv_2) & = & c\sigma(v_1,v_2);
+\end{eqnarray*}
+\item \emph{es alternante}: para todo $v\in V$
+\[
+\sigma(v,v)=0;
+\]
+\item \emph{es no-degenerada} Si $v\in V$ es tal que $\sigma(v,w)=0$ para todo $w\in V$ entonces $v=0$.
+\end{enumerate}
+Un \emph{espacio simpl\'ectico} es un espacio vectorial provisto de una forma simpl\'ectica. 
+\end{defn}
+
+\begin{obs}
+Para todo $v_1,v_2\in V$, 
+\[
+\sigma(v_2,v_1)=-\sigma(v_1,v_2).
+\]
+De hecho, la condici\'on alternante implica que
+\begin{eqnarray*}
+0 & = & \sigma(v_1+v_2,v_1+v_2)\\
+   & = & \sigma(v_1,v_1)+\sigma(v_1,v_2)+\sigma(v_2,v_1)+\sigma(v_2,v_2)\\
+   & = & \sigma(v_1,v_2)+\sigma(v_2,v_1)
+\end{eqnarray*}
+\end{obs}
+
+\begin{ejem}\label{ejem0simp}
+\begin{enumerate}
+\item Sobre $V=K^{2n}=K^n\times K^n$
+\[
+\sigma\left((\overline{q},\overline{p}),(\overline{q}',\overline{p}'\right)=\sum_{i=1}^n p_iq'_i-p'_iq_i
+\]
+donde $\overline{q}=(q_1,\ldots,q_n)$, $\overline{p}=(p_1,\ldots,p_n)$, $\overline{q}'=(q'_1,\ldots,q'_n)$ y $\overline{p}'=(p'_1,\ldots,p'_n)$.
+\item Sobre $V\times V^*$
+\[
+\sigma\left((v,\lambda),(w,\mu)\right)=\lambda(w)-\mu(v)
+\]
+donde $v,w\in V$ y $\lambda,\mu\in V^*$.
+\item Suponga que $K=\mathbb{R}$ y $V$ es un espacio eucl\'ideo con una estructura compleja ortogonal $j$. Sobre $V$
+\[
+\sigma(v_1,v_2)=\langle v_1,j(v_2)\rangle
+\]
+\end{enumerate}
+\end{ejem}
+
+\begin{obs}
+Una forma simpl\'ectica $\sigma$, al ser bilineal, induce una transformaci\'on lineal
+\begin{eqnarray*}
+s: V & \longrightarrow & V^*\\
+v & \longmapsto & s_v=\sigma(v,\bullet): w\mapsto \sigma(v,w).
+\end{eqnarray*}
+El hecho que $\sigma$ sea no-degenerada implica que $s$ es inyectiva; y es un isomorfismo si $V$ tiene dimensi\'on finita. Pues, la condici\'on de que $\sigma$ sea no degenerada quiere decir que $s_v=0$ si y solo si $v=0$.\\
+Con este mapa, tenemos
+\[
+s(v)(w)=s_v(w)=\sigma(v,w)
+\]
+En particular $s$ es una transformaci\'on lineal $V\rightarrow V^*$ y su dual $s^*$ es una transformaci\'on lineal $\left(V^*\right)^*\rightarrow V^*$.
+\end{obs}
+
+
+\begin{prop}
+Sea $V$ un espacio simpl\'ectico de dimensi\'on finita y
+\begin{eqnarray*}
+\widehat{\bullet}: V & \longrightarrow & \left(V^*\right)^*\\
+                            v &\longmapsto &\widehat{v}:\lambda\mapsto\lambda(v).
+\end{eqnarray*}
+el isomorfismo can\'onico. Entonces para todo $v\in V$
+\[
+s^*(\widehat{v})=-s(v)
+\]
+\end{prop}
+
+\dem Para todo $w\in V$
+\begin{eqnarray*}
+s^*(\widehat{v})(w)  & = & \widehat{v}(s(w))\\
+  & = & s(w)(v)\\
+  & = & \sigma(w,v)\\
+  & = & -\sigma(v,w)\\
+  & = & -s(v)(w).
+\end{eqnarray*}
+\qed
+
+\begin{pro}
+Si $V$ es un espacio simpl\'ectico y tiene dimensi\'on finita, entonces su dimensi\'on es par. 
+\end{pro}
+
+\dem Sea $T=\{v_1,\ldots,v_m\}$ una base de $V$ y $T^*=\{\lambda_1,\ldots,\lambda_m\}$ la base de $V^*$ dual de $T$. Tomamos la imagen de $T$ mediante el isomorfismo can\'onico $V\mapsto \left(V^*\right)^*$, la cual es la base $\widehat{T}=\{\widehat{v_1},\ldots,\widehat{v_m}\}$ de $\left(V^*\right)^*$ dual de $T^*$. La proposici\'on anterior implica que si tomamos las representaciones matriciales en $M_{m\times m}(K)$
+\[
+A=\Big[s\Big]^{T^*}_T,\textrm{ y } B=\Big[s^*(\widehat{\bullet})\Big]^{T^*}_{T}=\Big[s^*\Big]^{T^*}_{\widehat{T}}\Big[\widehat{\bullet}\Big]^{\widehat{T}}_T=\Big[s^*\Big]^{T^*}_{\widehat{T}}, 
+\]
+entonces $B=-A$, pero por otro lado $B=A^\intercal$, luego $A^\intercal=-A$. De donde
+\[
+\det(A)=\det(A^\intercal)=\det(-A)=(-1)^m\det(A).
+\]
+Ahora como $\sigma: V\rightarrow V^*$ es inyectiva, $\det(A)\ne 0$ y as\'i $1=(-1)^m$, en particular $m=2n$ para alg\'un $n\in\mathbb{Z}_{\ge 0}$.\qed
+
+\begin{defn}
+Sean $V$ un espacio simpl\'ectico y $S\subseteq V$, el \emph{conjunto $\sigma$-ortogonal a $S$} est\'a definido por
+\[
+S^\sigma=\{v\in V|\ \sigma(w,v)=0, \textrm{ para todo } w\in S\}
+\]
+\end{defn}
+
+\begin{obs}
+Note que $S^\sigma=(s(S))_0$. De hecho
+\begin{eqnarray*}
+S^\sigma & = & \{v\in V|\ \sigma(w,v)=0, \textrm{ para todo } w\in S\}\\
+  & = & \{v\in V|\ s(w)(v)=0,\textrm{ para todo } w\in S\}\\
+  & = & \{v\in V|\ \lambda(v)=0,\textrm{ para todo } \lambda\in s(S)\}\\
+  & = & (s(S))_0  
+\end{eqnarray*}
+Esto implica la siguiente propiedad.
+\end{obs}
+
+\begin{pro}\label{ortsubespsimp}
+Sean $V$ un espacio simpl\'ectico y $S\subseteq V$, entonces $S^\sigma\le V$. Si $S'\subseteq S$ entonces $S^\sigma\le S'^\sigma$. Si $V$ tiene dimensi\'on finita y $U\le V$ entonces
+\[
+\dim(U)+\dim (U^\sigma)=\dim(V)
+\]
+\end{pro}
+
+\section{Subespacios isotr\'opicos y bases de Darboux}
+
+Sea $V$ un espacio simpl\'ectico sobre $K$.
+
+\begin{defn}
+Sea $U\le V$, entonces decimos que
+\begin{enumerate}
+\item $U$ es un \emph{subespacio simpl\'ectico} si la restricci\'on de $\sigma$ a $U\times U$ es una forma simpl\'ectica;
+\item $U$ es un \emph{subespacio isotr\'opico} si $U\le U^\sigma$; 
+\item $U$ es un \emph{subespacio lagrangiano} si $U=U^\sigma$;
+\end{enumerate}
+\end{defn}
+
+\begin{obs}
+Suponga que $V$ tiene dimensi\'on finita. Si $U\le V$ es un subespacio lagrangiano y $\dim(V)=2n$ entonces $\dim(U)=n$, de hecho como $U=U^\sigma$, 
+\[
+2n=\dim(V)=\dim(U)+\dim(U^\sigma)=2\dim(U).
+\]
+\end{obs}
+
+\begin{ejem}
+\begin{enumerate}
+\item En el espacio simpl\'ectico de Ejemplo \ref{ejem0simp}.1, $V=K^n\times K^n$, denote, para $i=1,\ldots,n$, $e_i$ el elemento cuya $i$-\'esima entrada es $1$ y el resto ceros, y $f_i$ el elemento cuya $n+i$-\'esima entrada es $1$ y el resto ceros. Note que para todo $i,j\in\{1,\ldots,n\}$,
+\[
+\sigma(e_i,f_j)=-\delta_{ij}\quad\sigma(e_i,e_j)=\sigma(f_i,f_j)=0.
+\]
+Entonces para cualquier subconjunto de indices $J\subset I=\{1,\ldots,n\}$,
+\[
+V_J=\Sp\left(\{e_j,f_j\}_{j\in J}\right)
+\]
+es un subespacio simpl\'ectico,
+\[
+E_J=\Sp\left(\{e_j\}_{j\in J}\right),\textrm{ y } F_J=\Sp\left(\{f_j\}_{j\in J}\right)
+\]
+son isotr\'opicos, y si $J=I$, $E_I$ y $F_I$ son subespacios lagrangianos.
+\item  En el espacio simpl\'ectico de Ejemplo \ref{ejem0simp}.2, $V\times V^*$, sea $\{v_i\}_{i\in I}$ una base de $V$ y $\{\lambda_i\}_{i\in I'}$ una base de $V^*$ donde $I\subseteq I'$ y $\lambda_i(v_j)=\delta_{ij}$ para todo $i,j\in I$. Note que para todo $i,j\in I$
+\[
+\sigma\left((v_i,0),(0,\lambda_j)\right)=-\delta_{ij}\quad\sigma\left((v_i,0),(v_j,0)\right)=0
+\]
+y para todo $i,j\in I'$
+\[
+\sigma\left((0,f_i),(0,f_j)\right)=0.
+\]
+Entonces para cualquier subconjunto de indices $J\subset I$,
+\[
+(V\times V^*)_J=\Sp\left(\{(v_j,0),(0,\lambda_j)\}_{j\in J}\right)
+\]
+es un subespacio simpl\'ectico,
+\[
+E_J=\Sp\left(\{(v_j,0)\}_{j\in J}\right),\textrm{ y } F_J=\Sp\left(\{(0,\lambda_j)\}_{j\in J}\right)
+\]
+son isotr\'opicos, y si $J=I$, $E_I$ y $F_I$ son subespacios lagrangianos.
+\end{enumerate}
+\end{ejem}
+
+\begin{prop}\label{propsimisolan}
+Sea $U\le V$, entonces
+\begin{enumerate}
+\item $U$ es un subespacio simpl\'ectico si y solo si la restricci\'on de $s$ a $U$ es inyectiva. En particular, $U$ es un subesapcio simpl\'ectico si y solo si $U\cap U^\sigma=\{0\}$.
+\item $U$ es un subespacio isotr\'opico si y solo si $\sigma(u,u')=0$ para todo $u,u'\in U$ (es decir $s(U)=0$).
+\item $U$ es un subespacio lagrangiano si y solo si $U$ es un subespacio isotr\'opico maximal.
+\end{enumerate}
+\end{prop}
+
+\dem
+\begin{enumerate}
+\item Si $U$ es subespacio simpl\'ectico, entonces la restricci\'on de $\sigma$ a $U\times U$ es no-degenerada, en particular dado $u\in U$, $u\ne 0$, existe $w\in U$ tal que $\sigma(u,w)\ne 0$. As\'i pues la imagen en $U^*$, $s(u)$, es diferente de $0$ pues $s(u)(w)\ne 0$. Es decir el n\'ucleo de $s$ restringido a $U$ es $\{0\}$, luego es inyectiva. Reciprocamente, si la restricci\'on $s$ a $U$ es inyectiva, la restricci\'on de $\sigma$ a $U\times U$ es bilineal, alternante y no-degenerada, luego $U$ es un subespacio simplectico. Para establecer la segunda afirmaci\'on basta con observar que $u\in U\cap U^\sigma$ si y solo si $s(u)(w)=0$ para todo $w\in U$, es decir si y solo si $u$ pertenece al n\'ucleo de la restricci\'on de $s$ a $U$.
+\item Suponga que $U$ es isotr\'opico, luego para todo $u,u'\in U$, como $U\le U^\sigma$, $u'\in U^\sigma$ y $\sigma(u,u')=0$. Reciprocamente, si $\sigma(u,u')=0$ para todo $u,u'\in U$, entonces $U\le U^\sigma$.
+\item Suponga que $U$ es un subespacio lagrangiano, entonces $U$ es isotr\'opico. Suponga que existe $U'\le V$ isotr\'opico tal que $U\le U'$. Sea $u'\in U'$, entonces $\sigma(u,u')=0$ para todo $u\in U$, en particular $u'\in U^\sigma=U$. Luego $U'=U$. Rec\'iprocamente, si $U$ es isotr\'opico m\'aximal, dado $u'\in U^\sigma$,
+\[
+\sigma(u_1+au',u_2+bu')=\sigma(u_1,u_2)+b\sigma(u_1,u')+a\sigma(u',u_2)+\sigma(u',u')=0,
+\]
+luego $U+\Sp(\{u'\})$ es isotr\'opico y as\'i $u'\in U$. Luego $U=U^\sigma$.\qed 
+\end{enumerate}
+
+\begin{pro}
+Suponga que $V$ tiene dimensi\'on finita y sea $U_0\le V$ un subespacio isotr\'opico. Entonces existe un subespacio lagrangiano $U\le V$ que contiene a $U_0$.
+\end{pro}
+
+\dem Tenemos $U_0\le U_0^\sigma$. Si $U_0=U_0^\sigma$, entonces $U=U_0$ es un subespacio lagrangiano, de lo contrario existe $u\in U_0^\sigma\setminus U_0$. Entonces, $u\ne 0$ y para todo $u_1+au,u_2+bu\in U'=U_0+\Sp(\{u\})$, $u_1,u_2\in U$ y $a,b\in K$,
+\[
+\sigma(u_1+au,u_2+bu)=\sigma(u_1,u_2)+b\sigma(u_1,u)+a\sigma(u,u_2)+\sigma(u,u)=0,
+\]
+luego $U'$ es isotr\'opico y 
+\[
+U_0<U'\le U'^\sigma<U_0^\sigma.
+\]
+Reemplazamos $U_0$ por $U'$ y continuamos recursivamente. Por monotonia de la dimensi\'on, como $V$ tiene dimensi\'on finita, eventualmente obtenemos $U=U'$ subespacio lagrangiano.\qed
+
+\begin{obs}[Extensi\'on de subespacios isotr\'opicos a lagrangianos en dimensi\'on infinita]
+El mismo resultado de la proposici\'on anterior, se puede generalizar a espacios simpl\'ecticos de dimensi\'on infinita usando Lema de Zorn. De hecho, dado $U_0\le V$ subespacio isotr\'opico,  consideramos la colecci\'on $P$ de subespacios isotr\'opicos que contienen a $U_0$, ordenados por contenencia. Como $U_0\in P$, $P\ne\emptyset$. Tambi\'en, la uni\'on de elementos en una cadena de $P$ est\'a en $P$ y es una cota superior de la cadena. Entonces $U$ m\'aximal en $P$ por la proposi\'on anterior es lagrangiano y contiene a $U_0$.
+\end{obs}
+
+\begin{prop}
+Suponga que $V$ tiene dimensi\'on finita y sea $V_1\le V$ un subespacio lagrangiano. Entonces dado $U\le V$, isotr\'opico, tal que $U\cap V_1=\{0\}$, exite $V_2\le V$ lagrangiano, tal que $U\le V_2$ y $V_1\cap V_2=\{0\}$, en particular
+\[
+V=V_1\oplus V_2.
+\]
+\end{prop}
+
+\dem Suponga que $\dim(V)=2n$. Si $U=U^\sigma$, entonces $V_2=U$ es lagrangiano, de lo contrario $\dim(U)=k<n$ y $\dim(U^\sigma)=2n-k>n$, y, como $\dim(V_1)=n$,
+\[
+\dim(U+V_1)=\dim(U)+\dim(V_1)-\dim(U\cap V_1)=k+n
+\]
+Suponga por contradicci\'on que $U^\sigma\subseteq U+V_1$, entonces tomando los espacios $\sigma$-ortogonales,
+\[
+U^\sigma\cap V_1=U^\sigma\cap V_1^\sigma=(U+V_1)^\sigma\subseteq \left(U^\sigma\right)^\sigma=U
+\]
+de donde $U^\sigma\cap V_1\subseteq U\cap V_1=\{0\}$. Entonces
+\[
+\dim(U^\sigma+V_1)=\dim(U^\sigma)+\dim(V_1)>n+n=2n=\dim(V)
+\]
+lo cual es una contradicci\'on. As\'i pues, existe $u\in U^\sigma\setminus (U+V_1)$. Entonces, $u\not\in V_1$ y para todo $u_1+au,u_2+bu\in U'=U+\Sp(\{u\})$, $u_1,u_2\in U$ y $a,b\in K$,
+\[
+\sigma(u_1+au,u_2+bu)=\sigma(u_1,u_2)+b\sigma(u_1,u)+a\sigma(u,u_2)+\sigma(u,u)=0,
+\]
+luego $U'$ es isotr\'opico, $U'\cap V_1=\{0\}$ y 
+\[
+U<U'\le U'^\sigma<U^\sigma.
+\]
+Reemplazamos $U_0$ por $U'$ y continuamos recursivamente. Por monotonia de la dimensi\'on, como $V$ tiene dimensi\'on finita, eventualmente obtenemos $V_2=U'$ lagrangiano con $V_2\cap V_1=\{0\}$. Ahora como $\dim(V_1)=\dim(V_2)=n$ entonces $\dim(V_1+V_2)=2n$ y $V=V_1\oplus V_2$.\qed
+
+
+\begin{pro}
+Suponga que $V$ tiene dimensi\'on finita y sean $V_1,V_2\le V$ lagrangianos tales que 
+\[
+V=V_1\oplus V_2,
+\]
+entonces si $\pi_1:V\rightarrow V_1$ y $\pi_2:V\rightarrow V_2$ son respectivamente las proyecciones sobre $V_1$ y $V_2$ dadas por la descomposici\'on $V=V_1\oplus V_2$,
+\[
+\pi_1^*(V_1^*)=s(V_2)\qquad\textrm{y}\qquad\pi_2^*(V_2^*)=s(V_1)
+\]
+\end{pro}
+\begin{figure}[!hbp]
+\centering
+\begin{tikzpicture}[node distance=2cm, auto, >=latex']
+    \node (V1) {$V_1$};
+    \node (V0) [below of=V1] {$V_1\oplus V_2$};
+    \node (V2) [below of=V0] {$V_2$};
+    \node (V) [right of=V0] {$V$};
+    \node (A) [right of=V] {};
+    \node (VD) [right of=A] {$V^*$};
+    \node (V0D) [right of=VD] {$\pi_2^*(V_2^*)\oplus\pi_1^*(V_1^*)$};
+    \node (V2D) [above of=V0D] {$\pi_2^*(V_2^*)$};
+    \node (V1D) [below of=V0D] {$\pi_1^*(V_1^*)$};
+    
+    \path[-] (V) edge node {$s$} (VD);
+    \path[-] (V1) edge node {$s$} (V2D);
+    \path[-] (V2) edge node {$s$} (V1D);
+    \path[<-] (V1) edge node {$\pi_1$} (V);
+    \path[->] (V) edge node {$\pi_2$} (V2);
+    \path[<-] (VD) edge node {} (V2D);
+    \path[->] (V1D) edge  node {} (VD);
+    \draw[double equal sign distance,shorten <=6pt,shorten >=6pt] (V0) to (V);
+    \draw[double equal sign distance,shorten <=6pt,shorten >=6pt] (VD) to (V0D);
+\end{tikzpicture}
+\caption{Descomposici\'on lagrangiana}
+\label{desclag}
+\end{figure}
+
+\dem (Ver Figura \ref{desclag}) Como $\pi_1$ y $\pi_2$ son sobreyectivas, $\pi_1^*$ y $\pi_2^*$ son  inyectivas. Luego dado $\lambda\in\pi^*(V_1)$, existe un \'unico $\lambda_1\in V_1^*$ tal que $\pi^*(\lambda_1)=\lambda$. En particular, para todo $v_2\in V_2$, como $\pi_1(v_2)=0$,
+\[
+\lambda(v_2)=\pi^*(\lambda_1)(v_2)=\lambda_1\left(\pi_1(v_2)\right)=0.
+\]
+Ahora, como $V$ tiene dimensi\'on finita $\sigma: V\rightarrow V^*$ es un isomorfismo, luego existe un \'unico $v\in V$ tal que $\sigma(v)=\lambda$, pero $\sigma(v,v_2)=\lambda(v_2)=0$ para todo $v_2\in V_2$, entonces $v\in V_2^\sigma=V_2$. As\'i $\pi_1^*(V_1^*)\subseteq S(V_2)$. Reciprocamente, dado $v_2\in V_2$, defina $\lambda_1\in V_1^*$ por
+\[
+\lambda_1:v_1\mapsto s(v_2)(v_1)=\sigma(v_2,v_1)
+\]
+el mapa
+\begin{eqnarray*}
+V_2 & \longrightarrow & \pi_1^*(V_1^*)\\
+v & \longmapsto & s(v)=\lambda=\pi_1^*(\lambda_1)
+\end{eqnarray*}
+es inyectivo, y como $V_1^*$ y $\sigma(V_2)$ tienen la misma dimensi\'on, es un isomorfismo.\qed
+
+\begin{defn}
+Suponga que $V$ tiene dimensi\'on finita y sea $T=\{v_1,\ldots,v_n,w_1,\ldots,w_n\}$ una base de $V$. Decimos que $T$ es una base de Darboux si para todo $i,j\in\{1,\ldots,n\}$
+\[
+\begin{array}{rcccl}
+\sigma(v_i,v_j) & = & 0 & = & \sigma(w_i,w_j)\\
+\sigma(w_i,v_j) & = &\delta_{ij}.
+\end{array}
+\]
+\end{defn}
+
+\begin{obs}
+Note que si $T=\{v_1,\ldots,v_n,w_1,\ldots,w_n\}$ es una base de Darboux entonces $V_1=\Sp(\{v_1,\ldots,v_n\})$ y $V_2=\Sp(\{w_1,\ldots,w_n\})$ son lagrangianos. M\'as a\'un si $T_1=\{v_1,\ldots,v_n\}$, $T_2=\{w_1,\ldots,w_n\}$ y $T_1^*=\{\lambda_1,\ldots,\lambda_n\}$ y $T_2^*=\{\mu_1,\ldots,\mu_n\}$ son las bases de $V_1^*$ y $V_2^*$, respectivamente, duales de $T_1$ y $T_2$. Entonces para $i=1,\ldots,n$,
+\[
+s(w_i)=\pi_1^*(\lambda_i)\qquad s(-v_i)=\pi_2^*(\mu_i).
+\]
+\end{obs}
+
+\begin{teo}
+Suponga que $V$ tiene dimensi\'on finita, entonces $V$ admite un base de Darboux.
+\end{teo}
+
+\dem Como $V$ tiene dimensi\'on finita, existen $V_1,V_2\le V$ subespacios lagrangianos, tales que $V=V_1\oplus V_2$. Sea $T_1=\{v_1,\ldots,v_n\}$ una base de $V_1$ y $T_1^*=\{\lambda_1,\ldots,\lambda_n\}$ la base de $V_1^*$ dual de $T_1$. Como $s(V_2)=\pi_1^*(V_1^*)$, donde $\pi_1:V\rightarrow V_1$ es la proyecci\'on en el primer sumando de la descomposici\'on $V=V_1\oplus V_2$, entonces existe $T_2=\{w_1,\ldots,w_n\}$ base de $V_2$ tal que para $i=1,\ldots,n$,
+\[
+s(w_i)=\pi_1^*(\lambda_i).
+\]
+Entonces como $V_1$ y $V_2$ son subespacios lagrangianos, en particular isotr\'opicos,
+\[
+\sigma(v_i,v_j) =  0  =  \sigma(w_i,w_j)
+\]
+para todo $i,j\in\{1,\ldots,n\}$; adem\'as
+\[
+\sigma(w_i,v_j)=s(w_i)(v_j)=\pi_1^*(\lambda_i)(v_j)=\lambda_i\left(\pi_1(v_j)\right)=\lambda_i(v_j)=\delta_{ij}.
+\]
+\qed
+
+\begin{pro}\label{coorsimp}
+Suponga que $V$ tiene dimensi\'on finita y sea $T=\{v_1,\ldots,v_n,w_1,\ldots,w_n\}$ una base de Darboux. Entonces para todo $v\in V$
+\[
+v=\sum_{i=1}^n\sigma(w_i,v)v_i-\sigma(v_i,v)w_i.
+\]
+En particular, si $v_1,v_2\in V$ son tales que
+\[
+v_1=\sum_{i=1}^nq_iv_i+p_iw_i \qquad v_2=\sum_{i=1}^nq'_iv_i+p'_iw_i
+\]
+entonces
+\[
+\sigma(v_1,v_2)=\sum_{i=1}^np_iq'_i-p'_iq_i
+\]
+\end{pro}
+
+\dem Sean $a_1,\ldots,a_n,b_1,\ldots,b_n\in K$ tales que
+\[
+v=\sum_{i=1}^na_iv_i+b_iw_i,
+\]
+de forma que para $j=1,\ldots,n$,
+\[
+\sigma(v_j,v)=\sum_{i=1}^na_i\sigma(v_j,v_i)+b_i\sigma(v_j,w_i)=-b_j
+\]
+y
+\[
+\sigma(w_j,v)=\sum_{i=1}^na_i\sigma(w_j,v_i)+b_i\sigma(w_j,w_i)=a_j.
+\]
+Finalmente
+\begin{eqnarray*}
+\sigma(v_1,v_2) & = & \sigma(\sum_{i=1}^nq_iv_i+p_iw_i,\sum_{j=1}^nq'_jv_j+p'_jw_j)\\
+ & = & \sum_{i,j=1}^nq_iq'_j\sigma(v_i,v_j)+p_iq'_j\sigma(w_i,v_j)+q_ip'_j\sigma(v_i,w_j)+p_ip'_j\sigma(w_i,w_j)\\
+ & = & \sum_{i,j=1}^n(p_iq'_j-q_ip'_j)\delta_{ij}\\
+ & = & \sum_{i=1}^np_iq'_i-p'_iq_i
+\end{eqnarray*}
+\qed
+
+\begin{obs}
+Note que si $T=\{v_1,\ldots,v_n,w_1,\ldots,w_n\}$, es una base de Darboux, para todo $J\subseteq\{1,\ldots,n\}$,
+\[
+V_J=\Sp\left(\{v_j,w_j\}_{j\in J}\right)
+\]
+es tambi\'en un subespacio simpl\'ectico.
+\end{obs}
+
+\begin{teo}[Ortogonalizaci\'on de Gram-Schmidt]
+Suponga que $\dim(V)=2n$ y sean $U\le V$ subespacios simpl\'ectico con $\dim(U)=2m$, $m\le n$. Entonces existe una base de Darboux $T=\{v_1,\ldots,v_n,w_1,\ldots,w_n\}$ de $V$, tal que
+\[
+U=\Sp\left(\{v_j,w_j\}_{j=1,\ldots,m}\right)
+\]
+\end{teo}
+
+\dem Sea $T'=\{v_1,\ldots,v_m,w_1,\ldots,w_m\}$ una base de Darboux de $U$. Si $m=n$ hemos terminado. De lo contrario, $m+1\le n$ y tome $v'_{m+1}\in V\setminus U$. Defina
+\[
+v_{m+1}=v'_{m+1}-\left(\sum_{i=1}^m\sigma(w_i,v'_{m+1})v_i-\sigma(v_i,v'_{m+1})w_i\right)
+\]
+de forma tal que para $j=1,\ldots,m$,  
+\begin{eqnarray*}
+\sigma(v_j,v_{m+1}) & = & \sigma(v_j,v'_{m+1})-\left(\sum_{i=1}^m\sigma(w_i,v'_{m+1})\sigma(v_j,v_i)-\sigma(v_i,v'_{m+1})\sigma(v_j,w_i)\right)\\
+ & = & \sigma(v_j,v'_{m+1})-\sum_{i=1}^m\sigma(v_i,v'_{m+1})\delta_{ij}\\
+ & = & \sigma(v_j,v'_{m+1})-\sigma(v_j,v'_{m+1})\\
+ & = & 0;
+\end{eqnarray*}
+y,
+\begin{eqnarray*}
+\sigma(w_j,v_{m+1}) & = & \sigma(w_j,v'_{m+1})-\left(\sum_{i=1}^m\sigma(w_i,v'_{m+1})\sigma(w_j,v_i)-\sigma(v_i,v'_{m+1})\sigma(w_j,w_i)\right)\\
+ & = & \sigma(w_j,v'_{m+1})-\sum_{i=1}^m\sigma(w_i,v'_{m+1})\delta_{ji}\\
+ & = & \sigma(w_j,v'_{m+1})-\sigma(w_j,v'_{m+1})\\
+ & = & 0.
+\end{eqnarray*}
+Ahora, existe $w''_{m+1}\in V$ tal que $\sigma(w''_{m+1},v_{m+1})\ne 0$. Sea
+\[
+w'_{m+1}=\frac{1}{\sigma(w''_{m+1},v_{m+1})}w''_{m+1}
+\]
+de forma que $\sigma(w'_{m+1},v_{m+1})=1$. Defina
+\[
+w_{m+1}=w'_{m+1}-\left(\sum_{i=1}^m\sigma(w_i,w'_{m+1})v_i-\sigma(v_i,w'_{m+1})w_i\right),
+\]
+as\'i $\sigma(w_{m+1},v_{m+1})=1$ y al igual que con $v_{m+1}$, para $j=1,\ldots,m$,
+\[
+\sigma(w_{m+1},v_j)=0=\sigma(w_{m+1},w_j).
+\]
+En particular $\{v_1,v_2,\ldots,v_{m+1},w_1,\ldots,w_{m+1}\}$ es base de Darboux de $U'=U+\Sp\left(\{v_{m+1},w_{m+1}\right)$. Reemplazamos $U$ por $U'$ y continuamos recursivamente.\qed
+
+\begin{pro}
+Suponga que $V$ tiene dimensi\'on finita y sea $U<V$ subespacio simplectico. Entonces $U^\sigma<V$ es un subespacio simpl\'ectico tal que
+\[
+V=U\oplus U^\sigma.
+\]
+\end{pro}
+
+\dem Sea $v\in U$. Como $U$ es un espacio simpl\'ectico, si $v\ne 0$, existe $w\in U$ tal que $\sigma(w,v)\ne 0$, luego $v\not\in U^\sigma$. Luego
+\[
+U\cap U^\sigma=\{0\}
+\]
+Ahora como $\dim(U)+\dim(U^\sigma)=\dim(V)$, entonces $V=U\oplus U^\sigma$. Finalmente, sea $T=\{v_1,\ldots,v_n,w_1,\ldots,w_n\}$ una base de Darboux de $V$, tal que
+\[
+U=\Sp\left(\{v_j,w_j\}_{j=1,\ldots,m}\right)
+\]
+donde $2n=\dim(V)$ y $2m=\dim(U)$, $m<n$. Entonces si
+\[
+U'=\Sp\left(\{v_j,w_j\}_{j=m+1,\ldots,n}\right),
+\]
+$\dim(U')=\dim(U^\sigma)$ y $U'\subseteq U^\sigma$, luego $U'=U^\sigma$ es un subespacio simpl\'ectico de $V$.\qed
+
+\begin{defn}
+Suponga que $V$ tiene dimensi\'on finita y sea $U\le V$ un subespacio simpl\'ectico de $V$. Llamamos a $U^\sigma$ el \emph{complemento simpl\'ectico de $U$}. A la proyecci\'on
+\[
+p_U^\sigma: V\longrightarrow V
+\]
+sobre $U$, definida por la descomposici\'on $V=U\oplus U^\sigma$ la llamamos \emph{proyecci\'on simpl\'ectica sobre $U$}.
+\end{defn}
+
+\begin{pro}
+Suponga que $V$ tiene dimensi\'on finita. Sean $V_1,V_2<V$ subespacios lagrangianos tales que
+\[
+V=V_1\oplus V_2
+\]
+y sean $p_1:V\rightarrow V$ y $p_2: V\rightarrow V$ las respectivas proyecciones sobre $V_1$ y $V_2$ definidas por esta descomposici\'on. Entonces para todo $v,w\in V$,
+\[
+\sigma\left(p_1(v),w\right)=\sigma\left(v,p_2(w)\right).
+\]
+Por otro lado, sea $U<V$ subespacio simpl\'ectico, entonces para todo $v,w\in V$,
+\[
+\sigma\left(p_U^\sigma(v),w\right)=\sigma\left(v,p_U^\sigma(w)\right).
+\]
+\end{pro}
+
+\dem Sean $v_1,w_1\in V_1$ y $v_2,w_2\in V_2$ tales que
+\[
+v=v_1+w_1\qquad w=w_1+w_2,
+\]
+entonces
+\begin{eqnarray*}
+\sigma\left(p_1(v),w\right) & = & \sigma (v_1,w_1)+\sigma(v_1,w_2)=\sigma(v_1,w_2)\\
+\sigma\left(v,p_2(w)\right) & = & \sigma(v_1,w_2)+\sigma(v_2,w_2)=
+\sigma(v_1,w_2).
+\end{eqnarray*}
+Considere ahora $v',w'\in U^\sigma$ tales que
+\[
+v=p_U^\sigma(v)+v'\qquad w=p_U^\sigma(w)+w'.
+\]
+Entonces
+\begin{eqnarray*}
+\sigma\left(p_U^\sigma(v),w\right) & = & \sigma\left(p_U^\sigma(v),p_U^\sigma(w)\right)+\sigma\left(p_U^\sigma(v),w'\right)= \sigma\left(p_U^\sigma(v),p_U^\sigma(w)\right)\\
+\sigma\left(v,p_U^\sigma(w)\right) & = & \sigma\left(p_U^\sigma(v),p_U^\sigma(w)\right)+\sigma\left(v',p_U^\sigma(w)\right)=\sigma\left(p_U^\sigma(v),p_U^\sigma(w)\right).
+\end{eqnarray*}
+\qed
+
+\section{Operadores adjuntos}
+
+Sea $V$ un espacio simpl\'ectico y $f\in\Hom_\mathbb{K}(V,V)$ un operador.
+
+\begin{defn}
+Sea $g\in\Hom_\mathbb{K}(V,V)$, decimos que $g$ es un \emph{operador adjunto de $f$} si para todo $v,w\in V$
+\[
+\sigma\left( f(v),w \right)=\sigma\left( v,g(w)\right).
+\]
+Decimos que $f$ es \emph{auto-adjunto} si $f$ es un operador adjunto de $f$. 
+\end{defn}
+
+\begin{obs}
+Note que si $g$ es adjunto de $f$, entonces $f$ es adjunto de $g$. De hecho
+\[
+\sigma\left( g(v),w\right)= -\sigma\left( w,g(v)\right)= -\sigma\left( f(w),v\right)= \sigma\left(v,f(w)\right).
+\]
+\end{obs}
+
+\begin{defn}
+Sea $n\in\mathbb{Z}_{>0}$ y $A\in M_{2n\times 2n}(K)$, definimos la \emph{matriz adjunta simpl\'ectica} de $A$ por $A^{sigma}\in M_{2n\times 2n}(K)$ tal que
+\[
+A^\sigma=J^{-1}A^\intercal J
+\]
+con $J\in M_{2n\times 2n}(K)$ tal que
+\[
+J=\left[\begin{array}{cc} 0 & -I_n\\I_n & 0\end{array}\right]
+\]
+donde $0$ denota el origen de $M_{n\times n}(K)$ y $I_n\in\mathbb{M}_{n\times n}(K)$ es la matriz con unos en la diagonal y ceros en el resto de entradas. Es decir si $A_{11},A_{12},A_{21},A_{22}\in M_{n\times n}(K)$ son tales que
+\[
+A=\left[\begin{array}{cc} A_{11} & A_{12}\\A_{21} & A_{22}\end{array}\right],
+\]
+entonces
+\[
+A^\sigma=\left[\begin{array}{cc} A_{22}^\intercal & -A_{12}^\intercal\\-A_{21}^\intercal & A_{11}^\intercal\end{array}\right].
+\]
+Decimos que $A$ es \emph{auto-adjunta simpl\'ectica} si $A^\sigma=A$. Es decir si $A_{11}=A_{22}^\intercal$, $A_{12}=-A_{12}^\intercal$ y $A_{21}=-A_{12}^\intercal$.
+\end{defn}
+
+
+\begin{prop}\label{adjtrassim}
+Suponga que $V$ tiene dimensi\'on finita, entonces existe un \'unico operador $g\in\Hom_{K}(V,V)$ adjunto de $f$. M\'as a\'un, si $T=\{v_1,\ldots,v_n,w_1,\ldots,w_n\}$ es una base de Darboux de $V$, entonces
+\[
+\Big[g\Big]^T_T=\left(\Big[f\Big]^T_T\right)^\sigma
+\]
+\end{prop}
+
+\dem Defina el operador $g\in\Hom_{K}(V,V)$ por la imagen de la base $T$:
+\begin{eqnarray*}
+g(v_j) & = & \sum_{i=1}^n\sigma(f(w_i),v_j)v_i-\sigma(f(v_i),v_j)w_i,\\
+g(w_j) & = & \sum_{i=1}^n\sigma(f(w_i),w_j)v_i-\sigma(f(v_i),w_j)w_i.
+\end{eqnarray*}
+De esta forma
+\begin{eqnarray*}
+\sigma\left(v_i,g(v_j)\right) & = & \sigma\left(f(v_i),v_j\right)\\
+\sigma\left(v_i,g(w_j)\right) & = & \sigma\left(f(v_i),w_j\right)\\
+\sigma\left(w_i,g(v_j)\right) & = &  \sigma\left(f(w_i),v_j\right)\\
+ \sigma\left(w_i,g(w_j)\right) & = & \sigma\left(f(w_i),w_j\right)
+\end{eqnarray*}
+y por Propiedad \ref{coorsimp}
+\begin{eqnarray*}
+\sigma\left(v,g(w)\right) & = & \sum_{i=1}^n \sigma\left(v_i,g(w)\right)\sigma\left(w_i,v\right)-\sigma\left(v_i,v\right)\sigma\left(w_i,g(w)\right)\\
+ & = & \sum_{i,j=1}^n \Big(\sigma\left(w_j,w\right)\sigma\left(v_i,g(v_j)\right)-\sigma\left(v_j,w\right)\sigma\left(v_i,g(w_j)\right)\Big)\sigma\left(w_i,v\right)\\
+ & & \quad-\sigma\left(v_i,v\right)\Big(\sigma\left(w_j,w\right)\sigma\left(w_i,g(v_j)\right)-\sigma\left(v_j,w\right)\sigma\left(w_i,g(w_j)\right)\Big)\\
+  & = & \sum_{i,j=1}^n \Big(\sigma\left(w_j,w\right)\sigma\left(f(v_i),v_j\right)-\sigma\left(v_j,w\right)\sigma\left(f(v_i),w_j\right)\Big)\sigma\left(w_i,v\right)\\
+ & & \quad-\sigma\left(v_i,v\right)\Big(\sigma\left(w_j,w\right)\sigma\left(f(w_i),v_j\right)-\sigma\left(v_j,w\right)\sigma\left(f(w_i),w_j\right)\Big)\\
+  & = & \sum_{i,j=1}^n \sigma\left(v_j,w\right)\Big(\sigma\left(v_i,v\right)\sigma\left(f(w_i),w_j\right)-\sigma\left(w_i,v\right)\sigma\left(f(v_i),w_j\right)\Big)\\
+ & & \quad-\Big(\sigma\left(v_i,v\right)\sigma\left(f(w_i),v_j\right)-\sigma\left(w_i,v\right)\sigma\left(f(v_i),v_j\right)\Big)\sigma\left(w_j,w\right)\\
+  & = & \sum_{i,j=1}^n \sigma\left(v_j,w\right)\Big(\sigma\left(w_i,v\right)\sigma\left(w_j,f(v_i)\right)-\sigma\left(v_i,v\right)\sigma\left(w_j,f(w_i)\right)\Big)\\
+ & & \quad-\Big(\sigma\left(w_i,v\right)\sigma\left(v_j,f(v_i)\right)-\sigma\left(v_i,v\right)\sigma\left(v_j,f(w_i)\right)\Big)\sigma\left(w_j,w\right)\\
+ & = & \sum_{j=1}^n \sigma\left(v_j,w\right)\sigma\left(w_j,f(v)\right)-\sigma\left(v_j,f(v)\right)\sigma\left(w_j,w\right)\\
+ & = & \sigma\left(f(v),w\right)
+\end{eqnarray*}
+Por otro lado si, $h\in\Hom_\mathbb{K}(V,V)$ es adjunto de $f$, por Propiedad \ref{coorortonorher},
+\begin{eqnarray*}
+h(v_j) & = & \sum_{i=1}^n \sigma\left(w_i,h(v_j)\right)v_i-\sigma\left(v_i,h(v_j)\right)w_i\\
+         & = & \sum_{i=1}^n \sigma\left(f(w_i),v_j\right)v_i-\sigma\left(f(v_i),v_j\right)w_i\\
+         & = & g(u_j),\\
+h(w_j) & = & \sum_{i=1}^n \sigma\left(w_i,h(w_j)\right)v_i-\sigma\left(v_i,h(w_j)\right)w_i\\
+         & = & \sum_{i=1}^n \sigma\left(f(w_i),w_j\right)v_i-\sigma\left(f(v_i),w_j\right)w_i\\
+         & = & g(w_j).       
+\end{eqnarray*}
+luego $h=g$.\\
+Ahora, para ver que la representaci\'on matricial de $g$ respecto a $T$ es la adjunta simpl\'ectica de la de $f$ basta observar que para $i,j=1,\ldots,n$
+\begin{eqnarray*}
+\Big[g\Big]^T_{T,(i,j)} & = & \Big[g(v_j)\Big]^T_i\\
+  & = & \sigma\left(w_i,g(v_j)\right)\\
+  & = & \sigma\left(f(w_i),v_j\right)\\
+  & = & -\sigma\left(v_j,f(w_i)\right)\\
+  & = & \Big[f(w_i)\Big]^T_{n+j}\\
+  & = & \Big[f\Big]^T_{T,(n+j,n+i)},\\
+\Big[g\Big]^T_{T,(n+i,n+j)} & = & \Big[g(w_j)\Big]^T_{n+i}\\
+  & = & -\sigma\left(v_i,g(w_j)\right)\\
+  & = & -\sigma\left(f(v_i),w_j\right)\\
+  & = & \sigma\left(w_j,f(v_i)\right)\\
+  & = & \Big[f(v_i)\Big]^T_{j}\\
+  & = & \Big[f\Big]^T_{T,(j,i)},\\
+\Big[g\Big]^T_{T,(n+i,j)} & = & \Big[g(v_j)\Big]^T_{n+i}\\
+  & = & -\sigma\left(v_i,g(v_j)\right)\\
+  & = & -\sigma\left(f(v_i),v_j\right)\\
+  & = & \sigma\left(v_j,f(v_i)\right)\\
+  & = & -\Big[f(v_i)\Big]^T_{n+j}\\
+  & = & -\Big[f\Big]^T_{T,(n+j,i)},\\
+\Big[g\Big]^T_{T,(i,n+j)} & = & \Big[g(w_j)\Big]^T_i\\
+  & = & \sigma\left(w_i,g(w_j)\right)\\
+  & = & \sigma\left(f(w_i),w_j\right)\\
+  & = & -\sigma\left(w_j,f(w_i)\right)\\
+  & = & -\Big[f(w_i)\Big]^T_{j}\\
+  & = & -\Big[f\Big]^T_{T,(j,n+i)}.
+\end{eqnarray*}
+\qed
+
+\begin{nota}
+Si $V$ tiene dimensi\'on finita, a la adjunta de $f$ la denotaremos por $f^*$.
+\end{nota}
+
+\begin{obs}
+Note que si $V$ tiene dimensi\'on finita, para todo $v,w\in V$,
+\begin{eqnarray*}
+f^*\left(s(v))(w)\right) & = & s(v)\left(f(w)\right)\\
+ & = & \sigma(v,f(w))\\
+ & = & \sigma(f^*(v),w)\\
+ & = & s\left(f^*(v)\right)(w)
+\end{eqnarray*}
+luego
+\[
+f^*\circ s=s\circ f^*
+\]
+donde a la izquierda en la igualdad tenemos el dual y a la derecha el adjunto.
+\end{obs}
+
+\begin{obs}
+Si $V$ tiene dimensi\'on finita $f^*\circ f$ es auto-adjunta, de hecha para todo $v,w\in V$
+\[
+\sigma(v,f^*\circ f(w))=\sigma(f(v),f(w))=\sigma(f^*\circ f(v),w).
+\]
+\end{obs}
+
+\begin{prop}
+Si $V$ tiene dimensi\'on finita, las siguientes propiedades son equivalentes:
+\begin{enumerate}
+\item $f$ es auto-adjunta; y,
+\item la representaci\'on matricial de $f$ respecto a una base de Darboux es auto-adjunta sympl\'ectica.
+\end{enumerate}
+\end{prop}
+
+\dem Proposi\'on \ref{adjtrassim} implica que si $f$ es auto-adjunta, su representaci\'on matricial respecto a una base de Darboux es auto-adjunta sympl\'ectica. Para establecer el converso, tomamos una base de Darboux $T=\{v_1,\ldots,v_n,w_1,\ldots,w_n\}$ asumimos que $\Big[f\Big]^T_T$ es auto-adjunta simpl\'ectica, es decir para todo $i,j\in\{1,\ldots,n\}$
+\begin{eqnarray*}
+\sigma\left(w_i,f(v_j)\right) & = & \Big[f\Big]^T_{T,(i,j)}\\
+  & = & \Big[f\Big]^T_{T,(n+j,n+i)}\\
+  & = & -\sigma\left(v_j,f(w_i)\right)\\
+-\sigma\left(v_i,f(w_j)\right) & = & \Big[f\Big]^T_{T,(n+i,n+j)}\\
+  & = & \Big[f\Big]^T_{T,(j,i)}\\
+  & = & \sigma\left(w_j,f(v_i)\right)\\
+-\sigma\left(v_i,f(v_j)\right) & = & \Big[f\Big]^T_{T,(n+i,j)}\\
+  & = & -\Big[f\Big]^T_{T,(n+j,i)}\\
+  & = & \sigma\left(v_j,f(v_i)\right)\\
+\sigma\left(w_i,f(w_j)\right) & = & \Big[f\Big]^T_{T,(i,n+j)}\\
+  & = & -\Big[f\Big]^T_{T,(j,n+i)}\\
+  & = & -\sigma\left(w_j,f(w_i)\right),
+\end{eqnarray*}
+en particular
+\begin{eqnarray*}
+\sigma\left(v_i,f(v_j)\right) & = & \sigma\left(f(v_i),v_j\right)\\
+\sigma\left(v_i,f(w_j)\right) & = & \sigma\left(f(v_i),w_j\right)\\
+\sigma\left(w_i,f(v_j)\right) & = & \sigma\left(f(w_i),v_j\right)\\
+\sigma\left(w_i,f(w_j)\right) & = & \sigma\left(f(w_i),w_j\right).
+\end{eqnarray*}
+As\'i, por la demostraci\'on de Proposici\'on \ref{adjtrassim}, est\'as igualdades implican que el adjunto de $f$ es \'el mismo.\qed
+
+\begin{ejem}\label{ejemautoadj}
+Suponga que $V=U\times U^*$ y
+\[
+\sigma\left((v,\lambda),(w,\mu)\right)=\lambda(w)-\mu(v).
+\]
+Sea ahora $g\in\Hom_K(U,U)$ y tome
+\[
+f(v,\lambda)=(g(v),g^*(\lambda))
+\]
+de forma que
+\begin{eqnarray*}
+\sigma\left((v,\lambda),f(w,\mu)\right) & = & \lambda(g(w))-g^*(\mu)(v)\\
+ & = & g^*(\lambda)(w)-\mu(g(v))\\
+ & = & \sigma\left(f(v,\lambda),(w,\mu)\right),
+\end{eqnarray*}
+luego $f$ es auto-adjunto.
+\end{ejem}
+
+\begin{obs}
+El operador del ejemplo anterior es de hecho la forma m\'as general de operador auto-adjunto sobre un espacio simpl\'ectico. Es decir, dado un operador auto-adjunto, existe una descomposici\'on del espacio en subespacios invariantes compatibles con el operador tales que este toma la forma como el operador $f$ en Ejemplo \ref{ejemautoadj}. El resto de este cap\'itulo tiene como objetivo establecer ese resultado para el caso en el que el polinomio caracter\'istico del operador se factoriza en factores lineales en $K$.
+\end{obs}
+
+\begin{lema}
+Suponga que $V$ tiene dimensi\'on finita y que $f$ es auto-adjunto, entonces:
+\begin{enumerate}
+\item si $f$ es una proyecci\'on, es decir $f^2=f$, entonces $f(V)$ es un subespacio simpl\'ectico;
+\item para todo $P(t)\in K[t]$, $P(f)$ es auto-adjunto.
+\end{enumerate}
+\end{lema}
+
+\dem 
+\begin{enumerate}
+\item Como $f$ es una proyecci\'on $V=f(V)\oplus\ker(f)$, y para $v\in V$
+\[
+v=f(v)+(v-f(v))
+\]
+con $f(v)\in f(V)$ y $v-f(v)\in\ker(f)$. Para probar el lema basta con establecer que $\ker(f)=f(V)^\sigma$, pues en tal caso, como $f(V)\cap\ker(f)=\{0\}$ tendr\'iamos $f(V)\cap f(V)^\sigma=\{0\}$, y la conclusi\'on se sigue de Proposici\'on \ref{propsimisolan}.1. Ahora, dado $v\in\ker(f)$, para todo $w\in V$,
+\[
+\sigma(f(w),v)=\sigma(w,f(v))=0
+\]
+luego $v\in f(V)^\sigma$, y as\'i $\ker(f)\subseteq f(V)^\sigma$. Pero $\dim(\ker(f))=V-\dim(f(V))=\dim(f(V)^\sigma)$, entonces $\ker(f)=f(V)^\sigma$.
+\item Si $P(t)=\sum_{i=0}^da_it^i$, para todo $v,w\in V$ tenemos
+\begin{eqnarray*}
+\sigma\big(v,P(f)(w)\big) & = & \sum_{i=0}^da_i\sigma\big(v,f^i(w)\big)\\
+  & = & \sum_{i=1}^da_i\sigma\big(f^i(v),w\big)\\
+  & = & \sigma\big(P(f)(v),w\big).
+\end{eqnarray*}\qed
+\end{enumerate}
+
+\begin{prop}
+Suponga que $V$ tiene dimensi\'on finita, que $f$ es auto-adjunto y que
+\[
+P_f(t)=(t-\lambda_1)^{m_1}(t-\lambda_2)^{m_2}\ldots(t-\lambda_r)^{m_r}, \quad \lambda_1,\lambda_2,\ldots,\lambda_r\in \mathbb{K}.
+\]
+con $\lambda_i\ne \lambda_j$ si $i\ne j$. Entonces para $i=1,\ldots,r$, $V_i=\ker(P_i(f)^{m_i})$ es un subespacio simpl\'ectico invariante bajo $f$, y
+\[
+V=V_1\oplus\ldots\oplus V_r.
+\]
+\end{prop}
+
+\dem La descomposici\'on $V=V_1\oplus\ldots\oplus V_r$ como suma directa de subespacios invariantes bajo $f$ es consecuencia directa de Propiedad \ref{prodescomp}, y al considerar tambi\'en la afirmaci\'on 2. del lema anterior obtenemos que la proyecci\'on sobre cada uno de estos subespacios es auto-adjunta. La primera afirmaci\'on del mismo lema implica que cada uno de estos $V_i$, $i=1,\ldots,r$, es un subespacio simpl\'ectico.\qed
+

@@ -1,0 +1,624 @@
+\chapter{Espacios eucl\'ideos}
+
+Sea $V$ un espacio vectorial sobre $\mathbb{R}$.
+
+\section{Producto interno}
+
+\begin{defn}
+Un \emph{producto interno} en $V$ es una funci\'on
+\begin{eqnarray*}
+\langle\bullet,\bullet\rangle: V\times V & \longrightarrow & \mathbb{R}\\
+(v_1,v_2) & \longmapsto & \langle v_1;v_2\rangle
+\end{eqnarray*}
+tal que:
+\begin{enumerate}
+\item \emph{es bilineal}: para todo $v,v_1,v_2\in V$ y $c\in\mathbb{R}$
+\begin{eqnarray*}
+\langle v_1+v_2;v\rangle & = & \langle v_1;v\rangle+\langle v_2;v\rangle\\
+\langle cv_1;v_2\rangle & = & c\langle v_1;v_2\rangle\\
+\langle v;v_1+v_2\rangle & = & \langle v;v_1\rangle + \langle v;v_2\rangle\\
+\langle v_1;cv_2\rangle & = & c\langle v_1;v_2\rangle;
+\end{eqnarray*}
+\item \emph{es sim\'etrica}: para todo $v_1,v_2\in V$
+\[
+\langle v_2;v_1\rangle=\langle v_1;v_2\rangle;
+\]
+\item \emph{es definitivamente positiva} para todo $v\in V$, $v\ne 0$,
+\[
+\langle v;v\rangle>0.
+\]
+\end{enumerate}
+Un \emph{espacio eucl\'ideo} es un espacio vectorial sobre $\mathbb{R}$ provisto de un producto interno. 
+\end{defn}
+
+
+\begin{obs}
+Se sigue que $\langle v;v \rangle=0$ si y solo si $v=0$.
+\end{obs}
+
+\begin{ejem}
+\begin{enumerate}
+\item Sobre $V=\mathbb{R}^n$,
+\[
+\langle (x_1,\ldots,x_n);(y_1,\ldots,y_n)\rangle =\sum_{i=1}^n x_iy_i.
+\]
+\item Sobre $V=M_{n\times n}(\mathbb{R})$,
+\[
+\langle A; B\rangle=\tr(B^\intercal A).
+\]
+\item Sea $[a,b]\subseteq\mathbb{R}$ un intervalo cerrado. Sobre $V=C^0[a,b]$, el conjunto de funciones continuas $[a,b]\rightarrow\mathbb{R}$,
+\[
+\langle f;g \rangle=\int_a^bf(x)g(x)dx.
+\]
+\end{enumerate}
+\end{ejem}
+
+\begin{defn}
+Dado un espacio eucl\'ideo $V$, definimos la norma de $v\in V$ por $\|v\|=\sqrt{\langle v;v\rangle}$.
+\end{defn}
+
+\begin{pro}
+Sea $V$ un espacio eucl\'ideo, entonces:
+\begin{enumerate}
+\item $\|cv\|=|c|\|v\|$, para todo $c\in\mathbb{R}$ y $v\in V$;
+\item \emph{Desigualdad de Cauchy-Schwarz}: $|\langle v_1;v_2\rangle|\le\|v_1\|\|v_2\|$, para todo $v_1,v_2\in V$, m\'as a\'un se tiene $|\langle v_1;v_2\rangle|=\|v_1\|\|v_2\|$ \'unicamente cuando $\{v_1,v_2\}$ es linealmente dependiente; y,
+\item \emph{Desigualdad triangular}: $\|v_1+v_2\|\le \|v_1\|+\|v_2\|$, para todo $v_1,v_2\in V$, m\'as a\'un se tiene $\|v_1+v_2\|= \|v_1\|+\|v_2\|$ si y solo si $av_1=bv_2$ con $a,b\ge 0$.
+\end{enumerate}
+\end{pro}
+
+\dem\begin{enumerate}
+\item Dados $c\in\mathbb{R}$ y $v\in V$
+\[
+\|cv\|=\sqrt{\langle cv;cv\rangle}=\sqrt{c^2\langle v;v\rangle}=|c|\sqrt{\langle v;v\rangle}=|c|\|v\|.
+\]
+\item Si $v_1=0$ o $v_2=0$ tenemos $0=|\langle v_1,v_2\rangle|=\|v_1\|\|v_2\|$. En el caso general, para todo $a,b\in\mathbb{R}$,
+\begin{eqnarray*}
+0 \le \|av_1-bv_2\|^2 & = & \langle av_1-bv_2 , av_1-bv_2\rangle\\
+   & = & a^2\langle v_1, v_1\rangle-ab\langle v_2, v_1\rangle-ab\langle v_1, v_2\rangle+b^2\langle v_2, v_2\rangle\\
+   & = & a^2\|v_1\|^2-2ab\langle v_1, v_2\rangle+b^2\|v_2\|^2.
+\end{eqnarray*}
+Si suponemos ahora que $v_2\ne 0$, es decir $\|v_2\|^2>0$, y $a\ne 0$, dividiendo por $a^2$, obtenemos as\'i una expresi\'on cuadr\'atica en $b/a$, p\'ositiva o nula para todo valor, luego su discriminante satisface
+\[
+4\langle v_1,v_2\rangle^2-4\|v_1\|^2\|v_2\|^2\le 0
+\]
+Lo cual implica la desigualdad deseada. Igualmente, esta expresi\'on cuadr\'atica se anula, es decir $av_1-bv_2=0$ para alg\'un $a,b\in\mathbb{R}$, si y solo si su discrimante es cero, es decir si y solo si $\langle v_1,v_2\rangle^2=\|v_1\|^2\|v_2\|^2$.
+\item Tomando $a=1$ y $b=-1$ en la expresi\'on arriba, obtenemos
+\[
+\|v_1+v_2\|^2=\|v_1\|^2+2\langle v_1; v_2\rangle+\|v_2\|^2;
+\]
+y la desigualdad de Cauchy-Schwarz implica
+\[
+\|v_1+v_2\|^2\le\|v_1\|^2+2\|v_1\|\|v_2\|+\|v_2\|^2=(\|v_1\|+\|v_2\|)^2
+\]
+que es equivalente a la desigualdad afirmada. Se obtiene una igualdad en la desigualdad triangular si y solo si $\langle v_1, v_2\rangle=\|v_1\|\|v_2\|$, lo cual equivale a $av_1-bv_2=0$ donde $a=\|v_2\|$ y $b=\|v_1\|$.\qed
+\end{enumerate}
+
+\begin{obs}
+En vista de la desigualdad de Cauchy-Schwarz, es usual definir el \'angulo entre $v_1$ y $v_2$ por $\theta=\arccos\left(\langle v_1;v_2\rangle/\|v_1\|\|v_2\|\right)$, siempre que $v_1\ne 0$ y $v_2\ne 0$. La direcci\'on, o el signo, del \'angulo no se puede definir intr\'insecamente a partir del producto interno, hace falta definir una orientaci\'on. Con est\'a definici\'on del \'angulo entre dos elementos distintos del origen en un espacio eucl\'ideo, se empata con la definici\'on cl\'asica, seg\'un la cual
+\[
+\langle v_1;v_2\rangle=\|v_1\|\|v_2\|\cos\theta.
+\]
+cuando $v_1\ne 0$ y $v_2\ne 0$. El caso particular de mayor inter\'es es naturalmente cuando existe una relaci\'on de ortogonalidad entre $v_1$ y $v_2$.
+\end{obs}
+
+\begin{defn}
+Sea $V$ un espacio eucl\'ideo y $S\subseteq V$. Decimos que $S$ es \emph{ortogonal} si $\langle v_1;v_2\rangle=0$ para todo $v_1,v_2\in T$ tales que $v_1\ne v_2$. Si adem\'as $\|v\|=1$ para todo $v\in S$, decimos que $S$ es \emph{ortonormal}.
+\end{defn}
+
+\begin{obs}\label{ortokro}
+Note que $S=\{v_i\}_{i\in I}$ es ortonormal si y solo si
+\[
+\langle v_i;v_j\rangle=\delta_{ij}.
+\]
+para todo $i,j\in I$.
+\end{obs}
+
+\begin{pro}\label{ortlinind}
+Sea $V$ un espacio eucl\'ideo. Si $S\subset V$ es ortogonal, y $0\not\in S$, entonces $S$ es linealmente independiente.
+\end{pro}
+
+\dem Suponga que $v_1,\ldots,v_n\in S$ y $a_1,\ldots,a_n\in S$ son tales que
+\[
+a_1v_1+\ldots+a_nv_n=0.
+\]
+Entonces, para $i=1,\ldots,n$,
+\[
+0=\langle 0;v_i\rangle=\langle a_1v_1+\cdots+a_nv_n;v_i\rangle=a_1\langle v_1;v_i\rangle+\ldots+a_n\langle v_n;v_i\rangle=a_i\|v_i\|^2,
+\]
+pero $v_i\ne 0$ pues $0\not\in S$, luego $\|v_i\|^2\ne 0$, y as\'i $a_i=0$.\qed
+
+\begin{teo}[Ortogonalizaci\'on de Gram-Schmidt]\label{gramsch}
+Sea $V$ un espacio eucl\'ideo. Suponga que $V$ tiene dimensi\'on finita, entonces $V$ tiene una base ortonormal. M\'as a\'un, si $\{v_1,\ldots,v_n\}$ es una base de $V$, existe una base ortonormal $\{u_1,\ldots,u_n\}$ de $V$ tal que para $k=1,\ldots,n$
+\[
+\langle v_1,\ldots,v_k\rangle=\langle u_1,\ldots,u_k\rangle.
+\]
+\end{teo}
+
+\dem Sea $\{v_1,\ldots,v_n\}$ una base de $V$, definimos recursivamente $\{v'_1,\ldots,v'_n\}$ por
+\begin{eqnarray*}
+v'_1 & = & v_1\\
+v'_{k+1} & = & v_{k+1}-\sum_{i=1}^k\frac{\langle v_{k+1};v'_i\rangle}{\|v'_i\|^2} v'_i.
+\end{eqnarray*}
+Veamos que $\{v'_1,\ldots,v'_n\}$ es ortogonal. Para esto, basta establecer por inducci\'on que, si $1\le k< n$, entonces $\langle v'_{k+1};v'_j\rangle=0$ para $1\le j\le k$. Para el caso base, $k=1=j$ y
+\begin{eqnarray*}
+\langle v'_2;v'_1\rangle & = & \langle v_2;v'_1\rangle-\frac{\langle v_2;v'_1\rangle}{\|v'_1\|^2} \langle v'_1;v'_1\rangle\\
+  & = & \langle v_2,v'_1\rangle-\langle v_2;v'_1\rangle\\
+  & = & 0.
+\end{eqnarray*}
+Para el paso inductivo, asumimos que $\langle v'_i;v'_j\rangle=0=\langle v'_j;v'_i\rangle$, siempre que $1\le i<j\le k$, de tal forma que si $1\le j\le k$,
+\begin{eqnarray*}
+\langle v'_{k+1};v'_j\rangle & = & \langle v_{k+1}; v'_j\rangle-\sum_{i=1}^k\frac{\langle v_{k+1};v'_i\rangle}{\|v'_i\|^2}\langle v'_i; v'_j\rangle\\
+ & = & \langle v_{k+1}; v'_j\rangle-\frac{\langle v_{k+1};v'_j\rangle}{\|v'_j\|^2}\langle v'_j; v'_j\rangle\\
+ & = & \langle v_{k+1}; v'_j\rangle-\langle v_{k+1}; v'_j\rangle\\
+ & = & 0
+\end{eqnarray*}
+Adem\'as recursivamente vemos que
+\begin{eqnarray*}
+\langle v_1\rangle & = & \langle v'_1\rangle \\
+\langle v_1,\ldots,v_{k+1}\rangle & = & \langle v'_1,\ldots,v'_{k+1}\rangle
+\end{eqnarray*}
+pues $v_{k+1}-v'_{k+1}\in\langle v'_1,\ldots,v'_k\rangle=\langle v_1,\ldots,v_k\rangle$. Note que, como $\{v_1,\ldots,v_n\}$ es linealmente independiente, entonces $v_{k+1}\not\in\langle v_1,\ldots,v_k\rangle=\langle v'_1,\ldots,v'_k\rangle$, luego $v'_{k+1}\not\in\langle v'_1,\ldots,v'_k\rangle$ y as\'i, para $i=1,\ldots,n$, $v'_i\ne 0$. De donde, como $\{v'_1,\ldots,v'_n\}$ es ortogonal y no contiene al origen, es un conjunto linealmente independiente con el mismo n\'umero de elementos que la dimensi\'on de $V$, entonces es una base de $V$.\\
+Finalmente, para obtener la base ortonormal basta tomar, para $i=1,\ldots,n$,
+\[
+u_i=\frac{1}{\|v'_i\|}v'_i.
+\]
+Tenemos para $k=1,\ldots,n$
+\[
+\langle v_1,\ldots,v_k\rangle=\langle v'_1,\ldots,v'_k\rangle=\langle u_1,\ldots,u_k\rangle.
+\]
+\qed
+
+\begin{pro}\label{coorortonor}
+Sea $V$ un espacio eucl\'ideo. Suponga que $V$ tiene dimensi\'on finita y $\{u_1,\ldots,u_n\}$ es una base ortonormal de $V$, entonces para todo $v\in V$
+\[
+v=\sum_{i=1}^n\langle v;u_i\rangle u_i.
+\]
+En particular, si $v_1,v_2\in V$ son tales que
+\[
+v_1=\sum_{i=1}^nx_iu_i\qquad v_2=\sum_{i=1}^ny_iu_i,
+\]
+entonces
+\[
+\langle v_1;v_2\rangle=\sum_{i=1}^nx_iy_i.
+\]
+\end{pro}
+
+\dem Como $\{u_1,\ldots,u_n\}$ es base, existen $a_1,\ldots,a_n\in K$ tal que $v=\sum_{i=1}^na_iu_i$. De esta forma, para $j=1,\ldots,n$, 
+\[
+\langle v;u_j\rangle=\sum_{i=1}^na_i\langle u_i;u_j\rangle=\sum_{i=1}^n a_i\delta_{ij}=a_j
+\]
+(ver Observaci\'on \ref{ortokro}). Finalmente,
+\[
+\langle v_1;v_2\rangle=\langle\sum_{i=1}^nx_iu_i;\sum_{j=1}^ny_ju_j\rangle=\sum_{i=1}^n\sum_{j=1}^nx_iy_j\delta_{ij}=\sum_{i=1}^nx_iy_i.
+\]
+\qed
+
+\begin{obs}\label{prodort}
+Si $\mathcal{B}=\{u_1,\ldots,u_n\}$ es una base ortonormal de $V$, la propiedad anterior implica que para todo $v_1,v_2\in V$ tenemos
+$$\langle v_1;v_2\rangle=\left(\big[v_2\big]^{\mathcal{B}}\right)^\intercal\big[v_1\big]^{\mathcal{B}}$$
+\end{obs}
+
+\begin{defn}
+Sean $V$ un espacio eucl\'ideo y $S\subseteq V$, el \emph{conjunto ortogonal} a $S$ est\'a definido por
+\[
+S^\perp=\{v\in V|\ \langle v;u\rangle=0, \textrm{ para todo } u\in S\}
+\]
+\end{defn}
+
+\begin{pro}\label{ortsubesp}
+Sean $V$ un espacio eucl\'ideo y $S\subseteq V$, entonces $S^\perp\le V$.
+\end{pro}
+
+\dem Como $\langle 0,v\rangle=0$ para todo $v\in V$, $0\in S^\perp$. Tome ahora $v_1,v_2,v\in S^\perp$ y $a\in\mathbb{R}$, entonces para todo $u\in S$
+\begin{eqnarray*}
+\langle v_1+v_2;u\rangle & = & \langle v_1;u\rangle+\langle v_2;u\rangle=0\\
+\langle av;u\rangle & = & a\langle v;u\rangle=0 
+\end{eqnarray*}
+luego $v_1+v_2\in S^\perp$ y $av\in S^\perp$; as\'i, $S^\perp$ es un subespacio de $V$.\qed
+
+\begin{teo}\label{complort}
+Sea $V$ un espacio eucl\'ideo. Suponga que $V$ tiene dimensi\'on finita y sea $U\le V$, entonces
+\[
+V=U\oplus U^\perp
+\]
+\end{teo}
+
+\dem Sean $n=\dim(V)$, $m=\dim(U)$ y $\{v_1,\ldots,v_n\}$ una base de $V$ tal que $\{v_1,\ldots,v_m\}$ es una base de $U$. Sea $\{u_1,\ldots,u_n\}$ la base obtenida mediante ortogonalizaci\'on a partir de $\{v_1,\ldots,v_n\}$. En particular $U=\langle u_1,\ldots,u_m\rangle$ y $\langle u_{m+1},\ldots,u_n\rangle\le U^\perp$. Tome $v\in U^\perp$, tenemos
+\[
+v=\sum_{i=1}^n\langle v;u_i\rangle u_i=\sum_{i=m+1}^n\langle v;u_i\rangle u_i,
+\]
+luego $v\in\langle u_{m+1},\ldots,u_n\rangle$. Entonces $U^\perp=\langle u_{m+1},\ldots,u_n\rangle$ y $V=U\oplus U^\perp$.\qed
+
+\begin{defn}
+Sea $V$ un espacio eucl\'ideo de dimensi\'on finita y $U\le V$. Llamamos a $U^\perp$ el \emph{complemento ortogonal de $U$}. A la proyecci\'on
+\[
+p^\perp_U:V\longrightarrow V
+\]
+sobre $U$, definida por la descomposici\'on $V=U\oplus U^\perp$ la llamamos \emph{proyecci\'on ortogonal sobre $U$}.
+\end{defn}
+
+\begin{pro}
+Sea $V$ un espacio eucl\'ideo de dimensi\'on finita, $\dim(V)=n$,  y $\langle v_1,\ldots,v_m\rangle=U\le V$. Si $\mathcal{B}$ es una base ortonormal de $V$ y $\{v_1,\ldots,v_m\}$ es linealmente independiente entonces
+$$ \Big[p^\perp_U\Big]^{\mathcal{B}}_{\mathcal{B}}=A(A^\intercal A)^{-1}A^\intercal $$
+donde $A\in M_{n\times m}(\mathbb{R})$ es la matrix cuya $j$-\'esima columna es $\Big[v_j\Big]^\mathcal{B}$, $j=1,\ldots,n$.
+\end{pro}
+
+\dem Para todo $v\in V$ tenemos $p^\perp_U(v)\in U$ luego existe un \'unico $\overline{c}_v\in M_{m\times 1}(\mathbb{R})$ tal que
+$$\Big[p^\perp_U(v)\Big]^\mathcal{B}=Ac_v$$
+Si $P=\Big[p^\perp_U\Big]^\mathcal{B}$, y $\overline{x}=\Big[v\Big]^\mathcal{B}$ entonces
+$$P\overline{x}=A\overline{c}_v.$$
+Ahora como $v-p^\perp_U(v)\in U^\perp$ entonces $\langle v-p^\perp_U(v);v_j\rangle=0$ para $j=1,\ldots,n$ luego (ver Observaci\'on \ref{prodort})
+$$\left(\Big[v_j\Big]^\mathcal{B}\right)^\intercal (\overline{x}-A\overline{c}_v)=0$$
+y
+\begin{align*}
+0 &= A^\intercal(\overline{x}-A\overline{c}_v)\\
+ &= A^\intercal\overline{x}-A^\intercal A\overline{c}_v
+\end{align*}
+Veamos que $A^\intercal A\in M_{m\times m}(\mathbb{R})$ es invertible. De hecho, si $\{u_1,\ldots,u_m\}$ es una base ortonormal de $U$ y $c_{ij}\in\mathbb{R}$, $i,j=1,\ldots,m$, son tales que
+$$u_j=c_{1j}v_1+\ldots+c_{mj}v_m,\quad j=1,\ldots,m$$
+y $C=(c_{ij})$ entonces $C\in M_{m\times m}(\mathbb{R})$ es invertible y la $j$-\'esima columna de $AC$ es $\Big[u_j\Big]^\mathcal{B}$. As\'i
+$$I_m=(AC)^\intercal AC=C^\intercal A^\intercal A C$$
+y $A^\intercal A=(CC^\intercal)^{-1}$, luego $A^\intercal A$ es invertible. Tenemos entonces
+\begin{align*}
+\overline{c}_v & = (A^\intercal A)^{-1}A\overline{x}\\
+A\overline{c}_v & =  A(A^\intercal A)^{-1}A\overline{x}\\
+P\overline{x} & =  A(A^\intercal A)^{-1}A\overline{x}\\
+\end{align*}
+y se sigue $P=A(A^\intercal A)^{-1}A^\intercal$.\qed
+\begin{pro}\label{proyautoadj}
+Sea $V$ un espacio eucl\'ideo. Suponga que $V$ tiene dimensi\'on finita y sea $U\le V$. Tenemos para todo $v_1,v_2\in V$
+\[
+\langle p^\perp_U(v_1);v_2\rangle=\langle v_1;p^\perp_U(v_2)\rangle.
+\]
+Si $\{u_1,\ldots,u_m\}$ es una base ortonormal de $U$ entonces para todo $v\in V$
+\[
+p^\perp_U(v)=\sum_{i=1}^m\langle v;u_i\rangle u_i.
+\]
+\end{pro}
+
+\dem Sea $v'_1,v'_2\in U^\perp$ tales que
+\[
+v_1=p^\perp_U(v_1)+v'_1 \qquad v_2=p^\perp_U(v_2)+v'_2.
+\]
+Entonces
+\begin{eqnarray*}
+\langle p^\perp_U(v_1);v_2\rangle & = & \langle p^\perp_U(v_1);p^\perp_U(v_2)\rangle+\langle p^\perp_U(v_1);v'_2\rangle=\langle p^\perp_U(v_1);p^\perp_U(v_2)\rangle\\
+\langle v_1;p^\perp_U(v_2)\rangle & = & \langle p^\perp_U(v_1);p^\perp_U(v_2)\rangle+\langle v'_1;p^\perp_U(v_2)\rangle=\langle p^\perp_U(v_1);p^\perp_U(v_2)\rangle.
+\end{eqnarray*}
+Finalmente, si completamos la base ortonormal $\{u_1,\ldots,u_m\}$ de $U$ a una base ortonormal $\{u_1,\ldots,u_n\}$ de $V$,
+\[
+v=\underbrace{\sum_{i=1}^m\langle v;u_i\rangle u_i}_{\in U}+\underbrace{\sum_{i=m+1}^n\langle v;u_i\rangle u_i}_{\in U^\perp}.
+\]
+\qed
+
+\begin{obs}
+Los operadores sobre un espacio eucl\'ideo que, como la proyecci\'on ortogonal, pasan de un lado al otro del producto interno tienen varias propiedades, la m\'as importante de ellas es que son diagonalizables, el cual es el contenido del Teorema Espectral. Antes de establecer este resultado, necesitamos elaborar la teor\'ia de los operadores adjuntos.
+\end{obs}
+
+\section{Operador adjunto}
+
+Sea $V$ un espacio eucl\'ideo y $f\in\Hom_\mathbb{R}(V,V)$ un operador.
+
+\begin{defn}
+Sea $g\in\Hom_\mathbb{R}(V,V)$, decimos que $g$ es un \emph{operador adjunto de $f$} si para todo $v_1,v_2\in V$
+\[
+\langle g(v_1);v_2 \rangle=\langle v_1;f(v_2)\rangle.
+\]
+Decimos que $f$ es \emph{auto-adjunto} si $f$ es un operador adjunto de $f$. 
+\end{defn}
+
+\begin{obs}
+Note que si $g$ es adjunto de $f$, entonces $f$ es adjunto de $g$. De hecho
+\[
+\langle f(v_1);v_2\rangle= \langle v_2;f(v_1)\rangle= \langle g(v_2);v_1\rangle= \langle v_1;g(v_2)\rangle
+\]
+\end{obs}
+
+\begin{prop}\label{adjtras}
+Suponga que $V$ tiene dimensi\'on finita, entonces existe un \'unico operador $g\in\Hom_{R}(V,V)$ adjunto de $f$. M\'as a\'un, si $\mathcal{B}=\{u_1,\ldots,u_n\}$ es una base ortonormal de $V$, entonces
+\[
+\Big[g\Big]^\mathcal{B}_\mathcal{B}=\left(\Big[f\Big]^\mathcal{B}_\mathcal{B}\right)^\intercal
+\]
+\end{prop}
+
+\dem Defina el operador $g\in\Hom_\mathbb{R}(V,V)$ por la imagen de la base $\mathcal{B}$:
+\[
+g(u_j)=\sum_{i=1}^n\langle u_j;f(u_i)\rangle u_i.
+\]
+De esta forma
+\[
+\langle g(u_j);u_i\rangle=\langle u_j;f(u_i)\rangle
+\]
+y por bilinearidad del producto interno, $g$ es adjunto de $f$. Por otro lado si, $h\in\Hom_\mathbb{R}(V,V)$ es adjunto de $f$, por Propiedad \ref{coorortonor},
+\begin{eqnarray*}
+h(u_j) & = & \sum_{i=1}^n \langle h(u_j);u_i\rangle u_i\\
+         & = & \sum_{i=1}^n \langle u_j;f(u_i)\rangle u_i\\
+         & = & g(u_j),
+\end{eqnarray*}
+luego $h=g$.\\
+Ahora, para ver que la representaci\'on matricial de $g$ respecto a $\mathcal{B}$ es la traspuesta de la de $f$ basta observar que
+\begin{eqnarray*}
+\Big[g\Big]^{\mathcal{B}}_{\mathcal{B},(j,i)} & = & \Big[g(u_i)\Big]^{\mathcal{B}}_j\\
+  & = & \langle g(u_i);u_j \rangle\\
+  & = & \langle u_i;f(u_j) \rangle\\
+  & = & \langle f(u_j);u_i\rangle\\
+  & = & \Big[f(u_j)\Big]^{\mathcal{B}}_i\\
+  & = & \Big[f\Big]^{\mathcal{B}}_{\mathcal{B},(i,j)}
+\end{eqnarray*}
+\qed
+
+\begin{nota}
+Si $V$ tiene dimensi\'on finita, a la adjunta de $f$ la denotaremos por $f^*$.
+\end{nota}
+
+\begin{obs}
+En particular $(f^*)^*=f$. Note que la notaci\'on de la adjunta es la misma que la notaci\'on para transformaci\'on dual. Mientras que la adjunta sigue siendo un operador de $V$, el dual de un operador es un operador en $V^*$. Confundir las dos notaciones tiene su fundamento en la siguiente propiedad.
+\end{obs}
+
+\begin{pro}
+El mapa
+\begin{eqnarray*}
+\imath: V & \longrightarrow & V^*\\
+            v & \longmapsto & \imath_v=\langle \bullet; v\rangle: v'\mapsto\langle v';v\rangle
+\end{eqnarray*}
+es una transformaci\'on lineal inyectiva, la cual es un isomorfismo si $V$ tiene dimensi\'on finita.
+\end{pro}
+
+\dem Por la linearidad en el segundo factor del producto interno, $\imath$ es una transformaci\'on lineal. Suponga ahora que $\imath_v=0$, en particular $0=\imath_v(v)=\langle v,v \rangle=\|v\|^2$, luego $v=0$ y as\'i $\imath$ es inyectiva. Finalmente como $\dim(V)=\dim(V^*)$ cuando $V$ tiene dimensi\'on finita, entonces $\imath$ en este caso tambi\'en es sobreyectiva, y es un isomorfismo.
+
+\begin{prop}
+Suponga que $V$ tiene dimensi\'on finita y sea
+\begin{eqnarray*}
+\widehat{\bullet}: V & \longrightarrow & \left(V^*\right)^*\\
+                            v &\longmapsto &\widehat{v}:\lambda\mapsto\lambda(v).
+\end{eqnarray*}
+el isomorfismo can\'onico. Entonces para todo $v\in V$
+\[
+\imath^*(\widehat{v})=\imath(v).
+\]
+\end{prop}
+
+\dem Para todo $v'\in V$
+\begin{eqnarray*}
+\imath^*(\widehat{v})(v')  & = & \widehat{v}(\imath(v'))\\
+  & = & \imath(v')(v)\\
+  & = & \langle v;v'\rangle\\
+  & = & \langle v';v\rangle\\
+  & = & \imath(v)(v').
+\end{eqnarray*}
+\qed
+
+\begin{obs}
+Note que si $V$ tiene dimensi\'on finita, para todo $v'\in V$,
+\begin{eqnarray*}
+f^*(\imath_v)(v') & = & \imath_v\left(f(v')\right)\\
+   & = & \langle f(v');v \rangle\\
+   & = & \langle v';f^*(v)\rangle\\
+   & = & \imath_{f^*(v)}(v')
+\end{eqnarray*}
+luego $f^*(\imath_v)=\imath_{f^*(v)}$, es decir
+\[
+f^*\circ \imath=\imath \circ f^*,
+\]
+lo cual justifica la confusi\'on entre las dos notaciones de dual y adjunto (en la \'ultima igualdad, $f^*$ a la izquierda es el dual de $f$, mientras que a la derecha es el adjunto); pues, a trav\'es del isomorfismo $\imath$, ambos conceptos coinciden.
+\end{obs}
+
+\begin{obs}
+Suponga que $V$ tiene dimensi\'on finita y sean $\mathcal{B}=\{v_1,\ldots,v_m\}$ una base de $V$ y $\mathcal{B}^*=\{\lambda_1,\ldots,\lambda_m\}$ la base de $V^*$ dual de $\mathcal{B}$. Tomamos la imagen de $\mathcal{B}$ mediante el isomorfismo can\'onico $V\mapsto \left(V^*\right)^*$, la cual es la base $\widehat{\mathcal{B}}=\{\widehat{v_1},\ldots,\widehat{v_m}\}$ de $\left(V^*\right)^*$ dual de $\mathcal{B}^*$. La proposici\'on anterior implica que si tomamos las representaciones matriciales en $M_{m\times m}(\mathbb{R})$
+\[
+A=\Big[\imath\Big]^{\mathcal{B}^*}_{\mathcal{B}},\textrm{ y } B=\Big[\imath^*(\widehat{\bullet})\Big]^{\mathcal{B}^*}_{\mathcal{B}}=\Big[\imath^*\Big]^{\mathcal{B}^*}_{\widehat{\mathcal{B}}}\Big[\widehat{\bullet}\Big]^{\widehat{\mathcal{B}}}_\mathcal{B}=\Big[\imath^*\Big]^{\mathcal{B}^*}_{\widehat{\mathcal{B}}}, 
+\]
+entonces $B=A$, pero por otro lado $B=A^\intercal$, luego $A^\intercal=A$.
+Es decir, la representaci\'on matricial de $\imath$ respecto a una base y su dual es sim\'etrica.
+\end{obs}
+
+\begin{obs}
+Note que si $V$ tiene dimensi\'on finita, $f^*\circ f$ es auto-adjunta, de hecho para todo $v_1,v_2\in V$
+\[
+\langle f^*\circ f(v_1);v_2\rangle=\langle f(v_1);f(v_2)\rangle=\langle v_1;f^*\circ f(v_2)\rangle
+\]
+\end{obs}
+
+\begin{prop}
+Si $V$ tiene dimensi\'on finita, las siguientes dos propiedades son equivalentes:
+\begin{enumerate}
+\item $f$ es auto-adjunta; y,
+\item la representaci\'on matricial de $f$ respecto a toda base ortonormal es sim\'etrica.
+\end{enumerate}
+\end{prop}
+
+\dem Proposici\'on \ref{adjtras} implica que si $f$ es auto-adjunta, su representaci\'on matricial respecto a una base ortogonal es sim\'etrica. Para obtener el converso, tomamos una base ortonormal de $V$, $\mathcal{B}=\{u_1,\ldots,u_n\}$ y asumimos que $\Big[f\Big]^\mathcal{B}_\mathcal{B}$ es sim\'etrica, es decir para todo $i,j\in\{1,\ldots,n\}$
+\[
+\langle f(u_j);u_i \rangle= \Big[f\Big]^\mathcal{B}_{\mathcal{B},(i,j)}= \Big[f\Big]^\mathcal{B}_{\mathcal{B},(j,i)}= \langle f(u_i);u_j \rangle,
+\]
+luego
+\[
+\langle f(u_j);u_i \rangle=\langle f(u_i);u_j \rangle=\langle u_j;f(u_i) \rangle
+\]
+lo cual, por bilinearidad del producto interno, implica que $f$ es auto-adjunta.\qed
+
+\begin{obs}
+Nos disponemos ahora a estudiar la descomposici\'on de Jordan-Chevalley de los operadores auto-adjuntos. El ingrediente fundamental ser\'a establecer que las partes diagonalizable y nilpotente son en este caso tambi\'en auto-adjuntos. 
+\end{obs}
+
+\begin{lema} Suponga que $f$ es auto-adjunto, entonces
+\begin{enumerate}
+\item Para todo $P(t)\in\mathbb{R}[t]$, $P(f)$ es auto-adjunto;
+\item si $f$ es nilpotente, $f=0$; y,
+\item si $v_1,v_2\in V$ son vectores propios asociados a valores propios distintos, entonces $\langle v_1,v_2\rangle=0$.
+\end{enumerate}
+\end{lema}
+
+\dem
+\begin{enumerate}
+\item Note primero que para todo $v_1,v_2\in V$, recursivamente establecemos que para $k\in\mathbb{Z}_{\ge 0}$,
+\[
+\langle f^i(v_1);v_2\rangle = \langle v_1;f^i(v_2)\rangle.
+\]
+Ahora, si $P(t)=\sum_{k=0}^na_kt^k$ entonces para todo $v_1,v_2\in V$
+\begin{eqnarray*}
+\langle P(f)(v_1);v_2 \rangle & = & \langle \sum_{k=0}^na_kf^k(v_1); v_2 \rangle\\
+ & = & \sum_{k=0}^n a_k\langle f^k(v_1);v_2\rangle\\
+ & = & \sum_{k=0}^n a_k\langle v_1;f^k(v_2)\rangle\\
+ & = & \langle v_1;\sum_{k=0}^na_kf^k(v_2)\rangle\\
+ & = & \langle v_1;P(f)(v_2)\rangle.
+\end{eqnarray*}
+\item Sea $r\in\mathbb{Z}_{>0}$ el grado de nilpotencia de $f$. Asuma por contradicci\'on que $r>1$, luego $r\ge 2$, y existe $v\in V$ tal que $f^{r-1}(v)\ne 0$; pero en tal caso
+\[
+\| f^{r-1}(v)\|^2=\langle f^{r-1}(v);f^{r-1}(v) \rangle=\langle f^r(v);f^{r-2}(v)\rangle=\langle 0;f^{r-2}(v)\rangle=0
+\]
+luego $f^{r-1}(v)=0$, lo cual contradice la elecci\'on de $v$. Luego $r=1$ y as\'i $f=0$.
+\item Sean $\lambda_1,\lambda_2\in\mathbb{R}$, $\lambda_1-\lambda_2\ne 0$, tales que $f(v_1)=\lambda_1v_1$ y $f(v_2)=\lambda_2v_2$. As\'i
+\[
+\lambda_1\langle v_1;v_2\rangle=\langle\lambda_1v_1;v_2\rangle=\langle f(v_1);v_2\rangle=\langle v_1;f(v_2)\rangle=\langle v_1;\lambda_2v_2\rangle=\lambda_2\langle v_1;v_2\rangle,
+\]
+luego
+\[
+(\lambda_1-\lambda_2)\langle v_1;v_2\rangle=0,
+\]
+pero como $\lambda_1-\lambda_2\ne 0$, $\langle v_1;v_2\rangle=0$.\qed
+\end{enumerate}
+
+\begin{teo}[Teorema Espectral]\label{teoesp} Suponga que $V$ tiene dimensi\'on finita, $f$ es auto-adjunta y que
+\[
+P_f(t)=(t-\lambda_1)^{m_1}(t-\lambda_2)^{m_2}\ldots(t-\lambda_r)^{m_r}, \quad \lambda_1,\lambda_2,\ldots,\lambda_r\in \mathbb{R}.
+\]
+entonces existe una base ortonormal $\mathcal{B}=\{u_1,\ldots,u_n\}$ de $V$ tal que $\Big[f\Big]^\mathcal{B}_\mathcal{B}$ es diagonal.
+\end{teo}
+
+\dem Por Teorema \ref{descjorche} existen $P_D(t),P_N(t)\in\mathbb{R}[t]$, tales que si $f_D=P_D(f)$ y $f_N=P_N(f)$ entonces $f=f_D+f_N$ es la descomposici\'on de Jordan-Chevalley, es decir $f_D$ es diagonalizable y $f_N$ nilpontente y estas conmutan. Ahora, por el lema, $f_N$ es auto-adjunta y as\'i, como es nilpotente, $f_N=0$. Luego $f=f_D$ es diagonalizable. Para $i=1,\ldots,r$, denote $V_i$ el espacio generado por los vectores propios de $f$ asociados a $\lambda_i$, es decir
+\[
+V_i=\{v\in V|\ f(v)=\lambda_iv\},
+\]
+de forma que, como $f$ es diagonalizable,
+\[
+V=V_1\oplus\ldots\oplus V_r.
+\]
+Por el lema tambi\'en sabemos que si $v_i\in V_i$ y $v_j\in V_j$, $i\ne j$, tenemos $\langle v_i;v_j \rangle=0$, luego si $\mathcal{B}_1,\ldots,\mathcal{B}_r$ son respectivamente bases ortonormales de $V_1,\ldots,V_r$,
+\[
+\mathcal{B}=\mathcal{B}_1\cup\ldots\cup \mathcal{B}_r
+\]
+es una base ortonormal de $V$ formada por vectores propios de $f$, en particular, $\Big[f\Big]^\mathcal{B}_\mathcal{B}$ es diagonal.\qed
+
+\begin{obs}
+M\'as adelante, cuando estudiemos la versi\'on compleja del teorema espectral, veremos que el polinomio caracter\'istico de un operador auto-adjunto sobre un espacio eucl\'ideo de dimensi\'on finita siempre se puede factorizar en factores lineales en $\mathbb{R}[t]$, lo cual a su vez implicar\'a que estos operadores son siempre diagonalizables mediante una base ortonormal. Estudiemos ahora con m\'as detalle este tipo bases.
+\end{obs}
+
+\section{Operadores ortogonales}
+
+Sea $V$ un espacio eucl\'ideo y $f\in\Hom_\mathbb{R}(V,V)$ un operador.
+
+\begin{defn}
+Decimos que $f$ es un \emph{operador ortogonal} si para todo $v_1,v_2\in V$
+\[
+\langle f(v_1);f(v_2) \rangle =\langle v_1;v_2\rangle.
+\]
+\end{defn}
+
+\begin{obs}
+Tenemos
+\begin{eqnarray*}
+\|v_1+v_2\|^2 & = & \langle v_1+v_2;v_1+v_2 \rangle\\
+ & = & \langle v_1;v_1\rangle+\langle v_2;v_1\rangle+\langle v_1;v_2\rangle+\langle v_2;v_2\rangle\\
+ & = & \|v_1\|^2+2\langle v_1;v_2\rangle+\|v_2\|^2,
+\end{eqnarray*}
+de forma que el producto interno se puede expresar en t\'erminos de la norma:
+\[
+\langle v_1;v_2\rangle=\frac{\|v_1+v_2\|^2-\left(\|v_1\|^2+\|v_2\|^2\right)}{2}.
+\]
+De esto podemos concluir que $f$ es ortogonal si y solo $f$ preserva la norma, es decir $\|f(v)\|=\|v\|$ para todo $v\in V$.
+\end{obs}
+
+\begin{prop}\label{equivorto}
+Si $V$ tiene dimensi\'on finita, las siguiente propiedades son equivalentes
+\begin{enumerate}
+\item $f$ es ortogonal;
+\item $f$ preserva la norma;
+\item $f^*\circ f=\id_V$; y,
+\item la imagen por $f$ de una base ortonormal es una base ortonormal.
+\end{enumerate}
+\end{prop}
+
+\dem La observaci\'on muestra la equivalencia entre las dos primeras propiedades. Veamos ahora la equivalencia entre la primera y la tercera. Suponga primero que $f$ es ortogonal y sea $\mathcal{B}=\{u_1,\ldots,u_n\}$ una base ortonormal de $V$. Para todo $v\in V$
+\begin{eqnarray*}
+f^*\circ f(v) & = & \sum_{i=1}^n\langle f^*\circ f(v);u_i\rangle u_i\\
+ & = & \sum_{i=1}^n\langle f(v);f(u_i)\rangle u_i\\
+ & = & \sum_{i=1}^n\langle v;u_i\rangle u_i\\
+ & = & v.
+\end{eqnarray*}
+Suponga ahora que $f^*\circ f=\id_V$, entonces para todo $v_1,v_2\in V$
+\[
+\langle f(v_1);f(v_2)\rangle=\langle f^*\circ f(v_1);v_2\rangle=\langle v_1;v_2\rangle.
+\]
+Finalmente establecemos la equivalencia entre la primera propiedad y la cuarta. Si $f$ es ortogonal y $\mathcal{B}=\{u_1,\ldots u_n\}$ entonces
+\[
+\langle f(u_i);f(u_j)\rangle=\langle u_i;u_j\rangle=\delta_{ij}
+\]
+para todo $i,j\in\{1,\ldots,n\}$, as\'i $f(\mathcal{B})$ es una base ortonormal (ver Observaci\'on \ref{ortokro}). Rec\'iprocamente, asuma que $f$ env\'ia una base ortonormal $\mathcal{B}=\{u_1,\ldots,u_n\}$, a la base ortonormal $f(\mathcal{B})=\{f(u_1),\ldots,f(u_n)\}$. Luego, para todo $v_1,v_2\in V$, si $x_1,\ldots,x_n,y_1,\ldots,y_n\in\mathbb{R}$ son tales que
+\[
+v_1=\sum_{i=1}^nx_iu_i\qquad v_2=\sum_{i=1}^ny_iu_i,
+\]
+entonces
+\[
+f(v_1)=\sum_{i=1}^nx_if(u_i)\qquad v_2=\sum_{i=1}^ny_if(u_i)
+\]
+y, por Propiedad \ref{coorortonor},
+\[
+\langle f(v_1);f(v_2)\rangle=\sum_{i=1}^nx_iy_i=\langle v_1;v_2\rangle.
+\]
+\qed
+
+\begin{obs}
+Note que impl\'icitamente la tercera propiedad est\'a diciendo que los operadores ortogonales sobre espacios eucl\'ideos de dimensi\'on finita son invertibles, pues su inversa es su adjunta; y la cuarta que esta inversa es tambi\'en ortogonal, pues tambi\'en env\'ia una base ortogonal en una base ortogonal. 
+\end{obs}
+
+\begin{defn}
+Decimos que $A\in M_{n\times n}(\mathbb{R})$ es una \emph{matriz ortogonal} si
+\[
+A^\intercal A=I_n
+\]
+donde $I_n$ denota la matriz con unos en la diagonal y ceros en el resto de entradas.
+\end{defn}
+
+\begin{prop}
+Si $V$ tiene dimensi\'on finita y $\mathcal{B}=\{u_1,\ldots,u_n\}$ es una base ortonormal de $V$, $f$ es ortogonal si y solo si $\Big[f\Big]^\mathcal{B}_\mathcal{B}$ es ortogonal. 
+\end{prop}
+
+\dem La proposici\'on se sigue del hecho que si $A=\Big[f\Big]^\mathcal{B}_\mathcal{B}$, entonces $A^\intercal=\Big[f^*\Big]^\mathcal{B}_\mathcal{B}$ y
+\[
+A^\intercal A=\Big[f^*\Big]^\mathcal{B}_\mathcal{B} \Big[f\Big]^\mathcal{B}_\mathcal{B}=\Big[f^*\circ f\Big]^\mathcal{B}_\mathcal{B}.
+\]
+Entonces $A^\intercal A=I_n$ si y solo si $f^*\circ f=\id_V$.\qed
+
+\begin{teo}\label{ortotorsor}
+Si $V$ tiene dimensi\'on finita igual a $n$, la colecci\'on de operadores ortogonales de $V$ est\'a en correspondencia biyectiva con la colecci\'on de $n$-tuplas $(v_1,\ldots,v_n)\in V\times\ldots\times V$ tales que $\{v_1,\ldots,v_n\}$ es una base ortonormal de $V$.
+\end{teo}
+
+\dem Sea $\mathcal{B}=\{u_1,\ldots u_n\}$ una base ortonormal de $V$. Dado un operador ortogonal $g\in\Hom_\mathbb{R}(V,V)$, le asociamos la $n$-tupla
+\[
+\left(g(u_1),\ldots,g(u_n)\right).
+\]
+Dada la $n$-tupla $(v_1,\ldots,v_n)\in V\times\ldots\times V$ tal que $\{v_1,\ldots,v_n\}$ es una base ortonormal de $V$, le asociamos el operador definido sobre la base $\mathcal{B}$ por
+\[
+u_1\mapsto v_1,\ldots,u_n\mapsto v_n.
+\]
+Las equivalencias en Proposici\'on \ref{equivorto} implican que $\left(g(u_1),\ldots,g(u_n)\right)$ es una $n$-tupla cuyas componentes forman una base ortonormal de $V$ y que el operador tal que $u_1\mapsto v_1, \ldots, u_n\mapsto v_n$ es ortogonal. Las dos asociaciones son una la inversa de la otra.\qed
+
+\begin{obs}
+Note que la correspondencia descrita en la prueba del teorema depende de la escogencia de la base $\mathcal{B}=\{u_1,\ldots u_n\}$ y del ordenamiento de los elementos que la conforman. Vale la pena subrayar el hecho que los operadores ortogonales se pueden componer entre si y obtener un tercer operador ortogonal, y tambi\'en invertir y obtener otro operador ortogonal. Conjuntos con estas propiedades se les llama grupos. Una vez se fija una base, junto con un ordenamiento de sus elementos, la correspondencia del teorema respeta la estructura de grupo.\\ Formalmente, si $G$ denota la colleci\'on de operadores ortogonales de $V$, $X$ la de $n$-tuplas cuyas componentes form\'an bases ortogonales y
+\begin{eqnarray*}
+\Phi_T: G & \longrightarrow & X\\
+ g & \longmapsto & \left(g(u_1),\ldots,g(u_n)\right)
+\end{eqnarray*}
+es la correspondencia biyectiva definida por $T$ (junto con un ordenamiento), entonces
+\begin{eqnarray*}
+\Phi_T(\id_V) & = & (u_1,\ldots u_n)\\
+\Phi_T(g\circ h) & = & g\left(\Phi_T(h)\right)
+\end{eqnarray*}
+para todo $g,h\in G$, donde definimos $g(v_1,\ldots,v_n)=\left(g(v_1),\ldots,g(v_n)\right)$ para todo $(v_1,\ldots,v_n)\in X$. M\'as general
+\begin{eqnarray*}
+\Phi: X\times G &\longmapsto & X\times X \\
+\left(x,g\right) & \longmapsto & \left(x,gx\right)
+\end{eqnarray*}
+es una biyecci\'on, en la cual, si fijamos el primer factor en $x=(u_1,\ldots u_n)$, obtenemos en el segundo la biyeccion $\phi_T$.
+\end{obs}
