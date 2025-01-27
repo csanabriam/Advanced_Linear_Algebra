@@ -3,79 +3,121 @@
 \chapter{Cuerpos}
 
 
-En este ap\'endice definimos cuerpos y polinomios. Tambi\'en establecemos los elementos necesarios en nuestro estudio de operadores. 
+En este apéndice cubrimos algunos resultados elementales de cuerpos y polinomios que son necesarios en nuestro estudio de operadores. Los cuerpos son las estructuras algebraicas conmutativas minimales que garantizan que toda ecuación lineal tenga una única solución dentro de la misma estructura, es decir que dado un cuerpo $\mathbb{K}$ y $a,b\in\mathbb{K}$ cualesquiera, con $a\ne 0$, la ecuación $ax+b=0$ tiene solución $x=-b/a$ en $\mathbb{K}$.
+
+Los cuerpos más comunes son los números racionales $\mathbb{Q}$, las números reales $\mathbb{R}$, los números complejos $\mathbb{C}$ y las fracciones racionales sobre estos cuerpos, por ejemplo $\mathbb{Q}(x_1,\ldots,x_n)$ que es el conjunto cociente de polinomios con coeficientes en $\mathbb{Q}$ en $n$ variables. 
 
 \begin{defn}\label{defcuerpo}
-Un \emph{cuerpo} $K$ es un conjunto con dos operaciones $+$ y $\cdot$ (e.d. funciones $K\times K\rightarrow K$), que llamamos respectivamente \emph{suma} y \emph{producto} (o \emph{adici\'on} y \emph{multiplicaci\'on}) , y dos elementos distintos $0$ y $1$, que llamamos respectivamente \emph{cero} y \emph{uno}, los cuales satisfacen las siguientes propiedades.
-\begin{enumerate}
-\item \emph{Commutatividad}: Para todo $a,b,c\in K$, se tiene $a+b=b+a$ y $a\cdot b=b\cdot a$.
-\item \emph{Asociatividad}: Para todo $a,b,c\in K$, se tiene $a+(b+c)=(a+b)+c$ y $a\cdot(b\cdot c)=(a\cdot b)\cdot c$,
-\item \emph{Neutralidad de $0$ y $1$}: Para todo $a\in K$, se tiene $0+a=a$ y $1\cdot a=a$,
-\item \emph{Existencia de opuesto y de inverso}: Para todo $a\in K$, existe $-a\in K$ para el cual se tiene $-a+a=0$ y, si tenemos $a\ne 0$, entonces existe $a^{-1}\in K$ para el cual se tiene $a\cdot a^{-1}=1$,
-\item \emph{Distributividad del producto sobre la suma}: Para todo $a,b,c\in K$, se tiene $a\cdot(b+c)=a\cdot b+a\cdot c$. 
+Un \emph{cuerpo} es un conjunto $\mathbb{K}$ junto con dos operaciones binarias $+$ y $\cdot$ (e.d. funciones $\mathbb{K}\times \mathbb{K}\rightarrow \mathbb{K}$), que llamamos respectivamente \emph{suma} y \emph{producto} (o \emph{adición} y \emph{multiplicación}), y que contiene dos elementos distintos $0$ y $1$, que llamamos respectivamente \emph{cero} y \emph{uno}, los cuales satisfacen las siguientes propiedades.
+\begin{enumerate}[(i)]
+\item \emph{Commutatividad}: Para todo $a,b,c\in \mathbb{K}$, se tiene $a+b=b+a$ y $a\cdot b=b\cdot a$.
+\item \emph{Asociatividad}: Para todo $a,b,c\in \mathbb{K}$, se tiene $a+(b+c)=(a+b)+c$ y $a\cdot(b\cdot c)=(a\cdot b)\cdot c$,
+\item \emph{Neutralidad de $0$ y $1$}: Para todo $a\in \mathbb{K}$, se tiene $0+a=a$ y $1\cdot a=a$,
+\item \emph{Existencia de opuesto y de inverso}: Para todo $a\in \mathbb{K}$, existe $-a\in \mathbb{K}$ para el cual $-a+a=0$ y, si además $a\ne 0$, entonces existe $a^{-1}\in \mathbb{K}$ para el cual $a\cdot a^{-1}=1$,
+\item \emph{Distributividad del producto sobre la suma}: Para todo $a,b,c\in \mathbb{K}$, se tiene $a\cdot(b+c)=a\cdot b+a\cdot c$. 
 \end{enumerate}
 \end{defn}
 
 \begin{nota}
-Es usual omitir el s\'imbolo $\cdot$ en la operaci\'on de multiplicaci\'on, de tal forma que $a\cdot b$ se denota tambi\'en por $ab$.
+Es usual omitir el símbolo $\cdot$ en la operación de multiplicación, de tal forma que $a\cdot b$ se denota también por $ab$.
 \end{nota}
 
 \begin{ejem}
 Los siguientes conjuntos junto con sus respectivas operaciones son cuerpos.
 \begin{enumerate}
-\item El conjunto de los n\'umeros reales $\mathbb{R}$ con sus operaciones usuales de suma y producto.
-\item El conjunto de los n\'umeros complejos $\mathbb{C}$ con sus operaciones usuales de suma y producto.
-\item El conjunto de los n\'umeros racionales $\mathbb{Q}$ con sus operaciones usuales de suma y producto.
-\item El subconjunto de los n\'umeros reales $\mathbb{Q}[\sqrt{2}]$, el cual est\'a formado por los n\'umeros de la forma $a+b\sqrt{2}$ donde $a,b\in\mathbb{Q}$, con las operaciones heredades de $\mathbb{R}$. 
-\item El subconjunto de los n\'umeros complejos $\mathbb{Q}[i]$, el cual est\'a formado por los n\'umeros de la forma $a+bi$ donde $a,b\in\mathbb{Q}$, con las operaciones heredadas de $\mathbb{C}$.
-\item El conjunto $\mathbb{F}_p$ de clases de equivalencia m\'odulo $p$ en los n\'umeros enteros $\mathbb{Z}$, donde $p$ es un n\'umero primo, con las operaciones heredadas de las operaciones usuales de suma y multiplicaci\'on de $\mathbb{Z}$.
+\item El subconjunto de los números reales $\mathbb{Q}[\sqrt{2}]$, el cual está formado por los números de la forma $a+b\sqrt{2}$ donde $a,b\in\mathbb{Q}$, con las operaciones heredades de $\mathbb{R}$. 
+\item El subconjunto de los números complejos $\mathbb{Q}[i]$, el cual está formado por los números de la forma $a+bi$ donde $a,b\in\mathbb{Q}$, con las operaciones heredadas de $\mathbb{C}$.
+\item El conjunto $\mathbb{F}_p$ de clases de equivalencia módulo $p$ en los números enteros $\mathbb{Z}$, donde $p$ es un número primo, con las operaciones heredadas de las operaciones usuales de suma y multiplicación de $\mathbb{Z}$.
 \end{enumerate}
 \end{ejem}
 
 \begin{ejem}
 Los siguientes conjuntos no son cuerpos.
 \begin{enumerate}
-\item El conjunto de los n\'umeros naturales $\mathbb{N}$ con sus operaciones usuales, pues los elementos diferentes de $0$ no tienen opuesto.
-\item El conjunto de los n\'umeros enteros $\mathbb{Z}$ con sus operaciones usuales, pues los elementos diferentes de $0$, aparte de $-1$ y de $1$ no tienen inverso.
+\item El conjunto de los números naturales $\mathbb{N}$ con sus operaciones usuales, pues los elementos diferentes de $0$ no tienen opuesto.
+\item El conjunto de los números enteros $\mathbb{Z}$ con sus operaciones usuales, pues los elementos diferentes de $0$, aparte de $-1$ y de $1$, no tienen inverso.
 \end{enumerate}
 \end{ejem}
 
-\begin{prop}[Ley de cancelaci\'on]
-Sea $K$ un cuerpo y sean $a,b,c\in K$. Si se tiene $a+b=c+b$ \'o, entonces se tiene $a=b$. Si $b$ es diferente de $0$ y se tiene $ab=cb$, entonces se tiene $a=c$. 
+\begin{prop}
+  Sea $\mathbb{K}$ un cuerpo.
+  \begin{enumerate}[(i)]
+    \item \emph{Ley de cancelación}: Dados $a,b,c\in \mathbb{K}$, la igualdad $a+b=c+b$ implica $a=b$, y cuando $b\ne 0$, la igualdad $ab=cb$ implica $a=c$. 
+    \item \emph{Unicidad de $0$ y $1$}: Los elementos neutros de la suma y el producto son únicos.
+    \item \emph{Unicidad del opuesto e inverso}: Para todo $a\in\mathbb{K}$ su opuesto y, cuando $a\ne 0$, su inverso son únicos.
+  \end{enumerate}
 \end{prop}
 
-\dem Basta con sumar el opuesto de $b$ a ambos lados de la igualdad en el caso de la suma, o multiplicar por el inverso de $b$ en el caso de la multiplicaci\'on. \qed
-
-\begin{prop}[Unicidad de $0$, $1$, del opuesto y del inverso]
-Si $K$ es un cuerpo, entonces los elementos neutros de la suma y del producto son \'unicos. Igualmente, para todo $a\in K$ su opuesto, y, si $a$ es diferente de $0$, su inverso son \'unicos.
-\end{prop}
-
-\dem Si $e\in K$ es tal que se tiene $a+e=a$ para alg\'un $a\in K$, por la neutralidad de $0$ se obtiene $a+0=a=a+e$. La ley de cancelaci\'on implica que $0$ es igual a $e$. Similarmente, se puede verificar la unicidad de $1$ como neutro del producto.
-
-\noindent Para verificar la unicidad del opuesto, observe que si $a\in K$ y $b,c\in K$ son tales que se tiene $a+b=0=a+c$, la ley de cancelaci\'on implica que $b$ y $c$ son iguales. Similarmente se establece la unicidad del inverso, cuando este existe. \qed
-
+\dem
+\begin{enumerate}[(i)]
+  \item Basta con sumar el opuesto de $b$ a ambos lados de la igualdad en el caso de la suma, o multiplicar por el inverso de $b$ en el caso de la multiplicación.
+  \item Si $e\in \mathbb{K}$ es tal que se tiene $a+e=a$ para algún $a\in \mathbb{K}$, por la neutralidad de $0$ se obtiene $a+0=a=a+e$. La ley de cancelación implica $0=e$. Similarmente, se puede verificar la unicidad de $1$ como neutro del producto.
+  \item Para verificar la unicidad del opuesto, observe que si $b,c\in \mathbb{K}$ verifican $a+b=0=a+c$, la ley de cancelación implica que $b$ y $c$ son iguales. Similarmente se establece la unicidad del inverso, cuando este existe. \qed
+\end{enumerate}
 
 \begin{nota}
-Si $a\in K$ es diferente de $0$, a su inverso $a^{-1}$ tambi\'en lo denotaremos por $1/a$. Es usual denotar las operaciones $a+(-b)$ por $a-b$ y $a\cdot b^{-1}$ por $\frac{a}{b}$.
+Si $a\in \mathbb{K}$ es diferente de $0$, a su inverso $a^{-1}$ también lo denotaremos por $1/a$. Es usual denotar las operaciones $a+(-b)$ por $a-b$ y $a\cdot b^{-1}$ por $\frac{a}{b}$.
 \end{nota}
 
-\begin{pro}\label{propa00}
-Sea $K$ un cuerpo, y sean $a,b\in K$, entonces se tienen las siguientes igualdades.
-\begin{enumerate}
+\begin{ejem}
+  En $\mathbb{F}_5$ las operaciones de suma y producto están dadas por las siguientes tablas.
+  {\small
+    $$\begin{array}{c||c|c|c|c|c|}
+    + & 0 & 1 & 2 & 3 & 4\\
+    \hline
+    \hline
+    0 & 0 & 1 & 2 & 3 & 4\\
+    \hline
+    1 & 1 & 2 & 3 & 4 & 0\\
+    \hline 
+    2 & 2 & 3 & 4 & 0 & 1\\
+    \hline 
+    3 & 3 & 4 & 0 & 1 & 2\\
+    \hline 
+    4 & 4 & 0 & 1 & 2 & 3\\
+    \hline 
+    \end{array} \qquad
+    \begin{array}{c||c|c|c|c|c|}
+    \cdot & 0 & 1 & 2 & 3 & 4\\
+    \hline
+    \hline
+    0 & 0 & 0 & 0 & 0 & 0\\
+    \hline
+    1 & 0 & 1 & 2 & 3 & 4\\
+    \hline 
+    2 & 0 & 2 & 4 & 1 & 3\\
+    \hline 
+    3 & 0 & 3 & 1 & 4 & 2\\
+    \hline 
+    4 & 0 & 4 & 3 & 2 & 1\\
+    \hline 
+    \end{array}
+  $$
+  }
+  Sobre $\mathbb{F}_5$, la ecuación $3x+4=1$ es equivalente a
+    \begin{align*}
+    3x & = 1-4, & 3x & = 1+1, & 3x & = 2, & x & = 2/3, & x & = 2\cdot 2
+    \end{align*}
+  luego su solución es $x=4$.
+  \end{ejem}
+
+\begin{prop}\label{propa00}
+Sea $\mathbb{K}$ un cuerpo. Para todo $a,b\in \mathbb{K}$, se tienen las siguientes igualdades.
+\begin{enumerate}[(i)]
 \item $a\cdot 0=0$
 \item $-1\cdot a=-a$
 \item $(-a)\cdot b=a\cdot(-b)=-(a\cdot b)$
 \item $(-a)\cdot (-b)=a\cdot b$
 \end{enumerate}
-\end{pro}
+\end{prop}
 
 \dem
-\begin{enumerate}
+\begin{enumerate}[(i)]
 \item Tenemos
 \[
 0+a\cdot 0=a\cdot 0=a\cdot (0+0)=a\cdot 0+ a\cdot 0,
 \]
-luego por Ley de cancelaci\'on se obtiene $0=a\cdot 0$.
+y por la ley de cancelación obtenemos $0=a\cdot 0$.
 \item Tenemos
 \[
 -1\cdot a+a=-1\cdot a+1\cdot a=(-1+1)a=0\cdot a=0.
@@ -85,332 +127,337 @@ luego por Ley de cancelaci\'on se obtiene $0=a\cdot 0$.
 0=0\cdot b=\left( a+(-a)\right) b=ab+(-a)b
 \]
 se obtiene que $(-a)b$ es el opuesto de $ab$. Similarmente se establece $a\cdot(-b)=-(a\cdot b)$.
-\item Usando la igualdad $-(-b)=b$ y la propiedad \ref{propa00}.3 obtenemos
+\item Usando la igualdad $-(-b)=b$ y la propiedad \ref{propa00}.(iii) obtenemos
 \[
 (-a)(-b)=a\left(-(-b)\right) =ab
 \]
 \end{enumerate}\qed
 
 \begin{defn}
-Sea $K$ un cuerpo. Si existe un n\'umero natural $k$ para el cual se tiene
+Sea $\mathbb{K}$ un cuerpo. Si existe un número natural $\mathbb{K}$ para el cual
 \[
 \underbrace{1+1+\ldots+1}_{k \textrm{ sumandos}}=0,
 \]
-al m\'inimo entre estos lo llamamos la \emph{caracter\'istica} de $K$ y lo denotamo por $\chara(K)$. En caso de que no existe tal $k$, definimos la caracter\'istica de $K$ como $0$.   
+al mínimo entre estos lo llamamos la \emph{característica} de $\mathbb{K}$ y lo denotamos por $\chara(K)$. En caso de que no exista tal $k$, definimos la característica de $\mathbb{K}$ como $0$.   
 \end{defn}
-
-\begin{ejem}
-La caracter\'istica de $\mathbb{F}_p$ es $p$ y las de $\mathbb{Q}$, $\mathbb{R}$, $\mathbb{C}$ son todas iguales a $0$.
-\end{ejem}
 
 \begin{obs}
-Un cuerpo es la m\'inima estructura $K$ para la cual, para todo $a,b,c\in K$, con $a\ne 0$, la ecuaci\'on lineal $ax+b=c$ tiene una soluci\'on, a saber $x=(c-b)/a$.
+Para todo primo $p$, la característica de $\mathbb{F}_p$ es $p$. La característica de $\mathbb{Q}$, $\mathbb{R}$ y $\mathbb{C}$ es $0$.
 \end{obs}
 
-\begin{ejem}
-En $\mathbb{F}_5$ las operaciones de suma y producto est\'an dadas por las siguientes tablas.
-{\small
-$$\begin{array}{c||c|c|c|c|c|}
-+ & 0 & 1 & 2 & 3 & 4\\
-\hline
-\hline
-0 & 0 & 1 & 2 & 3 & 4\\
-\hline
-1 & 1 & 2 & 3 & 4 & 0\\
-\hline 
-2 & 2 & 3 & 4 & 0 & 1\\
-\hline 
-3 & 3 & 4 & 0 & 1 & 2\\
-\hline 
-4 & 4 & 0 & 1 & 2 & 3\\
-\hline 
-\end{array} \qquad
-\begin{array}{c||c|c|c|c|c|}
-\cdot & 0 & 1 & 2 & 3 & 4\\
-\hline
-\hline
-0 & 0 & 0 & 0 & 0 & 0\\
-\hline
-1 & 0 & 1 & 2 & 3 & 4\\
-\hline 
-2 & 0 & 2 & 4 & 1 & 3\\
-\hline 
-3 & 0 & 3 & 1 & 4 & 2\\
-\hline 
-4 & 0 & 4 & 3 & 2 & 1\\
-\hline 
-\end{array}$$}
-La ecuaci\'on $3x+4=1$ es equivalente a
-\begin{align*}
-3x & = 1+(-4), & 3x & = 1+1, & 3x & = 2, & x & = 2/3, & x & = 2\cdot 2
-\end{align*}
-luego la soluci\'on es $x=4$.
-\end{ejem}
-
 \begin{defn}
-Sea $K$ un cuerpo. Un \emph{polinomio con coeficientes en $K$ en la variable $t$} es una expresi\'on de la forma
+Sea $\mathbb{K}$ un cuerpo. Un \emph{polinomio con coeficientes en $\mathbb{K}$ en la variable $t$} es una expresión de la forma
 $$a_nt^n+a_{n-1}t^{n-1}+\ldots+a_1t+a_0$$
-donde $a_n,\ldots,a_1,a_0$ son elementos en $K$. Denote por $P(t)$ a este polinomio. Dado $c\in K$, el \emph{valor de $P(t)$ en $c$} es
+con $a_n,\ldots,a_1,a_0\in\mathbb{K}$. Si $P(t)$ denota este polinomio, dado $c\in \mathbb{K}$, el \emph{valor de $P(t)$ en $c$} es
 $$a_nc^n+a_{n-1}c^{n-1}+\ldots+a_1c+a_0,$$
-el cual denotaremos por $P(c)$. Cuando tenemos $P(c)=0$ decimos que $c$ es una \emph{ra\'iz} de $P(t)$.
+el cual denotaremos por $P(c)$. Cuando tenemos $P(c)=0$ decimos que $c$ es una \emph{raíz} de $P(t)$. Denotamos por $\mathbb{K}[t]$ al conjunto de polinomios con coeficientes en $\mathbb{K}$ en la variable $t$.
 \end{defn}
+
+\begin{obs}
+  Si $P(t)$ y $Q(t)$ son los polinomios $a_nt^n+\ldots+a_1t+a_0$ y $b_mt^m+\ldots+b_1t+b_0$,
+  su suma $P(t)+Q(t)$ es el polinomio $c_kt^k+\ldots+c_1t+c_0$, con $k=\max{n,m}$ y $c_i=a_i+b_i$, y su producto $P(t)Q(t)$ es el polinomio $d_lt^l+\ldots+d_1t+d_0$, con $l=n+m$ y $d_i=\sum_{j=0}^{i}a_{i-j}b_j$, donde en la fórmulas para $c_i$ y $d_i$ tomamos valores $a_i=0$ para $i>n$ y $b_i=0$ para $i>m$.
+\end{obs}
 
 \begin{defn}
-Sea $K$ un cuerpo. Decimos que $K$ es \emph{algebraicamente cerrado} si todo polinomio no constante tiene una ra\'iz.
+Sea $\mathbb{K}$ un cuerpo. Decimos que $\mathbb{K}$ es \emph{algebraicamente cerrado} si todo polinomio no constante en $\mathbb{K}[t]$ tiene una raíz en $\mathbb{K}$.
 \end{defn}
 
-\begin{teo}[Teorema fundamental del \'algebra]
-El cuerpo de los n\'umeros complejos $\mathbb{C}$ es algebraicamente cerrado.
+\begin{teo}[Teorema fundamental del álgebra]
+El cuerpo de los números complejos $\mathbb{C}$ es algebraicamente cerrado.
 \end{teo}
 
-\dem Presentamos una prueba usando an\'alisis complejo, en particular usamos el Teorema de Liouville que indica que si una funci\'on es anal\'itica y acotada en todo el plano complejo, entonces es constante.
+\dem Presentamos una prueba usando análisis complejo, en particular usamos el Teorema de Liouville que indica que si una función es analítica y acotada en todo el plano complejo, entonces es constante.
 
-Sea $P(t)$ un  polinomio  con coeficientes en $\mathbb{C}$. Suponga que tenemos $P(t)=a_nt^n+\ldots+a_1t+a_0$, con $a_n\ne 0$y considere la funci\'on $f(z)$ dada por 
+Sea $P(t)\in\mathbb{C}[t]$ con $P(t)=a_nt^n+\ldots+a_1t+a_0$, y $a_n\ne 0$. Considere la función $f(z)$ dada por 
 $$f(z)=P(z)/(a_nz^n)=1+\sum_{k=1}^{n-1}\dfrac{a_k}{a_n}\dfrac{1}{z^{n-k}}$$
-la cual est\'a definida para todo $z\in\mathbb{C}\setminus\{0\}$. Si tomamos $z=re^{\theta i}$, entonces por la desigualdad triangular, obtenemos
+la cual está definida para todo $z\in\mathbb{C}\setminus\{0\}$. Si $r=|z|$, por la desigualdad triangular, tenemos
 $$ |f(z)| \ge 1-\sum_{k=0}^{n-1}\left|\dfrac{a_k}{a_n}\right|\dfrac{1}{r^{n-k}}.$$
-El l\'imite cuando $r$ tiende a infinito del lado derecho de la desigualdad es $1$, luego existe $R>0$ tal que se cumple $|f(z)|>1/2$ para $|z|=r>R$. As\'i, se tiene $|P(z)|>|a_n|R^n/2>0$ para $|z|=r>R$. Sea $D$ el disco cerrado centrado en el origen de radio $R$. Como $D$ es compacto y la funci\'on $|P(z)|$ es continua, esta alcanza un m\'inimo $m$.
+El límite cuando $r$ tiende a infinito del lado derecho de la desigualdad es $1$, luego existe $R>0$ tal que $|f(z)|>1/2$ siempre que $|z|=r>R$, y así, $|P(z)|>|a_n|R^n/2>0$ para $|z|>R$. Si $D$ es el disco cerrado centrado en el origen de radio $R$, como $D$ es compacto y la función $|P(z)|$ es continua, esta alcanza un mínimo $m$ en $D$.
 
-Suponga que $P(t)$ no tiene ra\'ices, luego la funci\'on $1/P(z)$ es anal\'itica sobre todo el plano complejo y se tiene $m>0$. Tenemos que $|1/P(z)|$ est\'a acotada por $2/(|a_n|R^n)$ fuera de $D$ y por $1/m$ en $D$, luego por el teorema de Louiville $1/P(z)$ es una funci\'on constante y as\'i $P(t)$ es un polinomio constante. Luego todo polinomio no constante con coeficientes complejos tiene ra\'ices.\qed
+Suponga que $P(t)$ no tiene raíces y veamos que esto implica que es constante. Bajo este supuesto, la función $z\mapsto 1/P(z)$ es analítica sobre todo el plano complejo y así el mínimo $m$ es estrictamente positivo. Así $|1/P(z)|$ está acotada por $2/(|a_n|R^n)$ fuera de $D$ y por $1/m$ en $D$, luego por el teorema de Louiville $z\mapsto 1/P(z)$ es una función constante y así $P(t)$ es un polinomio constante.\qed
 
 \section*{Polinomios con coeficientes en un cuerpo}
 
 \begin{defn}
-Al conjunto de polinomios con coeficientes en $K$ en la variable $t$ lo denotamos $K[t]$. Si $P(t)\in K[t]$ es el polinomio $a_nt^n+a_{n-1}t^{n-1}+\ldots+a_1t+a_0$, con $a_n\ne 0$, decimos que el \emph{grado de $P(t)$} es $n$ y lo denotamos $\deg\left(P(t)\right)$. En tal caso llamamos a $a_n$ el \emph{coeficiente l\'ider}. Cuando tenemos $P(t)=0$, definimos $\deg\left(P(t)\right)$ como $-\infty$ y convenimos que se tiene $-\infty<n$ para todo $n\in\mathbb{Z}$. Si $P(t)$ y $Q(t)$ son los polinomios $a_nt^n+a_{n-1}t^{n-1}+\ldots+a_1t+a_0$ y $b_mt^m+\ldots+b_1t+b_0$, su producto $P(t)Q(t)$ es el polinomio $\sum_{i=0}^{n+m}\left(\sum_{j=0}^{i}b_ia_{i-j}\right)t^i$.
+Sea $P(t)\in \mathbb{K}[t]$ el polinomio $a_nt^n+a_{n-1}t^{n-1}+\ldots+a_1t+a_0$, con $a_n\ne 0$. El \emph{grado de $P(t)$} es $n$ y lo denotamos por $\deg\left(P(t)\right)$ y al coeficiente $a_n$ lo llamamos \emph{coeficiente líder}. Para $P(t)=0$, definimos $\deg\left(0\right)=-\infty$ y convenimos la desigualdad $-\infty<n$ v\'alida para todo $n\in\mathbb{Z}$.
 \end{defn}
 
 \begin{obs}
-Para todo $P(t),Q(t)\in K[t]$, tenemos
+Para todo $P(t),Q(t)\in \mathbb{K}[t]$, tenemos
 \begin{align*}
 \deg\left(P(t)+Q(t)\right) &  \le \max\{\deg\left(P(t)\right),\deg\left(Q(t)\right)\}\\
 \deg\left(P(t)Q(t)\right) & = \deg(P(t))+\deg(Q(t)).
 \end{align*}
-Si $P(t)$ y $Q(t)$ tiene grado diferente, entonces se tiene
+Si $P(t)$ y $Q(t)$ difieren en su grado, se cumple la igualdad
 \[
-\deg\left(P(t)+Q(t)\right)=\max\{\deg\left(P(t)\right),\deg\left(Q(t)\right)\}.
+\deg\left(P(t)+Q(t)\right)=\max\{\deg\left(P(t)\right),\deg\left(Q(t)\right)\},
 \]
-Si $Q(t)$ no es constante, entonces se tiene
+y si $Q(t)$ no es $0$, se tiene
 \[
-\deg\left(P(t)Q(t)\right) >\deg\left(P(t)\right).
+\deg\left(P(t)Q(t)\right) \ge \deg\left(P(t)\right).
 \]
 \end{obs}
 
-\begin{teo}[Algoritmo de la divisi\'on]
-Dados $P(t),Q(t)\in K[t]$, con $Q(t)\ne 0$, existe un \'unico par de polinomios $S(t),R(t)\in K[t]$ tales que se tiene
+\begin{teo}[Algoritmo de la división]
+Dados $A(t),B(t)\in \mathbb{K}[t]$, con $B(t)\ne 0$, existe un único par de polinomios $(Q(t),R(t))$ de $\mathbb{K}[t]$, llamados respectivamente \emph{cociente} y \emph{residuo} en la división de $A(t)$ por $B(t)$, tales que
 \[
-P(t)=S(t)Q(t)+R(t),\textrm{ y } \deg\left(R(t)\right)<\deg\left(Q(t)\right).
+A(t)=Q(t)B(t)+R(t),\textrm{ y } \deg\left(R(t)\right)<\deg\left(B(t)\right).
 \]
 \end{teo}
 
-\dem Sea $N$ el conjunto $\{P(t)-T(t)Q(t)\}_{T(t)\in K[t]}$. Como $N$ no es vacio, contiene un polinomio $R(t)$ de grado m\'inimo. Sea $S(t)\in K[t]$ para el cual se tiene $R(t)=P(t)-S(t)Q(t)$. Obtenemos $\deg\left(R(t)\right)<\deg\left(Q(t)\right)$, pues de lo contrario, si escribimos
-$R(t)=at^{n_R}+\ldots$ y $Q(t)=bt^{n_Q}+\ldots$ donde $a,b\in K$ son los respectivos coeficientes l\'ideres de $R(t)$ y $Q(t)$ entonces el polinomio $R(t)-\frac{a}{b}t^{n_R-n_Q}Q(t)$, que es igual a $P(t)-\left(S(t)+\frac{a}{b}t^{n_R-n_Q}\right)Q(t)$, ser\'ia un polinomio en $N$ de grado estrictamente menor que $R(t)$, contradiciendo la minimalidad del grado de este.
+\dem Sea $C$ el conjunto $\{A(t)-S(t)B(t)\}_{S(t)\in \mathbb{K}[t]}$. Como $C$ no es vacio, contiene un polinomio $R(t)$ de grado mínimo. Sea $Q(t)\in \mathbb{K}[t]$ tal que $R(t)=A(t)-Q(t)B(t)$. Obtenemos $\deg\left(R(t)\right)<\deg\left(B(t)\right)$, pues de lo contrario, si escribimos
+$R(t)=at^{n}+\ldots$ y $B(t)=bt^{m}+\ldots$ donde $a,b\in \mathbb{K}$ son los respectivos coeficientes líderes de $R(t)$ y $B(t)$, tendríamos $n\ge m$ y así el polinomio $R(t)-\frac{a}{b}t^{n-m}B(t)$, que está en $C$ pues es igual a $A(t)-\left(Q(t)+\frac{a}{b}t^{n-m}\right)B(t)$, sería un polinomio de grado estrictamente menor que $\deg\left(R(t)\right)$, contradiciendo la minimalidad del grado de este.
 
-Para establecer la unicidad de $S(t)$ y $R(t)$, tomamos $S'(t),R'(t)\in K[t]$ para los cuales se tiene $P(t)=S'(t)Q(t)+R'(t)$ con $\deg\left(R'(t)\right)<\deg\left(Q(t)\right)$. Tenemos $S(t)Q(t)+R(t)=P(t)=S'(t)Q(t)+R'(t)$ y as\'i $\left(S(t)-S'(t)\right)Q(t)=R'(t)-R(t)$. De las desigualdades $\deg\left(R(t)-R'(t)\right)\le \max\{\deg\left(R(t)\right),\deg\left(R'(t)\right)\}<\deg\left(Q(t)\right)$, se obtiene $\deg(\left(S(t)-S'(t)\right)Q(t))<\deg\left(Q(t)\right)$. Por ende $S(t)-S'(t)$ es igual $0$ y as\'i $R(t)-R'(t)$ tambi\'en es $0$, es decir $R'(t)=R(t)$ y $S'(t)=S(t)$.\qed
+Para establecer la unicidad de $Q(t)$ y $R(t)$, tomamos $\tilde{Q}(t),\tilde{R}(t)\in \mathbb{K}[t]$ para los cuales tambi\'en se tiene $A(t)=\tilde{Q}(t)B(t)+\tilde{R}(t)$ con $\deg\left(\tilde{R}(t)\right)<\deg\left(B(t)\right)$. De las igualdades
+$$Q(t)B(t)+R(t)=A(t)=\tilde{Q}(t)B(t)+\tilde{R}(t),$$
+se obtiene
+$$\left(Q(t)-\tilde{Q}(t)\right)B(t)=\tilde{R}(t)-R(t).$$
+Como
+$$\deg\left(R(t)-\tilde{R}(t)\right)\le \max\{\deg\left(R(t)\right),\deg\left(\tilde{R}(t)\right)\}<\deg\left(B(t)\right),$$ entonces
+$$\deg\left((Q(t)-\tilde{Q}(t))B(t)\right)=\deg\left(R(t)-\tilde{R}(t)\right)<\deg\left(B(t)\right).$$
+Por ende $Q(t)-\tilde{Q}(t)$ es $0$ y así $R(t)-\tilde{R}(t)$ también es $0$, es decir $\tilde{R}(t)=R(t)$ y $\tilde{S}(t)=S(t)$.\qed
+
+\begin{obs}
+\begin{enumerate}[(i)]
+  \item Cuando en el algoritmo de la división el residuo es $0$ decimos que $B(t)$ \emph{divide} a $A(t)$.
+  \item Observamos que $\mathbb{K}[t]$ no tiene divisores de $0$.
+  \item Una consecuencia de no tener divisor de cero es que la ley cancelativa es válida para el producto de polinomios. Pues, si $A(t)B(t)=A(t)C(t)$ con $A(t)\ne 0$, entonces $A(t)\left(B(t)-C(t)\right)=0$ y como $A(t)$ no es un divisor de cero se tiene $B(t)-C(t)=0$, es decir $B(t)=C(t)$. 
+\end{enumerate}
+\end{obs}
 
 \begin{coro}
-Sea $P(t)\in K[t]$. Si $\lambda\in K$ es una ra\'iz de $P(t)$, entonces $(t-\lambda)$ divide a $P(t)$.
+Sea $P(t)\in \mathbb{K}[t]$. Si $\lambda\in \mathbb{K}$ es una raíz de $P(t)$, entonces $(t-\lambda)$ divide a $P(t)$.
 \end{coro}
 
-\dem Sea $Q(t)$ el polinomio $t-\lambda$ y sean $S(t),R(t)\in K[t]$ como en el algoritmo de la divisi\'on. En particular, se tiene $\deg\left(R(t)\right)=0$ es decir $R(t)=a$ para alg\'un $a\in K$. As\'i, obtenemos $0=P(\lambda)=(\lambda-\lambda)S(\lambda)+a=a$ y $P(t)=S(t)Q(t)$. \qed
+\dem En el algoritmo de la división tome $A(t)=P(t)$ y $B(t)=t-\lambda$ y sean $Q(t),R(t)\in \mathbb{K}[t]$ el cociente y el residuo. En particular, como $B(t)$ tiene grado $1$ entonces el residuo es un polinomio constante, es decir $R(t)=a$ para algún $a\in \mathbb{K}$. Pero tenemos $0=P(\lambda)=(\lambda-\lambda)S(\lambda)+a=a$, luego $R(t)=0$. \qed
 
 \begin{defn}
-Sean $P(t),Q(t)\in K[t]$. Decimos que $D(t)\in K[t]$ es un \emph{m\'aximo divisor com\'un} de $P(t)$ y $Q(t)$ si satisface las siguiente dos propiedades.
-\begin{enumerate}
-\item El polinomio $D(t)$ divide a $P(t)$ y a $Q(t)$.
-\item Si $D_0(t)\in K[t]$ divide a $P(t)$ y a $Q(t)$, entonces $D_0(t)$ divide a $D(t)$. 
+Sean $A(t),B(t)\in \mathbb{K}[t]$. Decimos que $D(t)\in \mathbb{K}[t]$ es el \emph{máximo divisor común} de $A(t)$ y $B(t)$ si es un polinomio mónico que satisface las siguiente dos propiedades.
+\begin{enumerate}[(i)]
+\item El polinomio $D(t)$ divide a $A(t)$ y $B(t)$.
+\item Si $D_0(t)\in \mathbb{K}[t]$ divide a $A(t)$ y $B(t)$, entonces $D_0(t)$ divide a $D(t)$. 
 \end{enumerate}
 \end{defn}
 
 \begin{prop}
-Para todo $P(t),Q(t)\in K[t]$, con uno de ellos no nulo, existe un m\'aximo com\'un divisor $D(t)$ de $P(t)$ y $Q(t)$. Mas a\'un, existen $P_0(t),Q_0(t)\in K[t]$ para los cuales se tiene $D(t)=Q_0(t)P(t)+P_0(t)Q(t)$.
+Todo par de polinomios $(A(t),B(t))$ de $\mathbb{K}[t]$, con uno de ellos no nulo, tiene un máximo común divisor $D(t)$. Mas aún, existen $P(t),Q(t)\in \mathbb{K}[t]$ para los cuales $D(t)=P(t)A(t)+Q(t)B(t)$.
 \end{prop}
 
-\dem Sea $N$ el conjunto $\left\{Q_1(t)P(t)+P_1(t)Q(t)\in K[t]\setminus\{0\}\right\}_{P_1(t),Q_1(t)\in K[t]}$.
-Como $N$ no es vac\'io, contiene un un polinomio $D(t)$ de grado m\'inimo. Sean $Q_0(t),P_0(t)\in K[t]$ para los cuales se tiene $D(t)=Q_0(t)P(t)+P_0(t)Q(t)$.
+\dem Sea $C$ el conjunto de polinomios no nulos definido por 
+$$C=\left\{S(t)A(t)+T(t)B(t)\in \mathbb{K}[t]\setminus\{0\}\right\}_{S(t),T(t)\in \mathbb{K}[t]}.$$
+Como $C$ no es vacío, contiene un polinomio mónico $D_0(t)$ de grado mínimo. Sean $P(t),Q(t)\in \mathbb{K}[t]$ tales que $D(t)=P(t)A(t)+Q(t)B(t)$.
 
-Veamos que $D(t)$ es un divisor com\'un de $P(t)$ y $Q(t)$. De hecho, si para $S(t),R(t)\in K[t]$ se tiene $P(t)=S(t)D(t)+R(t)$ con $\deg\left(R(t)\right)<\deg\left(D(t)\right)$, entonces obtenemos
-$$R(t)=P(t)-S(t)D(t)=\Big(1-S(t)Q_0(t)\Big)P(t)-S(t)P_0(t)Q(t),$$
-y as\'i, como $D(t)$ tiene grado m\'inimo en $N$, entonces $R(t)$ no pertenece a $N$, luego es igual a $0$. Por ende $D(t)$ divide a $P(t)$. Por un argumento similar, se obtiene que $D(t)$ divide a $Q(t)$.
+Veamos que $D(t)$ es divide a $A(t)$ y $B(t)$. De hecho, si $S(t),R(t)\in \mathbb{K}[t]$ son el cociente y residuo en la división de $A(t)$ por $D(t)$, obtenemos
+$$R(t)=A(t)-S(t)D(t)=\left(1-S(t)P(t)\right)A(t)-S(t)Q(t)B(t).$$
+Pero como $D(t)$ tiene grado mínimo en $C$ y $\deg\left(R(t)\right)<\deg\left(D(t)\right)$, entonces $R(t)$ no pertenece a $C$, luego es igual a $0$. Por ende, $D(t)$ divide a $A(t)$. Por un argumento similar, se obtiene que $D(t)$ divide a $B(t)$.
 
-Veamos que $D(t)$ es m\'aximal entre los divisores comunes de $P(t)$ y $Q(t)$. Si $D_0(t)\in K[t]$ divide a $P(t)$ y $Q(t)$, es decir si existen
-$T_1(t),T_2(t)\in K[t]$ para los cuales se tiene $P(t)=T_1(t)D_0(t)$ y $Q(t)=T_2(t)D_0(t)$, entonces $D_0(t)$ tambi\'en divide a $D(t)$, pues se tiene
+Veamos que $D(t)$ es máximal entre los divisores comunes de $A(t)$ y $QBt)$. Si $D_0(t)\in \mathbb{K}[t]$ divide a $A(t)$ y $B(t)$, es decir si existen
+$S(t),T(t)\in \mathbb{K}[t]$ tales que $A(t)=S(t)D_0(t)$ y $B(t)=T(t)D_0(t)$, entonces $D_0(t)$ también divide a $D(t)$, pues
 \[
-D(t)=Q_0(t)P(t)+P_0(t)Q(t)=\Big(Q_0(t)S'_1(t)+P_0(t)S'_2(t)\Big)D'(t).
+D(t)=P(t)A(t)+Q(t)B(t)=\left(P(t)S(t)+Q(t)T(t)\right)D_0(t).
 \]
 \qed
 
 \begin{nota}
-Sean $P(t),Q(t)\in K[t]$, con $P(t)\ne 0$ \'o $Q(t)\ne 0$. Al m\'aximo divisor com\'un de $P(t)$ y $Q(t)$ que es m\'onico lo denotamos $(P(t),Q(t))$.
+Dados $A(t),B(t)\in \mathbb{K}[t]$, no ambos nulos, denotamos por $\left(A(t),B(t)\right)$ al máximo divisor común de $A(t)$ y $B(t)$.
 \end{nota}
 
-\begin{obs}
-Si $\lambda_1,\lambda_2\in K$ son distintos, entonces $(t-\lambda_1,t-\lambda_2)$ es $1$, pues se tiene la igualdad
-\[
-\frac{1}{\lambda_2-\lambda_1}\Big( (t-\lambda_1)-(t-\lambda_2) \Big)=1.
-\]
-\end{obs}
-
-\begin{pro}[Algoritmo de Euclides]
-Sean $P(t),Q(t)\in K[t]$. Sean $S(t),R(t)\in K[t]$ como en el algoritmo de la divisi\'on, es decir $P(t)=S(t)Q(t)+R(t)$ con $\deg\left(R(t)\right)<\deg\left(Q(t)\right)$, entonces se tiene
-$$ (P(t),Q(t))=(Q(t),R(t)) $$
-\end{pro}
-
-\dem Sea $D(t)=(P(t),Q(t))$. Veamos que $D(t)$ es un divisor com\'un de $Q(t)$ y $R(t)$. Para ello basta verificar que $D(t)$ divide a $R(t)$. Para ello, note que si $P(t)=P_1(t)D(t)$ y $Q(t)=Q_1(t)D(t)$, entonces $$R(t)=P(t)-S(t)Q(t)=\Big(P_1(t)-S(t)Q_1(t)\Big)D(t).$$
-
-Veamos ahora que $D(t)$ es maximal entre los divisores comunes de $Q(t)$ y $R(t)$. Como $D(t)=(P(t),Q(t))$, existen $P_0(t),Q_0(t)\in K[t]$ tales que $Q_0(t)P(t)+P_0(t)Q(t)=D(t)$.
-Suponga que $D'(t)$ divide a $Q(t)$ y a $R(t)$, entonces si $Q(t)=S_1(t)D'(t)$ y $R(t)=S_2(t)D'(t)$, tenemos
-\begin{align*}
-D(t) & = Q_0(t)P(t)+P_0(t)Q(t)\\
- & =Q_0(t)\Big(S(t)Q(t)+R(t)\Big)+P_0(t)Q(t)\\
- & =\Big(\big(Q_0(t)S(t)+P_0(t)\big)S_1(t)+Q_0(t)S_2(t)\Big)D'(t)
-\end{align*}
-luego $D'(t)$ divide a $D(t)$.\qed
-
-\begin{obs}
-La utilidad del \'algoritmo de Euclides es que en la busqueda del m\'aximo com\'un divisor de $P(t)$ y $Q(t)$ podemos reemplazar esta pareja por la pareja de menor grado $Q(t)$ y $R(t)$. De esta forma seguimos iterativamente reduciendo los grados en la pareja hasta el caso trivial $(R_0(t),0)=R_0(t)$.
-\end{obs}
-
 \begin{ejem}
-Considere los polinomios $P(t)=t^3+t^2-t-1$ y $Q(t)=t^3-t^2$  en $\mathbb{Q}[t]$, tenemos
+Si $\lambda_1,\lambda_2\in \mathbb{K}$ son distintos, entonces $\left(t-\lambda_1,t-\lambda_2\right)=1$, pues se tiene la igualdad
+\[
+\frac{1}{\lambda_2-\lambda_1}\left( (t-\lambda_1)-(t-\lambda_2) \right)=1.
+\]
+\end{ejem}
+
+\begin{teo}[Algoritmo de Euclides]
+Sean $A(t),B(t)\in \mathbb{K}[t]$. Si $Q(t),R(t)\in \mathbb{K}[t]$ son el cociente y el residuo en la división de $A(t)$ por $B(t)$, entonces
+$$\left(A(t),B(t)\right)=\left(B(t),R(t)\right) $$
+\end{teo}
+
+\dem Sea $D(t)=\left(A(t),B(t)\right)$. Veamos que $D(t)$ divide a $B(t)$ y $R(t)$. Para ello basta verificar que $D(t)$ divide a $R(t)$. Note que si $A(t)=S(t)D(t)$ y $B(t)=T(t)D(t)$, entonces $$R(t)=A(t)-Q(t)B(t)=\left(S(t)-Q(t)T(t)\right)D(t).$$
+
+Veamos ahora que $D(t)$ es maximal entre los divisores comunes de $B(t)$ y $R(t)$. Como $D(t)=\left(A(t),B(t)\right)$, existen $P_0(t),Q_0(t)\in \mathbb{K}[t]$ tales que $P_0(t)A(t)+Q_0(t)B(t)=D(t)$.
+Suponga que $D_0(t)$ divide a $B(t)$ y $R(t)$, entonces si $B(t)=S_0(t)D_0(t)$ y $R(t)=T_0(t)D_0(t)$, tenemos
 \begin{align*}
-P(t) & = Q(t) + 2t^2-t-1\\
-Q(t) & =\Big(\frac{1}{2}t-\frac{1}{4}\Big)(2t^2-t-1)+\frac{1}{4}t-\frac{1}{4}\\
-2t^2-t-1 & = (8t+4)\Big(\frac{1}{4}t-\frac{1}{4}\Big)
+D(t) & = P_0(t)A(t)+Q_0(t)Q(t)\\
+ & =P_0(t)\left(Q(t)B(t)+R(t)\right)+Q_0(t)B(t)\\
+ & =\left(P_0(t)\left(Q(t)S_0(t)+T_0(t)\right)+Q_0(t)S_0(t)\right)D_0(t)
 \end{align*}
-as\'i
+y obtenemos que $D_0(t)$ divide a $D(t)$.\qed
+
+\begin{obs}
+La utilidad del álgoritmo de Euclides es que en la busqueda del máximo común divisor $\left(A(t),B(t)\right)$ podemos reemplazar esta pareja por la pareja de menor grado $\left(B(t),R(t)\right)$. De esta forma seguimos iterativamente reduciendo los grados en la pareja hasta llegar al caso trivial $(R_0(t),0)=c^{-1}R_0(t)$, donde $c$ es el coeficiente líder de $R_0(t)$.
+\end{obs}
+
+\begin{ejem}\label{bez1}
+Considere los polinomios $A(t)=t^3+t^2-t-1$ y $B(t)=t^3-t^2$  en $\mathbb{Q}[t]$. Tenemos
 \begin{align*}
-(P(t),Q(t)) & = (Q(t),2t^2-t-1) = (2t^2-t-1,\frac{1}{4}t-\frac{1}{4}) = (\frac{1}{4}t-\frac{1}{4},0)\\
+A(t) & = B(t) + 2t^2-t-1\\
+B(t) & =\left(\frac{1}{2}t-\frac{1}{4}\right)(2t^2-t-1)+\frac{1}{4}t-\frac{1}{4}\\
+2t^2-t-1 & = 4(2t+1)\left(\frac{1}{4}t-\frac{1}{4}\right)
+\end{align*}
+así
+\begin{align*}
+(A(t),B(t)) & = (B(t),2t^2-t-1) = (2t^2-t-1,\frac{1}{4}t-\frac{1}{4}) = (\frac{1}{4}t-\frac{1}{4},0)\\
  & = t-1. 
 \end{align*}
 y
 \begin{align*}
-t-1 & = 4Q(t)-(2t-1)(2t^2-t-1)\\
-  & = 4Q(t)-(2t-1)\big(P(t)-Q(t)\big)\\
-  & = -(2t-1)P(t)+(2t+3)Q(t)
+t-1 & = 4B(t)-(2t-1)(2t^2-t-1)\\
+  & = 4B(t)-(2t-1)\big(A(t)-B(t)\big)\\
+  & = -(2t-1)A(t)+(2t+3)B(t)
 \end{align*}
 \end{ejem}
 
 \begin{obs}
-Similarmente a como definimos m\'aximo com\'un divisor de un par de polinomios en $K[t]$, podemos definir  \emph{m\'aximo com\'un divisor de una familia finita de polinomios}. Si denotamos al m\'aximo com\'un divisor de $\{P_1(t),\ldots,P_n(t)\}$ que es m\'onico por $\left(P_1(t),\ldots,P_n(t)\right)$, tenemos
+Similarmente a como definimos el máximo común divisor de un par de polinomios en $\mathbb{K}[t]$, podemos definir el \emph{máximo común divisor de una familia finita de polinomios}. Si denotamos por $\left(A_1(t),\ldots,A_n(t)\right)$ al máximo común divisor de $\left\{A_1(t),\ldots,A_n(t)\right\}$, observemos que
 \[
-\left(P_1(t),\ldots,P_n(t)\right)=\Big(\big(P_1(t),\ldots,P_{n-1}(t)\big), P_n(t)\Big).
+\left(A_1(t),\ldots,A_n(t)\right)=\left(\left(A_1(t),\ldots,A_{n-1}(t)\right), A_n(t)\right),
 \]
+lo cual nos permite calcularlo inductivamente.
 \end{obs}
 
-\begin{pro}[Relaci\'on de Bezout]
-Dados $P_1(t),\ldots,P_n(t)\in K[t]$, con uno de ellos no nulo, existen polinomios $Q_1(t),\ldots,Q_n(t)\in K[t]$ tales que
+\begin{teo}[Relación de Bézout]
+Dados $A_1(t),\ldots,A_n(t)\in \mathbb{K}[t]$, con uno de ellos no nulo, existen polinomios $P_1(t),\ldots,P_n(t)\in \mathbb{K}[t]$ tales que
 \[
-Q_1(t)P_1(t)+\ldots+Q_n(t)P_n(t)=\left(P_1(t),\ldots,P_n(t)\right)
+P_1(t)A_1(t)+\ldots+P_n(t)A_n(t)=\left(A_1(t),\ldots,A_n(t)\right)
 \]
-\end{pro}
+\end{teo}
 
-\dem Hacemos inducci\'on en $n$, donde el caso base $n=2$ ya fue demostrado. Para obtener el paso inductivo, asumimos que el resultado es cierto cuando nos son dados $n-1$ polinomios, uno de ellos no nulo. Por la hip\'otesis de inducci\'on existen $R_1(t),\ldots,R_{n-1}(t)\in K[t]$ para los cuales se tiene
+\dem Hacemos inducción en $n$, donde el caso base $n=2$ ya fue demostrado. Para obtener el paso inductivo, asumimos que el resultado es cierto cuando nos son dados $n-1$ polinomios, uno de ellos no nulo. Por la hipótesis de inducción existen $Q_1(t),\ldots,Q_{n-1}(t)\in \mathbb{K}[t]$ tales que
 \[
-R_1(t)P_1(t)+\ldots+R_{n-1}(t)P_{n-1}(t)=\big(P_1(t),\ldots,P_{n-1}(t)\big),
+Q_1(t)A_1(t)+\ldots+Q_{n-1}(t)A_{n-1}(t)=B(t),
 \]
-y, por el caso base, existen $Q(t),Q_n(t)\in K[t]$ para los cuales se tiene
+donde $B(t)=\left(A_1(t),\ldots,A_{n-1}(t)\right)$. Por el caso base, existen $Q(t),P_n(t)\in \mathbb{K}[t]$ para los cuales
 \[
-Q(t)\left(P_1(t),\ldots,P_{n-1}(t)\right)+Q_n(t)P_n(t)=\Big(\big(P_1(t),\ldots,P_{n-1}(t)\big), P_n(t)\Big).
+Q(t)B(t)+P_n(t)A_n(t)=\left(B(t), A_n(t)\right).
 \]
-Entonces, si definimos $Q_i(t)=Q(t)R_i(t)$, para $i\{1,\ldots,n-1\}$, obtenemos
+Entonces, si definimos $P_i(t)=Q(t)Q_i(t)$ para $i\in\{1,\ldots,n-1\}$, obtenemos
 \begin{eqnarray*}
-Q_1(t)P_1(t)+\ldots+Q_n(t)P_n(t) & = & \Big(\big(P_1(t),\ldots,P_{n-1}(t)\big), P_n(t)\Big)\\
- & = & \left(P_1(t),\ldots,P_n(t)\right)
+P_1(t)A_1(t)+\ldots+P_{n-1}(t)A_{n-1}(t)+P_n(t)A_n(t) & = & \left(B(t), A_n(t)\right)\\
+ & = & \left(\left(A_1(t),\ldots,A_{n-1}(t)\right),A_n(t)\right) = \left(A_1(t),\ldots,A_n(t)\right).
 \end{eqnarray*}
-y se sigue la propiedad.
 \qed
 
 \begin{ejem}
-Considere los polinomios $P(t)=t^3+t^2-t-1$, $Q(t)=t^3-t^2$ y $R(t)=t^2+t$ en $\mathbb{Q}[t]$, tenemos $$\Big(P(t),Q(t),R(t)\Big)=\Big(\big(P(t),Q(t)\big),R(t)\Big)=\big(t-1,R(t)\big).$$
+Considere los polinomios $A_1(t)=t^3+t^2-t-1$, $A_2(t)=t^3-t^2$ y $A_3(t)=t^2+t$ en $\mathbb{Q}[t]$. Por el ejemplo \ref{bez1}, tenemos $$\left(A_1(t),A_2(t),A_3(t)\right)=\left(\left(A_1(t),A_2(t)\right),A_3(t)\right)=\left(t-1,A_3(t)\right).$$
 De las igualdades
 \begin{align*}
-R(t)& =t(t-1)+2t\\
+A_3(t)& =t(t-1)+2t\\
 t-1& =\frac{1}{2}(2t)-1\\
 2t & = (-2t)(-1)+0
 \end{align*}
-y el \'algoritmo de Euclides, se sigue
+y el álgoritmo de Euclides, se sigue
 \begin{align*}
-(R(t),t-1) & =(t-1,2t) =(2t,-1) =(-1,0)\\
+(A_3(t),t-1) & =(t-1,2t) =(2t,-1) =(-1,0)\\
   & =1
 \end{align*}
 y obtenemos
 \begin{align*}
 1 &= \frac{1}{2}(2t)-(t-1)\\
-   &= \frac{1}{2}(R(t)-t(t-1))-(t-1)\\
-   &= \frac{1}{2}R(t)-(\frac{1}{2}t+1)(t-1)
+  &= \frac{1}{2}(A_3(t)-t(t-1))-(t-1)\\
+  &= \frac{1}{2}A_3(t)-(\frac{1}{2}t+1)(t-1)
 \end{align*}
 al igual que
 \begin{align*}
-1   &= \frac{1}{2}R(t)-(\frac{1}{2}t+1)\big(-(2t-1)P(t)+(2t+3)Q(t)\big)\\
-   &= (\frac{1}{2}t+1)(2t-1)P(t)-(\frac{1}{2}t+1)(2t+3)Q(t)+\frac{1}{2}R(t).
+1 &= \frac{1}{2}A_3(t)-(\frac{1}{2}t+1)\big(-(2t-1)A_1(t)+(2t+3)A_2(t)\big)\\
+  &= (\frac{1}{2}t+1)(2t-1)A_1(t)-(\frac{1}{2}t+1)(2t+3)A_2(t)+\frac{1}{2}A_3(t).
 \end{align*}
 \end{ejem}
 
 \begin{defn}
-Sea $P(t)\in K[t]$, con $\deg(P(t))>0$. Decimos que $P(t)$ es un polinomio irreducible si para toda factorizaci\'on $P(t)=S(t)Q(t)$ con $S(t),Q(t)\in K[t]$ tenemos que $\deg(S(t))=0$ \'o $\deg(Q(t))=0$ (e.d. $S(t)=c$ \'o $Q(t)=c$ para alg\'un $c\in K$, con $c\ne 0$).
+Sea $P(t)\in \mathbb{K}[t]$, con $\deg(P(t))>0$. Decimos que $P(t)$ es un \emph{polinomio irreducible} en $\mathbb{K}[t]$ si para toda factorización $P(t)=A(t)B(t)$ con $A(t),B(t)\in \mathbb{K}[t]$ tenemos que $\deg(A(t))=0$ ó $\deg(B(t))=0$, es decir $A(t)$ ó $B(t)$ es constantes.
 \end{defn}
 
 \begin{lema}
-Sea $P(t)\in K[t]$ un polinomio irreducible y sean $R(t),S(t)\in K[t]$ tales que $P(t)$ divide a $R(t)S(t)$, entonces $P(t)$ divide a $R(t)$ o a $S(t)$.
+Sea $P(t)\in \mathbb{K}[t]$ un polinomio irreducible. Entonces, si $P(t)$ divide a $A(t)B(t)$ con $A(t),B(t)\in \mathbb{K}[t]$, entonces $P(t)$ divide a $A(t)$ \'o $B(t)$.
 \end{lema}
 
-\dem Sea $Q(t)$ tal que se tiene $P(t)Q(t)=R(t)S(t)$ y suponga que $P(t)$ no divide a $R(t)$. Como $P(t)$ es irreducible tenemos $(P(t),R(t))=1$. Sean $R_0(t),P_0(t)\in K[t]$ para los cuales se tiene $1=R_0(t)P(t)+P_0(t)R(t)$, obtenemos entonces
+\dem Sea $Q(t)$ tal que se tiene $P(t)Q(t)=A(t)B(t)$ y suponga que $P(t)$ no divide a $A(t)$. Como $P(t)$ es irreducible tenemos $\left(P(t),A(t)\right)=1$. Sean $S(t),T(t)\in \mathbb{K}[t]$ tales que $1=S(t)P(t)+T(t)A(t)$, entonces
 \begin{align*}
-S(t) & =(R_0(t)P(t)+P_0(t)R(t))S(t)\\
-& =R_0(t)P(t)S(t)+P_0(t)R(t)S(t)\\
-& =R_0(t)P(t)S(t)+P_0(t)P(t)Q(t)\\
-& =P(t)\left(R_0(t)S(t)+P_0(t)Q(t)\right)
+B(t) & =(S(t)P(t)+T(t)A(t))B(t)\\
+& =S(t)P(t)B(t)+T(t)A(t)B(t)\\
+& =S(t)P(t)B(t)+T(t)P(t)Q(t)\\
+& =P(t)\left(S(t)B(t)+T(t)Q(t)\right)
 \end{align*}
-y as\'i $P(t)$ divide a $S(t)$.
+y así, $P(t)$ divide a $B(t)$.
 
-\begin{teo}[Factorizaci\'on \'unica]
-Si $P(t)\in K[t]$ es un polinomio con $\deg(P(t))>0$, entonces existen polinomios irreducibles $P_1(t),\ldots,P_n(t)\in K[t]$ para los cuales se tiene la factorizaci\'on $P(t)=P_1(t)\cdots P_n(t)$. M\'as a\'un esta factorizaci\'on es \'unica en el siguiente sentido. Si tenemos $P(t)=Q_1(t)\cdots Q_m(t)$ con $Q_1(t),\ldots,Q_m(t)\in K[t]$ irreducibles, entonces $m$ es igual a $n$ y existe una permutaci\'on $\sigma$ de $\{1,\ldots,n\}$ tal que, para $i\in\{1,\ldots,n\}$ se tiene $Q_i(t)=c_iP_{\sigma(i)}(t)$ para alg\'un $c_i\in K$.
+\begin{teo}[Factorización única]
+Si $A(t)\in \mathbb{K}[t]$ es un polinomio con $\deg(A(t))>0$, entonces existen polinomios irreducibles $P_1(t),\ldots,P_r(t)\in \mathbb{K}[t]$ tales que
+$$A(t)=P_1(t)\cdots P_r(t).$$
+Más aún, esta factorización de $A(t)$ es única en el siguiente sentido. Si $A(t)=Q_1(t)\cdots Q_m(t)$ con $Q_1(t),\ldots,Q_s(t)\in \mathbb{K}[t]$ irreducibles, entonces $s$ es igual a $r$ y existe una permutación $\sigma$ de $\{1,\ldots,r\}$ tal que, para $i\in\{1,\ldots,r\}$ se tiene $Q_i(t)=c_iP_{\sigma(i)}(t)$ para algún $c_i\in \mathbb{K}$.
 \end{teo}
 
-\dem Demostremos primero la existencia de la factorizaci\'on. Lo haremos por inducci\'on en $\deg(P(t))$, siendo el caso base $\deg(P(t))=1$ evidente pues en tal caso $P(t)$ es irreducible. Suponga que la factorizaci\'on por irreducibles ha sido demostrada para polinomios de grado estrictamente menor a $d$ y sea $P(t)\in K[t]$ con $\deg(P(t))=d$. Si $P(t)$ es irreducible, no hay nada que demostrar. Suponga entonces que existen $S(t),Q(t)\in K[t]$ tales que se tiene $P(t)=S(t)Q(t)$ con $\deg(S(t))>0$ y $deg(Q(t))>0$. En particular tenemos $\deg(S(t))<d$ y $\deg(Q(t))<d$. Por hip\'otesis de inducci\'on existen polinomios irreducibles $P_1(t),\ldots,P_{n_1}(t)$, $P_{n_1+1}(t),\ldots,P_{n_1+n_2}(t)\in K[t]$ para los cuales se tiene $S(t)=P_1(t)\cdots P_{n_1}(t)$ y $Q(t)=P_{n_1+1}(t)\cdots P_{n_1+n_2}(t)$.
-As\'i, obtenemos la factorizaci\'on $P(t)=P_1(t)\cdots P_{n_1+n_2}(t)$.\\
-Para establecer la unicidad de la factorizaci\'on procedemos por inducci\'on en el n\'umero de factores, siendo el caso base de un \'unico factor inmediato pues en tal caso $P(t)$ es irreducible. Asuma por inducci\'on que la unicidad ha sido demostrada cuando el n\'umero de factores es estrictamente menor a $n$. Si tenemos $P(t)=P_1(t)\cdots P_n(t)=Q_1(t)\cdots Q_m(t)$, entonces el lema anterior implica que $P_n(t)$ divide a alg\'un $Q_i(t)$, que podemos asumir, sin p\'erdida de generalidad, que es $Q_m(t)$. Pero como $Q_m(t)$ es irreducible entonces obtenemos $Q_m(t)=cP_m(t)$ para alg\'un $c\in K$ con $c\ne 0$. Tenemos as\'i $cP_1(t)\cdots P_{n-1}(t)=Q_1(t)\cdots Q_{m-1}(t)$. Como $cP_1(t)$ es irreducible, aplicamos la hip\'otesis de inducci\'on para establecer la igualdad $n-1=m-1$ y la existencia de una biyecci\'on $\sigma_0$ de $\{1,\ldots,n-1\}$ tal que, para $i\in\{1,\ldots,n-1\}$, se tiene $Q_i(t)=c_iP_{\sigma(i)}(t)$ para alg\'un $c_i\in K$. El teorema se sigue al tomar la biyecci\'on $\sigma$ definida por $\sigma(i)=\sigma_0(i)$ para $1\le i\le n-1$ y $\sigma(n)=n$, y notar que $n-1=m-1$ implica $n=m$.
+\dem Demostremos primero la existencia de la factorización. Lo haremos por inducción en $\deg(A(t))$, siendo el caso base $\deg(A(t))=1$ evidente pues en tal caso $A(t)$ es irreducible. Suponga que la factorización por irreducibles ha sido demostrada para polinomios de grado estrictamente menor a $d$ y sea $A(t)\in \mathbb{K}[t]$ con $\deg(A(t))=d$. Si $A(t)$ es irreducible, no hay nada que demostrar. Suponga entonces que existen $B(t),C(t)\in \mathbb{K}[t]$ tales que $A(t)=B(t)C(t)$ con $\deg(B(t))>0$ y $deg(C(t))>0$. En particular, tenemos $\deg(B(t))<d$ y $\deg(C(t))<d$. Por hipótesis de inducción, existen polinomios irreducibles $P_1(t),\ldots,P_{r_1}(t)$, $P_{r_1+1}(t),\ldots,P_{r_1+r_2}(t)\in \mathbb{K}[t]$ para los que $B(t)=P_1(t)\cdots P_{r_1}(t)$ y $C(t)=P_{r_1+1}(t)\cdots P_{r_1+r_2}(t)$. Así, obtenemos la factorización de $A(t)$ en irreducibles $A(t)=P_1(t)\cdots P_{n_1+n_2}(t)$.\\
+Para establecer la unicidad de la factorización procedemos por inducción en el número de factores, siendo el caso base de un único factor inmediato pues en tal caso $A(t)$ es irreducible. Asuma por inducción que la unicidad ha sido demostrada cuando el número de factores es estrictamente menor a $r$. Si tenemos $P(t)=P_1(t)\cdots P_r(t)=Q_1(t)\cdots Q_s(t)$, entonces el lema anterior implica que $P_r(t)$ divide a algún $Q_i(t)$, que podemos asumir, sin pérdida de generalidad, que es $Q_s(t)$. Pero como $Q_s(t)$ es irreducible entonces $Q_s(t)=cP_r(t)$ para algún $c\in \mathbb{K}$ con $c\ne 0$. Obtenemos así por la ley cancelativa $cP_1(t)\cdots P_{r-1}(t)=Q_1(t)\cdots Q_{s-1}(t)$. Como $cP_1(t)$ es irreducible, aplicamos la hipótesis de inducción para establecer la igualdad $r-1=s-1$, luego $r=s$, y la existencia de una biyección $\sigma_0$ de $\{1,\ldots,r-1\}$ tal que, para $i\in\{1,\ldots,r-1\}$, se tiene $Q_i(t)=c_iP_{\sigma(i)}(t)$ para algún $c_i\in \mathbb{K}$. El teorema se sigue al tomar la biyección $\sigma$ definida por $\sigma(i)=\sigma_0(i)$ para $1\le i\le r-1$ y $\sigma(r)=r$.
+
+\begin{obs}
+  Es común en la factorización por irreducibles restringirse a tener factores mónicos de forma que se tiene
+  $A(t)=cP_1(t)\cdots P_r(t)$, donde $c$ es el coeficiente líder de $A(t)$. De esta forma la factorización es única salvo permutación de los irreducibles. 
+\end{obs}
 
 \begin{teo}
-Si $P(t)\in\mathbb{R}[t]$ es un polinomio m\'onico irreducible, entonces $P(t)=t-a$, con $a\in\mathbb{R}$, \'o $P(t)=(t-a)^2+b^2$, con $a,b\in\mathbb{R}$. 
+Si $P(t)\in\mathbb{R}[t]$ es un polinomio mónico irreducible, entonces $P(t)=t-a$, para algún $a\in\mathbb{R}$, ó $P(t)=(t-a)^2+b^2$, con $a,b\in\mathbb{R}$ donde $b\ne 0$. 
 \end{teo}
 
-\dem Sea $P(t)\in\mathbb{R}[t]$ un polinomio m\'onico irreducible. Por el teorema fundamental del \'algebra $P(t)$ tiene una ra\'iz $w=a+bi$ en $\mathbb{C}$, donde $a,b\in\mathbb{R}$. Si $w$ es un n\'umero real, es decir $b=0$ y $w=a$, entonces $t-a$ divide a $P(t)$ y como $P(t)$ es m\'onico, obtenemos $P(t)=t-a$. De lo contrario, tenemos $w=a+bi$ con $b\ne 0$, y en tal caso $\overline{w}$, el conjudado de $w$, tambi\'en es una ra\'iz de $P(t)$. Luego $t-w$ y $t-\overline{w}$ dividen a $P(t)$ en $\mathbb{C}[t]$ y as\'i el m\'inimo multiplo com\'un $(t-w)(t-\overline{w})$ tambi\'en divide a $P(t)$ (ver ejercicio \ref{ejmcm}). Por ende, como se tiene $(t-w)(t-\overline{w})=(t-a-bi)(t-a+bi)=(t-a)^2+b^2$ entonces $(t-w)(t-\overline{w})$ es un divisor de $P(t)$ en $\mathbb{R}[t]$ y al ser $P(t)$ m\'onico, obtenemos $P(t)=(t-a)^2+b^2$.
+\dem Sea $P(t)\in\mathbb{R}[t]$ un polinomio mónico irreducible. Por el teorema fundamental del álgebra $P(t)$ tiene una raíz $w=a+bi$ en $\mathbb{C}$, con $a,b\in\mathbb{R}$. Si $w$ es un número real, es decir $b=0$ y $w=a$, entonces $t-a$ divide a $P(t)$ y como $P(t)$ es mónico, obtenemos $P(t)=t-a$. De lo contrario, tenemos $w=a+bi$ con $b\ne 0$, y en tal caso $\overline{w}$, el conjugado de $w$, también es una raíz de $P(t)$. Luego $t-w$ y $t-\overline{w}$ dividen a $P(t)$ en $\mathbb{C}[t]$ y así, el mínimo multiplo común $(t-w)(t-\overline{w})$ también divide a $P(t)$ (ver ejercicio \ref{ejmcm}). Por ende, como se tiene $(t-w)(t-\overline{w})=(t-a-bi)(t-a+bi)=(t-a)^2+b^2$ entonces $(t-w)(t-\overline{w})$ es un divisor de $P(t)$ en $\mathbb{R}[t]$ y al ser $P(t)$ mónico, obtenemos $P(t)=(t-a)^2+b^2$.
 
 \section*{Ejercicios}
 
 \begin{enumerate}
-\item Para cada una de las siguientes familias de polinomios $\{P_1(t),\ldots,P_n(t)\}\subseteq\mathbb{Q}[t]$:
+\item Demuestre que no hay ningún cuerpo contenido dentro del cuerpo de los números racionales.
+
+\item Demuestre que en un cuerpo no hay divisores de cero.
+
+\item Demuestre que la característica de un cuerpo es $0$ ó un número primo.
+
+\item Demuestre que en todo cuerpo de característica $p$ se tiene $(a+b)^p=a^p+b^p$.
+
+\item Demuestre que en todo cuerpo de característica $p$ la función $x\mapsto x^p$ preserva sumas y productos, y envía a $1$ y $0$ en ellos mismos.
+
+\item Demuestre que en un cuerpo finito, la suma de todos sus elementos es igual a $0$.
+
+\item Encuentre el cociente y el residuo de las siguientes divisiones.
+  \begin{enumerate}
+    \item $t^4-3t^2+2t-6$ entre $t^2-t+1$ en $\mathbb{Q}[t]$.
+    \item $t^5+t^3-3t+4$ entre $t^2+1$ en $\mathbb{R}[t]$.
+    \item $t^3+2t+2$ entre $t+1$ en $\mathbb{Q}[t]$.
+    \item $t^3+2t+2$ entre $t+1$ en $\mathbb{F}_3[t]$ y compare con la división anterior.
+    \item $t^4+t^2+1$ entre $t^2+t+1$ en $\mathbb{F}_2[t]$.
+  \end{enumerate}
+\item Determine si $t^4+3t^2+3t+3$ es divisible por $t^2+t+3$ en $\mathbb{F}_5[t]$.
+
+\item Para cada una de las siguientes familias de polinomios $\{A_1(t),\ldots,A_n(t)\}\subseteq\mathbb{Q}[t]$:
 \begin{itemize}
-\item[i)] $P_1(t)=(t-3)(t-5)$, $P_2(t)=(t-1)(t-5)$, $P_3(t)=(t-1)(t-3)$;
-\item[ii)] $P_1(t)=(t-3)$, $P_2(t)=(t-1)^2$;
-\item[iii)] $P_1(t)=(t-1)(t^2-2)$, $P_2(t)=(t+1)(t^2-2)$, $P_3(t)=t^2-1$;
-\item[iv)] $P_1(t)=t^2-2t+10$, $P_2(t)=t^2-2t+2$;
+\item[i)] $A_1(t)=(t-3)(t-5)$, $A_2(t)=(t-1)(t-5)$, $A_3(t)=(t-1)(t-3)$;
+\item[ii)] $A_1(t)=(t-3)$, $A_2(t)=(t-1)^2$;
+\item[iii)] $A_1(t)=(t-1)(t^2-2)$, $A_2(t)=(t+1)(t^2-2)$, $A_3(t)=t^2-1$;
+\item[iv)] $A_1(t)=t^2-2t+10$, $A_2(t)=t^2-2t+2$;
 \end{itemize}
 \begin{itemize}
-\item[(a)] Encuentre el m\'aximo com\'un divisor $\big(P_1(t),\ldots,P_n(t)\big)$ en $\mathbb{Q}(t)$.
-\item[(b)] Encuentre polinomios $Q_1(t),\ldots,Q_n(t)\in\mathbb{Q}[t]$ para los cuales se tiene
-$$\big(P_1(t),\ldots,P_n(t)\big)=Q_1(t)P_1(t)+\ldots+Q_n(t)P_n(t).$$
+\item[(a)] Encuentre el máximo común divisor $\left(A_1(t),\ldots,A_n(t)\right)$ en $\mathbb{Q}(t)$.
+\item[(b)] Encuentre polinomios $P_1(t),\ldots,P_n(t)\in\mathbb{Q}[t]$ tales que
+$$\left(A_1(t),\ldots,A_n(t)\right)=P_1(t)A_1(t)+\ldots+P_n(t)A_n(t).$$
 \end{itemize}
 
-\item\label{ejmcm} Sea $K$ un cuerpo y sean $P(t),Q(t)\in K[t]$. Decimos que $M(t)\in K[t]$ es un m\'inimo m\'ultiplo com\'un de $P(t)$ si satisface las siguientes dos propiedades.
-\begin{itemize}
-\item[i.] $P(t)$ y $Q(t)$ dividen a $M(t)$.
-\item[ii.] Si $P(t)$ y $Q(t)$ dividen a $M_1(t)\in K[t]$, entonces $M(t)$ divide a $M_1(t)$.
-\end{itemize}
+\item\label{ejmcm} Sea $\mathbb{K}$ un cuerpo y sean $A(t),B(t)\in \mathbb{K}[t]$. Decimos que $M(t)\in \mathbb{K}[t]$ es el mínimo múltiplo común de $A(t)$ y $B(t)$ si es un polinomio mónico que satisface las siguientes dos propiedades.
+\begin{enumerate}[(i)]
+\item $A(t)$ y $B(t)$ dividen a $M(t)$.
+\item Si $A(t)$ y $B(t)$ dividen a $M_1(t)\in \mathbb{K}[t]$, entonces $M(t)$ divide a $M_1(t)$.
+\end{enumerate}
 Demuestre las siguientes dos afirmaciones.
 \begin{itemize}
-\item[(a)] Para todo $P(t),Q(t)\in K[t]$, con $P(t)\ne 0$ y $Q(t)\ne 0$, existe un m\'inimo m\'ultiplo com\'un de $P(t)$ y $Q_(t)$.
-\item[(b)] Si $[P(t),Q(t)]$ denota al m\'inimo m\'ultiplo com\'un de $P(t)$ y $Q(t)$ que es m\'onico, entonces 
-$$P(t)Q(t)=ab(P(t),Q(t))[P(t),Q(t)]$$
-donde $a,b\in K$ son los respectivos coeficientes l\'ideres de $P(t)$ y $Q(t)$.
+\item[(a)] Para todo $A(t),B(t)\in \mathbb{K}[t]$, con $A(t)\ne 0$ y $B(t)\ne 0$, existe el mínimo múltiplo común de $A(t)$ y $B(t)$.
+\item[(b)] Si $[A(t),B(t)]$ denota al mínimo múltiplo común de $P(t)$ y $Q(t)$, entonces 
+$$A(t)B(t)=ab(A(t),B(t))[A(t),B(t)]$$
+donde $a,b\in \mathbb{K}$ son los respectivos coeficientes líderes de $A(t)$ y $B(t)$.
 \end{itemize} 
 
-\item Sea $K$ un cuerpo y sea $Q(t)\in K[t]$ con $\deg(Q(t))>0$. Dado $P(t)\in K[t]$, demuestre que existen unos \'unicos $P_0(t),P_1(t),\ldots,P_m(t)\in K[t]$ con $\deg(P_i(t))<\deg(Q(t))$ para $i=0,1,\ldots,m$ para los cuales se tiene
-$$P(t)=P_0(t)+P_1(t)Q(t)+\ldots+P_m(t)Q(t)^m.$$
+\item Sea $\mathbb{K}$ un cuerpo y $P(t)\in \mathbb{K}[t]$ con $\deg(P(t))>0$. Dado $A(t)\in \mathbb{K}[t]$, demuestre que existen unos únicos $A_0(t),A_1(t),\ldots,A_m(t)\in \mathbb{K}[t]$ con $\deg(A_i(t))<\deg(P(t))$ para $i\in\{0,1,\ldots,m\}$ tales que
+$$A(t)=A_0(t)+A_1(t)P(t)+\ldots+A_m(t)P(t)^m.$$
 
-\item Sea $K$ un cuerpo y sean $c_0,c_1,\ldots,c_n\in K$ distintos. Para $i\in\{0,1,\ldots,n\}$ defina
+\item Sea $\mathbb{K}$ un cuerpo y sean $c_0,c_1,\ldots,c_n\in \mathbb{K}$ distintos. Para $i\in\{0,1,\ldots,n\}$ defina
 $$P_i(t)=\prod_{j\ne i} \dfrac{t-c_i}{c_j-c_i}.$$
-Dado $P(t)\in K[t]$ con $\deg(P(t))\le n$ demuestre que
+Dado $P(t)\in \mathbb{K}[t]$ con $\deg(P(t))\le n$ demuestre que
 $$P(t)=\sum_{i=0}^n P(c_i)P_i(t).$$
 \end{enumerate}
