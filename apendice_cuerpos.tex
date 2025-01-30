@@ -52,8 +52,9 @@ Los siguientes conjuntos no son cuerpos.
 \begin{enumerate}[(i)]
   \item Basta con sumar el opuesto de $b$ a ambos lados de la igualdad en el caso de la suma, o multiplicar por el inverso de $b$ en el caso de la multiplicación.
   \item Si $e\in \mathbb{K}$ es tal que se tiene $a+e=a$ para algún $a\in \mathbb{K}$, por la neutralidad de $0$ se obtiene $a+0=a=a+e$. La ley de cancelación implica $0=e$. Similarmente, se puede verificar la unicidad de $1$ como neutro del producto.
-  \item Para verificar la unicidad del opuesto, observe que si $b,c\in \mathbb{K}$ verifican $a+b=0=a+c$, la ley de cancelación implica que $b$ y $c$ son iguales. Similarmente se establece la unicidad del inverso, cuando este existe. \qed
+  \item Para verificar la unicidad del opuesto, observe que si $b,c\in \mathbb{K}$ verifican $a+b=0=a+c$, la ley de cancelación implica que $b$ y $c$ son iguales. Similarmente se establece la unicidad del inverso, cuando este existe.
 \end{enumerate}
+\qed
 
 \begin{nota}
 Si $a\in \mathbb{K}$ es diferente de $0$, a su inverso $a^{-1}$ también lo denotaremos por $1/a$. Es usual denotar las operaciones $a+(-b)$ por $a-b$ y $a\cdot b^{-1}$ por $\frac{a}{b}$.
@@ -131,7 +132,8 @@ se obtiene que $(-a)b$ es el opuesto de $ab$. Similarmente se establece $a\cdot(
 \[
 (-a)(-b)=a\left(-(-b)\right) =ab
 \]
-\end{enumerate}\qed
+\end{enumerate}
+\qed
 
 \begin{defn}
 Sea $\mathbb{K}$ un cuerpo. Si existe un número natural $\mathbb{K}$ para el cual
@@ -145,7 +147,7 @@ al mínimo entre estos lo llamamos la \emph{característica} de $\mathbb{K}$ y l
 Para todo primo $p$, la característica de $\mathbb{F}_p$ es $p$. La característica de $\mathbb{Q}$, $\mathbb{R}$ y $\mathbb{C}$ es $0$.
 \end{obs}
 
-\begin{defn}
+\begin{defn}\label{defpoly}
 Sea $\mathbb{K}$ un cuerpo. Un \emph{polinomio con coeficientes en $\mathbb{K}$ en la variable $t$} es una expresión de la forma
 $$a_nt^n+a_{n-1}t^{n-1}+\ldots+a_1t+a_0$$
 con $a_n,\ldots,a_1,a_0\in\mathbb{K}$. Si $P(t)$ denota este polinomio, dado $c\in \mathbb{K}$, el \emph{valor de $P(t)$ en $c$} es
@@ -383,18 +385,13 @@ B(t) & =(S(t)P(t)+T(t)A(t))B(t)\\
 y así, $P(t)$ divide a $B(t)$.
 
 \begin{teo}[Factorización única]
-Si $A(t)\in \mathbb{K}[t]$ es un polinomio con $\deg(A(t))>0$, entonces existen polinomios irreducibles $P_1(t),\ldots,P_r(t)\in \mathbb{K}[t]$ tales que
-$$A(t)=P_1(t)\cdots P_r(t).$$
-Más aún, esta factorización de $A(t)$ es única en el siguiente sentido. Si $A(t)=Q_1(t)\cdots Q_m(t)$ con $Q_1(t),\ldots,Q_s(t)\in \mathbb{K}[t]$ irreducibles, entonces $s$ es igual a $r$ y existe una permutación $\sigma$ de $\{1,\ldots,r\}$ tal que, para $i\in\{1,\ldots,r\}$ se tiene $Q_i(t)=c_iP_{\sigma(i)}(t)$ para algún $c_i\in \mathbb{K}$.
+Si $A(t)\in \mathbb{K}[t]$ es un polinomio con $\deg(A(t))>0$, entonces existen polinomios irreducibles mónicos $P_1(t),\ldots,P_r(t)\in \mathbb{K}[t]$ tales que
+$$A(t)=cP_1(t)\cdots P_r(t),$$
+donde $c$ es el coeficiente líder de $P(t)$. Más aún, esta factorización de $A(t)$ es única en el siguiente sentido. Si $A(t)=cQ_1(t)\cdots Q_m(t)$ con $Q_1(t),\ldots,Q_s(t)\in \mathbb{K}[t]$ irreducibles mónicos, entonces $s$ es igual a $r$ y existe una permutación $\sigma$ de $\{1,\ldots,r\}$ tal que, para $i\in\{1,\ldots,r\}$ se tiene $Q_i(t)=P_{\sigma(i)}(t)$.
 \end{teo}
 
-\dem Demostremos primero la existencia de la factorización. Lo haremos por inducción en $\deg(A(t))$, siendo el caso base $\deg(A(t))=1$ evidente pues en tal caso $A(t)$ es irreducible. Suponga que la factorización por irreducibles ha sido demostrada para polinomios de grado estrictamente menor a $d$ y sea $A(t)\in \mathbb{K}[t]$ con $\deg(A(t))=d$. Si $A(t)$ es irreducible, no hay nada que demostrar. Suponga entonces que existen $B(t),C(t)\in \mathbb{K}[t]$ tales que $A(t)=B(t)C(t)$ con $\deg(B(t))>0$ y $deg(C(t))>0$. En particular, tenemos $\deg(B(t))<d$ y $\deg(C(t))<d$. Por hipótesis de inducción, existen polinomios irreducibles $P_1(t),\ldots,P_{r_1}(t)$, $P_{r_1+1}(t),\ldots,P_{r_1+r_2}(t)\in \mathbb{K}[t]$ para los que $B(t)=P_1(t)\cdots P_{r_1}(t)$ y $C(t)=P_{r_1+1}(t)\cdots P_{r_1+r_2}(t)$. Así, obtenemos la factorización de $A(t)$ en irreducibles $A(t)=P_1(t)\cdots P_{n_1+n_2}(t)$.\\
-Para establecer la unicidad de la factorización procedemos por inducción en el número de factores, siendo el caso base de un único factor inmediato pues en tal caso $A(t)$ es irreducible. Asuma por inducción que la unicidad ha sido demostrada cuando el número de factores es estrictamente menor a $r$. Si tenemos $P(t)=P_1(t)\cdots P_r(t)=Q_1(t)\cdots Q_s(t)$, entonces el lema anterior implica que $P_r(t)$ divide a algún $Q_i(t)$, que podemos asumir, sin pérdida de generalidad, que es $Q_s(t)$. Pero como $Q_s(t)$ es irreducible entonces $Q_s(t)=cP_r(t)$ para algún $c\in \mathbb{K}$ con $c\ne 0$. Obtenemos así por la ley cancelativa $cP_1(t)\cdots P_{r-1}(t)=Q_1(t)\cdots Q_{s-1}(t)$. Como $cP_1(t)$ es irreducible, aplicamos la hipótesis de inducción para establecer la igualdad $r-1=s-1$, luego $r=s$, y la existencia de una biyección $\sigma_0$ de $\{1,\ldots,r-1\}$ tal que, para $i\in\{1,\ldots,r-1\}$, se tiene $Q_i(t)=c_iP_{\sigma(i)}(t)$ para algún $c_i\in \mathbb{K}$. El teorema se sigue al tomar la biyección $\sigma$ definida por $\sigma(i)=\sigma_0(i)$ para $1\le i\le r-1$ y $\sigma(r)=r$.
-
-\begin{obs}
-  Es común en la factorización por irreducibles restringirse a tener factores mónicos de forma que se tiene
-  $A(t)=cP_1(t)\cdots P_r(t)$, donde $c$ es el coeficiente líder de $A(t)$. De esta forma la factorización es única salvo permutación de los irreducibles. 
-\end{obs}
+\dem Demostremos primero la existencia de la factorización. Lo haremos por inducción en $\deg(A(t))$, siendo el caso base $\deg(A(t))=1$ evidente pues en tal caso $A(t)$ es irreducible y así obtenemos la factorización deseada con $r=1$ y $P_1(t)=c^{-1}A(t)$. Suponga que la factorización por irreducibles mónicos ha sido demostrada para polinomios de grado estrictamente menor a $d$ y sea $A(t)\in \mathbb{K}[t]$ con $\deg(A(t))=d$. Si $A(t)$ es irreducible, no hay nada que demostrar de nuevo obtenemos la factorización con $r=1$ y $P_1(t)=c^{-1}A(t)$. Suponga entonces que existen $B(t),C(t)\in \mathbb{K}[t]$ tales que $A(t)=B(t)C(t)$ con $\deg(B(t))>0$ y $deg(C(t))>0$. En particular, tenemos $\deg(B(t))<d$ y $\deg(C(t))<d$. Por hipótesis de inducción, existen polinomios irreducibles mónicos $P_1(t),\ldots,P_{r_1}(t)$, $P_{r_1+1}(t),\ldots,P_{r_1+r_2}(t)\in \mathbb{K}[t]$ para los que $B(t)=aP_1(t)\cdots P_{r_1}(t)$ y $C(t)=bP_{r_1+1}(t)\cdots P_{r_1+r_2}(t)$, donde $a$ y $b$ son los respectivos coeficientes líder. Así, obtenemos la factorización de $A(t)$ en irreducibles mónicos $A(t)=abP_1(t)\cdots P_{n_1+n_2}(t)$, donde $ab$ es el coeficiente líder de $A(t)$.\\
+Para establecer la unicidad de la factorización procedemos por inducción en el número de factores, siendo el caso base de un único factor inmediato pues en tal caso $A(t)$ es irreducible. Asuma por inducción que la unicidad ha sido demostrada cuando el número de factores es estrictamente menor a $r$. Si tenemos $A(t)=P_1(t)\cdots P_r(t)=Q_1(t)\cdots Q_s(t)$, entonces el lema anterior implica que $P_r(t)$ divide a algún $Q_i(t)$, que podemos asumir, sin pérdida de generalidad, que es $Q_s(t)$. Pero como $Q_s(t)$ es irreducible entonces $Q_s(t)=cP_r(t)$ para algún $c\in \mathbb{K}$ con $c\ne 0$, y como $Q_s(t)$ y $P_r(t)$ son mónicos se tiene $c=1$. Obtenemos así por la ley cancelativa $P_1(t)\cdots P_{r-1}(t)=Q_1(t)\cdots Q_{s-1}(t)$. Al tener un número de factores irreducibles mónicos estrictamente menor $r$, por la hipótesis de inducción se establece la igualdad $r-1=s-1$, luego $r=s$, y la existencia de una biyección $\sigma_0$ de $\{1,\ldots,r-1\}$ tal que, para $i\in\{1,\ldots,r-1\}$, se tiene $Q_i(t)=P_{\sigma(i)}(t)$. El teorema se sigue cuando tomamos la biyección $\sigma$ definida por $\sigma(i)=\sigma_0(i)$ para $1\le i\le r-1$ y $\sigma(r)=r$.
 
 \begin{teo}
 Si $P(t)\in\mathbb{R}[t]$ es un polinomio mónico irreducible, entonces $P(t)=t-a$, para algún $a\in\mathbb{R}$, ó $P(t)=(t-a)^2+b^2$, con $a,b\in\mathbb{R}$ donde $b\ne 0$. 
@@ -405,17 +402,17 @@ Si $P(t)\in\mathbb{R}[t]$ es un polinomio mónico irreducible, entonces $P(t)=t-
 \section*{Ejercicios}
 
 \begin{enumerate}
-\item Demuestre que no hay ningún cuerpo contenido dentro del cuerpo de los números racionales.
+\item Demuestre que no hay ningún cuerpo propiamente contenido dentro del cuerpo de los números racionales.
 
 \item Demuestre que en un cuerpo no hay divisores de cero.
 
 \item Demuestre que la característica de un cuerpo es $0$ ó un número primo.
 
-\item Demuestre que en todo cuerpo de característica $p$ se tiene $(a+b)^p=a^p+b^p$.
+\item Demuestre que en todo cuerpo de característica finita $p$ se tiene $(a+b)^p=a^p+b^p$.
 
 \item Demuestre que en todo cuerpo de característica $p$ la función $x\mapsto x^p$ preserva sumas y productos, y envía a $1$ y $0$ en ellos mismos.
 
-\item Demuestre que en un cuerpo finito, la suma de todos sus elementos es igual a $0$.
+\item Demuestre que en un cuerpo finito de característica diferente a $2$, la suma de todos sus elementos es igual a $0$.
 
 \item Encuentre el cociente y el residuo de las siguientes divisiones.
   \begin{enumerate}

@@ -2,60 +2,71 @@
 
 \section{Espacios vectoriales}
 
-Sea $K$ un cuerpo.
+Sea $\mathbb{K}$ un cuerpo (ver la definición \ref{defcuerpo}). A los elementos de $\mathbb{K}$ los llamaremos escalares.
 
 \begin{defn}\label{defespvec}
-Un \emph{espacio vectorial sobre $K$} es un conjunto $V$ con dos operaciones binarias
+Un \emph{espacio vectorial sobre $\mathbb{K}$} es un conjunto $V$ junto con dos operaciones binarias
 \[
 \begin{array}{rclcrcl}
-+:V\times V & \longrightarrow & V &\qquad& \cdot: K\times V & \longrightarrow & V \\
++:V\times V & \longrightarrow & V &\qquad& \cdot: \mathbb{K}\times V & \longrightarrow & V \\
 (v,w) & \longmapsto & v+w &\qquad& (c,v) & \longmapsto & cv, 
 \end{array}
 \]
-que llamamos respectivamente \emph{suma} y \emph{producto por escalar} (o \emph{adici\'on} y \emph{multiplicaci\'on por escalar}), y un elemento $O\in V$, que llamamos \emph{el origen}, los cuales satisfacen los siguientes axiomas.
-\begin{enumerate}
+que llamamos respectivamente \emph{suma} y \emph{producto por escalar} (o \emph{adici\'on} y \emph{multiplicaci\'on por escalar}), y que contiene un elemento $O\in V$, que llamamos \emph{el origen}, los cuales satisfacen las siguientes propiedades.
+\begin{enumerate}[(i)]
 \item \emph{La estructura $(V,+,O)$ es un grupo abeliano}: para todo $u,v,w\in V$ se tiene
 \[ v+w=w+v,\qquad u+(v+w)=(u+v)+w,\qquad v+O=v,\]
 y para todo $v\in V$ existe $-v\in V$ que satisface la igualdad $-v+v=O$.
-\item \emph{El producto por escalar es unitaria y asociativa}: para todo $a,b\in K$ y todo $v\in V$ se tiene
+\item \emph{El producto por escalar es unitario y asociativo}: para todo $a,b\in \mathbb{K}$ y todo $v\in V$ se tiene
 \[ 1v=v,\qquad a(bv)=(ab)v.\]
-\item \emph{El producto se distribuye sobre la suma}: para todo $a,b\in K$ y todo $v,w\in V$ se tiene
+\item \emph{El producto por escalar se distribuye sobre la suma}: para todo $a,b\in \mathbb{K}$ y todo $v,w\in V$ se tiene
 \[ a(v+w)=av+aw,\qquad (a+b)v=av+bv.\] 
 \end{enumerate}
+Un \emph{vector} es un elemento de un espacio vectorial.
 \end{defn}
 
 \begin{ejem}\label{ejem0}
-Los ejemplos son imprescindibles.
+Los siguientes espacios vectoriales sobre $\mathbb{K}$ son ejemplos imprescindibles.
 \begin{enumerate}
-\item \emph{Espacio cero-dimensional}: El conjunto $\{O\}$ junto con las \'unicas operaciones posibles es un espacio vectorial.
-\item \emph{Espacio uni-dimensional}: El conjunto $K$ junto con las operaciones del cuerpo y $O=0$ es un espacio vectorial.
-\item \emph{Espacio $n$-dimensional de coordenadas}: El conjunto $K^n$ formado por el producto cartesiano de $n$ copias del cuerpo $K$, junto con las operaciones
+\item \emph{Espacio cero-dimensional}: El conjunto $\{O\}$ junto con las \'unicas operaciones posibles.
+\item \emph{Espacio uni-dimensional}: El conjunto $\mathbb{K}$ junto con las operaciones del cuerpo y $O=0$.
+\item \emph{Espacio $n$-dimensional de coordenadas}: El conjunto $\mathbb{K}^n$ formado por el producto cartesiano de $n$ copias del cuerpo $K$, junto con las operaciones
 \begin{eqnarray*}
 (a_1,\ldots,a_n)+(b_1,\ldots,b_n) & = & (a_1+b_1,\ldots,a_n+b_n)\\
 c(a_1,\ldots,a_n) & = & (ca_1,\ldots,ca_n)
 \end{eqnarray*}
-y $O=(0,\ldots,0)$ es un espacio vectorial
-\item \emph{Espacio de funciones con valor en $K$}: Sea $S$ un conjunto y sea $K^S$ el conjunto de funciones $S\rightarrow K$. Dados $f,g\in K^S$ y $c\in K$ definimos las funciones $f+g$ y $cg$ por
-$(f+g)(s) = f(s)+g(s)$ y $(cf)(s) = c(f(s))$, para todo $s\in S$. El conjunto $K^S$ junto con estas dos operaciones y la funci\'on $O$ definida por $O(s)=0$, para todo $s\in S$, es un espacio vectorial.
-\item \emph{Espacio de funciones con valor en $K$, con casi todos los valores iguales a cero}: Sea $S$ un conjunto. El conjunto $K^S_0$ de funciones $S\rightarrow K$ tales que todos los valores son cero, salvo para un n\'umero finito de elementos de $S$, junto con las operaciones y el origen definidos para $K^S$ es un espacio vectorial
-\item \emph{Espacio de polinomios con coeficientes en $K$}: El conjunto $K[t]$ de polinomios en la variable $t$ con coeficientes en $K$ junto con las operaciones de suma y producto por escalar usuales y el polinomio $O$ constante $0$ es un espacio vectorial.
+y $O=(0,\ldots,0)$.
+\item \emph{Espacio de funciones con valor en $\mathbb{K}$}: Dado un conjunto $X$, el conjunto $\mathbb{K}^X$ de funciones $X\rightarrow \mathbb{K}$, junto con las operaciones
+\begin{eqnarray*}
+  f+g: x & \mapsto & f(x)+g(x)\\
+  cf: x & \mapsto & cf(x)
+\end{eqnarray*}
+y el origen es la función $O: x\mapsto 0$.
+\item \emph{Espacio de funciones con valor en $\mathbb{K}$, con casi todos los valores iguales a $0$}: Dado un conjunto $X$, el conjunto $\mathbb{K}^S_0$ de funciones $X\rightarrow \mathbb{K}$ para las que todos los valores, salvo para un n\'umero finito de elementos en $X$, son $0$, junto con las operaciones y el origen definidos para $\mathbb{K}^X$.
+\item \emph{Espacio de polinomios con coeficientes en $\mathbb{K}$}: El conjunto $\mathbb{K}[t]$ de polinomios en la variable $t$ con coeficientes en $\mathbb{K}$ junto con las operaciones de suma y producto por escalar usuales y con el origen $O$ dado por el polinomio constante $0$ (ver la definición \ref{defpoly}).
 \end{enumerate} 
 \end{ejem}
 
-\begin{prop}[Ley de cancelaci\'on]
-Sea $V$ un espacio vectorial sobre $K$ y sean $u,v,w\in V$. Si tenemos $u+v=w+v$, entonces tenemos $u=w$.
-\end{prop}
+\begin{pro}
+Sea $V$ un espacio vectorial sobre $\mathbb{K}$
+\begin{enumerate}[(i)]
+  \item \emph{Ley de cancelaci\'on}: Dados $u,v,w\in V$, la igualdad $u+v=w+v$ implica $u=w$.
+  \item \emph{Unicidad del origen}: Si $o\in V$ es tal que $v+o=v$ para algún $v\in V$ entonces $v=0$.
+  \item \emph{Unicidad del opuesto}: Dado $v\in V$, si $w\in V$ es tal que $v+w=O$, entonces $w=-v$. 
+\end{enumerate}
+\end{pro}
 
-\dem A partir de la igualdad $u+v=w+v$, si sumamos $-v$, obtenemos la igualdad buscada. \qed
-
-\begin{coro}[Unicidad del neutro de la suma y del opuesto]
-Sea $V$ un espacio vectorial sobre $K$ y sea $v\in V$. Si $v'\in V$ es tal que $v+v'=O$ entonces $v'=-v$. Si $O'\in V$ es tal que $v+O'=v$, entonces $O'=O$.
-\end{coro}
+\dem
+\begin{enumerate}[(i)]
+  \item A partir de la igualdad $u+v=w+v$, si sumamos $-v$ a ambos lados obtenemos $u=w$.
+  \item Se sigue de la ley cancelativa aplicada a $v+o=v=v+O$.
+  \item Se sigue de la ley cancelativa aplicada a $v+w=O=v+(-v)$.
+\end{enumerate}
 
 \begin{pro}
-Sea $V$ es un espacio vectorial sobre $K$.
+Sea $V$ es un espacio vectorial sobre $\mathbb{K}$.
 \begin{enumerate}
-\item Para todo $c\in K$ y $v\in V$ tenemos $cO=0v=O$.
+\item Para todo $c\in \mathbb{K}$ y $v\in V$ tenemos $cO=0v=O$.
 \item Para todo $v\in V$ tenemos $(-1)v=-v$.
 \item Si tenemos $cv=O$, entonces $c=0$ \'o $v=O$.
 \end{enumerate}
@@ -65,11 +76,12 @@ Sea $V$ es un espacio vectorial sobre $K$.
 \begin{enumerate}
 \item Tenemos $cO+O=cO=c(O+O)=cO+cO$, luego, por la ley de cancelaci\'on, $cO=O$. Igualmente, tenemos $0v+O=0v=(0+0)v=0v+0v$, luego $0v=O$.
 \item Por la unicidad del opuesto, basta ver que $v+(-1)v=O$, lo cual se sigue de las igualdades $v+(-1)v=1v+(-1)v=\left(1+(-1)\right)v=0v$.
-\item Suponga $cv=O$ y $c\ne 0$, entonces tenemos $O=c^{-1}O=c^{-1}(cv)=(c^{-1}c)v=1v=v$.
+\item Suponga que $cv=O$ con $c\ne 0$, entonces tenemos $O=c^{-1}O=c^{-1}(cv)=(c^{-1}c)v=1v=v$.
 \end{enumerate}
+\qed
 
 \begin{defn}
-Sea $V$ un espacio vectorial sobre $K$ y sea $U\subseteq V$. Decimos que $U$ es un \emph{subespacio} de $V$ si $U$, con las operaciones heredadas de $V$, es un espacio vectorial.
+Sea $V$ un espacio vectorial sobre $\mathbb{K}$ y $U\subseteq V$. Decimos que $U$ es un \emph{subespacio} de $V$ si $U$, con las operaciones heredadas de $V$, es un espacio vectorial.
 \end{defn}
 
 \begin{nota}
@@ -77,60 +89,68 @@ Usaremos los s\'imbolos $\le$, $<$, $\ge$ y $>$ para representar respectivamente
 \end{nota}
 
 \begin{pro}\label{subespsiysolosi}
-Sea $V$ un espacio vectorial sobre $K$. Si $U$ es un subconjunto de $V$, entonces $U\le V$ si y solo si $U$ satisface las siguientes propiedades.
+Sea $V$ un espacio vectorial sobre $\mathbb{K}$. Si $U$ es un subconjunto de $V$, entonces $U\le V$ si y solo si $U$ satisface las siguientes propiedades.
 \begin{enumerate}
 \item $O\in U$.
 \item \emph{El conjunto $U$ es cerrado bajo suma}: para todo $v,w\in U$, se tiene $v+w\in U$.
-\item \emph{El conjunto $U$ es cerrado bajo multiplicaci\'on por escalar}: para todo $c\in K$ y $v\in U$, se tiene $cv\in U$.
+\item \emph{El conjunto $U$ es cerrado bajo multiplicaci\'on por escalar}: para todo $c\in \mathbb{K}$ y $v\in U$, se tiene $cv\in U$.
 \end{enumerate} 
 \end{pro}
 
 \dem Suponga primero $U\le V$. Luego $U$ contiene un neutro respecto a la suma y, como la operaci\'on de suma es la de $V$, este es $O$. As\'i tenemos $O\in U$. Por otro lado, como $U$ es un espacio vectorial con las operaciones de $V$, la suma de dos elementos en $U$ est\'a en $U$ y producto por escalar de un elemento en $U$ tambi\'en est\'a en $U$.\\
-Rec\'iprocamente, si $U$ contiene al origen y es cerrado bajo suma, la restricci\'on de la suma a $U\times U$ da una operaci\'on $+:U\times U\rightarrow U$ que cumple con el axioma 1. de la definici\'on \ref{defespvec}. Similarmente sucede con la restricci\'on del producto por escalar a $K\times U$ y el axioma 2. de la definici\'on \ref{defespvec}. Finalmente, la distributividad, que es el axioma 3. de la definici\'on \ref{defespvec}, se hereda de $V$.\qed
+Rec\'iprocamente, si $U$ contiene al origen y es cerrado bajo suma, la restricci\'on de la suma a $U\times U$ da una operaci\'on $+:U\times U\rightarrow U$ que cumple con el axioma (i) de la definici\'on \ref{defespvec}. Similarmente sucede con la restricci\'on del producto por escalar a $\mathbb{K}\times U$ y el axioma (ii). Finalmente, el axioma (iii) de distributividad se hereda de $V$.\qed
 
-\begin{obs}
-Note que en la pr\'actica, siempre que $U$ no sea vac\'io, basta con verificar las \'ultimas dos condiciones de la proposici\'on \ref{subespsiysolosi} para establecer que $U$ es un subespacio, pues la condici\'on 3. garantiza que $U$ contiene al origen ya que para $c=0$, tenemos $cv=O$ para cualquier $v\in U$.
-\end{obs}
+\begin{ejem}
+Las soluciones a sistemas lineales homogéneos son subespacios. De hecho, tome $a_{i1},\ldots,a_{in}\in \mathbb{K}$, para $i\in\{1,\ldots,m\}$, con $m\le n$. El conjunto $U$ de soluciones $(x_1,\ldots,x_n)\in\mathbb{K}^n$ al sistema
+$$\left\{
+\begin{array}{lcr}
+  a_{i1}x_1+\ldots+a_{in}x_n & = & 0\\
+   & \vdots & \\
+  a_{m1}x_1+\ldots+a_{mn}x_n & = & 0\\
+\end{array}
+\right.$$
+contiene al origen, es cerrado mediante suma y producto por escalar, y es así un subespacio.
+\end{ejem}
 
 \begin{defn}
-Sea $V$ un espacio vectorial sobre $K$ y sean $v_1,\ldots,v_n\in V$. Una \emph{combinaci\'on lineal} de  $v_1,\ldots,v_n$ es un elemento de la forma
+Sea $V$ un espacio vectorial sobre $\mathbb{K}$ y sean $v_1,\ldots,v_n\in V$. Una \emph{combinaci\'on lineal} de  $v_1,\ldots,v_n$ es un vector $v\in V$ tal que
 \[
-c_1v_1+\ldots+c_nv_n
+v=c_1v_1+\ldots+c_nv_n
 \]
-donde $c_1,\ldots,c_n$ son elementos en $K$. A los elementos $c_1,\ldots,c_n$ los llamamos los \emph{coeficientes} de la combinaci\'on lineal.
+con $c_1,\ldots,c_n\in\mathbb{K}$. A los elementos $c_1,\ldots,c_n$ los llamamos los \emph{coeficientes} de la combinaci\'on lineal.
 \end{defn}
 
 \begin{prop}
-Sea $V$ un espacio vectorial sobre $K$. Dado un subconjunto $S$ de $V$ no vac\'io, el conjunto formado por todas las combinaciones lineales de elementos en $S$ es un subespacio de $V$.
+Sea $V$ un espacio vectorial sobre $\mathbb{K}$. Dado un subconjunto no vac\'io $C$ de $V$, el conjunto formado por todas las combinaciones lineales de elementos en $C$ es un subespacio de $V$.
 \end{prop}
 
-\dem Sea $U$ el conjunto $\left\{\sum_{i=1}^nc_iv_i\Big|\ c_1,\ldots,c_n\in K,\ v_1,\ldots,v_n\in S \right\}$. Como $S$ no es vacio y $U$ contiene a $S$ y entonces $U$ tampoco es vac\'io.
-Para todo $v,w\in U$, existen $a_1,\ldots,a_n,b_1,\ldots,b_m\in K$ y $v_1,\ldots,v_n,w_1,\ldots,w_m\in S$ para los cuales se cumple $v=\sum_{i=1}^n a_iv_i$ y $w=\sum_{j=1}^m b_jw_j$. Luego, tenemos
+\dem Sea $U$ el conjunto $\left\{\sum_{i=1}^nc_iv_i\Big|\ c_1,\ldots,c_n\in \mathbb{K},\ v_1,\ldots,v_n\in C \right\}$. Como $C$ no es vacío, para cualquier $c\in C$ se tiene $0c=O$ y así $U$ contiene al origen.
+Para todo $v,w\in U$, existen $a_1,\ldots,a_n,b_1,\ldots,b_m\in \mathbb{K}$ y $v_1,\ldots,v_n,w_1,\ldots,w_m\in S$ tales que $v=\sum_{i=1}^n a_iv_i$ y $w=\sum_{j=1}^m b_jw_j$, y así
 \[
-v+w=a_1v_1+\ldots+a_nv_n+b_1w_1+\ldots+b_mw_m,
+v+w=a_1v_1+\ldots+a_nv_n+b_1w_1+\ldots+b_mw_m.
 \]
-as\'i $v+w$ es una combinaci\'on lineal de elementos de $S$ y $v+w$ pertenece a $U$. Similarmente, dado $c\in K$, tenemos
+Luego, $v+w$ es una combinaci\'on lineal de elementos de $C$ y $v+w$ pertenece a $U$. Similarmente, dado $c\in \mathbb{K}$, tenemos
 \[
 cv=ca_1v_1+\ldots+ca_nv_n,
 \]
 y as\'i $cv$ est\'a en $U$. Por lo tanto, $U$ es cerrado bajo suma y multiplicaci\'on por escalar, luego, por la propiedad \ref{subespsiysolosi}, $U$ es subespacio de $V$.\qed
 
 \begin{defn}
-Sea $V$ un espacio vectorial sobre $K$ y sea $S$ un subconjunto de $V$ no vac\'io. Al subespacio formado por todas las combinaciones lineales de elementos de $S$ lo llamamos el \emph{espacio generado por $S$} y lo denotamos por $\langle S \rangle$. Por convenci\'on, definimos $\langle \emptyset\rangle=\{O\}$.
+Sea $V$ un espacio vectorial sobre $\mathbb{K}$ y sea $C$ un subconjunto de $V$ no vac\'io. Al subespacio formado por todas las combinaciones lineales de elementos de $C$ lo llamamos el \emph{espacio generado por $C$} y lo denotamos por $\langle C \rangle$. Por convenci\'on, definimos $\langle \emptyset\rangle=\{O\}$.
 \end{defn}
 
 \begin{prop}\label{propunion}
-Sea $V$ un espacio vectorial sobre $K$.
+Sea $V$ un espacio vectorial sobre $\mathbb{K}$.
 \begin{enumerate}
-\item Si $\{U_\lambda\}_{\lambda\in\Lambda}$ es una familia de subespacios de $V$, entonces la intersecci\'on $\bigcap_{\lambda\in\Lambda} U_\lambda$ es un subespacio de $V$.
-\item Si $S$ es un subconjunto de $V$, entonces $\langle S\rangle$ es el m\'inimo subespacio vectorial en $V$ que contiene a $S$. Es decir, si $W$ es un subespacio de $V$ que contiene a S, entonces $\langle S\rangle$ es un subespacio de $W$.
+\item Si $\{U_i\}_{i\in I}$ es una familia de subespacios de $V$, entonces la intersecci\'on $\bigcap_{i \in I} U_i$ es un subespacio de $V$.
+\item Si $C$ es un subconjunto de $V$, entonces $\langle C\rangle$ es el m\'inimo subespacio vectorial en $V$ que contiene a $C$. Es decir, si $W$ es un subespacio de $V$ que contiene a C, entonces $\langle C\rangle$ es un subespacio de $W$.
 \end{enumerate}
 \end{prop}
 
 \dem
 \begin{enumerate}
-\item Sea $U$ el conjunto $\bigcap_{\lambda\in\Lambda} U_\lambda$. Sean $v,w\in U$ y sea $a\in K$. Para todo $\lambda\in\Lambda$ tenemos $v,w\in U_\lambda$. Luego, para todo $\lambda\in\Lambda$, $v+w$ y $cv$ pertenecen a $U_\lambda$ y as\'i tambi\'en est\'an en $U$.
-\item Sea  $W$ un subespacio de $V$ que contiene a $S$. Como $W$ es cerrado bajo suma y bajo multiplicaci\'on por escalar, dados $v_1,\ldots,v_n\in S$ y $c_1,\ldots,c_n\in K$, la combinaci\'on lineal $\sum_i^{n} c_iv_i$ est\'a en $W$. Es decir que toda combinaci\'on lineal de elementos de $S$ est\'a en $W$. Luego, tenemos $\langle S\rangle \subseteq W$. Pero como $\langle S\rangle$ es un espacio vectorial, obtenemos $\langle S\rangle \le W$.\qed
+\item Sea $U$ el conjunto $\bigcap_{i\in I} U_i$. Para todo $i\in I$, el origen $O$ está en $U_i$ y así $O\in U$. Sea $v,w\in U$ y $a\in \mathbb{K}$. Para todo $i \in I$ tenemos $v,w\in U_i$, luego $v+w$ y $cv$ pertenecen a todo $U_i$ y as\'i tambi\'en est\'an en $U$.
+\item Sea  $W$ un subespacio de $V$ que contiene a $C$. Como $W$ es cerrado bajo suma y bajo multiplicaci\'on por escalar, dados $v_1,\ldots,v_n\in C$ y $c_1,\ldots,c_n\in \mathbb{K}$, la combinaci\'on lineal $\sum_i^{n} c_iv_i$ est\'a en $W$. Es decir que toda combinaci\'on lineal de elementos de $C$ est\'a en $W$. Luego, tenemos $\langle C\rangle \subseteq W$. Pero como $\langle C\rangle$ es un espacio vectorial, obtenemos $\langle C\rangle \le W$.\qed
 \end{enumerate}
 
 \section{Base y dimensi\'on}
