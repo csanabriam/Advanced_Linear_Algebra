@@ -27,7 +27,7 @@ Un \emph{vector} es un elemento de un espacio vectorial.
 
 \begin{ejem}\label{ejem0}
 Los siguientes espacios vectoriales sobre $\mathbb{K}$ son ejemplos imprescindibles.
-\begin{enumerate}
+\begin{enumerate}[(i)]
 \item \emph{Espacio cero-dimensional}: El conjunto $\{O\}$ junto con las \'unicas operaciones posibles.
 \item \emph{Espacio uni-dimensional}: El conjunto $\mathbb{K}$ junto con las operaciones del cuerpo y $O=0$.
 \item \emph{Espacio $n$-dimensional de coordenadas}: El conjunto $\mathbb{K}^n$ formado por el producto cartesiano de $n$ copias del cuerpo $K$, junto con las operaciones
@@ -65,7 +65,7 @@ Sea $V$ un espacio vectorial sobre $\mathbb{K}$
 
 \begin{pro}
 Sea $V$ es un espacio vectorial sobre $\mathbb{K}$.
-\begin{enumerate}
+\begin{enumerate}[(i)]
 \item Para todo $c\in \mathbb{K}$ y $v\in V$ tenemos $cO=0v=O$.
 \item Para todo $v\in V$ tenemos $(-1)v=-v$.
 \item Si tenemos $cv=O$, entonces $c=0$ \'o $v=O$.
@@ -73,7 +73,7 @@ Sea $V$ es un espacio vectorial sobre $\mathbb{K}$.
 \end{pro}
 
 \dem
-\begin{enumerate}
+\begin{enumerate}[(i)]
 \item Tenemos $cO+O=cO=c(O+O)=cO+cO$, luego, por la ley de cancelaci\'on, $cO=O$. Igualmente, tenemos $0v+O=0v=(0+0)v=0v+0v$, luego $0v=O$.
 \item Por la unicidad del opuesto, basta ver que $v+(-1)v=O$, lo cual se sigue de las igualdades $v+(-1)v=1v+(-1)v=\left(1+(-1)\right)v=0v$.
 \item Suponga que $cv=O$ con $c\ne 0$, entonces tenemos $O=c^{-1}O=c^{-1}(cv)=(c^{-1}c)v=1v=v$.
@@ -88,9 +88,9 @@ Sea $V$ un espacio vectorial sobre $\mathbb{K}$ y $U\subseteq V$. Decimos que $U
 Usaremos los s\'imbolos $\le$, $<$, $\ge$ y $>$ para representar respectivamente \emph{subespacio de}, \emph{subespacio propio de}, \emph{superespacio de} y \emph{superespacio propio de}.
 \end{nota}
 
-\begin{pro}\label{subespsiysolosi}
+\begin{pro}[Caracterización de subespacios]\label{subespsiysolosi}
 Sea $V$ un espacio vectorial sobre $\mathbb{K}$. Si $U$ es un subconjunto de $V$, entonces $U\le V$ si y solo si $U$ satisface las siguientes propiedades.
-\begin{enumerate}
+\begin{enumerate}[(i)]
 \item $O\in U$.
 \item \emph{El conjunto $U$ es cerrado bajo suma}: para todo $v,w\in U$, se tiene $v+w\in U$.
 \item \emph{El conjunto $U$ es cerrado bajo multiplicaci\'on por escalar}: para todo $c\in \mathbb{K}$ y $v\in U$, se tiene $cv\in U$.
@@ -141,36 +141,37 @@ Sea $V$ un espacio vectorial sobre $\mathbb{K}$ y sea $C$ un subconjunto de $V$ 
 
 \begin{prop}\label{propunion}
 Sea $V$ un espacio vectorial sobre $\mathbb{K}$.
-\begin{enumerate}
+\begin{enumerate}[(i)]
 \item Si $\{U_i\}_{i\in I}$ es una familia de subespacios de $V$, entonces la intersecci\'on $\bigcap_{i \in I} U_i$ es un subespacio de $V$.
 \item Si $C$ es un subconjunto de $V$, entonces $\langle C\rangle$ es el m\'inimo subespacio vectorial en $V$ que contiene a $C$. Es decir, si $W$ es un subespacio de $V$ que contiene a C, entonces $\langle C\rangle$ es un subespacio de $W$.
 \end{enumerate}
 \end{prop}
 
 \dem
-\begin{enumerate}
+\begin{enumerate}[(i)]
 \item Sea $U$ el conjunto $\bigcap_{i\in I} U_i$. Para todo $i\in I$, el origen $O$ está en $U_i$ y así $O\in U$. Sea $v,w\in U$ y $a\in \mathbb{K}$. Para todo $i \in I$ tenemos $v,w\in U_i$, luego $v+w$ y $cv$ pertenecen a todo $U_i$ y as\'i tambi\'en est\'an en $U$.
 \item Sea  $W$ un subespacio de $V$ que contiene a $C$. Como $W$ es cerrado bajo suma y bajo multiplicaci\'on por escalar, dados $v_1,\ldots,v_n\in C$ y $c_1,\ldots,c_n\in \mathbb{K}$, la combinaci\'on lineal $\sum_i^{n} c_iv_i$ est\'a en $W$. Es decir que toda combinaci\'on lineal de elementos de $C$ est\'a en $W$. Luego, tenemos $\langle C\rangle \subseteq W$. Pero como $\langle C\rangle$ es un espacio vectorial, obtenemos $\langle C\rangle \le W$.\qed
 \end{enumerate}
 
 \section{Base y dimensi\'on}
 
-Sea $V$ un espacio vectorial sobre un cuerpo $K$.
+Dado un conjunto de indices $I$ y un conjunto $C$, una \emph{familia de elementos de $C$ indexada por $I$}, o simplemente una \emph{familia de $C$}, es una función $I\rightarrow C$ que denotaremos por $(x_i)_{i\in I}$ cuando la imagen de $i$ es $x_i$. Cuando no haya lugar a confusión, regularmente identificaremos esta familia con el subconjunto $\{x_i\}_{i\in I}$ de $C$.
+
+Sea $V$ un espacio vectorial sobre $\mathbb{K}$. 
 
 \begin{nota}
-Sea $I$ un conjunto de \'indices. Sea $S$ el conjunto $\{v_i\}_{i\in I}$, donde $v_i$ es un elemento de $V$ para $i\in I$. Las combinaciones lineales de elementos de $S$ las denotaremos por
-$\sum_{i\in I} c_iv_i$, donde $c_i$ es un elemento en $K$ para todo $i\in I$, bajo la convenci\'on de que $c_i$ es $0$ para todo indice $i\in I$ salvo para una subcolecci\'on finita. Note que estas sumas son finitas pues los coeficientes que no son $0$ son finitos.
+Sea $C=(v_i)_{i\in I}$ una colección de vectores de $V$ indexados por un conjunto $I$ y $(c_i)_{i\in I}$ una colección de escalares indexados por $I$, tales que $c_i=0$ para todo indice $i\in I$, salvo para una subcolecci\'on finita, es decir que $(c_i)_{i\in I}\in \mathbb{K}^I_0$ (ver el ejemplo \ref{ejem0}(v)). A la combinación lineal de elementos de $C$ con coeficientes $c_i$ la denotaremos por $\sum_{i\in I} c_iv_i$ y a $c_i$ lo llamamos el $i$-ésimo coeficiente. Note que estas sumas son finitas pues los coeficientes que no son $0$ son finitos. Cuando $I$ es un conjunto finito de $n$ elementos, lo usual es tomar $I=\{1,\ldots,n\}$.
 \end{nota}
 
 \begin{defn}
-Sea $\mathcal{B}$ el subconjunto $\{v_i\}_{i\in I}$ de $V$. Decimos que $\mathcal{B}$ es una \emph{base} de $V$ si para todo $v\in V$ existe una \'unica combinaci\'on lineal $\sum_{i\in I} c_iv_i$, donde $c_i$ es un elemento en $K$ para todo $i\in I$, que cumple $v=\sum_{i\in I} c_iv_i$. Dado $i\in I$, al coeficiente $c_i$ lo llamamos la \emph{coordenada $i$ de $v$ en la base $\mathcal{B}$}. Por convenci\'on, la base del espacio cero-dimensional es  $\emptyset$. 
+Sea $\mathcal{B}=(v_i)_{i\in I}$ una colección indexada de vectores en $V$. Decimos que $\mathcal{B}$ es una \emph{base} de $V$ si para cada $v\in V$ existe una \'unica combinaci\'on lineal de elementos de $C$ igual a $v$. Si $v=\sum_{i\in I} c_iv_i$, al coeficiente $c_i$ lo llamamos la \emph{coordenada $i$ de $v$ en la base $\mathcal{B}$}. Por convenci\'on, la base del espacio cero-dimensional es $\emptyset$. 
 \end{defn}
 
 \begin{lema}\label{lemabas}
-Sea $\mathcal{B}$ la base $\{v_i\}_{i\in I}$ de $V$. Suponga que $\mathcal{B}$ no es vac\'io. Si $\{c_i\}_{i\in I}$ es una colecci\'on de elementos en $K$ para la cual se tiene $O=\sum_{i\in I}c_iv_i$, entonces $c_i$ es igual a $0$ para todo $i\in I$.
+Suponga que $V$ no es el espacio cero-dimensional y sea $\mathcal{B}=(v_i)_{i\in I}$ una base. Si $c_i$, $i\in I$, son escalares para los cuales $O=\sum_{i\in I}c_iv_i$, entonces $c_i=0$ para todo $i\in I$.
 \end{lema}
 
-\dem La combinaci\'on lineal $\sum_{i\in I}0v_i$ es igual a $O$ y como es la \'unica combinaci\'on lineal de elementos en $\mathcal{B}$  igual al origen, se sigue el lema.\qed 
+\dem La combinaci\'on lineal $\sum_{i\in I}0v_i$ es la \'unica combinaci\'on lineal de elementos en $\mathcal{B}$ igual al origen, entonces $c_i=0$ para todo $i$.\qed 
 
 
 \begin{defn}
@@ -181,137 +182,137 @@ Decimos que $V$ tiene dimensi\'on finita si tiene una base finita. De lo contrar
 Si $V$ tiene dimensi\'on finita, el n\'umero de elementos de la base es independiente de la base escogida.
 \end{teo}
 
-\dem La afirmaci\'on para el caso cero-dimensional se sigue del hecho de que su \'unica base es de cero elementos. Ahora suponga por contradicci\'on que $V$ tiene dos bases $\{v_1,\ldots, v_n\}$ y $\{w_1,\ldots, w_m\}$ y que $n$ es diferente de $m$. Sin perdida de generalidad, podemos asumir $m>n$.\\
-Para $j\in\{1,\ldots,m\}$ tenemos $$w_j=\sum_{i=1}^n a_{ij}v_i,$$ con $a_{ij}\in K$, para $i\in\{1,\ldots,n\}$. As\'i, si $v\in V$ es igual a $x_1w_1+\ldots+x_mw_m$, donde $x_1,\ldots,x_m$ son elemento en $K$, tendr\'iamos
+\dem La afirmaci\'on para el caso $V=\{O\}$, se sigue del hecho de que su \'unica base es de cero elementos. Tome $V$ diferente del espacio cero-dimensional y suponga por contradicci\'on que $V$ tiene dos bases finitas $(v_1,\ldots, v_n)$ y $(w_1,\ldots, w_m)$ de diferentes tamaños, es decir $n\ne m$. Sin perdida de generalidad, podemos asumir que $m>n$.\\
+Para $j\in\{1,\ldots,m\}$, tome escalares $a_{1j},\ldots,a_{nj}$ tales que $$w_j=\sum_{i=1}^n a_{ij}v_i.$$ As\'i, dado $v\in V$ con $v=x_1w_1+\ldots+x_mw_m$ y $x_1,\ldots,x_m\in\mathbb{K}$, tendr\'iamos
 $$v = \sum_{j=1}^m x_j\left(\sum_{i=1}^n a_{ij}v_i\right) = \sum_{i=1}^n\left(\sum_{j=1}^m a_{ij}x_j\right)v_i.$$
 Por el lema anterior, se cumple $v=O$ si y solo si
 \[
 \sum_{j=1}^m a_{ij}x_j=0,
 \]
-para $i\in\{1,\ldots,n\}$. Estas $n$ igualdades forman un sistema homogeneo subdeterminado, esto es con m\'as variables que ecuaciones. En particular, este sistema tiene soluciones no triviales. Si $(x_1,\ldots,x_m)$ es una de ellas, entonces obtenemos el origen como una combinaci\'on lineal de los elementos de la base $\{w_1,\ldots, w_m\}$ con coeficientes no todos iguales a cero, lo cual contradice el lema. Por lo tanto tenemos $m=n$. \qed
+para $i\in\{1,\ldots,n\}$. Estas $n$ igualdades forman un sistema homogeneo subdeterminado, es decir con m\'as variables que ecuaciones. En particular, este sistema tiene al menos una solución no trivial. Si $(x_1,\ldots,x_m)$ es una de ellas, entonces obtenemos el origen como una combinaci\'on lineal de los elementos de la base $\{w_1,\ldots, w_m\}$ con coeficientes no todos iguales a cero, lo cual contradice el lema. Por lo tanto tenemos $m=n$.\\
+Cuando asumimos por contradicción que $V$ admite una base infinita $(w_i)_{i\in I}$, y tomamos $v\in V$, entonces existe una combinación lineal $v=x_1w_1+\ldots+x_nw_m$ de vectores $w_1,\ldots,w_n\in\{w_i\}_{i\in I}$ y obtenemos una contradicción similarmente a como la acabamos de obtener.\qed
 
 \begin{defn}
-Suponga que $V$ tiene dimensi\'on finita. Al n\'umero de elementos en una base de $V$ lo llamamos dimensi\'on de $V$ y lo denotamos por $\dim (V)$. Si $V$ tiene dimensi\'on infinita, escribimos $\dim(V)=\infty$, y usamos la convenci\'on $n<\infty$ para todo entero $n$.
+Suponga que $V$ tiene dimensi\'on finita. Al n\'umero de elementos en una base de $V$ lo llamamos dimensi\'on de $V$ y lo denotamos por $\dim (V)$. Si $V$ tiene dimensi\'on infinita, escribimos $\dim(V)=\infty$, y usamos la convenci\'on de que $n<\infty$ para todo entero $n$.
 \end{defn}
 
 \begin{defn}
-Sea $S$ un subconjunto de $V$. Decimos que $S$ es \emph{linealmente dependiente} si alg\'un elemento de $S$ es combinaci\'on lineal de los otros, es decir si existen $v_0,v_1,\ldots,v_n\in S$, tales que $v_0$ es distinto de $v_i$ para $i\in\{1,\ldots,n\}$, que satisfacen
+Sea $C$ un subconjunto de $V$. Decimos que $C$ es \emph{linealmente dependiente} si alg\'un elemento de $C$ es combinaci\'on lineal de los otros, es decir si existen $v_0,v_1,\ldots,v_n\in C$, dos a dos distintos, tales que
 \[
 v_0=c_1v_1+\ldots+c_nv_n
 \]
-donde $c_1,\ldots,c_n$ son elementos en $K$. Si $S$ no es linealmente dependiente, decimos que $S$ es \emph{linealmente independiente}.
+para algunos escalares $c_1,\ldots,c_n$. Si $C$ no es linealmente dependiente, decimos que $S$ es \emph{linealmente independiente}. Por convención diremos que $\emptyset$ es linealmente independiente.
 \end{defn}
 
-\begin{prop}\label{proplinind}
-Si $S$ es un subconjunto de $V$, entonces $S$ es linealmente independiente si y solo si
-\[
-O=c_1v_1+\ldots+c_nv_n,
-\]
-donde $v_1,\ldots,v_n$ son elementos en $S$ y $c_1,\ldots,c_n$ en $K$, implica $c_1=\ldots=c_n=0$. 
+\begin{prop}[Caracterización de independencia lineal]\label{proplinind}
+Un conjunto $C$ de vectores es linealmente independiente si y solo si la única combinación lineal de vectores en $C$ igual al origen es la que todos sus coeficientes son iguales a cero.
 \end{prop}
 
-\dem Establezcamos la contrapositiva: $S$ es linealmente dependiente si y solo si existen $v_1,\ldots,v_n\in S$ y $c_1,\ldots,c_n\in K$, con $c_i\ne 0$ para alg\'un $i\in\{1,\ldots, n\}$, tales que
+\dem Establecemos la contrapositiva: $C$ es linealmente dependiente si y solo si existen $v_1,\ldots,v_n\in C$ y $c_1,\ldots,c_n\in \mathbb{K}$, con $c_j\ne 0$ para alg\'un $j\in\{1,\ldots, n\}$, tales que
 \[
 O=c_1v_1+\ldots+c_nv_n.
 \]
-La contrapositiva es inmediata pues la \'ultima igualdad es equivalente a
+Lo cual se sigue al notar que esta igualdad equivale a
 \[
-v_i=\sum_{j=1,j\ne i}^n (-c_j/c_i)v_j,
+v_j=\sum_{i=1,i\ne j}^n (-c_i/c_j)v_i
 \]
-donde $c_i$ es invertible en $K$, es decir $c_i$ es distinto de $0$. \qed
+cuando $c_j$ es invertible, es decir cuando $c_j\ne 0$ para algún $j\in\{1,\ldots,n\}$.
+\qed
 
-\begin{prop}\label{defbase2}
-Si $\mathcal{B}$ es un subconjunto no vac\'io de $V$, entonces $\mathcal{B}$ es una base de $V$ si y solo si satisface las siguientes dos propiedades.
-\begin{enumerate}
+\begin{teo}[Caracterización de las bases]\label{defbase2}
+Sea $\mathcal{B}=(v_i)_{i\in I}$ una colección vectores de $V$ indexada por $I$, con $I\ne\emptyset$. Entonces $\mathcal{B}$ es una base de $V$ si y solo si satisface las siguientes dos propiedades.
+\begin{enumerate}[(i)]
 \item El conjunto $\mathcal{B}$ es linealmente independiente.
 \item El espacio $V$ es generado por $\mathcal{B}$.
 \end{enumerate}
-\end{prop}
+\end{teo}
 
-\dem Es suficiente demostrar que si tenemos $\langle \mathcal{B}\rangle=V$ entonces $\mathcal{B}$ es una base si y solo si $\mathcal{B}$ es linealmente independiente. Con esto en mente, suponga primero que $\mathcal{B}$ es base, luego por el Lema \ref{lemabas}, $\mathcal{B}$ es linealmente independiente. Reciprocamente, suponga que $\mathcal{B}$ es linealmente independiente. Asuma por contradicci\'on que $\mathcal{B}$ no es base, luego existen dos combinaciones lineales con coeficientes distintos ambas iguales a alg\'un $v\in V$. La diferencia de estas dos combinaciones lineales dar\'ia una combinaci\'on lineal igual a $0$ con coeficientes no todos nulos, lo cual contradice la propiedad \ref{proplinind}.\qed
+\dem Es suficiente demostrar que si tenemos $\langle \mathcal{B}\rangle=V$ entonces $\mathcal{B}$ es una base si y solo si $\mathcal{B}$ es linealmente independiente. Con esto en mente, suponga primero que $\mathcal{B}$ es base, luego por el lema \ref{lemabas}, $\mathcal{B}$ es linealmente independiente. Recíprocamente, suponga que $\mathcal{B}$ es linealmente independiente y asuma por contradicci\'on que $\mathcal{B}$ no es base. Luego, existen dos combinaciones lineales con coeficientes distintos, ambas iguales a alg\'un $v\in V$. La diferencia de estas dos combinaciones lineales dar\'ia una combinaci\'on lineal igual a $O$ con no todos los coeficientes nulos, lo cual contradice la propiedad \ref{proplinind}.\qed
 
 \begin{ejem}\label{ejembas0}
 Por la propiedad \ref{defbase2}, se puede verificar que, para cada uno de los siguientes espacios $V$, el respectivo conjunto $\mathcal{B}$ es una base.
-\begin{enumerate}
-\item Sea $V=K^n$. Para $i\in\{1,\ldots, n\}$, defina $e_i\in V$ como el elemento con ceros en todas las entradas salvo en la $i$-\'esima donde tiene $1$. Sea $\mathcal{B}=\{e_1,\ldots,e_n\}$.
-\item  Sea $I$ un conjunto finito y sea $V=K^I$. Para $i\in I$, defina la funci\'on $\delta_i: I\rightarrow K$ por $\delta_i(i)=1$ y $\delta_i(j)=0$ para $j\ne i$. Sea $\mathcal{B}=\{\delta_i\}_{i\in I}$. 
-\item Sea $I$ un conjunto y sea $V=\left(K^I\right)_0$ (ver el ejemplo \ref{ejem0}.5). Para $i\in I$, defina la funci\'on $\delta_i: I\rightarrow K$ por $\delta_i(i)=1$ y $\delta_i(j)=0$ para $j\ne i$. Sea $\mathcal{B}=\{\delta_i\}_{i\in I}$. 
-\item Para $V=K[t]$, sea $\mathcal{B}=\{1,t,t^2,\ldots\}=\{t^n\}_{n\ge 0}$ .
+\begin{enumerate}[(i)]
+\item En $V=K^n$, para $i\in\{1,\ldots, n\}$, defina $e_i\in V$ como el elemento con ceros en todas las entradas salvo en la $i$-\'esima, donde tiene $1$, es decir
+$$e_1=(1,0,\ldots,0),\quad e_2=(0,1,\ldots,0),\quad e_n=(0,0,\ldots,1).$$
+Tome $\mathcal{B}=(e_1,\ldots,e_n)$.
+% \item  Sea $I$ un conjunto finito y sea $V=K^I$. Para $i\in I$, defina la funci\'on $\delta_i: I\rightarrow K$ por $\delta_i(i)=1$ y $\delta_i(j)=0$ para $j\ne i$. Tome $\mathcal{B}=\{\delta_i\}_{i\in I}$. 
+\item Sea $I$ un conjunto y $V=\left(K^I\right)_0$ (ver Ejemplo \ref{ejem0}.5). Para $i\in I$, defina la funci\'on $\delta_i: I\rightarrow K$ por $\delta_i(i)=1$ y $\delta_i(j)=0$ para $j\ne i$. Tome $\mathcal{B}=(\delta_i)_{i\in I}$. 
+\item Para $V=K[t]$, sea $\mathcal{B}=(1,t,t^2,\ldots)=(t^n)_{n\in\mathbb{N}}$.
 \end{enumerate}
 \end{ejem}
 
-\begin{defn}
-Para $K^n$, la \emph{base can\'onica} es la base $\{e_1,\ldots,e_n\}$ definida en el ejemplo \ref{ejembas0}.1, la cual denotaremos por $\mathcal{C}$.
-\end{defn}
+\begin{nota}
+Para $K^n$, la \emph{base can\'onica} es la base $(e_1,\ldots,e_n)$ definida en el ejemplo \ref{ejembas0}.1, que denotaremos por $\mathcal{C}$.
+\end{nota}
 
 \begin{lema}\label{inddep}
-Sea $S$ un subconjunto de $V$ linealmente independiente. Si $v\in V$ es tal que $S\cup\{v\}$ es linealmente dependiente, entonces $v$ pertenece a $\langle S\rangle$.
+Sea $C$ un subconjunto de $V$ linealmente independiente. Si $v\in V$ es tal que $C\cup\{v\}$ es linealmente dependiente, entonces $v$ pertenece a $\langle C\rangle$.
 \end{lema}
 
-\dem Como $S\cup\{v\}$ es linealmente dependiente, por la proposici\'on \ref{proplinind} existen $a_1,\ldots,a_n,a_{n+1}\in K$, no todos iguales a cero, y $v_1,\ldots,v_n\in S$ para los cuales se tiene
+\dem Como $C\cup\{v\}$ es linealmente dependiente, por la proposici\'on \ref{proplinind} existen escalares $c_1,\ldots,c_n,c_{n+1}$, no todos iguales a cero, y $v_1,\ldots,v_n\in C$, dos a dos distintos, tales que
 \[
 O=a_1v_1+\ldots+a_nv_n+a_{n+1}v.
 \]
-Note que $a_{n+1}$ es diferente de $0$, o de lo contrario tendr\'iamos una combinaci\'on lineal de $v_1,\ldots,v_n$ igual a $O$ con no todos los coeficientes iguales a cero, contradiciendo la independiencia lineal de $S$. Obtenemos
+Note que $a_{n+1}$ es diferente de $0$, o de lo contrario tendr\'iamos una combinaci\'on lineal de $v_1,\ldots,v_n$ igual a $O$, con no todos los coeficientes iguales a cero, lo que contradiría la independencia lineal de $C$. Obtenemos
 \[
 v=\sum_{i=1}^n(-a_i/a_{n+1})v_i\in\langle v_1,\ldots,v_n\rangle,
 \]
-y por lo tanto $v$ pertenece a $\langle v_1,\ldots,v_n\rangle$, el cual es un subconjunto de $\langle S\rangle$. \qed
+y por lo tanto $v$ pertenece a $\langle v_1,\ldots,v_n\rangle$ que está contenido en $\langle C\rangle$. \qed
 
 \begin{prop}\label{maximallinind}
-Suponga que $V$ tiene dimensi\'on finita distinta de cero y sea $S$ un subconjunto finito de $V$. Si $S_0$ es un subconjunto linealmente independiente de $S$, entonces existe un subconjunto $S'$ de $S$ linealmente independiente maximal que contiene a $S_0$, es decir que si $S''$ es un subconjunto de $S$ linealmente independiente que contiene a $S'$, entonces $S'=S''$. M\'as a\'un $\langle S'\rangle$ es igual a $\langle S\rangle$.  
+Suponga que $V$ tiene dimensi\'on finita distinta de cero y sea $C$ un subconjunto no vacío finito de $V$. Si $C_0$ es un subconjunto linealmente independiente de $C$, entonces existe $C'\subseteq C$ maximal entre los subconjuntos linealmente independientes de $C$ que contienen a $C_0$. Es decir, dado un subconjunto $C_1$ de $C$ que contiene a $C'$, si $C_1$ es linealmente independiente, entonces $C_1=C'$, y si $C_1$ contiene propiamente a $C'$, entonces $C_1$ es linealmente dependiente. M\'as a\'un se tiene $\langle C'\rangle=\langle C\rangle$.  
 \end{prop}
 
-\dem Sean $v_1,\ldots,v_n$ los elementos de $S$, enumerados de forma tal que $\{v_1,\ldots,v_m\}$ sea $S_0$ y $\{v_1,\ldots,v_m,v_{m+1},\ldots,v_n\}$ sea $S$. Definimos $m=0$ cuando $S_0=\emptyset$. Tenemos $m\le n$. Iterativamente, para $i\in\{1,\ldots,n-m\}$, definimos
+\dem Sean $v_1,\ldots,v_n$ los elementos de $C$, enumerados de forma tal que $\{v_1,\ldots,v_m\}$ sea $C_0$. Definimos $m=0$ cuando $C_0=\emptyset$. Tenemos $m\le n$. Iteratívamente, para $i\in\{1,\ldots,n-m\}$, definimos
 $$
-S_i = \left\{ \begin{array}{rl}
-S_{i-1}&\textrm{ si } v_{m+i}\in\langle S_{i-1}\rangle\\
-S_{i-1}\cup\{v_{m+i}\} &\textrm{ si } v_{m+i}\not\in\langle S_{i-1}\rangle
+C_i = \left\{ \begin{array}{rl}
+C_{i-1}&\textrm{ si } v_{m+i}\in\langle C_{i-1}\rangle\\
+C_{i-1}\cup\{v_{m+i}\} &\textrm{ si } v_{m+i}\not\in\langle C_{i-1}\rangle
 \end{array}\right. .
 $$
-Por el lema anterior, la independencia lineal de $S_{i-1}$ implica la de $S_i$. Tome $S'=S_{n-m}$. El conjunto $S'$ es linealmente independiente. Por construcci\'on, tenemos $S_0\subseteq S_1\subseteq\ldots\subseteq S_{n-m}= S'$. Veamos que $\langle S'\rangle$ es igual a $\langle S\rangle$. Si $j\in\{1,\ldots,n\}$ es tal que $v_j$ no pertenece a $S'$, entonces $v_j$ est\'a en $\langle S_{j-1}\rangle$ , el cual es un subconjunto de $\langle S'\rangle$, y as\'i $S'\cup\{v_j\}$ es linealmente dependiente. Luego $S'\subset S$ es m\'aximal respecto a las propiedades de contener a $S_0$ y ser linealmente independiente. El mismo argumento demuestra la contenencia $S\subseteq\langle S'\rangle$. La proposici\'on \ref{propunion}.2. implica $\langle S\rangle\le\langle S'\rangle$. La contenencia opuesta se sigue de $S'\subseteq S$, y por lo tanto $\langle S\rangle=\langle S'\rangle$.\qed
+Por el lema anterior, la independencia lineal de $C_{i-1}$ implica la de $C_i$. Tome $C'=C_{n-m}$. En particular, $C'$ es linealmente independiente. Por construcci\'on, tenemos $C_0\subseteq C_1\subseteq\ldots\subseteq C_{n-m}= C'$. Para ver la maximalidad de $C'$, tomemos $j\in\{1,\ldots,n\}$. Si $v_j$ no pertenece a $C$, esto quiere decir que $v_j$ est\'a en $\langle C_{j-1}\rangle$, el cual es un subconjunto de $\langle C'\rangle$, y as\'i $C'\cup\{v_j\}$ es linealmente dependiente. Luego $C'\subset C$ es m\'aximal respecto a las propiedades de contener a $C_0$ y ser linealmente independiente. El mismo argumento demuestra la contenencia de $C$ en $\langle C'\rangle$, y la proposici\'on \ref{propunion}.2. implica que $\langle C\rangle\le\langle C'\rangle$. Para la contenencia opuesta, note que $C'\subseteq C$, y por lo tanto $\langle C'\rangle\le\langle C\rangle$, y así $\langle C'\rangle=\langle C\rangle$.\qed
 
 \begin{teo}[Extensi\'on de un conjunto linealmente independientes a una base]\label{extabase}
-Suponga que $V$ tiene dimensi\'on finita. Si $\mathcal{B}_0$ es un subconjunto de $V$ finito y linealmente independiente, entonces existe una base $\mathcal{B}$ de $V$ que contiene a $\mathcal{B}_0$.
+Suponga que $V$ tiene dimensi\'on finita. Si $\mathcal{B}_0$ es una familia finita de $V$ linealmente independiente, entonces existe una base $\mathcal{B}$ de $V$ que contiene a $\mathcal{B}_0$.
 \end{teo}
 
-\dem Como $V$ tiene dimensi\'on finita, existe una base finita $\mathcal{B}_1$ de $V$. Denote $S$ al conjunto $\mathcal{B}_0\cup \mathcal{B}_1$. Por la propiedad anterior, existe un subconjunto $\mathcal{B}$ de $S$ linealmente independiente maximal que contiene a $\mathcal{B}_0$. Tenemos $\langle \mathcal{B}\rangle=\langle S \rangle\ge\langle \mathcal{B}_1\rangle=V$. As\'i $\mathcal{B}$ es un conjunto linealmente independiente que genera a $V$, luego, por la proposici\'on \ref{defbase2}, $\mathcal{B}$ es una base.\qed
+\dem Como $V$ tiene dimensi\'on finita, existe una base finita $\mathcal{B}_1$ de $V$. Denote $C$ al conjunto $\mathcal{B}_0\cup \mathcal{B}_1$. Por la propiedad anterior, existe un subconjunto $\mathcal{B}$ de $C$ linealmente independiente maximal que contiene a $\mathcal{B}_0$. Tenemos $\langle \mathcal{B}\rangle=\langle C \rangle\ge\langle \mathcal{B}_1\rangle=V$. As\'i $\mathcal{B}$ forma una familia linealmente independiente que genera a $V$, y luego, por la proposici\'on \ref{defbase2}, $\mathcal{B}$ forma una base.\qed
 
 \begin{lema}
-Si $V$ tiene dimensi\'on infinita, entonces para todo entero $n$ mayor o igual a $1$, existe un subconjunto $S$ de $V$ linealmente independiente con $n$ elementos.
+Si $V$ tiene dimensi\'on infinita, entonces para todo entero $n\ge 1$, existe un subconjunto $C$ de $V$ linealmente independiente con $n$ elementos.
 \end{lema}
 
-\dem Hacemos inducci\'on en $n$. Como $V$ tiene dimensi\'on infinita, tenemos $V\ne\{O\}$, y as\'i, para cualquier $v\in V$ distinto de $O$, el conjunto $\{v\}$ es linealmente independiente y  tiene $1$ elemento. Esto establece el caso base $n=1$. Para el paso inductivo, suponga que tenemos un subconjunto $\{v_1,\ldots,v_n\}$ de $V$ linealmente independiente. Como $V$ tiene dimensi\'on infinita, $\{v_1,\ldots,v_n\}$ no es una base de $V$, luego tampoco lo genera y por ende existe $v_{n+1}\in V$ fuera de $\langle v_1,\ldots,v_n\rangle$. Por lo tanto, el lema \ref{inddep} implica que el conjunto $\{v_1,\ldots,v_n,v_{n+1}\}$ es linealmente independiente.\qed
+\dem Hacemos inducci\'on en $n$. Como $V$ tiene dimensi\'on infinita, tenemos $V\ne\{O\}$, y as\'i, para cualquier $v\in V$ distinto de $O$, el conjunto $\{v\}$ es linealmente independiente y tiene $1$ elemento. Esto establece el caso base $n=1$. Para el paso inductivo, suponga que tenemos un subconjunto linealmente independiente $\{v_1,\ldots,v_n\}$ en $V$. Como $V$ tiene dimensi\'on infinita, $(v_1,\ldots,v_n)$ no es una base de $V$, luego tampoco lo genera y por ende existe $v_{n+1}\in V$ fuera de $\langle v_1,\ldots,v_n\rangle$. Por lo tanto, el lema \ref{inddep} implica que el conjunto $\{v_1,\ldots,v_n,v_{n+1}\}$ es linealmente independiente.\qed
 
 \begin{teo}[Monoton\'ia de la dimensi\'on]\label{monodim}
 Si $U$ es un subespacio de $V$, entonces tenemos $\dim U\le \dim V$. M\'as a\'un, si $V$ tiene dimensi\'on finita, entonces $\dim U=\dim V$ si y solo si $U=V$.
 \end{teo}
 
-\dem Suponga primero $\dim(U)=\infty$. Asuma por contradicc\'on que $V$ tiene dimensi\'on finita. Por el lema anterior existe un subconunto $\mathcal{B}_0$ de $ U$ linealmente independiente, con $\dim(V)+1$ elementos. Por el teorema \ref{extabase}, existe una base $\mathcal{B}_1$ de $V$ que contiene a $\mathcal{B}_0$. Luego, $V$ tiene una base con m\'as elementos que su dimensi\'on, contradiciendo el teorema \ref{basedim}. Por lo tanto, tenemos $\dim(V)=\infty$, y as\'i $\dim(U)\le\dim(V)$.\\
-Suponga ahora que $U$ tiene dimensi\'on finita. Si $V$ tiene dimensi\'on infinita, obtenemos $\dim(U)\le\dim(V)$. Finalmente, asumamos que $V$ tiene dimensi\'on finita. Tome una base $\mathcal{B}_0$ de $U$, la cual, por el teorema \ref{extabase}, podemos extender a una base $\mathcal{B}_1$ de $V$. La inclusi\'on $\mathcal{B}_0\subseteq \mathcal{B}_1$ implica $|\mathcal{B}_0|\le|\mathcal{B}_1|$, es decir $\dim(U)\le\dim(V)$.\\
-Suponga que $V$ tiene dimensi\'on finita. Si $\dim(U)=\dim(V)$, entonces toda base $\mathcal{B}_0$ de $U$ es tambi\'en una base de $V$. De hecho, ya vimos que una base de $U$ se puede extender a una base de $V$, pero si esta extensi\'on contiene m\'as elementos, la dimensi\'on de $V$ ser\'ia mayor a la de $U$, contradiciendo la hip\'otesis $\dim(U)=\dim(V)$. Obtenemos as\'i $U=\langle \mathcal{B}_0\rangle=V$.\qed
+\dem Suponga primero que $\dim(U)=\infty$. Asuma por contradicc\'on que $V$ tiene dimensi\'on finita. Por el lema anterior, existe una familia $\mathcal{B}_0$ de $U$ finita y linealmente independiente con $\dim(V)+1$ elementos. Por el teorema \ref{extabase}, existe una base $\mathcal{B}_1$ de $V$ que extiende a $\mathcal{B}_0$. Luego, $V$ tiene una base con m\'as elementos que su dimensi\'on, contradiciendo el teorema \ref{basedim}. Por lo tanto, tenemos $\dim(V)=\infty$, y as\'i $\dim(U)\le\dim(V)$.\\
+Suponga ahora que $U$ tiene dimensi\'on finita. Si $V$ tiene dimensi\'on infinita, obtenemos $\dim(U)\le\dim(V)$. Ahora asumamos que $V$ tiene dimensi\'on finita. Tome una base $\mathcal{B}_0$ de $U$, la cual, por el teorema \ref{extabase}, podemos extender a una base $\mathcal{B}_1$ de $V$. Tenemos entonces $|\mathcal{B}_0|\le|\mathcal{B}_1|$, es decir $\dim(U)\le\dim(V)$.\\
+Finalmente, suponga que $V$ tiene dimensi\'on finita. Evidentemente, si $U=V$, entonces $\dim U=\dim V$. Recíprocamente, si $\dim(U)=\dim(V)$, entonces toda base $\mathcal{B}_0$ de $U$ es tambi\'en una base de $V$. De hecho, ya vimos que una base de $U$ puede ser extendendida a una base de $V$, pero si esta extensi\'on contiene m\'as elementos, la dimensi\'on de $V$ ser\'ia mayor a la de $U$, contradiciendo la hip\'otesis $\dim(U)=\dim(V)$. Obtenemos as\'i $U=\langle \mathcal{B}_0\rangle=V$.\qed
 
 \begin{obs}[Existencias de bases y dimensi\'on infinita]\label{basesinfty}
-El teorema \ref{extabase} se puede usar para demostrar que, partiendo de un conjunto vacio $\mathcal{B}_0$,  todo espacio vectorial de dimensi\'on finita tiene una base. La cuesti\'on para dimensi\'on infinita toca la fibra de los fundamentos de la matem\'atica y, para demostrar la existencia de una base, requiere admitir el axioma de elecci\'on. Siendo m\'as precisos, usamos una versi\'on equivalente a este.
+El teorema \ref{extabase} se puede usar para demostrar que, partiendo de un conjunto vacio, todo espacio vectorial de dimensi\'on finita tiene una base. La cuesti\'on para dimensi\'on infinita toca la fibra de los fundamentos de la matem\'atica y, para demostrar la existencia de una base, requiere admitir el axioma de elecci\'on. Siendo m\'as precisos, usamos una versi\'on equivalente a este.
 \begin{quote}
 Lema de Zorn. Si $(P,\preccurlyeq)$ es un conjunto con un orden parcial en el que toda cadena admite una cota superior, entonces $P$ contiene al menos un elemento maximal.
 \end{quote}
-A partir de este axioma, suponga que $V$ tiene dimensi\'on infinita y tome un subconjunto $\mathcal{B}_0$ de $V$ linealmente independiente, \'o tome $\mathcal{B}_0=\emptyset$. Sea $P$ la colecci\'on de conjuntos linealmente independientes que contienen a $\mathcal{B}_0$, el cual ordenamos por contenencia. Dada una cadena en $P$, la uni\'on de todos sus elementos tambi\'en est\'a en $P$ y es una cota superior de ella. Por el lema de Zorn, $P$ contiene un m\'aximal $\mathcal{B}_1$. Usando un argumento similar al del lema\ref{inddep}, se demuestra que $\mathcal{B}_1$ es una base de $V$. De hecho, si existe $v\in V$fuera de $\langle \mathcal{B}_1\rangle$, el conjunto $\mathcal{B}_1\cup\{v\}$ ser\'ia un conjunto linealmente independiente que contiene estrictamente a $\mathcal{B}_1$ y a $\mathcal{B}_0$, contradiciendo la maximalidad de $\mathcal{B}_1$ en $P$.\\
-De esta forma todo espacio vectorial tiene una base y a\'un m\'as, en cualquier espacio vectorial, todo conjunto linealmente independiente se puede extender a una. \\
-Similarmente podemos extender la proposici\'on \ref{maximallinind} para concluir que si dentro de subconjunto $S$ de $V$, tomamos un subconjunto $S_0$ linealmente independiente, entonces existe un subconjunto $S'$ de $S$ linealmente independiente m\'aximal que contiene a $S_0$, y para un tal $S'$ se tiene $\langle S\rangle=\langle S'\rangle$. De hecho, tomamos, usando Lema de Zorn, un m\'aximal $S'$ en la colecci\'on, ordenada por inclusi\'on, de subconjunto linealmente indpendientes de $S$ que contienen a $S_0$. El lema \ref{inddep} implica la igualdad $\langle S\rangle=\langle S'\rangle$.
+A partir de este axioma, suponga que $V$ tiene dimensi\'on infinita y tome un familia $\mathcal{B}_0$ de $V$ linealmente independiente. Sea $P$ el conjunto de familias de $V$ linealmente independientes que contienen a $\mathcal{B}_0$, el cual ordenamos por contenencia. Dada una cadena en $P$, la uni\'on de todos sus elementos tambi\'en est\'a en $P$ y es una cota superior de ella. Por el lema de Zorn, $P$ contiene un m\'aximal $\mathcal{B}_1$. Usando un argumento similar al del lema\ref{inddep}, se demuestra que $\mathcal{B}_1$ es una base de $V$. De hecho, si existe $v\in V$ fuera de $\langle \mathcal{B}_1\rangle$, con el conjunto $\mathcal{B}_1\cup\{v\}$ formamos una familia linealmente independiente que contiene estrictamente a $\mathcal{B}_1$ y a $\mathcal{B}_0$, contradiciendo la maximalidad de $\mathcal{B}_1$ en $P$.\\
+De esta forma todo espacio vectorial tiene una base y a\'un m\'as, en cualquier espacio vectorial, todo conjunto linealmente independiente se puede extender a una.\\
+Similarmente podemos extender la proposici\'on \ref{maximallinind} para concluir que si dentro de un subconjunto $C$ de $V$, tomamos un subconjunto $C_0$ linealmente independiente, entonces existe un subconjunto $C'$ de $C$ linealmente independiente m\'aximal que contiene a $C_0$, y para un tal $C'$ se tiene $\langle C\rangle=\langle C'\rangle$. De hecho, tomamos, usando Lema de Zorn, un m\'aximal $C'$ en la colecci\'on, ordenada por inclusi\'on, de subconjunto linealmente indpendientes de $C$ que contienen a $C_0$. El lema \ref{inddep} implica la igualdad $\langle C\rangle=\langle C'\rangle$.
 \end{obs}
 
 \section{Transformaciones lineales}
 
-Sean $U$, $V$ y $W$ espacios vectoriales sobre un cuerpo $K$.
+Sean $U$, $V$ y $W$ espacios vectoriales sobre $\mathbb{K}$.
 
 \begin{defn}\label{deftrli}
 Sea $f:V\rightarrow W$ una funci\'on. Decimos que $f$ es una \emph{transformaci\'on lineal} (o un \emph{morfismo de espacios vectoriales}) si satisface las siguientes propiedades.
-\begin{enumerate}
+\begin{enumerate}[(i)]
 \item \emph{Preserva sumas}: Para todo $v_1,v_2\in V$ se tiene $f(v_1+v_2)=f(v_1)+f(v_2)$.
-\item \emph{Preserva productos por escalar}: Para todo $c\in K$ y todo $v\in V$ se tiene $f(cv)=cf(v)$. 
+\item \emph{Preserva productos por escalar}: Para todo $c\in \mathbb{K}$ y todo $v\in V$ se tiene $f(cv)=cf(v)$. 
 \end{enumerate}
-Al conjunto de transformaciones lineales de $V$ en $W$ lo denotamos por $\Hom_K(V,W)$. A las transformaciones lineales de un espacio en \'el mismo las llamamos \emph{operadores} (o \emph{endomorfismos de espacios vectoriales}). Al conjunto $\Hom_K(V,V)$ de operadores lineales de $V$ lo denotamos por $\End_K(V)$.
+Al conjunto de transformaciones lineales de $V$ en $W$ lo denotamos por $\Hom_{\mathbb{K}}(V,W)$. A las transformaciones lineales de un espacio en \'el mismo las llamamos \emph{operadores} (o \emph{endomorfismos de espacios vectoriales}). Al conjunto $\Hom_{\mathbb{K}}(V,V)$ de operadores lineales de $V$ lo denotamos por $\End_{\mathbb{K}}(V)$.
 \end{defn}
 
 \begin{ejem}
@@ -322,7 +323,7 @@ Al conjunto de transformaciones lineales de $V$ en $W$ lo denotamos por $\Hom_K(
 \end{ejem}
 
 \begin{pro}\label{proptrlinbasicas}
-Para toda $f\in\Hom_K(V,W)$ se tiene que
+Para toda $f\in\Hom_{\mathbb{K}}(V,W)$ se tiene
 \begin{enumerate}
 \item $f(O)=O$,
 \item $f(-v)=-f(v)$ para todo $v\in V$, y
@@ -334,7 +335,7 @@ Para toda $f\in\Hom_K(V,W)$ se tiene que
 \begin{enumerate}
 \item Tenemos $f(O)=f(0O)=0f(O)=O$.
 \item Dado $v\in V$, se tiene $f(v)+f(-v)=f\left(v+(-v)\right)=f(O)=O$, y as\'i, por la unicidad del opuesto, $f(-v)=-f(v)$.
-\item Usaremos inducci\'on en $n$, siendo el caso base, $n=2$, cierto por el axioma 2 en la definici\'on \ref{deftrli} de transformaci\'on lineal. Ahora, si asumimos que la propiedad 3. es cierta para $n$, entonces para todo $c_1,\ldots,c_{n+1}\in K$ y todo $v_1,\ldots,v_{n+1}\in V$ tenemos
+\item Usaremos inducci\'on en $n$, siendo el caso base, $n=2$, cierto por el axioma (ii) en la definici\'on \ref{deftrli} de transformaci\'on lineal. Ahora, si asumimos que la propiedad es cierta para $n$, entonces para todo $c_1,\ldots,c_{n+1}\in K$ y todo $v_1,\ldots,v_{n+1}\in V$ tenemos
 \begin{align*}
 f(c_1v_1+\ldots+c_nv_n+c_{n+1}v_{n+1})& = f(c_1v_1+\ldots+c_nv_n)+f(c_{n+1}v_{n+1})\\
   & = c_1f(v_1)+\ldots+c_nf(v_n)+c_{n+1}f(v_{n+1}).
@@ -343,18 +344,18 @@ Por lo tanto, es cierto para $n+1$ y la propiedad se sigue por inducci\'on.
 \end{enumerate}\qed
 
 \begin{obs}
-Dados $f,g\in\Hom_K(V,W)$ y $c\in K$ definimos las transformaciones lineales $f+g$ y $cg$ en $\Hom_K(V,W)$ por $(f+g)(v)=f(v)+g(v)$ y $(cg)(v) = cg(v)$ para todo $v\in V$. El conjunto $\Hom_K(V,W)$ junto con estas operaciones y el origen dado por $\underline{O}$ es un espacio vectorial sobre $K$.
+Dados $f,g\in\Hom_{\mathbb{K}}(V,W)$ y $c\in K$ definimos las transformaciones lineales $f+g$ y $cg$ en $\Hom_K(V,W)$ por $(f+g)(v)=f(v)+g(v)$ y $(cg)(v) = cg(v)$ para todo $v\in V$. El conjunto $\Hom_{\mathbb{K}}(V,W)$ junto con estas operaciones y el origen dado por $\underline{O}$ es un espacio vectorial sobre $\mathbb{K}$.
 \end{obs}
 
 \begin{prop}\label{compeslineal}
-Si $f\in\Hom_K(V,W)$ y $g\in\Hom_K(W,U)$, entonces $(g\circ f)\in\Hom_K(V,U)$.
+Si $f\in\Hom_{\mathbb{K}}(V,W)$ y $g\in\Hom_{\mathbb{K}}(W,U)$, entonces $(g\circ f)\in\Hom_{\mathbb{K}}(V,U)$.
 \end{prop}
 
 \dem Para todo $u,v\in V$ tenemos
 \[
 g\circ f(u+v)=g\left( f(u)+f(v)\right)= g\circ f(u)+g\circ f(v).
 \]
-Para todo $v\in V$ y todo $c\in K$, tenemos
+Para todo $v\in V$ y todo $c\in \mathbb{K}$, tenemos
 \[
 g\circ f(cv)=g\left( c f(v)\right)=cg\circ f(v).
 \]
@@ -362,31 +363,31 @@ g\circ f(cv)=g\left( c f(v)\right)=cg\circ f(v).
 
 \begin{prop}[Rigidez de las transformaciones lineales]\label{unitrlin}
 Sean $v_1,\ldots,v_n\in V$ tales que $\langle v_1,\ldots,v_n\rangle=V$. Si $w_1,\ldots,w_n$ son elementos en $W$, entonces tenemos las siguientes dos propiedades.
-\begin{enumerate}
-\item Existe a lo sumo una transformaci\'on lineal $f\in\Hom_K(V,W)$ tal que, para $i\in\{1,\ldots,n\}$, $f(v_i)$ es $w_i$, 
-\item Si $\{v_1,\ldots,v_n\}$ es linealmente independiente, entonces existe una transformaci\'on $f\in\Hom_K(V,W)$ tal que, para $i\in\{1,\ldots,n\}$, $f(v_i)$ es $w_i$.
+\begin{enumerate}[(i)]
+\item Existe a lo sumo una transformaci\'on lineal $f\in\Hom_{\mathbb{K}}(V,W)$ tal que $f(v_i)=w_i$, para $i\in\{1,\ldots,n\}$.
+\item Si $\{v_1,\ldots,v_n\}$ es linealmente independiente, entonces existe una transformaci\'on $f\in\Hom_{\mathbb{K}}(V,W)$ tal que $f(v_i)=w_i$, para $i\in\{1,\ldots,n\}$.
 \end{enumerate}
 \end{prop}
 
 \dem
-\begin{enumerate}
-\item Sea $f,g\in\Hom_K(V,W)$. Suponga que, para $i\in\{1,\ldots,n\}$ tenemos $f(v_i)=w_i=g(v_i)$. Dado $v\in V$, existen $c_1,\ldots,c_n\in K$ para los cuales tenemos $v=c_1v_1+\ldots+c_nv_n$ y 
+\begin{enumerate}[(i)]
+\item Considere dos transformaciones lineales $f,g\in\Hom_{\mathbb{K}}(V,W)$ tales que $f(v_i)=w_i=g(v_i)$, para $i\in\{1,\ldots,n\}$. Dado $v\in V$, existen $c_1,\ldots,c_n\in \mathbb{K}$ para los cuales $v=c_1v_1+\ldots+c_nv_n$ y así 
 \[
 f(v)=f\left(\sum_{i=1}^nc_iv_i\right)=\sum_{i=1}^nc_if(v_i)=\sum_{i=1}^nc_iw_i=\sum_{i=1}^nc_ig(v_i)=g(v).
 \]
-Por lo tanto tenemos $f=g$.
-\item Si $\{v_1,\ldots,v_n\}$ es linealmente independiente, por la proposici\'on \ref{defbase2}, se sigue que $\{v_1,\ldots,v_n\}$ es una base de $V$. Dado $v\in V$, existe un \'unico elemento $(c_1,\ldots, c_n)\in K^n$ para el que se tiene $v=c_1v_1+\ldots+c_nv_n$. Defina la funci\'on $f:V\rightarrow W$ por
+Por lo tanto $f=g$.
+\item Si $\{v_1,\ldots,v_n\}$ es linealmente independiente, por la proposici\'on \ref{defbase2}, se sigue que $(v_1,\ldots,v_n)$ es una base de $V$. Dado $v\in V$, existe un \'unico elemento $(c_1,\ldots, c_n)\in \mathbb{K}^n$ para el que se tiene $v=c_1v_1+\ldots+c_nv_n$. Defina la funci\'on $f:V\rightarrow W$ por
 \[
 f(v)=c_1w_1+\ldots+c_nw_n.
 \]
-Veamos que $f$ es una transformaci\'on lineal. Dados $u,v\in V$, se tiene $u=a_1v_1+\ldots+a_nv_n$ y $v=b_1v_1+\ldots+b_nv_n$ con $(a_1,\ldots, a_n)$ y $(b_1,\ldots, b_n)$ en $K^n$. As\'i, obtenemos $u+v =  (a_1+b_1)v_1+\ldots+(a_n+b_n)v_n$ y
+Veamos que $f$ es una transformaci\'on lineal. Dados $u,v\in V$, para $(a_1,\ldots, a_n)$ y $(b_1,\ldots, b_n)$ en $\mathbb{K}^n$ tales que $u=a_1v_1+\ldots+a_nv_n$ y $v=b_1v_1+\ldots+b_nv_n$, obtenemos $u+v =  (a_1+b_1)v_1+\ldots+(a_n+b_n)v_n$ y
 \begin{eqnarray*}
 f(u+v) & = & (a_1+b_1)w_1+\ldots+(a_n+b_n)w_n\\
      & = & a_1w_1+\ldots+a_nw_n+ b_1w_1+\ldots+b_nw_n\\
      & = & f(u)+f(v).
 \end{eqnarray*} 
 Luego, $f$ respecta sumas.
-Dado $v\in V$, se tiene $v=c_1v_1+\ldots+c_nv_n$ con $(c_1,\ldots, c_n)\in K^n$ . As\'i, obtenemos, para todo $c\in K$, $cv = (ca_1)v_1+\ldots+(ca_n)v_n$ y
+Dado $v\in V$, si se tiene $v=c_1v_1+\ldots+c_nv_n$ con $(c_1,\ldots, c_n)\in \mathbb{K}^n$, entonces, para todo $c\in \mathbb{K}$, $cv = (ca_1)v_1+\ldots+(ca_n)v_n$ y
 \begin{eqnarray*}
 f(cv_1) & = & (ca_1)w_1+\ldots+(ca_n)w_n\\
      & = & c(a_1w_1+\ldots+a_nw_n)\\
@@ -396,10 +397,10 @@ Por lo tanto, $f$ tambi\'en respecta productos por escalar y se sigue que $f$ es
 \end{enumerate}\qed
 
 \begin{prop}
-Sea $f\in\Hom_K(V,W)$. Si $f$ es biyectiva, entonces $f^{-1}$ es una transformaci\'on lineal. 
+Sea $f\in\Hom_{\mathbb{K}}(V,W)$. Si $f$ es biyectiva, entonces $f^{-1}$ es una transformaci\'on lineal. 
 \end{prop}
 
-\dem Sean $w_1,w_2\in W$. Como $f$ es sobreyectiva, tenemos $f(v_1)=w_1$ y $f(v_2)=w_2$ para algunos $v_1,v_2\in V$ y, as\'i, $f(v_1+v_2)=f(v_1)+f(v_2)=w_1+w_2$. Se siguen
+\dem Sean $w_1,w_2\in W$. Como $f$ es sobreyectiva, tenemos $f(v_1)=w_1$ y $f(v_2)=w_2$ para algunos $v_1,v_2\in V$ y, as\'i, $f(v_1+v_2)=f(v_1)+f(v_2)=w_1+w_2$. Se sigue que
 \[
 f^{-1}(w_1+w_2)=f^{-1}\left(f(v_1+v_2)\right)=v_1+v_2,
 \] 
@@ -407,8 +408,8 @@ y
 \[
 f^{-1}(w_1)+f^{-1}(w_2)=f^{-1}\left(f(v_1)\right)+f^{-1}\left(f(v_2)\right)=v_1+v_2.
 \]
-Luego, para todo $w_1,w_2\in W$ tenemos  $f^{-1}(w_1+w_2)=f^{-1}(w_1)+f^{-1}(w_2)$.\\
-Sea $w\in W$. Dado $v\in V$ para el cual $f(v)=w$, tenemos $f(cv)=cf(v)=cw$ para todo $c\in K$. Obtenemos
+Luego, para todo $w_1,w_2\in W$ tenemos $f^{-1}(w_1+w_2)=f^{-1}(w_1)+f^{-1}(w_2)$.\\
+Sea $w\in W$. Dado $v\in V$ tal que $f(v)=w$, vemos que $f(cv)=cf(v)=cw$ para todo $c\in \mathbb{K}$. Por ende,
 \[
 f^{-1}(cw)=f^{-1}\left(f(cv)\right)=cv,
 \]
@@ -416,37 +417,37 @@ y
 \[
 cf^{-1}(w)=cf^{-1}\left(f(v)\right)=cv.
 \]
-Luego, para todo $w\in W$ y todo $c\in K$ tenemos $f^{-1}(cw)=cf^{-1}(w)$. Por lo tanto, $f^{-1}$ respeta sumas y productos por escalar, y por consiguiente $f^{-1}$ es una transformaci\'on lineal.
+Luego, para todo $w\in W$ y todo $c\in \mathbb{K}$ se tiene que $f^{-1}(cw)=cf^{-1}(w)$. Por lo tanto, $f^{-1}$ respeta sumas y productos por escalar, y por consiguiente $f^{-1}$ es una transformaci\'on lineal.
 
 \begin{defn}
-Sea $f\in\Hom_K(V,W)$. Si $f$ es una biyecci\'on, entonces decimos que $f$ es un \emph{isomorfismo}. Si existe un isomorfismo $f\in\Hom_K(V,W)$ decimos que $V$ y $W$ son \emph{isomorfos} y lo denotamos por $V\simeq_K W$.
+Sea $f\in\Hom_{\mathbb{K}}(V,W)$. Si $f$ es una biyecci\'on, entonces decimos que $f$ es un \emph{isomorfismo}. Si existe un isomorfismo $f\in\Hom_{\mathbb{K}}(V,W)$ decimos que $V$ y $W$ son \emph{isomorfos} y lo denotamos por $V\simeq_{\mathbb{K}} W$.
 \end{defn}
 
-\begin{ejem} Suponga que $V$ es unidimensional. Dado $\lambda\in K$, la funci\'on $f:V\rightarrow V$ definida por $f(v)=\lambda v$ para todo $v$ es una transformaci\'on lineal. Rec\'iprocamente, si $f:V\rightarrow V$ es un transformaci\'on lineal existe $\lambda\in K$ tal que $f(v)=\lambda v$ para todo $v$. De hecho, si $v_0\ne 0$ entonces $V=\langle v_0\rangle$ as\'i $f(v_0)=\lambda v_0$ para alg\'un $\lambda\in K$. Ahora, dado $v\in V$ existe $c\in K$ tal que $cv_0=v$, y tenemos que
+\begin{ejem} Suponga que $V$ es unidimensional. Dado $\lambda\in \mathbb{K}$, la funci\'on $f:V\rightarrow V$ definida por $f(v)=\lambda v$ para todo $v$ es una transformaci\'on lineal. Rec\'iprocamente, si $f:V\rightarrow V$ es un transformaci\'on lineal, existe $\lambda\in \mathbb{K}$ tal que $f(v)=\lambda v$ para todo $v$. De hecho, si $v_0\ne 0$ entonces $V=\langle v_0\rangle$ as\'i $f(v_0)=\lambda v_0$ para alg\'un $\lambda\in \mathbb{K}$. Ahora, dado cualquier $v\in V$ existe $c\in \mathbb{K}$ tal que $cv_0=v$, y tenemos que
 \[
 f(v)=cf(v_0)=c\lambda v_0=\lambda cv_0=\lambda v.
 \]
-Entonces, si $\Phi: K \rightarrow \Hom_K(V,V)$ es la funci\'on definida por $\Phi(\lambda)=m_\lambda$, donde $m_\lambda$ es tal que $m_\lambda(v)=\lambda v$ para todo $v\in V$, $\Phi$ es un isomorfismo y $\Hom_K(V,V)\simeq_K K$.
+Entonces, si $\Phi: \mathbb{K} \rightarrow \Hom_{\mathbb{K}}(V,V)$ es la funci\'on definida por $\Phi(\lambda)=m_\lambda$, donde $m_\lambda$ está definida por $m_\lambda(v)=\lambda v$ para todo $v\in V$, vemos que $\Phi$ es un isomorfismo y $\Hom_{\mathbb{K}}(V,V)\simeq_{\mathbb{K}} \mathbb{K}$.
 \end{ejem}
 
 \begin{defn}
-Sea $f\in\End_K(V)$. Si $f$ es una biyecci\'on, entonces decimos que $f$ es un \emph{automorfismo}. Al conjunto de automorfismos de $V$ lo denotamos por $\GL_K(V)$.
+Sea $f\in\End_{\mathbb{K}}(V)$. Si $f$ es una biyecci\'on, entonces decimos que $f$ es un \emph{automorfismo}. Al conjunto de automorfismos de $V$ lo denotamos por $\GL_{\mathbb{K}}(V)$.
 \end{defn}
 
 \begin{teo}
-Si que $V$ y $W$ tienen dimensi\'on finita, entonces $V\simeq_K W$ si y solo si $\dim(V)=\dim(W)$.
+Si que $V$ y $W$ tienen dimensi\'on finita, entonces $V\simeq_{\mathbb{K}} W$ si y solo si $\dim(V)=\dim(W)$.
 \end{teo}
 
-\dem Primero establecemos la necesidad. Suponga que $V\simeq_K W$ y sea $f\in\Hom_K(V,W)$ un isomorfismo. Sea $\{v_1,\ldots,v_n\}$ una base de $V$, $n=\dim(V)$. Para $i\in\{1,\ldots,n\}$, sea $w_i=f(v_i)$. Veamos que $\{w_1,\ldots,w_n\}$ es base de $W$, para obtener que $\dim(W)=n=\dim(V)$. Si $c_1,\ldots,c_n\in K$ son tales que $c_1w_1+\ldots+c_nw_n=O$, entonces
+\dem Primero establecemos la necesidad. Suponga que $V\simeq_{\mathbb{K}} W$, luego existe un isomorfismo $f\in\Hom_{\mathbb{K}}(V,W)$. Tome $(v_1,\ldots,v_n)$ una base de $V$, donde $n=\dim(V)$. Para $i\in\{1,\ldots,n\}$, defina $w_i=f(v_i)$. Veamos que $(w_1,\ldots,w_n)$ es base de $W$, y así obtener que $\dim(W)=n=\dim(V)$. Si $c_1,\ldots,c_n\in \mathbb{K}$ son tales que $c_1w_1+\ldots+c_nw_n=O$, entonces
 \[
 f(c_1v_1+\ldots+c_nv_n)=c_1f(v_1)+\ldots+c_nf(v_n)=c_1w_1+\ldots+c_nw_n=O.
 \]
-Como $f$ es inyectiva y $f(O)=O$, se sigue que $c_1v_1+\ldots+c_nv_n=O$. Como $\{v_1,\ldots,v_n\}$ es linealmente independiente, entonces $c_1=\ldots=c_n=0$. De esta forma, el conjunto $\{w_1,\ldots,w_n\}$ es linealmente independiente. Sea $w\in W$. Como $f$ es sobreyectiva, existe $v\in V$ tal que $f(v)=w$. Como $\{v_1,\ldots,v_n\}$ genera $V$, existen $c_1,\ldots,c_n\in K$ tales que $v=c_1v_1+\ldots+c_nv_n$. Luego
+Como $f$ es inyectiva y $f(O)=O$, se sigue que $c_1v_1+\ldots+c_nv_n=O$, pero al ser $\{v_1,\ldots,v_n\}$ linealmente independiente, entonces $c_1=\ldots=c_n=0$. De esta forma, el conjunto $\{w_1,\ldots,w_n\}$ es linealmente independiente. Veamos ahora que es un conjunto generador. Sea $w\in W$. Como $f$ es sobreyectiva, existe $v\in V$ tal que $f(v)=w$. Como $\{v_1,\ldots,v_n\}$ genera $V$, existen $c_1,\ldots,c_n\in \mathbb{K}$ tales que $v=c_1v_1+\ldots+c_nv_n$. Luego
 \[
 w=f(v)=f(c_1v_1+\ldots+c_nv_n)=c_1f(v_1)+\ldots+c_nf(v_n)=c_1w_1+\ldots+c_nw_n.
 \]
-De donde $W=\langle w_1,\ldots,w_n\rangle$ y as\'i $\{w_1,\ldots,w_n\}$ es base de $W$. Esto completa la prueba de la necesidad.\\
-Ahora establecemos la suficiencia. Suponga que $\dim(V)=\dim(W)=n$ y sean $\{v_1,\ldots,v_n\}$ y $\{w_1,\ldots,w_n\}$ respectivamente bases de $V$ y $W$. Por la proposici\'on \ref{unitrlin}.2, existe $f\in\Hom(V,W)$ tal que $f(v_i)=w_i$, para $i\in\{1,\ldots,n\}$. La prueba estar\'a completa cuando establezcamos que $f$ es biyectiva. Sean $u,v\in V$ tales que $f(u)=f(v)$. Existen $(a_1,\ldots,a_n)$ y $(b_1,\ldots,b_n)$ en $K^n$ tales que $u=a_1v_1+\ldots+a_nv_n$ y $v=b_1v_1+\ldots+b_nv_n$. Como $f(u-v)=f(u)-f(v)=O$ y
+De donde $W=\langle w_1,\ldots,w_n\rangle$ y as\'i $(w_1,\ldots,w_n)$ es una base de $W$. Con esto completamos la prueba de la necesidad.\\
+Ahora establecemos la suficiencia. Suponga que $\dim(V)=\dim(W)=n$ y tome dos base $(v_1,\ldots,v_n)$ y $(w_1,\ldots,w_n)$ respectivamente de $V$ y $W$. Por la proposici\'on \ref{unitrlin}.2, existe $f\in\Hom(V,W)$ tal que $f(v_i)=w_i$, para $i\in\{1,\ldots,n\}$. La prueba estar\'a completa cuando establezcamos que $f$ es biyectiva. Sean $u,v\in V$ tales que $f(u)=f(v)$. Existen $(a_1,\ldots,a_n)$ y $(b_1,\ldots,b_n)$ en $\mathbb{K}^n$ tales que $u=a_1v_1+\ldots+a_nv_n$ y $v=b_1v_1+\ldots+b_nv_n$. Como $f(u-v)=f(u)-f(v)=O$ y
 \[
 u-v=(a_1-b_1)v_1+\ldots+(a_n-b_n)v_n,
 \]
@@ -454,29 +455,29 @@ entonces
 \[
 O=f(u-v)=(a_1-b_1)w_1+\ldots+(a_n-b_n)w_n.
 \]
-La independencia lineal de $\{w_1,\ldots,w_n\}$ implica que, para $i\in\{1,\ldots,n\}$, $a_i-b_i=0$, o equivalentemente, $a_i=b_i$. De esta forma tenemos que $u=v$ y se sigue que $f$ es inyectiva. Sea $w\in W$ y sea $(c_1,\ldots, c_n)\in K^n$ tal que $w=c_1w_1+\ldots+c_nw_n$. Para $v=c_1v_1+\ldots+c_nv_n$,
+La independencia lineal de $\{w_1,\ldots,w_n\}$ implica que, para $i\in\{1,\ldots,n\}$, $a_i-b_i=0$, o equivalentemente, $a_i=b_i$. De esta forma tenemos que $u=v$ y se sigue que $f$ es inyectiva. Sea $w\in W$ y sea $(c_1,\ldots, c_n)\in \mathbb{K}^n$ tal que $w=c_1w_1+\ldots+c_nw_n$. Al tomar $v=c_1v_1+\ldots+c_nv_n$, se obtiene
 \[
 f(v)=f(c_1v_1+\ldots+c_nv_n)=c_1f(v_1)+\ldots+c_nf(v_n)=c_1w_1+\ldots+c_nw_n=w.
 \]
 Por lo cual, $f$ es sobreyectiva. Al ser inyectiva y sobreyectiva, $f$ es biyectiva.\qed
 
 \begin{defn}
-Sea $f\in\Hom_K(V,W)$.
+Sea $f\in\Hom_{\mathbb{K}}(V,W)$.
 \begin{enumerate}
-\item El \emph{n\'ucleo} (o el \emph{kernel}) de $f$ es el conjunto $\{v\in V|\ f(v)=O\}$ y  lo denotamos por $\ker(f)$.
+\item El \emph{n\'ucleo} (o el \emph{kernel}) de $f$ es el conjunto $\{v\in V|\ f(v)=O\}$ y lo denotamos por $\ker(f)$.
 \item La \emph{imagen} de $f$ es el conjunto $\{w\in W|\ \exists v\in V: f(v)=w\}$ y la denotamos por
 $\im(f)$.
 \end{enumerate}
 \end{defn}
 
 \begin{pro}
-Sea $f\in\Hom_K(V,W)$, entonces $\ker(f)$ e $\im(f)$ son respectivamente subespacios de $V$ y $W$.
+Sea $f\in\Hom_{\mathbb{K}}(V,W)$, entonces $\ker(f)$ e $\im(f)$ son respectivamente subespacios de $V$ y $W$.
 \end{pro}
 
-\dem Como $f(O)=O$, entonces $O\in\ker(f)$ y $O\in\im(f)$. Para todo $v_1,v_2\in \ker(f)$, tenemos $f(v_1+v_2)=f(v_1)+f(v_2)=O+O=O$ y  as\'i $u+v\in\ker(f)$. Para todo $v\in \ker(f)$ y todo $c\in K$, $f(cv)=cf(v)=cO=O$ y as\'i $cv\in\ker(f)$. Luego, de la propiedad \ref{subespsiysolosi}, se sigue que $\ker(f)$ es un subespacio de $V$. Para todo $w_1,w_2\in \im(f)$ existen $v_1,v_2\in V$ tales que $f(v_1)=w_1$ y $f(v_2)=w_2$. Luego $f(v_1+v_2)=f(v_1)+f(v_2)=w_1+w_2$ y as\'i $w_1+w_2\in\im(f)$. Para todo $w\in\im(f)$ existe $v\in V$ tal que $f(v)=w$. Luego, para todo $c\in K$, $f(cv)=cf(v)=cw$ y as\'i $cw\in\im(f)$. luego, de la propiedad \ref{subespsiysolosi}, se sigue que $\im(f)$ es un subespacio de $V$.\qed
+\dem Para la demostración, mostramos que los dos conjuntos contienen al origen y son cerrados mediate suma y producto por escalar. Como $f(O)=O$, entonces $O\in\ker(f)$ y $O\in\im(f)$. Para todo $v_1,v_2\in \ker(f)$, tenemos $f(v_1+v_2)=f(v_1)+f(v_2)=O+O=O$ y  as\'i $u+v\in\ker(f)$. Para todo $v\in \ker(f)$ y todo $c\in \mathbb{K}$, $f(cv)=cf(v)=cO=O$ y as\'i $cv\in\ker(f)$. Luego, de la propiedad \ref{subespsiysolosi}, se sigue que $\ker(f)$ es un subespacio de $V$. Para todo $w_1,w_2\in \im(f)$ existen $v_1,v_2\in V$ tales que $f(v_1)=w_1$ y $f(v_2)=w_2$. Luego $f(v_1+v_2)=f(v_1)+f(v_2)=w_1+w_2$ y as\'i $w_1+w_2\in\im(f)$. Para todo $w\in\im(f)$ existe $v\in V$ tal que $f(v)=w$. Luego, para todo $c\in \mathbb{K}$, $f(cv)=cf(v)=cw$ y as\'i $cw\in\im(f)$. Luego, de la propiedad \ref{subespsiysolosi}, se sigue que $\im(f)$ es un subespacio de $V$.\qed
 
 \begin{prop}\label{inyectiva}
-Sea $f\in\Hom_K(V,W)$, entonces $f$ es inyectiva si y solo si $\ker(f)=\{O\}$.
+Sea $f\in\Hom_{\mathbb{K}}(V,W)$, entonces $f$ es inyectiva si y solo si $\ker(f)=\{O\}$.
 \end{prop}
 
 \dem Suponga primero que $f$ es inyectiva, entonces, como $f(O)=O$, tenemos $\ker(f)=\{O\}$. Suponga ahora que $\ker(f)=\{O\}$. Si $u,v\in V$ son tales que $f(u)=f(v)$, entonces
@@ -486,7 +487,7 @@ f(u-v)=f(u)-f(v)=O,
 De donde $u-v\in\ker(f)$, luego $u-v=O$, o equivalentemente $u=v$, y as\'i ,$f$ es inyecta.\qed
 
 \begin{defn}
-Suponga que $V$ tiene dimensi\'on finita. Sea $f\in\Hom_K(V,W)$.
+Suponga que $V$ tiene dimensi\'on finita. Sea $f\in\Hom_{\mathbb{K}}(V,W)$.
 \begin{enumerate}
 \item La \emph{nulidad} de $f$, que denotamos $\nu(f)$ es la dimensi\'on de $\ker(f)$.
 \item El \emph{rango} de $f$, que denotamos $\rho(f)$ es la dimensi\'on de $\im(f)$.
@@ -494,15 +495,15 @@ Suponga que $V$ tiene dimensi\'on finita. Sea $f\in\Hom_K(V,W)$.
 \end{defn}
 
 \begin{teo}[Teorema del rango]\label{teorango}
-Suponga que $V$ tiene dimensi\'on finita. S $f\in\Hom_K(V,W)$, entonces
+Suponga que $V$ tiene dimensi\'on finita. Para todo $f\in\Hom_{\mathbb{K}}(V,W)$, se tiene
 \[
 \nu(f)+\rho(f)=\dim (V)
 \]
 \end{teo}
 
-\dem Note que para el caso $\rho(f)=0$ el teorema se sigue inmediatamente. Asumamos que $\rho(f)>0$. Como $\ker(f)\le V$, por la monoton\'ia de la dimensi\'on tenemos $\nu(f)=\dim\left(\ker(f)\right)\le\dim(V)$. Sean $n=\nu(f)$ y $n+m=\dim (V)$. Sea $\mathcal{B}_0=\{v_1,\ldots,v_n\}\subseteq V$ una base de $\ker(f)$ (si $n=0$ tomamos $\mathcal{B}_0=\emptyset$). Extendemos $\mathcal{B}_0$ a una base $\mathcal{B}=\{v_1,\ldots,v_n,v_{n+1},\ldots,v_{n+m}\}$ de $V$.\\
-Para $i\in\{1,\ldots,m\}$, sea $w_i=f(v_{n+i})$. Basta demostrar que $\{w_1,\ldots,w_m\}$ es una base de $\im(f)$, pues en tal caso tendr\'iamos que $m=\dim\left(im(f)\right)=\rho(f)$. Para establecerlo usaremos la proposici\'on \ref{defbase2}.\\
-Veamos primero que $\{w_1,\ldots,w_m\}$ es linealmente independiente. Suponga que $a_1,\ldots,a_m\in K$ son tales que
+\dem Note que para el caso $\rho(f)=0$ el teorema se sigue inmediatamente. Asumamos que $\rho(f)>0$. Como $\ker(f)\le V$, por la monoton\'ia de la dimensi\'on tenemos $\nu(f)=\dim\left(\ker(f)\right)\le\dim(V)$. Sean $n=\nu(f)$ y $n+m=\dim (V)$. Sea $\mathcal{B}_0=(v_1,\ldots,v_n)\subseteq V$ una base de $\ker(f)$ (si $n=0$ tomamos $\mathcal{B}_0=\emptyset$). Extendemos $\mathcal{B}_0$ a una base $\mathcal{B}=(v_1,\ldots,v_n,v_{n+1},\ldots,v_{n+m})$ de $V$.\\
+Para $i\in\{1,\ldots,m\}$, defina $w_i=f(v_{n+i})$. Basta demostrar que $\{w_1,\ldots,w_m\}$ es una base de $\im(f)$, pues en tal caso tendr\'iamos que $m=\dim\left(im(f)\right)=\rho(f)=\dim (V)-\nu(f)$. Para establecerlo usaremos la proposici\'on \ref{defbase2}.\\
+Veamos primero que $\{w_1,\ldots,w_m\}$ es linealmente independiente. Suponga que $a_1,\ldots,a_m\in \mathbb{K}$ son tales que
 \[
 a_1w_1+\ldots+a_mw_m=O.
 \]
@@ -510,7 +511,7 @@ Luego, si $v=a_1v_{n+1}+\ldots+a_mv_{n+m}$, entonces
 \[
 f(v)=a_1f(v_{n+1})+\ldots+a_mf(v_{n+m})=a_1w_1+\ldots+a_mw_m=O,
 \]
-y as\'i $v\in\ker(f)$. Pero como $\langle v_1,\ldots,v_n\rangle=\ker(f)$, entonces existe $(b_1,\ldots,b_n)\in K^n$ tal que
+y as\'i $v\in\ker(f)$. Pero como $\langle v_1,\ldots,v_n\rangle=\ker(f)$, entonces existe $(b_1,\ldots,b_n)\in \mathbb{K}^n$ tal que
 \[
 v=b_1v_1+\ldots+b_nv_n
 \]
@@ -518,8 +519,8 @@ es decir que $b_1v_1+\ldots+b_nv_n=v=a_1v_{n+1}+\ldots+a_mv_{n+m}$ y as\'i
 \[
 O=(-b_1)v_1+\ldots+(-b_n)v_n+a_1v_{n+1}+\ldots+a_mv_{n+m}.
 \]
-Finalmente, como $\{v_1,\ldots,v_n,v_{n+1},\ldots,v_{n+m}\}$ es linealmente independiente, la igualdad anterior implica que $a_1=\ldots=a_m=0$. La independencia lineal de $\{w_1,\ldots,w_m\}$ se sigue ahora de la  proposici\'on \ref{proplinind}.\\
-Veamos que  $\{w_1,\ldots,w_m\}$ genera a $im(f)$. Como $w_1,\ldots,w_m\in \im(f)$ entonces $\langle w_1,\ldots,w_m\rangle\subseteq\im(f)$. Basta entonces establecer la otra inclusi\'on. Si $w\in\im(f)$, entonces existe $v\in V$ tal que $f(v)=w$. Sean $c_1,\ldots,c_n,c_{n+1},\ldots,c_{n+m}\in K$ tales que 
+Por ende, como $\{v_1,\ldots,v_n,v_{n+1},\ldots,v_{n+m}\}$ es linealmente independiente, la igualdad anterior implica que $a_1=\ldots=a_m=0$ y la independencia lineal de $\{w_1,\ldots,w_m\}$ se sigue ahora de la  proposici\'on \ref{proplinind}.\\
+Veamos que  $\{w_1,\ldots,w_m\}$ genera a $im(f)$ y con eso completamos la prueba. Como $w_1,\ldots,w_m\in \im(f)$ entonces $\langle w_1,\ldots,w_m\rangle\subseteq\im(f)$. Basta entonces establecer la otra inclusi\'on. Dado $w\in\im(f)$, existe $v\in V$ tal que $f(v)=w$. Sean $c_1,\ldots,c_n,c_{n+1},\ldots,c_{n+m}\in \mathbb{K}$ tales que 
 \[
 v=c_1v_1+\ldots+c_nv_n+c_{n+1}v_{n+1}+\ldots+c_{n+m}v_{n+m},
 \]
@@ -531,10 +532,10 @@ w=f(v) & = & f(\underbrace{c_1v_1+\ldots+c_nv_n}_{\in\ \ker(f)})+c_{n+1}f(v_{n+1
 y as\'i $w\in\langle w_1,\ldots,w_m\rangle$. De donde $\im(f)\subseteq\langle w_1,\ldots,w_m\rangle$.\qed
 
 \begin{coro}\label{corteorango}
-Suponga que $V$ tiene dimensi\'on finita y sea $f\in\Hom_K(V,W)$. Entonces las siguientes dos propiedades son equivalentes:
+Suponga que $V$ tiene dimensi\'on finita y sea $f\in\Hom_{\mathbb{K}}(V,W)$. Entonces las siguientes dos propiedades son equivalentes:
 \begin{enumerate}
 \item $\nu(f)=0$
-\item $\rho(f)=\dim_K(V)$
+\item $\rho(f)=\dim_{\mathbb{K}}(V)$
 \end{enumerate}
 \end{coro}
 
