@@ -104,7 +104,7 @@ Rec\'iprocamente, si $U$ contiene al origen y es cerrado bajo suma, la restricci
 Las soluciones a sistemas lineales homogéneos son subespacios. De hecho, tome $a_{i1},\ldots,a_{in}\in \mathbb{K}$, para $i\in\{1,\ldots,m\}$, con $m\le n$. El conjunto $U$ de soluciones $(x_1,\ldots,x_n)\in\mathbb{K}^n$ al sistema
 $$\left\{
 \begin{array}{lcr}
-  a_{i1}x_1+\ldots+a_{in}x_n & = & 0\\
+  a_{11}x_1+\ldots+a_{1n}x_n & = & 0\\
    & \vdots & \\
   a_{m1}x_1+\ldots+a_{mn}x_n & = & 0\\
 \end{array}
@@ -151,6 +151,22 @@ Sea $V$ un espacio vectorial sobre $\mathbb{K}$.
 \begin{enumerate}[(i)]
 \item Sea $U$ el conjunto $\bigcap_{i\in I} U_i$. Para todo $i\in I$, el origen $O$ está en $U_i$ y así $O\in U$. Sea $v,w\in U$ y $a\in \mathbb{K}$. Para todo $i \in I$ tenemos $v,w\in U_i$, luego $v+w$ y $cv$ pertenecen a todo $U_i$ y as\'i tambi\'en est\'an en $U$.
 \item Sea  $W$ un subespacio de $V$ que contiene a $C$. Como $W$ es cerrado bajo suma y bajo multiplicaci\'on por escalar, dados $v_1,\ldots,v_n\in C$ y $c_1,\ldots,c_n\in \mathbb{K}$, la combinaci\'on lineal $\sum_i^{n} c_iv_i$ est\'a en $W$. Es decir que toda combinaci\'on lineal de elementos de $C$ est\'a en $W$. Luego, tenemos $\langle C\rangle \subseteq W$. Pero como $\langle C\rangle$ es un espacio vectorial, obtenemos $\langle C\rangle \le W$.\qed
+\end{enumerate}
+
+\section*{Ejercicios}
+
+\begin{enumerate}
+  \item Verique que los conjuntos en el ejemplo \ref{ejem0} con sus respectivas operaciones son espacios vectoriales.
+  \item Verifique que el conjunto de funciones continuas de $\mathbb{R}$ en $\mathbb{R}$ es un espacio vectorial sobre $\mathbb{R}$ al igual que el conjunto de funciones de $\mathbb{R}$ en $\mathbb{R}$ diferenciables en todas partes.
+  \item Verifique que el conjunto de funciones racionales $\mathbb{C}(z_1,\ldots,z_n)$ es un espacio vectorial sobre $\mathbb{C}$.
+  \item Explique por qué los conjuntos $\mathbb{N}$ y $\mathbb{Z}$ no son espacios vectoriales.
+  \item ¿Es el conjunto $\{(x,y)\in\mathbb{R}^2|y>0\}$ un subespacio de $\mathbb{R}^2$?
+  \item ¿Es el conjunto $\{(x,y,z)\in\mathbb{K}^3|x+y+z=0\}$ un subespacio de $\mathbb{K}^3$?
+  \item ¿Es el conjunto $\{(x,-x,2x)\in\mathbb{K}^3|x\in\mathbb{R}\}$ un subespacio de $\mathbb{K}^3$?
+  \item Demuestre que el conjunto $\{(x,y,z)\in\mathbb{R}^3|2x+y-z=0,x-y=0\}$ es un subespacio de $\mathbb{Q}^3$ y encuentre un conjunto de vectores que los genere.
+  \item Demuestre que el conjunto $\{(x,y,z)\in\mathbb{R}^3|2x+y-z=0\}$ es un subespacio de $\mathbb{Q}^3$ y encuentre un conjunto de vectores que lo genere.
+  \item Describa geométricamente el subconjunto $\langle (1,0,1), (0,1,0)\rangle$ de $\mathbb{R}^3$.
+  \item Considere los siguientes subespacio de $\mathbb{Q}^3$, $U_1=\langle (1,1,0), (0,1,1)\rangle$ y $U_2=\langle (1,0,1), (0,1,0)\rangle$. Describa los elementos $(x,y,z)$ de $U_1\cap U_2$ como soluciones de un sistema y encuentre un conjunto generador.
 \end{enumerate}
 
 \section{Base y dimensi\'on}
@@ -301,6 +317,24 @@ A partir de este axioma, suponga que $V$ tiene dimensi\'on infinita y tome un fa
 De esta forma todo espacio vectorial tiene una base y a\'un m\'as, en cualquier espacio vectorial, todo conjunto linealmente independiente se puede extender a una.\\
 Similarmente podemos extender la proposici\'on \ref{maximallinind} para concluir que si dentro de un subconjunto $C$ de $V$, tomamos un subconjunto $C_0$ linealmente independiente, entonces existe un subconjunto $C'$ de $C$ linealmente independiente m\'aximal que contiene a $C_0$, y para un tal $C'$ se tiene $\langle C\rangle=\langle C'\rangle$. De hecho, tomamos, usando Lema de Zorn, un m\'aximal $C'$ en la colecci\'on, ordenada por inclusi\'on, de subconjunto linealmente indpendientes de $C$ que contienen a $C_0$. El lema \ref{inddep} implica la igualdad $\langle C\rangle=\langle C'\rangle$.
 \end{obs}
+
+\section*{Ejercicios}
+
+\begin{enumerate}
+  \item Determine si el conjunto $\{(1,2), (1,3), (1,-1)\}$ es linealmente dependiente en $\mathbb{R}^2$, y en tal caso exprese un vector como combinación lineal de los otros.
+  \item Determine si el conjunto $\{(1,2,3), (2,3,4), (3,4,5)\}$ es linealmente dependiente en $\mathbb{Q}^3$, y en tal caso exprese un vector como combinación lineal de los otros.
+  \item Determine si el conjunto $\{(1,0,0,1), (1,0,1,0), (0,1,1,0), (0,1,0,1)\}$ es linealmente dependiente en $\mathbb{K}^4$, y en tal caso exprese un vector como combinación lineal de los otros.
+  \item Encuentre una base del subespacio $\{(x,y,z)\in\mathbb{R}^3|2x+y-z=0,x-y=0\}$ de $\mathbb{R}^3$.
+  \item Encuentre una base del subespacio $\{(x,y,z)\in\mathbb{R}^3|2x+y-z=0\}$ de $\mathbb{Q}^3$.
+  \item Para cada uno de las siguientes conjuntos de vectores encuentre un subconjunto linealmente independiente maximal.
+  \begin{enumerate}
+  \item $\big\{(1,0,-2,1),(0,-1,1,1),(-1,2,1,0),(2,1,-4,4)\big\}\subseteq\mathbb{Q}^4$
+  \item $\big\{(1,0,-2,1),(0,-1,1,1),(-1,2,1,0),(2,1,2,-2)\big\}\subseteq\mathbb{Q}^4$
+  \item $\big\{(1,-1,5,-8,6),(-1,1,-5,5,-3),(1,0,3,-3,5),(2,3,4,-1,1),(0,1,0,-1,2)\big\}\subseteq\mathbb{Q}^5$
+  \item $\big\{(1,-1,5,-8,6),(-1,1,-5,5,-3),(1,0,3,-3,5),(2,1,4,8,0)\big\}\subseteq\mathbb{Q}^5$
+  \item $\big\{(1,1,0,0,0,0),(0,0,1,1,0,0),(0,0,0,0,1,1),(1,0,1,0,1,0),(0,1,0,1,0,1)\big\}\subseteq\mathbb{Q}^6$
+  \end{enumerate}
+\end{enumerate}
 
 \section{Transformaciones lineales}
 
@@ -540,6 +574,27 @@ Suponga que $V$ tiene dimensi\'on finita y sea $f\in\Hom_{\mathbb{K}}(V,W)$. Ent
 \end{coro}
 
 \dem Se sigue inmediatamente del teorema del rango.
+
+\section*{Ejercicios}
+
+\begin{enumerate}
+  \item Demuestre que la función $f:\mathbb{K}^2\rightarrow\mathbb{K}^3$ dada por $f(x,y)=(x+2y,2x-y,x+y)$ es una transformación lineal. Asuma que $\chara(K)\ne 2$.
+  \item ¿Existe alguna transformación lineal $f$ de $\mathbb{Q}^2$ en $\mathbb{Q}^3$ tal que $f(1,-2)=(1,1,1)$ y $f(-2,4)=(1,-1,-1)$?
+  \item ¿Cuántas transformaciones lineales $f$ de $\mathbb{Q}^2$ en $\mathbb{Q}^3$ existen tales que $f(1,1)=(3,2,4)$ y $f(1,2)=(1,1,1)$? Calcule $f(0,1)$ y $f(1,0)$ para estas transformaciones.
+  \item Sea $f:V\rightarrow W$ una transformación lineal, con $\dim_\mathbb{K}(V)=\dim_\mathbb{K}(W)$. Demuestre que $f$ es inyectiva si y solo si es sobreyectiva.
+  \item Considere las funciones $d:\mathbb{R}[t]\rightarrow\mathbb{R}[t]$ e $i:\mathbb{R}[t]\rightarrow\mathbb{R}[t]$ dadas por:
+  $$d(P(t))=\dfrac{d}{dt}P(t)\qquad i(P(t))=\int_0^tP(x)dx.$$
+  Demuestre que $d$ e $i$ son transformación lineales de espacios vectoriales sobre $\mathbb{R}$. Demuestre además que $d$ es sobreyectiva pero no inyectiva, y que $i$ es inyectica pero no sobreyectiva.
+  \item Para cada una de las siguientes transformaciones lineales, encuentre una base del núcleo y del rango.
+    \begin{enumerate}
+      \item $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^3,\mathbb{Q}^3)$ dada por $f(x,y,z)=(3x-3y-z,-y-4z,5x-7y+2z)$.
+      \item $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^4,\mathbb{Q}^4)$ dada por $f(x,y,z,w)=(x-y+z+w,-x-y-z,2x-y-2z-w,2x-y-z)$.
+      \item $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^2,\mathbb{Q}^3)$ dada por $f(x,y)=(y,x,-x)$.
+      \item $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^2,\mathbb{Q}^3)$ dada por $f(x,y)=\dfrac{1}{2}(x+y,x+y,-x-y)$.
+      \item $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^2,\mathbb{Q}^4)$ dada por $f(x,y)=\dfrac{1}{3}(2y,2y,3x-y,-3x-y)$.
+      \item $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^3,\mathbb{Q}^4)$ dada por $f(x,y)=\dfrac{1}{3}(2x+y+z,2x+y+z,-x+y-2z,-x-2y+z)$.
+    \end{enumerate}
+\end{enumerate}
 
 \section{Matrices y vectores de coordenadas}
 
