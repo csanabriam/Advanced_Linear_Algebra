@@ -258,7 +258,7 @@ Tome $\mathcal{B}=(e_1,\ldots,e_n)$.
 \end{ejem}
 
 \begin{nota}
-Para $K^n$, la \emph{base can\'onica} es la base $(e_1,\ldots,e_n)$ definida en el ejemplo \ref{ejembas0}.(i), que denotaremos por $\mathcal{C}$.
+Para $K^n$, la \emph{base can\'onica} es la base $(e_1,\ldots,e_n)$ definida en el ejemplo \ref{ejembas0}.(i), que denotaremos por $\mathcal{C}_n$, o simplemente $\mathcal{C}$.
 \end{nota}
 
 \begin{lema}\label{inddep}
@@ -671,14 +671,14 @@ e $I_n=(\delta_{ij})$ donde definimos $\delta_{ij}=1$ cuando $i=j$ y $\delta_{ij
 Para toda matriz $A\in M_{m\times n}(\mathbb{K})$, se tiene $I_mA=A=AI_n$.
 \end{prop}
 
-\dem Si $a_{ij}$ es la entrada $ij$ de $A$, entonces la entrada $ij$ de $I_mA$ es $\sum_{k=1}^m \delta_{ik}a_{kj}=a_{ij}$ y la de $AI_n$ es $\sum_{k=1}^na_{ik}\delta{kj}=a_{ij}$. \qed
+\dem Si $a_{ij}$ es la entrada $ij$ de $A$, entonces la entrada $ij$ de $I_mA$ es $\sum_{k=1}^m \delta_{ik}a_{kj}=a_{ij}$ y la de $AI_n$ es $\sum_{k=1}^na_{ik}\delta_{kj}=a_{ij}$. \qed
 
 \begin{defn}
 Sea $A\in M_{n\times n}(\mathbb{K})$. Decimos que $A$ es una \emph{matriz invertible} si existe una matriz $A^{-1}\in M_{n\times n}(\mathbb{K})$ para la cual se tiene $AA^{-1}=I_n=A^{-1}A$. En tal caso, llamamos a $A^{-1}$ \emph{la matriz inversa de $A$} y decimos que $A$ es \emph{invertible}.
 \end{defn}
 
 \begin{prop}[Unicidad de la inversa]
-Sea $A\in M_{n\times n}(\mathbb{K})$ una matriz invertible. Si $B\in M_{n\times n}$ es tal que $BA$ \'o $AB$ es igual a $I_n$ entonces $B=A^{-1}$.
+Sea $A\in M_{n\times n}(\mathbb{K})$ una matriz invertible. Si $B\in M_{n\times n}$ es tal que $BA=I_n$ \'o $AB=I_n$ entonces $B=A^{-1}$.
 \end{prop}
 
 \dem Si $BA$ es igual a $I_n$, entonces tenemos $B=BI_n=B(AA^{-1})=(BA)A^{-1}=I_nA^{-1}=A^{-1}$. Similarmente se establece $B=A^{-1}$ cuando $AB$ es igual a $I_n$.\qed
@@ -707,7 +707,7 @@ v & \longmapsto & \Big[ v \Big]^{\mathcal{B}_V}
 es un isomorfismo.
 \end{prop}
 
-\dem Tenemos $\left[ v \right]^{\mathcal{B}_V}=O$ si y solo si $v=0$, as\'i la proposici\'on se sigue del corolario \ref{corteorango} del teorema del rango. 
+\dem Tenemos $\left[ v \right]^{\mathcal{B}_V}=O$ si y solo si $v=O$, as\'i la proposici\'on se sigue del corolario \ref{corteorango} del teorema del rango. 
 
 \begin{defn}
 Dada $f\in\Hom_{\mathbb{K}}(V,W)$, para $i\in\{1,\ldots,m\}$ y $j\in\{1,\ldots,n\}$, definimos $a_{ij}\in \mathbb{K}$ tal que
@@ -716,14 +716,19 @@ La \emph{matriz de $f$ para las bases $\mathcal{B}_V$ y $\mathcal{B}_W$} es la m
 \end{defn}
 
 \begin{obs}
-La columna $j$ de $\Big[ f \Big]^{\mathcal{B}_W}_{\mathcal{B}_V}$ es el vector de coordenadas $\Big[f(v_j)\Big]^{\mathcal{B}_W}$, en particular tenemos 
+\begin{enumerate}[(i)]
+  \item La columna $j$ de $\Big[ f \Big]^{\mathcal{B}_W}_{\mathcal{B}_V}$ es el vector de coordenadas $\Big[f(v_j)\Big]^{\mathcal{B}_W}$, en particular tenemos 
 $$\Big[f\Big]^{\mathcal{B}_W}_{\mathcal{B}_V}=\Bigg[\Big[ f(v_1)\Big]^{\mathcal{B}_W}\Big|\ldots \Big| \Big[ f(v_n)\Big]^{\mathcal{B}_W}\Bigg]$$
-y $\Big[\id_V\Big]^{\mathcal{B}_V}_{\mathcal{B}_V}=I_n$.
+  y $\Big[\id_V\Big]^{\mathcal{B}_V}_{\mathcal{B}_V}=I_n$.
+  \item Cuando $V$ y $W$ son los espacios $\mathbb{K}^n$ y $\mathbb{K}^m$ matriz para las bases canónicas $\mathcal{C}_n$ y $\mathcal{C}_m$ la llamamos la \emph{matriz canónica}.
+\end{enumerate}
 \end{obs}
 
 \begin{prop}
-Dado $f\in\Hom_{\mathbb{K}}(V,W)$ y $v\in V$, si $A=\Big[ f \Big]^{\mathcal{B}_W}_{\mathcal{B}_V}$ y $\overline{x}=\Big[ v \Big]^{\mathcal{B}_V}$ se tiene que
-$$\Big[ f(v)\Big]^{\mathcal{B}_W}=\Big[ f \Big]^{\mathcal{B}_W}_{\mathcal{B}_V}\Big[ v \Big]^{\mathcal{B}_V}=Ax.$$
+Dado $f\in\Hom_{\mathbb{K}}(V,W)$, para todo $v\in V$, se tiene
+$$\Big[ f(v)\Big]^{\mathcal{B}_W}=\Big[ f \Big]^{\mathcal{B}_W}_{\mathcal{B}_V}\Big[ v \Big]^{\mathcal{B}_V}.$$
+En particular, si $A=\Big[ f \Big]^{\mathcal{B}_W}_{\mathcal{B}_V}$, $\overline{x}=\Big[ v \Big]^{\mathcal{B}_V}$ e $\overline{y}=\Big[ f(v)\Big]^{\mathcal{B}_W}$ entonces
+$$\overline{y}=A\overline{x}.$$
 \end{prop}
 
 \dem Sean $\Big[ f \Big]^{\mathcal{B}_W}_{\mathcal{B}_V}=(a_{ij})$ y $\Big[v\Big]^{\mathcal{B}_V}=(c_i)$. La coordenada $i$ del vector de coordenadas $\Big[ f \Big]^{\mathcal{B}_W}_{\mathcal{B}_V}\Big[ v \Big]^{\mathcal{B}_V}$ es $\sum_j a_{ij}c_j$, y as\'i, de las igualdades
@@ -735,10 +740,12 @@ f(v) & = f(c_1v_1+\ldots+c_nv_n)=c_1f(v_1)+\ldots+c_nf(v_n)\\
 se sigue que la coordenada $i$ de $f(v)$ en la base $\mathcal{B}_W$ es igual a la coordenada $i$ del vector de coordenadas  $\Big[ f \Big]^{\mathcal{B}_W}_{\mathcal{B}_V}\Big[ v \Big]^{\mathcal{B}_V}$.\qed
 
 \begin{prop}\label{compmult}
-Dadas $f\in\Hom_{\mathbb{K}}(V,W)$ y $g\in\Hom_{\mathbb{K}}(W,U)$, si $A=\Big[ f \Big]^{\mathcal{B}_W}_{\mathcal{B}_V}$ y $B=\Big[ g \Big]^{\mathcal{B}_U}_{\mathcal{B}_W}$ se tiene
+Dado $f\in\Hom_{\mathbb{K}}(V,W)$ y $g\in\Hom_{\mathbb{K}}(W,U)$, se tiene
 $$
-\Big[ g\circ f \Big]^{\mathcal{B}_U}_{\mathcal{B}_V}=AB=\Big[ g \Big]^{\mathcal{B}_U}_{\mathcal{B}_W}\Big[ f \Big]^{\mathcal{B}_W}_{\mathcal{B}_V}.
+\Big[ g\circ f \Big]^{\mathcal{B}_U}_{\mathcal{B}_V}=\Big[ g \Big]^{\mathcal{B}_U}_{\mathcal{B}_W}\Big[ f \Big]^{\mathcal{B}_W}_{\mathcal{B}_V}.
 $$
+En particular, si $A=\Big[ f \Big]^{\mathcal{B}_W}_{\mathcal{B}_V}$, $B=\Big[ g \Big]^{\mathcal{B}_U}_{\mathcal{B}_W}$ y $C=\Big[ g\circ f \Big]^{\mathcal{B}_U}_{\mathcal{B}_V}$ entonces
+$$C=BA.$$
 \end{prop}
 
 \dem Sea $\Big[ f \Big]^{\mathcal{B}_W}_{\mathcal{B}_V}=(a_{ij})$ y $\Big[ g \Big]^{\mathcal{B}_U}_{\mathcal{B}_W}=(b_{ij})$.
@@ -759,13 +766,13 @@ f & \longmapsto & \Big[ f \Big]^{\mathcal{B}_W}_{\mathcal{B}_V}
 es un isomorfismo de espacios vectoriales sobre $\mathbb{K}$. M\'as a\'un, $f$ es un isomorfismo si y solo si $A=\Big[ f \Big]_{\mathcal{B}_W}^{\mathcal{B}_V}$ es invertible, y en tal caso se tiene $\Big[ f^{-1} \Big]^{\mathcal{B}_W}_{\mathcal{B}_V}=A^{-1}=\left(\Big[ f \Big]_{\mathcal{B}_V}^{\mathcal{B}_W}\right)^{-1}$.
 \end{prop}
 
-\dem Sean $f,g\in\Hom_{\mathbb{K}}(V,W)$. Como $(f+g)(v_j)=f(v_j)+g(v_j)$ y $(cf)(v_j)=cf(v_j)$ para todo $j\in\{1,\ldots,n\}$ y todo $c\in \mathbb{K}$, entonces  $\Big[ \bullet \Big]^{\mathcal{B}_W}_{\mathcal{B}_V}$ es una transformaci\'on lineal. Para establecer que es una biyecci\'on basta notar que, por la proposici\'on \ref{unitrlin}, dada una matriz $A\in M_{m\times n}(\mathbb{K})$, con $A=(a_ij)$, existe una \'unica transformaci\'on lineal $f\in \Hom_{\mathbb{K}}(V,W)$ tal que $f(v_j)=\sum_i a_{ij}w_i$.
+\dem Sean $f,g\in\Hom_{\mathbb{K}}(V,W)$. Como $(f+g)(v_j)=f(v_j)+g(v_j)$ y $(cf)(v_j)=cf(v_j)$ para todo $j\in\{1,\ldots,n\}$ y todo $c\in \mathbb{K}$, entonces  $\Big[ \bullet \Big]^{\mathcal{B}_W}_{\mathcal{B}_V}$ es una transformaci\'on lineal. Para establecer que es una biyecci\'on basta notar que, por la proposici\'on \ref{unitrlin}, dada una matriz $A\in M_{m\times n}(\mathbb{K})$, con $A=(a_{ij})$, existe una \'unica transformaci\'on lineal $f\in \Hom_{\mathbb{K}}(V,W)$ tal que $f(v_j)=\sum_i a_{ij}w_i$.
 
 Sea $\Big[ f \Big]^{\mathcal{B}_W}_{\mathcal{B}_V}=A$. Si $f$ es bijectiva y $B$ es la matriz $\Big[ f^{-1} \Big]_{\mathcal{B}_W}^{\mathcal{B}_V}$, entonces se tiene
 $$BA=\Big[ f^{-1} \Big]_{\mathcal{B}_W}^{\mathcal{B}_V}\Big[ f \Big]^{\mathcal{B}_W}_{\mathcal{B}_V}= \Big[ f^{-1}\circ f \Big]^{\mathcal{B}_V}_{\mathcal{B}_V}=\Big[\id_V\Big]^{\mathcal{B}_V}_{\mathcal{B}_V}=I_n,$$
 luego $A$ es invertible y $B=A^{-1}$. Si $A$ es invertible, entonces por la proposici\'on \ref{homym} existe una \'unica transformaci\'on lineal $g\in \Hom_{\mathbb{K}}(W,V)$ tal que $A^{-1}$ es la matriz $\Big[ g \Big]^{\mathcal{B}_V}_{\mathcal{B}_W}$. Las igualdades
 $$\Big[ g\circ f \Big]^{\mathcal{B}_V}_{\mathcal{B}_V}=\Big[ g \Big]^{\mathcal{B}_V}_{\mathcal{B}_W}\Big[ f \Big]^{\mathcal{B}_W}_{\mathcal{B}_V}=A^{-1}A=I_n=\Big[ \id_V \Big]^{\mathcal{B}_V}_{\mathcal{B}_V},$$
-implican $g\circ f=\id_V$. Similarmente, tenemos $f\circ g=\id_W$. As\'i, $f$ es una biyecci\'on y $g$ es la inversa de $f^{-1}$.\qed
+implican $g\circ f=\id_V$. Similarmente, tenemos $f\circ g=\id_W$. As\'i, $f$ es una biyecci\'on y $g$ es la inversa $f^{-1}$.\qed
 
 \begin{defn}
 Dadas dos bases $\mathcal{B}=(v_1,\ldots,v_n)$ y $\mathcal{B}'=(v'_1,\ldots,v'_n)$ de $V$. La \emph{matriz de cambio de coordenadas de la base $\mathcal{B}$ a la base $\mathcal{B}'$} es la matriz $\Big[\id_V\Big]^{\mathcal{B}'}_\mathcal{B}$.
@@ -792,16 +799,18 @@ $$\Big[\id_V\Big]^{\mathcal{B}}_{\mathcal{B}'}=\left(\Big[\id_V\Big]^{\mathcal{B
 \qed
 
 \begin{prop}
-Sean $\mathcal{B}_V,\mathcal{B}'_V$ bases de $V$ y $\mathcal{B}_W$, $\mathcal{B}'_W$ bases de $W$. Para toda $f\in\Hom_{\mathbb{K}}(V,W)$, tenemos
+Sean $\mathcal{B}_V$, y $\mathcal{B}'_V$ bases de $V$, y $\mathcal{B}_W$, y $\mathcal{B}'_W$ bases de $W$. Para toda $f\in\Hom_{\mathbb{K}}(V,W)$, se tiene
 \[
-\Big[ f\Big]^{\mathcal{B}_W'}_{\mathcal{B}'_V}=\Big[\id_W\Big]^{\mathcal{B}'_W}_{\mathcal{B}_W}\Big[ f\Big]^{\mathcal{B}_W}_{\mathcal{B}_V}\Big[\id_V\Big]^{\mathcal{B}_V}_{\mathcal{B}'_V}
+\Big[ f\Big]^{\mathcal{B}_W'}_{\mathcal{B}'_V}=\Big[\id_W\Big]^{\mathcal{B}'_W}_{\mathcal{B}_W}\Big[ f\Big]^{\mathcal{B}_W}_{\mathcal{B}_V}\Big[\id_V\Big]^{\mathcal{B}_V}_{\mathcal{B}'_V}.
 \]
+En particular, si $A=\Big[ f\Big]^{\mathcal{B}_W}_{\mathcal{B}_V}$, $B=\Big[ f\Big]^{\mathcal{B}_W'}_{\mathcal{B}'_V}$, $C_1=\Big[\id_V\Big]^{\mathcal{B}_V}_{\mathcal{B}'_V}$ y $C_2=\Big[\id_W\Big]^{\mathcal{B}_W}_{\mathcal{B}'_W}$ entonces
+$$B=C_2^{-1}AC_1.$$
 \end{prop}
 
 \dem La propiedad se sigue de la igualdad $f=\id_W\circ f\circ id_V$ y de la proposici\'on \ref{compmult}.\qed
 
 \begin{obs}
-Sean $\mathcal{B},\mathcal{B}'$ bases de $V$ y sea $f\in\End_{\mathbb{K}}(V)$. Para
+Sean $\mathcal{B}$ y $\mathcal{B}'$ bases de $V$ y sea $f\in\End_{\mathbb{K}}(V)$. Para
 \[
 A=\Big[ f\Big]^{\mathcal{B}}_{\mathcal{B}},\quad B=\Big[ f\Big]^{\mathcal{B}'}_{\mathcal{B}'},\textrm{ y}\quad C=\Big[\id_V\Big]^{\mathcal{B}}_{\mathcal{B}'}
 \]
@@ -812,21 +821,21 @@ B=C^{-1}AC.
 \end{obs}
 
 \begin{ejem}
-Suponga que $\chara(\mathbb{K})$ es diferente de $2$, de forma que $-1\ne 1$ en $\mathbb{K}$. Sea $f\in\Hom_{\mathbb{K}}\left(\mathbb{K}^2,\mathbb{K}^2\right)$ el operador definido por
+Suponga que $\chara(\mathbb{K})\ne 2$, de forma que $-1\ne 1$ en $\mathbb{K}$. Sea $f\in\Hom_{\mathbb{K}}\left(\mathbb{K}^2,\mathbb{K}^2\right)$ el operador definido por
 $$f(x,y)=(y,x).$$
-Si $\mathcal{C}$ es la base  can\'onica $\left\{(1,0),(0,1)\right\}$ se tiene
+Para la base canónica $\mathcal{C}$ se tiene
 $$\Big[ f\Big]^{\mathcal{C}}_{\mathcal{C}}=
 \left[\begin{array}{rr}
 0 & 1\\ 1 & 0
 \end{array}\right]
 $$
-y si $\mathcal{B}$ es la base $\left\{(1,1),(1,-1)\right\}$ se tiene
+y para $\mathcal{B}=\left((1,1),(1,-1)\right)$ se tiene
 $$\Big[ \id_{\mathbb{K}^2}\Big]^{\mathcal{C}}_{\mathcal{B}}=
 \left[\begin{array}{rr}
 1 & 1\\ 1 & -1
 \end{array}\right],
 $$
-luego obtenemos
+luego
 \begin{align*}
 \Big[ f\Big]^{\mathcal{B}}_{\mathcal{B}} &= \Big[ \id_{\mathbb{K}^2}\Big]^{\mathcal{B}}_{\mathcal{C}}\Big[ f\Big]^{\mathcal{C}}_{\mathcal{C}}\Big[ \id_{\mathbb{K}^2}\Big]^{\mathcal{C}}_{\mathcal{B}}\\
  &=\left[\begin{array}{rr}
@@ -869,16 +878,32 @@ Como $\mathcal{J}'$ es una uni\'on de conjuntos finitos y disyuntos indexada por
 \end{obs}
 
 \begin{obs}[Dimensi\'on arbitraria y descomposici\'on del dominio]
-El teorema del rango se demostr\'o descomponiendo una base del dominio de la transformaci\'on lineal. Este resultado lo podemos generalizar a espacios de dimensi\'on infinita de la siguiente manera. Sea $f\in\Hom_{\mathbb{K}}(V,W)$, entonces existe una base de $\mathcal{B}$ de $V$ tal que $\mathcal{B}$ es igual a la union de dos conjuntos disyuntos $\mathcal{B}_0$ y $ \mathcal{B}_1$, donde $\mathcal{B}_0$ es una base de $\ker(f)$ y $f\left(\mathcal{B}_1\right)$ es una base de $\im(f)$. De hecho, basta tomar una base $\mathcal{B}_0$ de $\ker(f)$ y extenderla a una de $V$ (ver Observaci\'on \ref{basesinfty}). El resto de detalles son similares a los de la demostraci\'on del teorema.
+El teorema del rango se demostr\'o descomponiendo una base del dominio de la transformaci\'on lineal. Este resultado lo podemos generalizar a espacios de dimensi\'on infinita de la siguiente manera. Sea $f\in\Hom_{\mathbb{K}}(V,W)$, entonces existe una base de $\mathcal{B}$ de $V$ tal que $\mathcal{B}$ es igual a la unión de dos conjuntos disyuntos $\mathcal{B}_0$ y $ \mathcal{B}_1$, donde $\mathcal{B}_0$ es una base de $\ker(f)$ y $f\left(\mathcal{B}_1\right)$ es una base de $\im(f)$. De hecho, basta tomar una base $\mathcal{B}_0$ de $\ker(f)$ y extenderla a una de $V$ (ver Observaci\'on \ref{basesinfty}). El resto de detalles son similares a los de la demostraci\'on del teorema.
 \end{obs}
 
 \begin{obs}[Dimensi\'on infinita y transformaciones lineales]\label{unitrlinealinfty}
 La proposici\'on \ref{unitrlin} de rigidez de las transformaciones lineales tambi\'en se puede generalizar a espacios de dimensi\'on infinita. Sea $C$ un conjunto generador de $V$. Dada una funci\'on $f_0: C\rightarrow W$, existe a los sumo una transformaci\'on lineal $f\in\Hom_{\mathbb{K}}(V,W)$ para la cual se tiene $f(v)=f_0(v)$ para todo $v\in C$. Si adem\'as $C$ es linealmente independiente, entonces una tal transformaci\'on lineal $f$ existe. La demostraci\'on es fundamentalmente la misma que en el caso de base finita. Note que un caso particular de esta observaci\'on ya se us\'o en Observaci\'on \ref{dimiso}.
 \end{obs}
 
-\section{Suma y producto directo}
+\section*{Ejercicios}
+\begin{enumerate}
+  \item Sea $f\in\Hom_{\mathbb{Q}}\left(\mathbb{Q}^3,\mathbb{Q}^3\right)$ tal que $f(1,0,0)=(0,1,2)$, $f(0,1,0)=(1,2,3)$ y $f(0,0,1)=(2,0,-1)$. Encuentre la matriz canónica de $f$ y verifique que $f(x,y,z)=(y+2z,x+2y,2x+3y-z)$.
+  \item Obtenga la matrix canónica de $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^3,\mathbb{Q}^3)$ donde
+$$f(x,y,z)=(3x-3y-z,-y-4z,5x-7y+2z).$$
+  \item Obtenga la matrix canónica de $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^4,\mathbb{Q}^4)$ donde
+$$f(x,y,z,w)=(x-y+z+w,-x-y-z,2x-y-2z-w,2x-y-z)$$
+  \item Obtenga la matrix canónica de cada una de las transformaciones en el ejercicio 1.3.6.
+  \item Sean $f,g\in\Hom_{\mathbb{Q}}\left(\mathbb{Q}^3,\mathbb{Q}^3\right)$ definidas por
+  $$f(x,y,z)=(y+2z,x+2y,2x+3y-z)$$
+  y
+  $$g(x,y,z)=(3x-3y-z,-y-4z,5x-7y+2z).$$
+  Encuentre la matriz canónica de $f\circ g$ y $g\circ f$.
+  \item Sea $V=\mathbb{R}[t]_{\le 2}$ el espacio de polinomios de grado menor o igual a $2$ con coeficientes reales y $\mathcal{B}$ la base $(1,t,t^2)$. Encuentre la matrix para la base $\mathcal{B}$ de $f\in\Hom_{\mathbb{R}}(V,V)$ con $f(P(t))=P(t)+\frac{d}{dt}P(t)$. Determine si $f$ es invertible y en tal caso encuentre la matrix de $f^{-1}$ para $\mathcal{B}$.
+\end{enumerate}
 
-Sea $V$ un espacio vectorial sobre un cuerpo $K$.
+\section{Sumas y productos de espacios}
+
+Sea $V$ un espacio vectorial sobre $\mathbb{K}$.
 
 \begin{defn}
 Dados $V_1,\ldots,V_n\le V$, definimos su \emph{suma} como el conjunto $\left\{v_1+\ldots+v_n\in V\ |\ v_i\in V_i, i=1,\ldots,n \right\}$ que denotamos por $V_1+\ldots+V_n$ \'o por $\sum_{i=1}^n V_i$.
@@ -888,7 +913,7 @@ Dados $V_1,\ldots,V_n\le V$, definimos su \emph{suma} como el conjunto $\left\{v
 Si $V_1,\ldots,V_n$ son subespacios de $V$, entonces $V_1+\ldots+V_n$ es un subespacion de $V$.
 \end{prop}
 
-\dem Usamos Propiedad \ref{subespsiysolosi}. Primero, note que $V_1+\ldots+V_n$ contiene al origen. Tome $v,v'\in  V_1+\ldots+V_n$ y $c\in K$. Para $i\in\{1,\ldots,n\}$, sean $v_i,v'_i\in V_i$ tales que se tiene $v=v_1+\ldots+v_n$ y $v'=v'_1+\ldots+v'_n$. Obtenemos as\'i $v+v'=(v_1+v'_1)+\ldots+(v_n+v'_n)$, y por ende, como $v_i+v'_i$ pertenece a $V_i$, para $i\in\{1,\ldots,n\}$, entonces $v+v'$ pertenece a $V_1+\ldots+V_n$. Igualmente, como tenemos $av_i\in V_i$, para $i\in\{1,\ldots,n\}$, de la igualdad $cv=cv_1+\ldots+cv_n$ vemos que $ v$ est\'a en $V_1+\ldots+V_n$.\qed
+\dem Usamos la proposición \ref{subespsiysolosi}. Primero, note que $V_1+\ldots+V_n$ contiene al origen. Tome $v,v'\in  V_1+\ldots+V_n$ y $c\in \mathbb{K}$. Para $i\in\{1,\ldots,n\}$, sean $v_i,v'_i\in V_i$ tales que se tiene $v=v_1+\ldots+v_n$ y $v'=v'_1+\ldots+v'_n$. Obtenemos as\'i $v+v'=(v_1+v'_1)+\ldots+(v_n+v'_n)$, y por ende, como $v_i+v'_i$ pertenece a $V_i$, para $i\in\{1,\ldots,n\}$, entonces $v+v'$ pertenece a $V_1+\ldots+V_n$. Igualmente, como tenemos $cv_i\in V_i$, para $i\in\{1,\ldots,n\}$, de la igualdad $cv=cv_1+\ldots+cv_n$ vemos que $v$ est\'a en $V_1+\ldots+V_n$.\qed
 
 \begin{teo}\label{sumaint}
 Si $V_1$ y $V_2$ son subespacios de $V$ de dimensi\'on finita, entonces $V_1\cap V_2$ y $V_1+V_2$ tambi\'en lo son. M\'as a\'un se tiene
@@ -898,21 +923,21 @@ Si $V_1$ y $V_2$ son subespacios de $V$ de dimensi\'on finita, entonces $V_1\cap
 o equivalentemente, $\dim(V_1)+\dim(V_2)=\dim(V_1+V_2)+\dim(V_1\cap V_2)$.
 \end{teo}
 
-\dem Como $V_1$ tiene dimensi\'on finita, y $V_1\cap V_2$ es un subespacio de $V_1$, entonces $V_1\cap V_2$ tambi\'en tiene dimensi\'on finita, por el teorema \ref{monodim}. Sean $n_1=\dim(V_1)$, $n_2=\dim(V_2)$, $p=\dim(V_1\cap V_2)$ y $\{v_1,\ldots,v_p\}$ una base de $V_1\cap V_2$. Extendemos esta base de $V_1\cap V_2$ a una base $\mathcal{B}_1$ de $V_1$ constituida por los vectores $v_1,\ldots,v_p,v'_{p+1},\ldots,v'_{n_1}$, y a una base $\mathcal{B}_2$ de $V_2$ constituida por los vectores $v_1,\ldots,v_p,v''_{p+1},\ldots,v''_{n_2}$. As\'i, el conjunto $\{v_1,\ldots,v_p,v'_{p+1},\ldots,v'_{n_1},v''_{p+1},\ldots,v''_{n_2}\}$ genera a $V_1+V_2$, luego este subespacio tiene dimensi\'on finita. Sea $$\mathcal{B}=\{v_1,\ldots,v_p,v'_{p+1},\ldots,v'_{n_1},v''_{p+1},\ldots,v''_{n_2}\}.$$ El teorema se sigue si demostramos que $\mathcal{B}$ es una base, para esto nos hace falta demostrar que es linealmente independiente y lo haremos usando la proposici\'on \ref{proplinind}. Suponga que $a_1,\ldots,a_p,a'_{p+1},\ldots,a'_{n_1},a''_{p+1},\ldots,a''_{n_2}$ son tales que se tiene
+\dem Como $V_1$ tiene dimensi\'on finita, y $V_1\cap V_2$ es un subespacio de $V_1$, entonces $V_1\cap V_2$ tambi\'en tiene dimensi\'on finita, por el teorema \ref{monodim}. Sean $n_1=\dim(V_1)$, $n_2=\dim(V_2)$, $p=\dim(V_1\cap V_2)$ y $\{v_1,\ldots,v_p\}$ una base de $V_1\cap V_2$. Extendemos esta base de $V_1\cap V_2$ a una base $\mathcal{B}_1$ de $V_1$ constituida por los vectores $v_1,\ldots,v_p,v'_{p+1},\ldots,v'_{n_1}$, y a una base $\mathcal{B}_2$ de $V_2$ constituida por los vectores $v_1,\ldots,v_p,v''_{p+1},\ldots,v''_{n_2}$. As\'i, el conjunto $\{v_1,\ldots,v_p,v'_{p+1},\ldots,v'_{n_1},v''_{p+1},\ldots,v''_{n_2}\}$ genera a $V_1+V_2$, luego este subespacio tiene dimensi\'on finita. Sea $$\mathcal{B}=(v_1,\ldots,v_p,v'_{p+1},\ldots,v'_{n_1},v''_{p+1},\ldots,v''_{n_2}).$$ El teorema se sigue si demostramos que $\mathcal{B}$ es una base, para esto nos hace falta demostrar que es linealmente independiente y lo haremos usando la proposici\'on \ref{proplinind}. Suponga que $a_1,\ldots,a_p,a'_{p+1},\ldots,a'_{n_1},a''_{p+1},\ldots,a''_{n_2}$ son tales que se tiene
 \[
-0=\sum_{i=1}^p a_iv_i+\sum_{i=p+1}^{n_1}a'_iv'_i+\sum_{i=p+1}^{n_2} a''_iv''_i.
+O=\underbrace{\sum_{i=1}^p a_iv_i+\sum_{i=p+1}^{n_1}a'_iv'_i}_{v}+\underbrace{\sum_{i=p+1}^{n_2} a''_iv''_i}_{-v}.
 \]
-Luego, si $v$ es el vector $\sum_{i=1}^p a_iv_i+\sum_{i=p+1}^{n_1}a'_iv'_i$, entonces $v$ est\'a en $V_1$ y tenemos $v=\sum_{i=p+1}^{n_2} a''_iv''_i$, y as\'i $v$ est\'a tambi\'en en $V_2$, y por ende $v$ est\'a en $V_1\cap V_2$. Sean $b_1\ldots,b_p\in K$ para los cuales se tiene
+Luego, para $v=\sum_{i=1}^p a_iv_i+\sum_{i=p+1}^{n_1}a'_iv'_i$ tenemos que $v$ est\'a en $V_1$ y también $v=-\sum_{i=p+1}^{n_2} a''_iv''_i$ tambi\'en está en $V_2$, y por ende $v$ est\'a en $V_1\cap V_2$. Sean $b_1\ldots,b_p\in \mathbb{K}$ para los cuales se tiene
 \[
 v=b_1v_1+\ldots+b_pv_p,
 \]
 entonces obtenemos
 \[
-0=v-v=\sum_{i=1}^p (a_i-b_i)v_i+\sum_{i=p+1}^{n_1}a'_iv'_i.
+O=v-v=\sum_{i=1}^p (a_i-b_i)v_i+\sum_{i=p+1}^{n_1}a'_iv'_i.
 \]
 Por la independencia lineal de $\mathcal{B}_1$ tenemos $a'_{p+1}=\ldots=a'_{n_1}=0$ y
 \[
-0=\sum_{i=1}^p a_iv_i+\sum_{i=p+1}^{n_2} a''_iv''_i.
+O=\sum_{i=1}^p a_iv_i+\sum_{i=p+1}^{n_2} a''_iv''_i.
 \]
 Por la independencia lineal de $\mathcal{B}_2$, tenemos $a_1=\ldots=a_p=a''_{p+1}=\ldots=a''_{n_2}=0$. \qed
 
@@ -923,7 +948,7 @@ n_1+n_2=s+i.
 \]
 De hecho si $\{v_1,\ldots,v_s\}$ es una es una colecci\'on de $s$ vectores linealmente independientes en $V$ basta tomar
 $V_1=\langle v_1,\ldots,v_{n_1}\rangle$ y  $V_2=\langle v_1,\ldots,v_i,v_{n_1+1},\ldots,v_s\rangle$.
-M\'as a\'un, si $V'_1$ y $V'_2$ son subespacios de $V$ para los se tiene $\dim(V'_1)=n_1$, $\dim(V'_2)=n_2$, $\dim(V'_1\cap V'_2)=i$ y $\dim(V'_1+V'_2)=s$, entonces existe un automorfismo $f\in\End_K(V)$ tal que $f(V_1)=V'_1$ y $f(V_2)=V'_2$.
+M\'as a\'un, si $V'_1$ y $V'_2$ son subespacios de $V$ para los se tiene $\dim(V'_1)=n_1$, $\dim(V'_2)=n_2$, $\dim(V'_1\cap V'_2)=i$ y $\dim(V'_1+V'_2)=s$, entonces existe un automorfismo $f\in\End_\mathbb{K}(V)$ tal que $f(V_1)=V'_1$ y $f(V_2)=V'_2$.
 \end{obs}
 
 \begin{defn}
@@ -989,19 +1014,19 @@ Suponga ahora que se tiene $\sum_{i=1}^n \dim(V_i)=\dim(V)$. Por el teorema \ref
 Pero se tiene $\sum_{i=1}^n \dim(V_i)=\dim(V)$, luego estas desigualdades son igualdades y en particular obtenemos $\dim(V)=\dim(V_1)+\dim\left(\sum_{j>1} V_j\right)$. De donde, por el mismo teorema \ref{sumaint}, se tiene $\dim\left(V_1\cap\sum_{j\ne 1} V_j\right)=0$, es decir $V_1\cap\sum_{j\ne 1} V_j=\{O\}$. Reordenando los subespacios $V_i$, $i=1,\ldots,n$, obtenemos $V_i\cap\sum_{j\ne i} V_j=\{0\}$, para todo $i\in\{1,\ldots,n\}$. \qed
 
 \begin{defn}
-Sea $p\in\End_K(V)$. Decimos que $p$ es una \emph{proyecci\'on} si se tiene $p\circ p=p$.
+Sea $p\in\End_\mathbb{K}(V)$. Decimos que $p$ es una \emph{proyecci\'on} si se tiene $p\circ p=p$.
 \end{defn}
 
 \begin{obs}
-Si $p\in\Hom_K(V,V)$ es una proyecci\'on y $V_0$ es la imagen de $p$ entonces se tiene $p(v_0)=v_0$ para todo $v_0\in V_0$. De hecho si $v_0$ pertenece a $V_0$, existe $v\in V$ que satisface $p(v)=v_0$, luego obtenemos $p(v_0)=p\circ p(v)=p(v)=v_0$.
+Si $p\in\Hom_\mathbb{K}(V,V)$ es una proyecci\'on y $V_0$ es la imagen de $p$ entonces se tiene $p(v_0)=v_0$ para todo $v_0\in V_0$. De hecho si $v_0$ pertenece a $V_0$, existe $v\in V$ que satisface $p(v)=v_0$, luego obtenemos $p(v_0)=p\circ p(v)=p(v)=v_0$.
 \end{obs}
 
 \begin{obs}
-Suponga que tenemos $V=V_1\oplus V_2$, y defina los operadores $p_1,p_2\in\End_K(V)$ por $p_1(v)=v_1$ y $p_2(v)=v_2$ si se tiene $v=v_1+v_2$ con $(v_1,v_2)\in V_1\times V_2$. Note que $p_1$ y $p_2$ son proyecciones que cumplen $p_1\circ p_2=p_2\circ p_1=\underline{O}$ y $p_1+p_2=\id_V$. Similarmente, si tenemos $V=\bigoplus_{i=1}^{n}V_i$, podemos definir $n$ proyecciones $p_1,\ldots,p_n$ que satisfacen $p_i(V)=V_i$, para cada $i\in\{1,\ldots,n\}$, $\sum_{i=1}^n p_i=\id_V$, y $p_i\circ p_j=\underline{O}$ si $i\ne j$. Esto nos sugiere otra forma de caracterizar sumas directas, como lo sugiere el siguiente teorema.
+Suponga que tenemos $V=V_1\oplus V_2$, y defina los operadores $p_1,p_2\in\End_\mathbb{K}(V)$ por $p_1(v)=v_1$ y $p_2(v)=v_2$ si se tiene $v=v_1+v_2$ con $(v_1,v_2)\in V_1\times V_2$. Note que $p_1$ y $p_2$ son proyecciones que cumplen $p_1\circ p_2=p_2\circ p_1=\underline{O}$ y $p_1+p_2=\id_V$. Similarmente, si tenemos $V=\bigoplus_{i=1}^{n}V_i$, podemos definir $n$ proyecciones $p_1,\ldots,p_n$ que satisfacen $p_i(V)=V_i$, para cada $i\in\{1,\ldots,n\}$, $\sum_{i=1}^n p_i=\id_V$, y $p_i\circ p_j=\underline{O}$ si $i\ne j$. Esto nos sugiere otra forma de caracterizar sumas directas, como lo sugiere el siguiente teorema.
 \end{obs}
 
 \begin{teo}\label{proysumadir}
-Sean $p_1,\ldots,p_n\in\End_K(V)$ proyecciones y $V_1,\ldots,V_n$ sus respectivas im\'agenes. Si se tiene $\sum_{i=1}^n p_i=\id_V$ y $p_i\circ p_j=0$ para $i\ne j$, entonces se tiene $V=\bigoplus_{i=1}^n V_i$.
+Sean $p_1,\ldots,p_n\in\End_\mathbb{K}(V)$ proyecciones y $V_1,\ldots,V_n$ sus respectivas im\'agenes. Si se tiene $\sum_{i=1}^n p_i=\id_V$ y $p_i\circ p_j=0$ para $i\ne j$, entonces se tiene $V=\bigoplus_{i=1}^n V_i$.
 \end{teo}
 
 \dem Usamos la propiedad \ref{sumadirsiysolosi} para establecer este teorema. Para ver que tenemos $V=\sum_{i=1}^nV_i$, dado $v\in V$, definimos $v_i\in V_i$ por $v_i=p_i(v)$, para $i\in\{1,\ldots,n\}$, y obtenemos
@@ -1020,24 +1045,24 @@ Para terminar est\'a secci\'on, vamos a definir dos generalizaciones de la suma 
 \end{obs}
 
 \begin{defn}
-Sea $I$ una colecci\'on de indices y $\left\{V_i\right\}_{i\in I}$ una familia de espacios vectoriales sobre $K$.
+Sea $I$ una colecci\'on de indices y $\left\{V_i\right\}_{i\in I}$ una familia de espacios vectoriales sobre $\mathbb{K}$.
 \begin{enumerate}
 \item El \emph{producto directo} de $\left\{V_i\right\}_{i\in I}$ es el espacio
 \[
 \prod_{i\in I} V_i=\left\{\phi: I\rightarrow \coprod_{i\in I}V_i\ \Big|\ \phi(i)\in V_i\right\},
 \]
-el cual es un espacio vectorial sobre $K$ bajo las operaciones
+el cual es un espacio vectorial sobre $\mathbb{K}$ bajo las operaciones
 \[
 (\phi+\psi)(i)=\phi(i)+\psi(i)\qquad (a\phi)(i)=a\psi(i)
 \]
-para todo $\phi,\psi\in \prod_{i\in I} V_i$ y $a\in K$; y,
+para todo $\phi,\psi\in \prod_{i\in I} V_i$ y $a\in \mathbb{K}$; y,
 \item la \emph{suma directa externa} de $\left\{V_i\right\}_{i\in I}$ por
 \[
 \bigoplus_{i\in I} V_i=\left\{\phi\in \prod_{i\in I} V_i \Big|\ \phi(i)\ne 0\textrm{ \'unicamente para finitos indices } i\in I\right\},
 \]
 el cual es un subespacio de $\prod_{i\in I} V_i$.
 \end{enumerate} 
-Si adem\'as $\left\{W_i\right\}_{i\in I}$ es otra familia de espacios vectoriales sobre $K$, y para cada $i\in I$ tenemos un $f_i\in\Hom_K(V_i,W_i)$, definimos:
+Si adem\'as $\left\{W_i\right\}_{i\in I}$ es otra familia de espacios vectoriales sobre $\mathbb{K}$, y para cada $i\in I$ tenemos un $f_i\in\Hom_\mathbb{K}(V_i,W_i)$, definimos:
 \begin{enumerate}
 \item el \emph{producto externo} de $\left\{f_i\right\}_{i\in I}$ por
 \begin{eqnarray*}
@@ -1055,7 +1080,7 @@ la cual es la transformaci\'on lineal inducida por  $\prod_{i\in I} f_i$ entre l
 \end{defn}
 
 \begin{obs}
-Note que si $\left\{V_i\right\}_{i\in I}$ es una colecci\'on de espacios vectoriales sobre $K$ indexada por los indices $i\in I$; y, $f_i\in\Hom_K(V,V_i)$ y $g_i\in\Hom_K(V_i,V)$, para todo $i\in I$, podemos definir las transformaciones lineales
+Note que si $\left\{V_i\right\}_{i\in I}$ es una colecci\'on de espacios vectoriales sobre $\mathbb{K}$ indexada por los indices $i\in I$; y, $f_i\in\Hom_\mathbb{K}(V,V_i)$ y $g_i\in\Hom_\mathbb{K}(V_i,V)$, para todo $i\in I$, podemos definir las transformaciones lineales
 \[
 \begin{array}{rclcrcl}
 f:V& \longrightarrow & \prod_{i\in I} V_i &\quad& g: \bigoplus_{i\in I} V_i & \longrightarrow & V \\
@@ -1068,17 +1093,17 @@ Note que la suma $\sum_{i\in I} g_i\left(\phi(i)\right)$ es finita pues $\phi(i)
 \begin{obs}
 Note que, si $\mathcal{B}=\{v_i\}_{i\in I}\subseteq V$ es una base, entonces
 \[
-V\ \simeq_K\ \left(K^I\right)_0\ \simeq_K\ \bigoplus_{i\in I}K,
+V\ \simeq_\mathbb{K}\ \left(\mathbb{K}^I\right)_0\ \simeq_\mathbb{K}\ \bigoplus_{i\in I}\mathbb{K},
 \]
 y
 \[
-K^I\ \simeq_K\ \prod_{i\in I} K
+\mathbb{K}^I\ \simeq_\mathbb{K}\ \prod_{i\in I} \mathbb{K}
 \]
 \end{obs}
 
 \section{Espacios cocientes}
 
-Sea $K$ un cuerpo y $V$, $W$ espacios vectoriales sobre $K$.
+Sea $\mathbb{K}$ un cuerpo y $V$, $W$ espacios vectoriales sobre $\mathbb{K}$.
 
 \begin{defn}
 Sean $V_0\le V$ y $v\in V$. Definimos la \emph{translaci\'on de $V_0$ por $v$} como el conjunto
@@ -1099,13 +1124,13 @@ V/V_0=\{v+V_0\ |\ v\in V\}
 \end{defn}
 
 \begin{prop}
-Sean $V_0\le V$, $v,w,v',w'\in V$ y $a\in K$. Si $v+V_0=w+V_0$ y $v'+V_0=w'+V_0$ entonces $(v+v')+V_0=(w+w')+V_0$ y $av+V_0=aw+V_0$.
+Sean $V_0\le V$, $v,w,v',w'\in V$ y $a\in \mathbb{K}$. Si $v+V_0=w+V_0$ y $v'+V_0=w'+V_0$ entonces $(v+v')+V_0=(w+w')+V_0$ y $av+V_0=aw+V_0$.
 \end{prop}
 
 \dem $v+V_0=w+V_0$ y $v'+V_0=w'+V_0$ si y solo si $v-w\in V_0$ y $v'-w'\in V_0$, en tal caso $(v+v')-(w+w')=(v-w)+(v'-w')\in V_0$, es decir $(v+v')+V_0=(w+w')+V_0$, y $av-aw=a(v-w)\in V_0$, es decir $av+V_0=aw+V_0$.\qed
 
 \begin{prop}
-Sea $V_0\le V$. El espacio cociente $V/V_0$ es un espacio vectorial sobre $K$ bajo las operaciones
+Sea $V_0\le V$. El espacio cociente $V/V_0$ es un espacio vectorial sobre $\mathbb{K}$ bajo las operaciones
 \[
 \left(v+V_0\right)+\left(v'+V_0\right)=(v+v')+V_0\qquad a\left(v+V_0\right)=av+V_0,
 \]
@@ -1129,7 +1154,7 @@ Sea $V_0\le V$ y suponga que $V$ tiene dimensi\'on finita, entonces
 \dem Se sigue inmediatamente de Teorema \ref{teorango} y de la propiedad anterior.
 
 \begin{teo}
-Sean $f\in\Hom_K(V,W)$ y $V_0=\ker(f)$. Entonces existe una \'unica transformaci\'on lineal $f_{V_0}\in\Hom_K(V/V_0,W)$ tal que $f=f_{V_0}\circ\pi_{V_0}$. La transformaci\'on $f_{V_0}$ es inyectiva, y, si $f$ es adem\'as sobreyectiva, $f_{V_0}$ es un isomorfismo.
+Sean $f\in\Hom_\mathbb{K}(V,W)$ y $V_0=\ker(f)$. Entonces existe una \'unica transformaci\'on lineal $f_{V_0}\in\Hom_\mathbb{K}(V/V_0,W)$ tal que $f=f_{V_0}\circ\pi_{V_0}$. La transformaci\'on $f_{V_0}$ es inyectiva, y, si $f$ es adem\'as sobreyectiva, $f_{V_0}$ es un isomorfismo.
 \end{teo}
 
 \dem Note que $f(v)=f(v')$ si y solo si $v-v'\in V_0$, es decir si y solo si $v+V_0=v'+V_0$. Defina entonces
