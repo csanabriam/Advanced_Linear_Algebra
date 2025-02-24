@@ -176,11 +176,11 @@ Dado un conjunto de indices $I$ y un conjunto $C$, una \emph{familia de elemento
 Sea $V$ un espacio vectorial sobre $\mathbb{K}$. 
 
 \begin{nota}
-Sea $C=(v_i)_{i\in I}$ una colección de vectores de $V$ indexados por un conjunto $I$ y $(c_i)_{i\in I}$ una colección de escalares indexados por $I$, tales que $c_i=0$ para todo indice $i\in I$, salvo para una subcolecci\'on finita, es decir que $(c_i)_{i\in I}\in \mathbb{K}^I_0$ (ver el ejemplo \ref{ejem0}(v)). A la combinación lineal de elementos de $C$ con coeficientes $c_i$ la denotaremos por $\sum_{i\in I} c_iv_i$ y a $c_i$ lo llamamos el $i$-ésimo coeficiente. Note que estas sumas son finitas pues los coeficientes que no son $0$ son finitos. Cuando $I$ es un conjunto finito de $n$ elementos, lo usual es tomar $I=\{1,\ldots,n\}$.
+Sea $C=(v_i)_{i\in I}$ una familia de vectores de $V$ indexados por un conjunto $I$ y $(c_i)_{i\in I}$ una familia de escalares indexados por $I$, tales que $c_i=0$ para todo indice $i\in I$, salvo para una subcolecci\'on finita, es decir que $(c_i)_{i\in I}\in \mathbb{K}^I_0$ (ver el ejemplo \ref{ejem0}(v)). A la combinación lineal de elementos de $C$ con coeficientes $c_i$ la denotaremos por $\sum_{i\in I} c_iv_i$ y a $c_i$ lo llamamos el $i$-ésimo coeficiente. Note que estas sumas son finitas pues los coeficientes que no son $0$ son finitos. Cuando $I$ es un conjunto finito de $n$ elementos, lo usual es tomar $I=\{1,\ldots,n\}$.
 \end{nota}
 
 \begin{defn}
-Sea $\mathcal{B}=(v_i)_{i\in I}$ una colección indexada de vectores en $V$. Decimos que $\mathcal{B}$ es una \emph{base} de $V$ si para cada $v\in V$ existe una \'unica combinaci\'on lineal de elementos de $C$ igual a $v$. Si $v=\sum_{i\in I} c_iv_i$, al coeficiente $c_i$ lo llamamos la \emph{coordenada $i$ de $v$ en la base $\mathcal{B}$}. Por convenci\'on, la base del espacio cero-dimensional es $\emptyset$. 
+Sea $\mathcal{B}=(v_i)_{i\in I}$ una familia de vectores en $V$. Decimos que $\mathcal{B}$ es una \emph{base} de $V$ si para cada $v\in V$ existe una \'unica combinaci\'on lineal de elementos de $C$ igual a $v$. Si $v=\sum_{i\in I} c_iv_i$, al coeficiente $c_i$ lo llamamos la \emph{coordenada $i$ de $v$ en la base $\mathcal{B}$}. Por convenci\'on, la base del espacio cero-dimensional es $\emptyset$. 
 \end{defn}
 
 \begin{lema}\label{lemabas}
@@ -209,7 +209,7 @@ para $i\in\{1,\ldots,n\}$. Estas $n$ igualdades forman un sistema homogeneo subd
 Cuando asumimos por contradicción que $V$ admite una base infinita $(w_i)_{i\in I}$, y tomamos $v\in V$, entonces existe una combinación lineal $v=x_1w_1+\ldots+x_nw_m$ de vectores $w_1,\ldots,w_n\in\{w_i\}_{i\in I}$ y obtenemos una contradicción similarmente a como la acabamos de obtener.\qed
 
 \begin{defn}
-Suponga que $V$ tiene dimensi\'on finita. Al n\'umero de elementos en una base de $V$ lo llamamos dimensi\'on de $V$ y lo denotamos por $\dim (V)$. Si $V$ tiene dimensi\'on infinita, escribimos $\dim(V)=\infty$, y usamos la convenci\'on de que $n<\infty$ para todo entero $n$.
+Suponga que $V$ tiene dimensi\'on finita. Al n\'umero de elementos en una base de $V$ lo llamamos dimensi\'on de $V$ y lo denotamos por $\dim_\mathbb{K}(V)$, ó $\dim (V)$. Si $V$ tiene dimensi\'on infinita, escribimos $\dim(V)=\infty$, y usamos la convenci\'on de que $n<\infty$ para todo entero $n$.
 \end{defn}
 
 \begin{defn}
@@ -236,7 +236,7 @@ cuando $c_j$ es invertible, es decir cuando $c_j\ne 0$ para algún $j\in\{1,\ldo
 \qed
 
 \begin{teo}[Caracterización de las bases]\label{defbase2}
-Sea $\mathcal{B}=(v_i)_{i\in I}$ una colección vectores de $V$ indexada por $I$, con $I\ne\emptyset$. Entonces $\mathcal{B}$ es una base de $V$ si y solo si satisface las siguientes dos propiedades.
+Sea $\mathcal{B}=(v_i)_{i\in I}$ una familia vectores de $V$ indexada por $I$, con $I\ne\emptyset$. Entonces $\mathcal{B}$ es una base de $V$ si y solo si satisface las siguientes dos propiedades.
 \begin{enumerate}[(i)]
 \item El conjunto $\mathcal{B}$ es linealmente independiente.
 \item El espacio $V$ es generado por $\mathcal{B}$.
@@ -569,7 +569,7 @@ y as\'i $w\in\langle w_1,\ldots,w_m\rangle$. De donde $\im(f)\subseteq\langle w_
 Suponga que $V$ tiene dimensi\'on finita y sea $f\in\Hom_{\mathbb{K}}(V,W)$. Entonces las siguientes dos propiedades son equivalentes:
 \begin{enumerate}[(i)]
 \item $\nu(f)=0$
-\item $\rho(f)=\dim_{\mathbb{K}}(V)$
+\item $\rho(f)=\dim(V)$
 \end{enumerate}
 \end{coro}
 
@@ -901,7 +901,7 @@ $$f(x,y,z,w)=(x-y+z+w,-x-y-z,2x-y-2z-w,2x-y-z)$$
   \item Sea $V=\mathbb{R}[t]_{\le 2}$ el espacio de polinomios de grado menor o igual a $2$ con coeficientes reales y $\mathcal{B}$ la base $(1,t,t^2)$. Encuentre la matrix para la base $\mathcal{B}$ de $f\in\Hom_{\mathbb{R}}(V,V)$ con $f(P(t))=P(t)+\frac{d}{dt}P(t)$. Determine si $f$ es invertible y en tal caso encuentre la matrix de $f^{-1}$ para $\mathcal{B}$.
 \end{enumerate}
 
-\section{Sumas y productos de espacios}
+\section{Sumas directas y proyecciones}
 
 Sea $V$ un espacio vectorial sobre $\mathbb{K}$.
 
@@ -946,9 +946,9 @@ Note que si $i,s,n_1,n_2$ son tales que $i\le n_1\le n_2\le s$ y $s$ es menor qu
 \[
 n_1+n_2=s+i.
 \]
-De hecho si $\{v_1,\ldots,v_s\}$ es una es una colecci\'on de $s$ vectores linealmente independientes en $V$ basta tomar
+De hecho si $\{v_1,\ldots,v_s\}$ es una colecci\'on de $s$ vectores linealmente independientes en $V$ basta tomar
 $V_1=\langle v_1,\ldots,v_{n_1}\rangle$ y  $V_2=\langle v_1,\ldots,v_i,v_{n_1+1},\ldots,v_s\rangle$.
-M\'as a\'un, si $V'_1$ y $V'_2$ son subespacios de $V$ para los se tiene $\dim(V'_1)=n_1$, $\dim(V'_2)=n_2$, $\dim(V'_1\cap V'_2)=i$ y $\dim(V'_1+V'_2)=s$, entonces existe un automorfismo $f\in\End_\mathbb{K}(V)$ tal que $f(V_1)=V'_1$ y $f(V_2)=V'_2$.
+M\'as a\'un, si $V'_1$ y $V'_2$ son subespacios de $V$ para los que se tiene $\dim(V'_1)=n_1$, $\dim(V'_2)=n_2$, $\dim(V'_1\cap V'_2)=i$ y $\dim(V'_1+V'_2)=s$, entonces existe un automorfismo $f\in\End_\mathbb{K}(V)$ tal que $f(V_1)=V'_1$ y $f(V_2)=V'_2$.
 \end{obs}
 
 \begin{defn}
@@ -960,127 +960,143 @@ Dos subespacios bidimensional de un espacio tridimensional est\'an en posici\'on
 \end{ejem}
 
 \begin{defn}
-Sean $V_1,\ldots,V_n\le V$, decimos que $V$ es la \emph{suma directa} de $V_1,\ldots,V_n$, lo cual denotamos por
+Sean $V_1,\ldots,V_r\le V$, decimos que $V$ es la \emph{suma directa} de $V_1,\ldots,V_r$, lo cual denotamos por
 \[
-V=V_1\oplus\ldots\oplus V_n=\bigoplus_{i=1}^n V_i
+V=V_1\oplus\ldots\oplus V_r=\bigoplus_{i=1}^r V_i
 \]
-si para cada $v\in V$ existe un \'unico $(v_1,\ldots,v_n)\in V_1\times\ldots\times V_n$ que cumple
+si para cada $v\in V$ existe un \'unico $(v_1,\ldots,v_r)\in V_1\times\ldots\times V_r$ que cumple
 \[
-v=v_1+\ldots+v_n
+v=v_1+\ldots+v_r.
 \]
 \end{defn}
 
 \begin{prop}\label{sumadirsiysolosi}
-Sean $V_1,\ldots,V_n\le V$. Se tiene $V=\bigoplus_{i=1}^n V_i$ si y solo si $V_1,\ldots,v_n$ satisfacen las siguientes dos propiedades.
-\begin{enumerate}
-\item La suma $\sum_{i=1}^n V_i$ es igual a $V$.
-\item Para todo $i\in\{1,\ldots,n\}$ se tiene $V_i\cap\sum_{j\ne i} V_j=\{O\}$.
+Sean $V_1,\ldots,V_r\le V$. Se tiene $V=\bigoplus_{i=1}^r V_i$ si y solo si $V_1,\ldots,v_r$ satisfacen las siguientes dos propiedades.
+\begin{enumerate}[(i)]
+\item La suma $\sum_{i=1}^r V_i$ es igual a $V$.
+\item Para todo $i\in\{1,\ldots,r\}$ se tiene $V_i\cap\sum_{j\ne i} V_j=\{O\}$.
 \end{enumerate}
 \end{prop}
 
-\dem Suponga primero que tenemos $V=\bigoplus_{i=1}^n V_i$, luego por definici\'on tenemos $V=\sum_{i=1}^n V_i$. Por otro lado, sea $i\in\{1,\ldots,n\}$ y tome $v\in V_i\cap\sum_{j\ne i} V_j$. As\'i, existe $(v_1,\ldots,v_n)\in V_1\times\ldots\times V_n$ para el cual se cumple $v=-v_i=\sum_{j\ne i} v_j$ y por lo cual se tiene $O=v_1+\ldots+v_n$. Pero por otro lado, para $(O,\ldots,O)\in V_1\times\ldots\times V_n$ se tiene $O=O+\ldots+O$, luego, por unicidad de esta descomposici\'on se siguen las igualdades $v_1=\ldots=v_n=O$, $v=O$ y $V_i\cap\sum_{j\ne i} V_j=\{O\}$.\\
-Rec\'iprocamente, suponga que $\sum_{i=1}^n V_i$ es igual a $V$ y que para todo $i\in\{1,\ldots,n\}$ se tiene $V_i\cap\sum_{j\ne i} V_j=\{O\}$. Sea $v\in V$. Entonces existe $(v_1,\ldots,v_n)\in V_1\times\ldots\times V_n$ para el cual se tiene $v=v_1+\ldots+v_n$. Veamos que esta descomposici\'on es \'unica. De hecho, si $(v'_1,\ldots,v'_n)\in V_1\times\ldots\times V_n$ es tal que se tiene $v=v'_1+\ldots+v'_n$, dado $i\in\{1,\ldots,n\}$, se obtiene
+\dem Suponga primero que tenemos $V=\bigoplus_{i=1}^r V_i$, luego por definici\'on tenemos $V=\sum_{i=1}^r V_i$. Por otro lado, sea $i\in\{1,\ldots,r\}$ y tome $v\in V_i\cap\sum_{j\ne i} V_j$. As\'i, existe $(v_1,\ldots,v_r)\in V_1\times\ldots\times V_r$ para el cual se cumple $v=-v_i=\sum_{j\ne i} v_j$ y por lo cual se tiene $O=v_1+\ldots+v_r$. Pero por otro lado, para $(O,\ldots,O)\in V_1\times\ldots\times V_r$ se tiene $O=O+\ldots+O$, luego, por unicidad de esta descomposici\'on se siguen las igualdades $v_1=\ldots=v_r=O$, $v=O$ y $V_i\cap\sum_{j\ne i} V_j=\{O\}$.\\
+Rec\'iprocamente, suponga que $\sum_{i=1}^r V_i$ es igual a $V$ y que para todo $i\in\{1,\ldots,r\}$ se tiene $V_i\cap\sum_{j\ne i} V_j=\{O\}$. Sea $v\in V$. Entonces existe $(v_1,\ldots,v_r)\in V_1\times\ldots\times V_n$ para el cual se tiene $v=v_1+\ldots+v_r$. Veamos que esta descomposici\'on es \'unica. De hecho, si $(v'_1,\ldots,v'_r)\in V_1\times\ldots\times V_r$ es tal que se tiene $v=v'_1+\ldots+v'_r$, dado $i\in\{1,\ldots,r\}$, se obtiene
 \[
 \underbrace{v_i-v'_i}_{\in\ V_i}=\underbrace{\sum_{j\ne i} (v'_j-v_j)}_{\in\ \sum_{j\ne i} V_j}.
 \]
 Luego tenemos $v_i-v'_i\in V_i\cap\sum_{j\ne i} V_j=\{O\}$, es decir $v_i-v'_i=O$ y as\'i $v_i=v'_i$.\qed
 
 \begin{prop}
-Sean $V_1,\ldots, V_n\le V$ para los cuales se tiene $V=\sum_{i=1}^n V_i$ y suponga que $V$ tiene dimensi\'on finita. Entonces la siguientes propiedades son equivalentes.
-\begin{enumerate}
-\item Para todo $i\in\{1,\ldots,n\}$ se tiene $V_i\cap\sum_{j\ne i} V_j=\{0\}$.
+Sean $V_1,\ldots, V_r\le V$ tales que $V=\sum_{i=1}^r V_i$ y suponga que $V$ tiene dimensi\'on finita. Entonces la siguientes propiedades son equivalentes.
+\begin{enumerate}[(i)]
+\item Para todo $i\in\{1,\ldots,r\}$ se tiene $V_i\cap\sum_{j\ne i} V_j=\{O\}$.
 \item Se tiene $\sum_{i=1}^n \dim(V_i)=\dim(V)$.
 \end{enumerate}
 \end{prop}
 
-\dem Suponga primero que tenemos $V_i\cap\sum_{j\ne i} V_j=\{0\}$, para todo $i\in\{1,\ldots,n\}$. Por el teorema \ref{sumaint} se obtiene
+\dem Suponga primero que tenemos $V_i\cap\sum_{j\ne i} V_j=\{O\}$, para todo $i\in\{1,\ldots,r\}$. Por el teorema \ref{sumaint} se obtiene
 $$\dim(V)=\dim(V_1)+\dim\left(\sum_{j>1} V_j\right).$$
-La inclusi\'on $\left(V_2\cap\sum_{j>2} V_j\right)\subseteq \left(V_2\cap\sum_{j\ne 2} V_j\right)$ implica la igualdad $\left(V_2\cap\sum_{j> 2} V_j\right)=\{O\}$. Por el teorema \ref{sumaint} se obtiene
+La inclusi\'on $V_2\cap\sum_{j>2} V_j\subseteq V_2\cap\sum_{j\ne 2} V_j$ implica la igualdad $\left(V_2\cap\sum_{j> 2} V_j\right)=\{O\}$. Por el teorema \ref{sumaint} se obtiene
 $$\dim\left(\sum_{j>1} V_j\right)=\dim(V_2)+\dim\left(\sum_{j>2} V_j\right).$$
 Inductivamente, obtenemos 
 \begin{eqnarray*}
 \dim(V) & = & \dim(V_1)+\dim\left(\sum_{j>1} V_j\right)\\
              & = & \dim(V_1)+\dim(V_2)+\dim\left(\sum_{j>2} V_j\right)\\
              & \vdots & \\
-             & = & \dim(V_1)+\ldots+\dim(V_n)          
+             & = & \dim(V_1)+\ldots+\dim(V_r)          
 \end{eqnarray*}
-Suponga ahora que se tiene $\sum_{i=1}^n \dim(V_i)=\dim(V)$. Por el teorema \ref{sumaint} se tienen las desigualdades
+Suponga ahora que se tiene $\sum_{i=1}^r \dim(V_i)=\dim(V)$. Por el teorema \ref{sumaint} se tienen las desigualdades
 \begin{eqnarray*}
 \dim(V) & \le & \dim(V_1)+\dim\left(\sum_{j>1} V_j\right)\\
              & \le & \dim(V_1)+\dim(V_2)+\dim\left(\sum_{j>2} V_j\right)\\
              & \vdots & \\
-             & \le & \sum_{i=1}^n \dim(V_i).      
+             & \le & \sum_{i=1}^r \dim(V_i).      
 \end{eqnarray*}
-Pero se tiene $\sum_{i=1}^n \dim(V_i)=\dim(V)$, luego estas desigualdades son igualdades y en particular obtenemos $\dim(V)=\dim(V_1)+\dim\left(\sum_{j>1} V_j\right)$. De donde, por el mismo teorema \ref{sumaint}, se tiene $\dim\left(V_1\cap\sum_{j\ne 1} V_j\right)=0$, es decir $V_1\cap\sum_{j\ne 1} V_j=\{O\}$. Reordenando los subespacios $V_i$, $i=1,\ldots,n$, obtenemos $V_i\cap\sum_{j\ne i} V_j=\{0\}$, para todo $i\in\{1,\ldots,n\}$. \qed
+Pero se tiene $\sum_{i=1}^r \dim(V_i)=\dim(V)$, luego estas desigualdades son igualdades y en particular obtenemos $\dim(V)=\dim(V_1)+\dim\left(\sum_{j>1} V_j\right)$. De donde, por el mismo teorema \ref{sumaint}, se tiene $\dim\left(V_1\cap\sum_{j\ne 1} V_j\right)=O$, es decir $V_1\cap\sum_{j\ne 1} V_j=\{O\}$. Reordenando los subespacios $V_i$, $i=1,\ldots,n$, obtenemos $V_i\cap\sum_{j\ne i} V_j=\{0\}$, para todo $i\in\{1,\ldots,r\}$. \qed
+
+\begin{obs}\label{baseparticion}
+  De la proposición anterior se sigue que si $\mathcal{B}=(v_1,\ldots,v_n)$ es una base de $V$ y $C_1$, $\ldots$, $C_r$ forman una partición de $\mathcal{B}$, entonces $V=V_1\oplus\ldots\oplus V_r$ donde $V_i=\langle C_i\rangle$, $i\in\{1,\ldots,r\}$.
+\end{obs}
 
 \begin{defn}
-Sea $p\in\End_\mathbb{K}(V)$. Decimos que $p$ es una \emph{proyecci\'on} si se tiene $p\circ p=p$.
+Sea $p\in\End_\mathbb{K}(V)$. Decimos que $p$ es una \emph{proyecci\'on} si $p\circ p=p$.
 \end{defn}
 
 \begin{obs}
-Si $p\in\Hom_\mathbb{K}(V,V)$ es una proyecci\'on y $V_0$ es la imagen de $p$ entonces se tiene $p(v_0)=v_0$ para todo $v_0\in V_0$. De hecho si $v_0$ pertenece a $V_0$, existe $v\in V$ que satisface $p(v)=v_0$, luego obtenemos $p(v_0)=p\circ p(v)=p(v)=v_0$.
+Si $p\in\Hom_\mathbb{K}(V,V)$ es una proyecci\'on y $V_0$ es la imagen de $p$, entonces $p(v_0)=v_0$ para todo $v_0\in V_0$. De hecho si $v_0$ pertenece a $V_0$, existe $v\in V$ que satisface $p(v)=v_0$, luego obtenemos $p(v_0)=p\circ p(v)=p(v)=v_0$.
 \end{obs}
 
 \begin{obs}
-Suponga que tenemos $V=V_1\oplus V_2$, y defina los operadores $p_1,p_2\in\End_\mathbb{K}(V)$ por $p_1(v)=v_1$ y $p_2(v)=v_2$ si se tiene $v=v_1+v_2$ con $(v_1,v_2)\in V_1\times V_2$. Note que $p_1$ y $p_2$ son proyecciones que cumplen $p_1\circ p_2=p_2\circ p_1=\underline{O}$ y $p_1+p_2=\id_V$. Similarmente, si tenemos $V=\bigoplus_{i=1}^{n}V_i$, podemos definir $n$ proyecciones $p_1,\ldots,p_n$ que satisfacen $p_i(V)=V_i$, para cada $i\in\{1,\ldots,n\}$, $\sum_{i=1}^n p_i=\id_V$, y $p_i\circ p_j=\underline{O}$ si $i\ne j$. Esto nos sugiere otra forma de caracterizar sumas directas, como lo sugiere el siguiente teorema.
+Suponga que tenemos $V=V_1\oplus V_2$, y defina los operadores $p_1,p_2\in\End_\mathbb{K}(V)$ por $p_1(v)=v_1$ y $p_2(v)=v_2$ si se tiene $v=v_1+v_2$ con $(v_1,v_2)\in V_1\times V_2$. Note que $p_1$ y $p_2$ son proyecciones que cumplen $p_1\circ p_2=p_2\circ p_1=\underline{O}$ y $p_1+p_2=\id_V$. Similarmente, si tenemos $V=\bigoplus_{i=1}^{n}V_i$, podemos definir $n$ proyecciones $p_1,\ldots,p_n$ que satisfacen $p_i(V)=V_i$, para cada $i\in\{1,\ldots,n\}$, $\sum_{i=1}^n p_i=\id_V$, y $p_i\circ p_j=\underline{O}$ si $i\ne j$. Esto nos sugiere otra forma de caracterizar sumas directas, como se hace en el siguiente teorema.
 \end{obs}
 
 \begin{teo}\label{proysumadir}
-Sean $p_1,\ldots,p_n\in\End_\mathbb{K}(V)$ proyecciones y $V_1,\ldots,V_n$ sus respectivas im\'agenes. Si se tiene $\sum_{i=1}^n p_i=\id_V$ y $p_i\circ p_j=0$ para $i\ne j$, entonces se tiene $V=\bigoplus_{i=1}^n V_i$.
+Sean $p_1,\ldots,p_n\in\End_\mathbb{K}(V)$ proyecciones y $V_1,\ldots,V_n$ sus respectivas im\'agenes. Si $\sum_{i=1}^n p_i=\id_V$ y $p_i\circ p_j=0$ para $i\ne j$, entonces $V=\bigoplus_{i=1}^n V_i$.
 \end{teo}
 
-\dem Usamos la propiedad \ref{sumadirsiysolosi} para establecer este teorema. Para ver que tenemos $V=\sum_{i=1}^nV_i$, dado $v\in V$, definimos $v_i\in V_i$ por $v_i=p_i(v)$, para $i\in\{1,\ldots,n\}$, y obtenemos
+\dem Usamos la propiedad \ref{sumadirsiysolosi} para establecer este teorema. Veamos que tenemos $V=\sum_{i=1}^nV_i$. Dado $v\in V$, tomamos, para $i\in\{1,\ldots,n\}$, $v_i\in V_i$ con $v_i=p_i(v)$ y obtenemos
 \[
 v=\id_V(v)=\sum_{i=1}^n p_i(v)=\sum_{i=1}^n v_i.
 \]
-Para establecer $V_i\cap\sum_{j\ne i} V_j=\{O\}$, tome $i\in\{1,\ldots,n\}$ y $v\in V_i\cap\sum_{j\ne i} V_j$ y veamos que se sigue $v=O$. Como $v$ pertenece a $\sum_{j\ne i} V_j$, tenemos $v=\sum_{j\ne i} v_j$ para algunos $v_j\in V_j$, con $j\ne i$. En particular, existe $v'_j\in V$ que satisface $v_j=p_j(v'_j)$, para cada $j\ne i$, y as\'i obtenemos $v=\sum_{j\ne i} p_j(v_j)$. Por otro lado, como $v$ pertenece a $V_i$, existe $v'_i\in V$ que satisface $v=p_i(v'_i)$. Por ende, se siguen las igualdades
+Basta ahora establecer que $V_i\cap\sum_{j\ne i} V_j=\{O\}$ para todo $i\in\{1,\ldots,n\}$. Para ello, fijemos un índice $i$, tomemos $v\in V_i\cap\sum_{j\ne i} V_j$ y veamos que $v=O$. Como $v$ pertenece a $\sum_{j\ne i} V_j$, tenemos $v=\sum_{j\ne i} v_j$ para algunos $v_j\in V_j$, con $j\ne i$. En particular, para cada $j\ne i$, existe $v'_j\in V$ que satisface $v_j=p_j(v'_j)$, y as\'i obtenemos $v=\sum_{j\ne i} p_j(v_j)$. Por otro lado, como $v$ pertenece a $V_i$, existe $v'_i\in V$ que satisface $v=p_i(v'_i)$. Por ende, se siguen las igualdades
 \[
 v=p_i(v'_i)=p_i\circ p_i (v'_i)=p_i(v)=p_i\left(\sum_{j\ne i} p_j(v_j)\right)=\sum_{j\ne i} p_i\circ p_j(v_j)=O.
 \]
 \qed
 
+\begin{defn}
+  Suponga que $V=V_1\oplus\ldots\oplus V_r$. Para $i\in\{1,\ldots,r\}$, sean $f_{V_i}\in\Hom_\mathbb{K}(V_i,V_i)$. La suma directa $f=f_{V_1}\oplus\ldots\oplus f_{V_r}$ es el operador en $\Hom_\mathbb{K}(V,V)$ definido por $$f(v)=f_{V_1}(v_1)+\ldots+f_{V_r}(v_r)$$
+  donde $(v_1,\ldots,v_r)\in V_1\times\ldots\times V_r$ es tal que $v=v_1+\ldots+v_r$.
+\end{defn}
 
-\begin{obs}
-Para terminar est\'a secci\'on, vamos a definir dos generalizaciones de la suma directa, que son la suma directa externa y el producto directo. En estas definiciones combinamos una colecci\'on, no necesariamente finita, de espacios para obtener un nuevo espacio. Cuando combinamos una colecci\'on finita de espacios, obtenemos espacio isomorfos.
+\begin{obs}\label{diagonalbloques}
+  Suponga que $V=V_1\oplus\ldots\oplus V_r$. Si para $i\in\{1,\ldots,r\}$, se tiene una base $\mathcal{B}_i$ de $V_i$, y $\mathcal{B}=\left(\mathcal{B}_1|\ldots|\mathcal{B}_r\right)$ es la base de $V$ que se obtiene al concatenar estas bases, cuando $f=f_{V_1}\oplus\ldots\oplus f_{V_r}$ con $f_{V_i}\in\Hom_\mathbb{K}(V_i,V_i)$, entonces la matriz de $f$ para la base $\mathcal{B}$
+  $$A=\left[\begin{array}{c|c|c}
+    A_1 & \cdots & 0\\
+    \hline
+    \vdots & \ddots & \vdots\\
+    \hline
+    0 & \cdots & A_r
+  \end{array}\right]$$
+es una matriz diagonal por bloques donde cada bloque cooresponde a la matriz $A_i=\left[f_{V_i}\right]_{\mathcal{B}_i}^{\mathcal{B}_i}$.
 \end{obs}
 
-\begin{defn}
-Sea $I$ una colecci\'on de indices y $\left\{V_i\right\}_{i\in I}$ una familia de espacios vectoriales sobre $\mathbb{K}$.
-\begin{enumerate}
+\begin{obs}
+Para terminar est\'a secci\'on, vamos a definir dos generalizaciones de la suma directa, que son la suma directa externa y el producto directo. En estas definiciones combinamos una colecci\'on, no necesariamente finita, de espacios para obtener un nuevo espacio. La suma directa externe y el producto directo de una misma colecci\'on finita de espacios producen espacio isomorfos.
+\end{obs}
+
+\begin{defn}\label{productoysuma}
+Sea $I$ una colecci\'on de indices y $\left(V_i\right)_{i\in I}$ una familia de espacios vectoriales sobre $\mathbb{K}$. Definimos los siguientes espacios.
+\begin{enumerate}[(i)]
 \item El \emph{producto directo} de $\left\{V_i\right\}_{i\in I}$ es el espacio
 \[
 \prod_{i\in I} V_i=\left\{\phi: I\rightarrow \coprod_{i\in I}V_i\ \Big|\ \phi(i)\in V_i\right\},
 \]
 el cual es un espacio vectorial sobre $\mathbb{K}$ bajo las operaciones
 \[
-(\phi+\psi)(i)=\phi(i)+\psi(i)\qquad (a\phi)(i)=a\psi(i)
+(\phi+\psi)(i)=\phi(i)+\psi(i)\qquad (c\phi)(i)=a\psi(i)
 \]
-para todo $\phi,\psi\in \prod_{i\in I} V_i$ y $a\in \mathbb{K}$; y,
-\item la \emph{suma directa externa} de $\left\{V_i\right\}_{i\in I}$ por
+para todo $\phi,\psi\in \prod_{i\in I} V_i$ y $c\in \mathbb{K}$. Para $j\in I$, definimos la $j$-ésima inclusión como la transformación lineal
+\begin{eqnarray*}
+  \imath_j: V_j & \longrightarrow &\prod_{i\in I} V_i\\
+    v_j & \longmapsto & \imath_j(v_j):\left\{\begin{array}{rcl}
+                                              j& \mapsto & v_j\\
+                                              i& \mapsto & O\text{ si } i\ne j
+                                            \end{array}\right\}
+\end{eqnarray*}
+\item La \emph{suma directa externa} de $\left\{V_i\right\}_{i\in I}$ es el espacio
 \[
 \bigoplus_{i\in I} V_i=\left\{\phi\in \prod_{i\in I} V_i \Big|\ \phi(i)\ne 0\textrm{ \'unicamente para finitos indices } i\in I\right\},
 \]
-el cual es un subespacio de $\prod_{i\in I} V_i$.
+el cual es un subespacio de $\prod_{i\in I} V_i$. Para $j\in I$, definimos la $j$-ésima proyección como la transformación lineal
+\begin{eqnarray*}
+  p_j: \bigoplus_{i\in I} V_i & \longrightarrow & V_j\\
+    \phi & \longmapsto & \phi(j)
+\end{eqnarray*}
 \end{enumerate} 
-Si adem\'as $\left\{W_i\right\}_{i\in I}$ es otra familia de espacios vectoriales sobre $\mathbb{K}$, y para cada $i\in I$ tenemos un $f_i\in\Hom_\mathbb{K}(V_i,W_i)$, definimos:
-\begin{enumerate}
-\item el \emph{producto externo} de $\left\{f_i\right\}_{i\in I}$ por
-\begin{eqnarray*}
-\prod_{i\in I} f_i: \prod_{i\in I} V_i & \longrightarrow & \prod_{i\in I} W_i\\
-                           \phi & \longmapsto & \left(\prod_{i\in I} f_i\right) (\phi): i\mapsto f_i\left(\phi(i)\right),
-\end{eqnarray*}
-el cual es una transformaci\'on lineal; y,
-\item la \emph{suma directa externa} de $\left\{f_i\right\}_{i\in I}$ por
-\begin{eqnarray*}
-\bigoplus_{i\in I} f_i: \bigoplus_{i\in I} V_i & \longrightarrow & \bigoplus_{i\in I} W_i\\
-                           \phi & \longmapsto & \left(\prod_{i\in I} f_i\right) (\phi): i\mapsto f_i\left(\phi(i)\right),
-\end{eqnarray*}
-la cual es la transformaci\'on lineal inducida por  $\prod_{i\in I} f_i$ entre los subespacios $\bigoplus_{i\in I} V_i$ y $\bigoplus_{i\in I} W_i$.
-\end{enumerate}
 \end{defn}
 
-\begin{obs}
-Note que si $\left\{V_i\right\}_{i\in I}$ es una colecci\'on de espacios vectoriales sobre $\mathbb{K}$ indexada por los indices $i\in I$; y, $f_i\in\Hom_\mathbb{K}(V,V_i)$ y $g_i\in\Hom_\mathbb{K}(V_i,V)$, para todo $i\in I$, podemos definir las transformaciones lineales
+\begin{obs}\label{propiedaduniversalproductoysuma}
+Note que si $\left(V_i\right)_{i\in I}$ es una familia de espacios vectoriales sobre $\mathbb{K}$ indexada por los indices $i\in I$, y nos son dadas $f_i\in\Hom_\mathbb{K}(V,V_i)$ y $g_i\in\Hom_\mathbb{K}(V_i,V)$, para todo $i\in I$, podemos definir las transformaciones lineales
 \[
 \begin{array}{rclcrcl}
 f:V& \longrightarrow & \prod_{i\in I} V_i &\quad& g: \bigoplus_{i\in I} V_i & \longrightarrow & V \\
@@ -1091,29 +1107,78 @@ Note que la suma $\sum_{i\in I} g_i\left(\phi(i)\right)$ es finita pues $\phi(i)
 \end{obs}
 
 \begin{obs}
-Note que, si $\mathcal{B}=\{v_i\}_{i\in I}\subseteq V$ es una base, entonces
+Si $\mathcal{B}=(v_i)_{i\in I}$ es una base de $V$, entonces se obtienen los isomorfismos
 \[
-V\ \simeq_\mathbb{K}\ \left(\mathbb{K}^I\right)_0\ \simeq_\mathbb{K}\ \bigoplus_{i\in I}\mathbb{K},
+V\ \simeq_\mathbb{K}\ \left(\mathbb{K}^I\right)_0\ \simeq_\mathbb{K}\ \bigoplus_{i\in I}\mathbb{K}.
 \]
-y
+En general, se tiene
 \[
-\mathbb{K}^I\ \simeq_\mathbb{K}\ \prod_{i\in I} \mathbb{K}
+\mathbb{K}^I\ \simeq_\mathbb{K}\ \prod_{i\in I} \mathbb{K}.
 \]
 \end{obs}
 
+\begin{defn}\label{productoysumadefunciones}
+  Suponga que $\left(V_i\right)_{i\in I}$ y $\left(W_i\right)_{i\in I}$ son familias de espacios vectoriales sobre $\mathbb{K}$ indexadas por $I$. Si para cada $i\in I$ tenemos un $f_i\in\Hom_\mathbb{K}(V_i,W_i)$, definimos las siguientes funciones.
+\begin{enumerate}[(i)]
+  \item El \emph{producto externo} de $\left(f_i\right)_{i\in I}$ por
+    \begin{eqnarray*}
+    \prod_{i\in I} f_i: \prod_{i\in I} V_i & \longrightarrow & \prod_{i\in I} W_i\\
+                           \phi & \longmapsto & \left(\prod_{i\in I} f_i\right) (\phi): i\mapsto f_i\left(\phi(i)\right).
+    \end{eqnarray*}
+  \item La \emph{suma directa externa} de $\left(f_i\right)_{i\in I}$ por
+    \begin{eqnarray*}
+    \bigoplus_{i\in I} f_i: \bigoplus_{i\in I} V_i & \longrightarrow & \bigoplus_{i\in I} W_i\\
+                           \phi & \longmapsto & \left(\prod_{i\in I} f_i\right) (\phi): i\mapsto f_i\left(\phi(i)\right),
+    \end{eqnarray*}
+  la cual es la función inducida por $\prod_{i\in I} f_i$ entre los subespacios $\bigoplus_{i\in I} V_i$ y $\bigoplus_{i\in I} W_i$.
+\end{enumerate}
+\end{defn}
+
+\section*{Ejercicios}
+\begin{enumerate}
+  \item Suponga que $V_1,V_2,V_3\le V$ son tales que $\dim(V_1+V_2+V_3)< \infty$. Demuestre que
+  \begin{align*}
+    \dim(V_1+V_2+V_3) = & \dim(V_1)+\dim(V_2)+\dim(V_3)\\
+      & \ -\dim(V_1\cap V_2)-\dim(V_1\cap V_3)-\dim(V_2\cap V_3)\\
+      & \ \ +\dim(V_1\cap V_2\cap V_3)
+  \end{align*}
+  \item Suponga que $V_1,\ldots,V_r\le V$ son tales que $\dim(V_1+\ldots+V_r)< \infty$. Demuestre que
+  \begin{align*}
+    \dim(V_1+\ldots+V_r) = & \sum_{i}^r\dim(V_i)-\sum_{i<j}\dim(V_i\cap V_j)+\sum_{i<j<k}\dim(V_i\cap V_j\cap V_k)\\
+      & -\ldots+(-1)^{r-1}\dim(V_1\cap \ldots\cap V_r)
+  \end{align*}
+  \item Demuestre la afirmación hecha en la observación \ref{baseparticion}.
+  \item Demuestre la afirmación hecha en la observación \ref{diagonalbloques}.
+  \item Sea $p_1\in\hom_\mathbb{K}(V,V)$ una proyección. Demuestre que $p_2=\id_V-p_1$ es una proyección. Demuestre que $V=V_1\otimes V_2$ donde $V_1=\im(p_1)$, $V_2=\im(p_2)$. Pruebe además que $V_1=\ker(p_2)$ y $V_2=\ker(p_1)$.
+  \item En $\mathbb{Q}^3$, tome $v_1=(1,0,1)$, $v_2=(0,1,1)$, $v_3=(1,1,0)$ y $\mathcal{B}=(v_1,v_2,v_3)$. Sea $V_1=\langle v_1,v_2\rangle$ y $V_2=\langle v_3\rangle$, y $p_1$ la proyección con imagen $V_1$ y núcleo $V_2$, y $p_2$ la proyección con imagen $V_2$ y núcleo $V_1$. 
+    \begin{enumerate}
+      \item Encuentre las matrices de $p_1$ y $p_2$ para la base $\mathcal{B}$.
+      \item Encuentre las matrices canónicas de $p_1$ y $p_2$.
+    \end{enumerate}
+  \item En $\mathbb{Q}^3$, tome $v_1=(2,1,1))$, $v_2=(1,2,1)$, $v_3=(1,1,2)$ y $\mathcal{B}=(v_1,v_2,v_3)$. Sea $V_1=\langle v_1\rangle$ y $V_2=\langle v_2,v_3\rangle$, y $p_1$ la proyección con imagen $V_1$ y núcleo $V_2$, y $p_2$ la proyección con imagen $V_2$ y núcleo $V_1$. Encuentre las matrices canónicas de $p_1$ y $p_2$.
+  \item Suponga que $V=V_1\oplus\ldots\oplus V_r$ y que $p_1,\ldots,p_r$ son las proyecciones sobre cada uno de los sumandos de acuerdo a esta descomposición de $V$ como suma directa. Tomamos un operador $f\in\hom_\mathbb{K}(V,V)$ y una base $\mathcal{B}$ de $V$.
+    \begin{enumerate}
+      \item Demuestre que, cuando $\dim(V)<\infty$, se tiene $A=A_1+\ldots+A_r$, donde $A$ es la matriz de $f$ para $\mathcal{B}$, y para $i\in\{1,\ldots,r\}$, $A_i=AP_i$ donde $P_i$ es la matriz de $p_i$ para $\mathcal{B}$.
+      \item Suponga además que $f\in\hom_\mathbb{K}(V,V)$ es tal que $f=f_{V_1}\oplus\ldots\oplus f_{V_r}$ con $f_{V_i}\in\Hom_\mathbb{K}(V_i,V_i)$. Demuestre que se tiene $AP_i=P_iA$ para $i\in\{1,\ldots,r\}$.
+    \end{enumerate}
+  \item Demuestre que las $j$-ésimas inclusiones $\imath_j$ y proyecciones $p_j$ en la definición \ref{productoysuma} son transformaciones lineales. 
+  \item Demuestre que las funciones $f$ y $g$ definidas en la observación \ref{propiedaduniversalproductoysuma} son únicas con la propiedad $f\circ\imath_j=f_j$ y $p_j\circ g=g_j$ para todo $j\in I$.
+  \item Demuestre que las funciones $\prod_{i\in I} f_i$ y $\bigoplus_{i\in I} f_i$ definidas en la definición \ref{productoysumadefunciones} son transformaciones lineales.
+\end{enumerate}
+
 \section{Espacios cocientes}
 
-Sea $\mathbb{K}$ un cuerpo y $V$, $W$ espacios vectoriales sobre $\mathbb{K}$.
+Sean $V$, $W$ espacios vectoriales sobre $\mathbb{K}$.
 
 \begin{defn}
-Sean $V_0\le V$ y $v\in V$. Definimos la \emph{translaci\'on de $V_0$ por $v$} como el conjunto
+Dados $V_0\le V$ y $v\in V$, la \emph{translaci\'on de $V_0$ por $v$} es el conjunto
 \[
 v+V_0=\{v'\in V\ |\ v'=v+v_0,\ v_0\in V\}.
 \]
 \end{defn}
 
 \begin{obs}
-Tenemos $v+V_0=v'+V_0$ si y solo si $v-v'\in V_0$. De hecho, si $v+V_0=v'+V_0$, como $v\in v+V_0=v'+V_0$, existe $v_0\in V_0$ tal que $v=v'+v_0$, es decir $v-v'=v_0\in V_0$; rec\'iprocamente, si $v_0=v-v'\in V_0$, cualquier $w\in v+V_0$ es de la forma $w=v+w_0$ para alg\'un $w_0\in V_0$, en particular $w=v'+(v_0+w_0)\in v'+V_0$, y cualquier $w'\in v'+V_0$ es de la forma $w'=v'+w'_0$ para alg\'un $w'_0\in V_0$, en particular $w'=v+(w'_0-v_0)\in v+V_0$.
+Tenemos $v+V_0=v'+V_0$ si y solo si $v-v'\in V_0$. De hecho, si $v+V_0=v'+V_0$, como $v\in v+V_0=v'+V_0$, entonces existe $v_0\in V_0$ tal que $v=v'+v_0$, es decir $v-v'=v_0\in V_0$; rec\'iprocamente, si $v_0=v-v'\in V_0$, cualquier $w\in v+V_0$ es de la forma $w=v+w_0$ para alg\'un $w_0\in V_0$, en particular $w=v'+(v_0+w_0)\in v'+V_0$, y cualquier $w'\in v'+V_0$ es de la forma $w'=v'+w'_0$ para alg\'un $w'_0\in V_0$, en particular $w'=v+(w'_0-v_0)\in v+V_0$.
 \end{obs}
 
 \begin{defn}
@@ -1124,17 +1189,21 @@ V/V_0=\{v+V_0\ |\ v\in V\}
 \end{defn}
 
 \begin{prop}
-Sean $V_0\le V$, $v,w,v',w'\in V$ y $a\in \mathbb{K}$. Si $v+V_0=w+V_0$ y $v'+V_0=w'+V_0$ entonces $(v+v')+V_0=(w+w')+V_0$ y $av+V_0=aw+V_0$.
+Para todo $V_0\le V$ se tienen las siguientes propiedades.
+\begin{enumerate}[(i)]
+  \item Si $v,v',w,w'\in V$ son tales que $v+V_0=v'+V_0$ y $w+V_0=w'+V_0$ entonces $(v+w)+V_0=(v'+w')+V_0$
+  \item Si $v,v'\in V$ son tales que $v+V_0=v'+V_0$, entonces $cv+V_0=cv'+V_0$ para todo $c\in\mathbb{C}$.
+\end{enumerate}
 \end{prop}
 
-\dem $v+V_0=w+V_0$ y $v'+V_0=w'+V_0$ si y solo si $v-w\in V_0$ y $v'-w'\in V_0$, en tal caso $(v+v')-(w+w')=(v-w)+(v'-w')\in V_0$, es decir $(v+v')+V_0=(w+w')+V_0$, y $av-aw=a(v-w)\in V_0$, es decir $av+V_0=aw+V_0$.\qed
+\dem Se tiene que $v+V_0=v'+V_0$ y $w+V_0=w'+V_0$ si y solo si $v-v'\in V_0$ y $w-w'\in V_0$. En tal caso se sigue que $(v+w)-(v'+w')=(v-v')+(w'-w')\in V_0$, y por ende $(v+v')+V_0=(w+w')+V_0$. Similarmente, se tiene $cv-cv'=c(v-v')\in V_0$, y por ello $cv+V_0=cv'+V_0$.\qed
 
 \begin{prop}
 Sea $V_0\le V$. El espacio cociente $V/V_0$ es un espacio vectorial sobre $\mathbb{K}$ bajo las operaciones
 \[
-\left(v+V_0\right)+\left(v'+V_0\right)=(v+v')+V_0\qquad a\left(v+V_0\right)=av+V_0,
+\left(v+V_0\right)+\left(w+V_0\right)=(v+w)+V_0\qquad c\left(v+V_0\right)=cv+V_0,
 \]
-y su origen es $0+V_0=V_0$. El mapa
+y con origen $O+V_0=V_0$. El mapa
 \begin{eqnarray*}
 \pi_{V_0}: V & \longrightarrow & V/V_0 \\
                 v & \longmapsto & v+V_0
@@ -1142,7 +1211,7 @@ y su origen es $0+V_0=V_0$. El mapa
 es una transformaci\'on lineal sobreyectiva con $\ker(\pi_{V_0})=V_0$
 \end{prop}
 
-\dem La proposici\'on anterior garantiza que tales operaciones est\'an bien definidas, las propiedades de estas en Definici\'on \ref{defespvec} se heredan de las de $V$. La misma proposici\'on implica la linearidad de $\pi_{V_0}$. Por definici\'on de $V/V_0$, $\pi_{V_0}$ es sobreyectiva. Por \'ultimo, $v\in\ker(\pi_{V_0})$ si y solo si $\pi_{V_0}(v)=V_0$, es decir si y solo si $v+V_0=V_0$, o si y solo si $v\in V_0$. \qed
+\dem La proposici\'on anterior garantiza que tales operaciones est\'an bien definidas. Las propiedades de la definici\'on \ref{defespvec} se heredan de las de $V$. La misma proposici\'on implica la linearidad de $\pi_{V_0}$. Por definici\'on de $V/V_0$, $\pi_{V_0}$ es sobreyectiva. Por \'ultimo, se tiene $v\in\ker(\pi_{V_0})$ si y solo si $\pi_{V_0}(v)=V_0$, es decir si y solo si $v+V_0=V_0$, que equivale a $v\in V_0$. \qed
 
 \begin{prop}
 Sea $V_0\le V$ y suponga que $V$ tiene dimensi\'on finita, entonces
@@ -1151,16 +1220,26 @@ Sea $V_0\le V$ y suponga que $V$ tiene dimensi\'on finita, entonces
 \]
 \end{prop}
 
-\dem Se sigue inmediatamente de Teorema \ref{teorango} y de la propiedad anterior.
+\dem Se sigue inmediatamente del teorema del rango \ref{teorango} y de la proposición anterior.
 
 \begin{teo}
-Sean $f\in\Hom_\mathbb{K}(V,W)$ y $V_0=\ker(f)$. Entonces existe una \'unica transformaci\'on lineal $f_{V_0}\in\Hom_\mathbb{K}(V/V_0,W)$ tal que $f=f_{V_0}\circ\pi_{V_0}$. La transformaci\'on $f_{V_0}$ es inyectiva, y, si $f$ es adem\'as sobreyectiva, $f_{V_0}$ es un isomorfismo.
+Sea $f\in\Hom_\mathbb{K}(V,W)$. Si $V_0=\ker(f)$, entonces existe una \'unica transformaci\'on lineal $f_0\in\Hom_\mathbb{K}(V/V_0,W)$ tal que $f=f_0\circ\pi_{V_0}$. La transformaci\'on $f_{0}$ es inyectiva, y, si $f$ es adem\'as sobreyectiva, entonces $f_{0}$ es un isomorfismo.
 \end{teo}
 
 \dem Note que $f(v)=f(v')$ si y solo si $v-v'\in V_0$, es decir si y solo si $v+V_0=v'+V_0$. Defina entonces
 \begin{eqnarray*}
-f_{V_0}: V/V_0 & \longrightarrow & W\\
+f_{0}: V/V_0 & \longrightarrow & W\\
             v+V_0 & \longmapsto      & f(v).
 \end{eqnarray*}
-As\'i, $f_{V_0}$ es lineal pues $f$ lo es, y adem\'as es inyectiva pues $f(v)=f(v')$ si y solo si $v+V_0=v'+V_0$. Por contrucci\'on $f=f_{V_0}\circ\pi_{V_0}$. Ahora si $f$ es sobreyectiva, entonces $f_{V_0}$ es biyectiva y as\'i un isomorfismo.\qed
- 
+As\'i, $f_{0}$ es lineal pues $f$ lo es, y adem\'as es inyectiva pues $f(v)=f(v')$ si y solo si $v+V_0=v'+V_0$. Por contrucci\'on $f=f_{0}\circ\pi_{V_0}$. Ahora si $f$ es sobreyectiva, entonces $f_{0}$ es biyectiva y, as\'i, es un isomorfismo.\qed
+
+\section*{Ejercicios}
+\begin{enumerate}
+  \item Dada $f\in\Hom_\mathbb{K}(V,W)$ definimos el co-núcleo de $f$ por $\text{cok}(f)=W/\im(f)$. Demuestre que $f$ es sobreyectiva si y solo si el $\text{cok}(f)=\{O+\im(f)\}$.
+  \item Sea $f\in\Hom_\mathbb{K}(V,W)$ y suponga que $\dim(W)<\infty$. Demuestre que las siguientes propiedades son equivalentes.
+    \begin{enumerate}[(i)]
+      \item $\dim(\text{cok}(f))=0$
+      \item $\dim(\im(f))=\dim(W)$
+    \end{enumerate}
+  Compare esta equivalencia con el corolario al teorema del rango \ref{corteorango}.
+\end{enumerate}
