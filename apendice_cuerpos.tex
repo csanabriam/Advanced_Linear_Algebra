@@ -264,11 +264,16 @@ D(t)=P(t)A(t)+Q(t)B(t)=\left(P(t)S(t)+Q(t)T(t)\right)D_0(t).
 Dados $A(t),B(t)\in \mathbb{K}[t]$, no ambos nulos, denotamos por $\left(A(t),B(t)\right)$ al máximo divisor común de $A(t)$ y $B(t)$.
 \end{nota}
 
+\begin{defn}
+  Decimos que $A(t),B(t)\in \mathbb{K}[t]$, no ambos nulos, son \emph{primos relativos} si $\left(A(t),B(t)\right)=1$.
+\end{defn}
+
 \begin{ejem}
-Si $\lambda_1,\lambda_2\in \mathbb{K}$ son distintos, entonces $\left(t-\lambda_1,t-\lambda_2\right)=1$, pues se tiene la igualdad
+Si $\lambda_1,\lambda_2\in \mathbb{K}$ son distintos, entonces $t-\lambda_1$ y $t-\lambda_2$ son primos relativos, pues se tiene la igualdad
 \[
 \frac{1}{\lambda_2-\lambda_1}\left( (t-\lambda_1)-(t-\lambda_2) \right)=1.
 \]
+y así $(t-\lambda_1,t-\lambda_2)=1$.
 \end{ejem}
 
 \begin{teo}[Algoritmo de Euclides]
@@ -337,7 +342,8 @@ Q(t)B(t)+P_n(t)A_n(t)=\left(B(t), A_n(t)\right).
 Entonces, si definimos $P_i(t)=Q(t)Q_i(t)$ para $i\in\{1,\ldots,n-1\}$, obtenemos
 \begin{eqnarray*}
 P_1(t)A_1(t)+\ldots+P_{n-1}(t)A_{n-1}(t)+P_n(t)A_n(t) & = & \left(B(t), A_n(t)\right)\\
- & = & \left(\left(A_1(t),\ldots,A_{n-1}(t)\right),A_n(t)\right) = \left(A_1(t),\ldots,A_n(t)\right).
+ & = & \left(\left(A_1(t),\ldots,A_{n-1}(t)\right),A_n(t)\right)\\
+ & = & \left(A_1(t),\ldots,A_n(t)\right).
 \end{eqnarray*}
 \qed
 
