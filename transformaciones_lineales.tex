@@ -35,7 +35,7 @@ donde $I_r$ denota la matriz $r\times r$ con unos en diagonal y ceros en el rest
 
 \section{Espacios estables y propios}
 
-Sea $V$ un espacio vectorial sobre $\K$ y $f$ un operador de $V$, e.d. $f\in\End_K(V)$.
+Sea $V$ un espacio vectorial sobre $\K$ y $f$ un operador de $V$, e.d. $f\in\End_\K(V)$.
 
 \begin{obs}
 Sean $A=(a_{ij})_{i,j=1}^n$ y $C=(c_{ij})_{i,j=1}^n$ matrices $n\times n$. Se tiene
@@ -100,6 +100,14 @@ donde $A$ es la matriz compañera
 \end{obs}
 
 \begin{defn}
+  Si $V_0\le V$ es tal que $V_0=\langle f^i(v)|\ i\in\Z_{\ge 0} \rangle$ decimos que $V_0$ es un subespacio \emph{$f$-cíclico}. 
+\end{defn}
+
+\begin{obs}
+  Si $V_0\le V$ es un subespacio $f$-cíclico finito-dimensional, entonces $V_0$ es $f$-estable y $\B_0=(v,f(v),\ldots,f^{r-1}(v))$ es una base de $V_0$ entonces la matrix de $f_{V_0}$ para $\B_0$ es una matrix compañera.
+\end{obs}
+
+\begin{defn}
   Un escalar $\lambda\in\K$ es un \emph{valor propio} de $f$ si $f(v)=\lambda v$ para algún vector no nulo $v\in V$, y en tal caso decimos que $v$ es un \emph{vector propio} de $f$ con valor propio $\lambda$. Si $\lambda$ es un valor propio de $f$, al subespacio de vectores $v\in V$ tales que $f(v)=\lambda v$ lo llamamos el espacio propio de $f$ asociado a $\lambda$.
 \end{defn}
 
@@ -119,13 +127,63 @@ Si $V$ tiene dimensión finita, el operador $f$ es diagonalizable si y solo si e
 Suponga ahora que tenemos una descomposición $V=V_1\oplus\cdots\oplus V_r$ en espacios propios asociados a loa valores propios $\lambda_1,\ldots,\lambda_r\in\K$. Para cada $i\in\{1,\ldots,r\}$, tomamos una base $\B_i$ de $V_i$. En particular, si $v\in B_i$ entonces $f(v)=\lambda_iv$. La concatenación $\mathcal{B}=\left(\B_1|\cdots|\B_r\right)$ es una base de $V$. Sea $\B=(v_1,\ldots,v_n)$ y $A=(a_{ij})=\Big[f\Big]^{\mathcal{B}}_{\mathcal{B}}$, es decir que $f(v_j)=a_{1j}v_1+\cdots+a_{nj}v_n$. Pero si $v_j\in V_l$, como $f(v_j)=\lambda_lv_j$, entonces $a_{ij}=0$ si $i\ne j$ y $a_{jj}=\lambda_l$, y por ende $A$ es diagonal.\\
 Finalmente, si $V=V_1\oplus\cdots\oplus V_r$ es una descomposición en espacios propios, entonces para $v=v_1+\cdots+v_r$ con $(v_1,\ldots,v_r)\in V_1\times\cdots\times V_r$, se tiene $f(v)=\lambda_1v_1+\cdots+\lambda_rv_r = \lambda_1p_1(v)+\cdots+\lambda_rp_r(v)$ y así $f=\lambda_1\id_{V_1}\oplus\cdots\oplus\lambda_r\id_{V_r}$ (ver definición \ref{sumadirectaoperadores}) y $f=\lambda_1p_1+\cdots+\lambda_rp_r$.\qed
 
-\section{El teorema de Cayley-Hamilton}
+\section{Polinomios de operadores, polinomio anulador y polinomio minimal}
+
+  \begin{defn}
+    Dado $P(t)\in \mathbb{K}[t]$, definimos el operador $P(f)\in\End_\mathbb{K}(V)$ por
+    \[
+      P(f)=a_nf^n+a_{n-1}f^{n-1}+\cdots+a_1f+a_0\id_V
+    \]
+    si $P(t)=a_nt^n+a_{n-1}t^{n-1}+\cdots+a_1t+a_0$, donde
+    \[
+      f^k=\underbrace{f\circ\ldots\circ f}_{k-\textrm{veces}}
+    \]
+    para cualquier entero positivo $k$, y $f^0=\id_V$. Similarmente, para toda matriz $A\in M_{n\times n}(\K)$ se define la matriz $P(A)\in M_{n\times n}(\K)$ por
+    \[
+      P(A)=a_nA^n+a_{n-1}A^{n-1}+\cdots+a_1A+a_0I_n.
+    \]
+    Decimos que $P(t)$ es un \emph{polinomio anulador} de $f$ (ó de $A$) si $P(f)=\underline{O}$ (ó $P(A)=O$).
+  \end{defn}
+  
+  \begin{obs}
+    \begin{enumerate}
+      \item Si $V$ tiene dimensión finita, para toda base $\B$ de $V$ y todo $P(t)\in\K[t]$ se tiene
+      $$\left[P(f)\right]_{\B}^{\B}=P\left([f]_\B^\B\right)$$.
+      \item Dados $P_1(t),P_2(t)\in \mathbb{K}[t]$, si $P(t)=P_1(t)P_2(t)$, entonces $P(f)=P_1(f)\circ P_2(f)=P_2(f)\circ P_1(f)$, pues para los monomios $at^m$ y $bt^nS$ se tiene $\left(af^m\right)\circ\left( bf^n\right)=abf^{m+n}=\left( bf^n\right)\circ \left(af^m\right)$ y de esto se sigue la igualdad para polinomios más generales.
+    \end{enumerate}
+  \end{obs}
+
+  \begin{ejem}
+    Considere el operador $f\in\End_\K(\K^2)$ definido por $f(x,y)=(x+y,y)$ y el polinomio $P(t)=(t-1)^2$. Como $(f-\id_V)(x,y)=(y,0)$ entonces $P(f)=\underline{O}$ y $P(t)$ es un polinomio anulador de $f$.
+  \end{ejem}
+
+  \begin{defn}
+    El \emph{polinomio minimal} de $f$ es el polinomio anulador de $f$ mónico de menor grado.
+  \end{defn}
+
+  \begin{obs}
+    El teorema de Cayley-Hamilton (teorema \ref{cayleyhamilton} abajo) explica que todo operador en un espacio finito dimensional admite un polinomio anulador.
+  \end{obs}
+
+  \begin{prop}
+    Suponga que $P_0(t)\in\K[t]$ es el polinomio minimal de $f$. Si $P(t)\in\K[t]$ es un polinomio anulador de $f$ entonces $P_0(t)$ divide a $P(t)$.
+  \end{prop}
+
+  \dem Sean $Q(t)$ y $R(t)$ el cociente y el residuo en la división de $P(t)$ por $P_0(t)$, luego $\underline{O}=P(f)=Q(f)\circ P_0(f)+R(f)=R(f)$. Por ende, $R(t)$ es un polinomio anulador de $f$ y, como es de menor grado que el polinomio minimal, entonces $R(t)=0$, es decir que $P_0(t)$ divide a $P(t)$. \qed
+
+  \begin{prop}\label{polinomio_minimal_estable_y_cociente}
+    Suponga que $P_0(t)\in\K[t]$ es el polinomio minimal de $f$. Si $W\le V$ es $f$-estable entonces los polinomios minimales de $f_W$ y $f_{/W}$ dividen a $P_0(t)$. 
+  \end{prop}
+
+  \dem Como $P_0(f)(W)=\{\overline{O}\}$, entonces $P_0(f_W)=\underline{O}$, es decir que $P_0(t)$ es un anulador de $f_W$ y, por la proposición anterior, el polinomio minimal de $f_W$ lo divide. Similarmente, como $P_0(f)(V)=\{\overline{O}\}\le W$, entonces $P_0(f_{/W})=\underline{O}$, es decir que $P_0(t)$ es un anulador de $f_{/W}$ y, por la proposición anterior, el polinomio minimal de $f_{/W}$ lo divide.
+
+\section{El polinomio caracterísito y el teorema de Cayley-Hamilton}
 
 El teorema de Cayley-Hamilton (teorema \ref{cayleyhamilton} abajo) nos permitirá generalizar la descomposición del teorema \ref{diagosiysolosi} con espacios estables más generales que los espacios propios. Esto se hace con el lema de los núcleos (proposición \ref{propdescomp} abajo).\\
 Como en la sección anterior, $V$ denota un espacio sobre $\K$ y $f$ un operador de $V$.
 
 \begin{obs}
-Del mismo modo en que definimos una matriz sobre los escalares como una familia de escalares indexados por dos índices, podemos definir matrices sobre $\K[t]$. A este conjunto lo denotaremos $M_{m\times n}(\mathbb{K}[t])$. Los elementos en $\mathbb{K}[t]$ se pueden multiplicar y sumar entre si con operaciones basadas en las operaciones de multiplicaci\'on y suma en $\mathbb{K}$. Igualmente, podemos sumar y multiplicar matrices con entradas polinomiales cuando las dimensiones de las matrices lo permiten. Además, podemos también hablar del determinante y de la traza de matrices cuadradas con entradas en $\mathbb{K}[t]$, los cuales ser\'an polinomios en $\mathbb{K}[t]$. De hecho, toda matriz con entradas en $\mathbb{K}[t]$ puede ser vista como un caso especial de una matriz con entradas en el cuerpo $\K(t)$.
+Del mismo modo en que definimos una matriz sobre los escalares como una familia de escalares indexados por dos índices, podemos definir matrices sobre $\K[t]$. A este conjunto lo denotaremos $M_{m\times n}(\mathbb{K}[t])$. Podemos sumar y multiplicar matrices con entradas polinomiales cuando las dimensiones de las matrices lo permiten. Además, podemos también hablar del determinante y de la traza de matrices cuadradas con entradas en $\mathbb{K}[t]$, los cuales ser\'an polinomios en $\mathbb{K}[t]$. De hecho, toda matriz con entradas en $\mathbb{K}[t]$ puede ser vista como un caso especial de una matriz con entradas en el cuerpo $\K(t)$.
 \end{obs}
 
 \begin{obs}
@@ -161,31 +219,8 @@ Suponga que $V$ tiene dimensi\'on finita y sea $\lambda$ un escalar. Entonces, $
 \]
 \qed
 
-\begin{defn}
-Dado $P(t)\in \mathbb{K}[t]$, definimos el operador $P(f)\in\End_\mathbb{K}(V)$ por
-\[
-P(f)=a_nf^n+a_{n-1}f^{n-1}+\cdots+a_1f+a_0\id_V
-\]
-si $P(t)=a_nt^n+a_{n-1}t^{n-1}+\cdots+a_1t+a_0$, donde
-\[
-f^k=\underbrace{f\circ\ldots\circ f}_{k-\textrm{veces}}
-\]
-para cualquier entero positivo $k$, y $f^0=\id_V$. Similarmente, para toda matriz $A\in M_{n\times n}(\K)$ se define la matriz $P(A)\in M_{n\times n}(\K)$ por
-\[
-P(A)=a_nA^n+a_{n-1}A^{n-1}+\cdots+a_1A+a_0I_n.
-\]
-Decimos que $P(t)$ es una polinomio anulador de $f$ (ó de $A$) si $P(f)=\underline{O}$ (ó $P(A)=O$).
-\end{defn}
-
-\begin{obs}
-  Si $V$ tiene dimensión finita, para toda base $\B$ de $V$ y todo $P(t)\in\K[t]$ se tiene
-  $$\left[P(f)\right]_{\B}^{\B}=P\left([f]_\B^\B\right)$$.
-\end{obs}
-
 \begin{obs}\label{observacionesparacayleyhamilton}
-  \begin{enumerate}[(i)]
-  \item Dados $P_1(t),P_2(t)\in \mathbb{K}[t]$, si $P(t)=P_1(t)P_2(t)$, entonces $P(f)=P_1(f)\circ P_2(f)=P_2(f)\circ P_1(f)$, pues para los monomios $at^m$ y $bt^nS$ se tiene $\left(af^m\right)\circ\left( bf^n\right)=abf^{m+n}=\left( bf^n\right)\circ \left(af^m\right)$ y de esto se sigue la igualdad para polinomios más generales.
-  \item El polinomio característico de la matriz compañera (ver observación \ref{festablecompa})
+  El polinomio característico de la matriz compañera (ver observación \ref{festablecompa})
   $$
   A=\left[\begin{array}{ccccc}
     0 & 0 & \cdots & 0 & a_0\\
@@ -196,7 +231,6 @@ Decimos que $P(t)$ es una polinomio anulador de $f$ (ó de $A$) si $P(f)=\underl
   \end{array}\right]
   $$
   es $P_A(t)=t^r-a_{r-1}t^{r-1}-\cdots-a_1t-a_0$.
-\end{enumerate}
 \end{obs}
 
 \begin{teo}[Cayley-Hamilton]\label{cayleyhamilton}
@@ -278,7 +312,7 @@ Sea $V$ un espacio vectorial sobre $\K$ y $f$ un operador de $V$.
 Para todo $P(t)\in \mathbb{K}[t]$, el subespacio $V_0=\ker\left(P(f)\right)$ es estable bajo $f$.
 \end{prop}
 
-\dem Sea $v\in V_0$. Por la observación \ref{observacionesparacayleyhamilton}(i), se tiene
+\dem Dado $v\in V_0$, por la observación \ref{observacionesparacayleyhamilton}(i), se tiene
 $$P(f)\left(f(v)\right)=P(f)\circ f(v)=f\circ P(f)(v)=f(O)=O.$$
 Es decir que $f(v)\in\ker\left(P(f)\right)=V_0$.\qed
 
@@ -366,7 +400,7 @@ Bajo las hipótesis de la proposición, para $i\{1,2\}$, tenemos $P_i(f_{V_i})=\
   Entonces $V=V_1\oplus\cdots\oplus V_r$ y $f=f_{V_1}\oplus\cdots\oplus f_{V_r}$, donde $V_i=\ker\left(P_i(f)\right)$ para $i\in\{1,\ldots,r\}$. M\'as a\'un, existen polinomios $\Pi_1(t),\ldots,\Pi_r(t)\in \mathbb{K}[t]$, tales que $p_i=\Pi_i(f)$ es la proyección sobre $V_i$ relativa a la descomposición $V=V_1\oplus\cdots,\oplus V_r$ (ver la observación \ref{sumayproyeccion}).
 \end{prop}
 
-\dem Aunque la demostración se sigue por inducción de la proposición anterior, se puede hacer directamente de forma similar de la siguiente forma. Para $i=1,\ldots,r$ tomamos $R_i(t)=\prod_{j\ne i}P_j(t)$, y de esta forma se obtiene $(R_1(t),\ldots,R_r(t))=1$. Así que existen $Q_1(t),\ldots, Q_n(t)\in \mathbb{K}[t]$ para los cuales $Q_1(t)R_1(t)+\cdots Q_n(t)R_n(t)=1$. Si para $i\in\{1,\ldots,r\}$ definimos $\Pi_i(t)=Q_i(t)R_i(t)$ y $p_i=\Pi_i(f)$, entonces tenemos $p_1+\cdots+p_r=\id_V$,
+\dem Aunque la demostración se sigue por inducción de la proposición anterior, se puede hacer directamente de forma similar. Para $i=1,\ldots,r$ tomamos $R_i(t)=\prod_{j\ne i}P_j(t)$, y de esta forma se obtiene $(R_1(t),\ldots,R_r(t))=1$. Así que existen $Q_1(t),\ldots, Q_n(t)\in \mathbb{K}[t]$ para los cuales $Q_1(t)R_1(t)+\cdots Q_n(t)R_n(t)=1$. Si para $i\in\{1,\ldots,r\}$ definimos $\Pi_i(t)=Q_i(t)R_i(t)$ y $p_i=\Pi_i(f)$, entonces tenemos $p_1+\cdots+p_r=\id_V$,
 $p_i\circ p_j=\underline{O}$ cuando $i\ne j$, y $p_i^2=p_i$. El resultado se sigue del teorema \ref{proysumadir} si demostramos que $\im(p_i)=V_i$. Para ello, dado $v_i\in V_i=\ker(P_i(f))$ se tiene
 $$v_i=p_1(v_i)+\cdots+p_r(v_i)=p_i(v_i)+\sum_{j\ne i} Q_j(f)\circ R_j(f)(v_i),$$
 pero $P_i(t)$ es factor de los $R_j(t)$, así $R_j(f)(v_i)=O$, luego $v_i=p_i(v_i)$ y $v_i\in\im(p_i)$. Recíprocamente, dado $v_i\in\im(p_i)$, tenemos $v_i=p_i(v)$ para algún $v\in V$, entonces 
@@ -424,6 +458,24 @@ $$\Big[ f\Big]_\mathcal{B}^\mathcal{B}=\left[\begin{array}{r|r|rr}
 la cual es una matriz diagonal por bloques, donde cada bloque describe la restricci\'on de $f$ a cada uno de los subespacios estables de la descomposici\'on. 
 \end{ejem}
 
+\begin{obs}
+  En el ejemplo anterior, podemos observar que la dimensión de los subespacios $V_i=\ker\left(P_i(f)\right)$ corresponde al grado de los factores $P_i(t)$ del polinomio característico $P_f(t)$. Este es el resultado que pasamos a establecer.
+\end{obs}
+
+\begin{lema}
+  Si $V$ tiene dimensión finita, entonces todo factor irreducible del polinomio característico de $f$ es un factor del polinomio minimal de $f$.
+\end{lema}
+
+\dem Denotemos el polinomio minimal de $f$ por $Q(t)$. Sea $P(t)$ un factor irreducible del polinomio característico $P_f(t)$. Por inducción en la dimensión $n$ de $\dim_\K(V)$, estableceremos que $P(t)$ divide a $Q(t)$; siendo el caso $n=1$ inmediato, pues en él $P(t)=P_f(t)=Q(t)$. Como en la demostración del teorema \ref{cayleyhamilton} de Cayley-Hamilton, tomamos un $v\in V$ no nulo y así existe un entero $r$ maximal tal que $\{v,f(v),\ldots,f^{r-1}(v)\}$ es linealmente independiente. El subespacio $W=\langle v,f(v),\ldots,f^{r-1}(v)\rangle$ es $f$-estable y si $\B$ es una base de $V$ que extiende la base $\B_0$ de $W$, entonces la matrix de $f$ para $\B$ es de la forma
+$$
+  \left[f\right]_\B^\B=\left[\begin{array}{c|c}
+    A & B\\
+    \hline
+    O & C
+  \end{array}\right]
+$$
+donde $A$ es una matrix de $f_W$ y $C$ corresponde una matrix de $f_{/W}$. En particular, se tiene $P_f(t)=P_A(t)P_C(t)$ con $P_A(t)=P_{f_W}(t)$ y $P_C(t)=P_{f_{/W}}(t)$. Ahora, como $P(t)$ es un polinomio irreducible que divide a $P_f(t)$, entonces, por el lema \ref{factorizacionunica} $P(t)$ divide a unos de los factores $P_{f_W}(t)$ ó $P_{f_{/W}}(t)$, que son ambos polinomios característicos. Luego, como $W$ y $V/W$ tienen dimensión estrictamente menor que $V$, por hipótesis de inducción se sigue que $P(t)$ divide al polinomio minimal de $f_W$ ó de $f_{/W}$ y como estos, por la proposición \ref{polinomio_minimal_estable_y_cociente}, dividen a $Q(t)$, se sigue que $P(t)$ divide a $Q(t)$.\qed
+
 \begin{teo}
   Si $V$ tiene dimensión finita y $$P_f(t)=P_1(t)^{m_1}\cdots P_r(t)^{m_r}$$ es una factorización del polinomio característico donde los $P_i(t)$ son polinomios irreducibles dos a dos distintos, entonces el operador $f$ se descompone como $$f=f_{V_1}\oplus\cdots\oplus f_{V_r}$$ donde, para $i\in\{1,\ldots,r\}$, los espacios $f$-estables $V_i=\ker\left(P_i(f)^{m_i}\right)$ son tales que $\dim(V_i)=\deg\left(P_i(t)^{m_i}\right)$ y el polinomio característico de las restricciones $f_{V_i}$ es $P_{f_{V_i}}=P_i(f)^{m_i}$. Además, si $\B_i$ es una base de $V_i$ entonces la concatenación $\B=(\B_1|\cdots|\B_r)$ es una base de $V$ para la cual la matriz de $f$ es la matriz diagonal por bloques
   \[
@@ -440,7 +492,7 @@ la cual es una matriz diagonal por bloques, donde cada bloque describe la restri
 
 \dem Del teorema \ref{cayleyhamilton} de Cayley-Hamilton y la proposición \ref{propdescomp} se sigue la descomposición $f=f_{V_1}\oplus\cdots\oplus f_{V_r}$ donde, para $i\in\{1,\ldots,r\}$, los espacios $V_i=\ker\left(P_i(f)^{m_i}\right)$ son $f$-estables. Por ello, si $\B_i$ es una base de $V_i$ entonces la concatenación $\B=(\B_1|\cdots|\B_r)$ es una base de $V$ para la cual la matriz de $f$ es una matriz diagonal por bloques donde cada bloque $A_i$ es la matriz de $f_{V_i}$ para $\B_i$. Falta ver que $\dim(V_i)=\deg\left(P_i(t)^{m_i}\right)$ y el polinomio característico de las restricciones $f_{V_i}$ es $P_{f_{V_i}}=P_i(f)^{m_i}$. De hecho, si $n_i=\dim(V_i)$, al calcular el polinomio característico $P_f(t)$ con la matriz de $f$ para $\B$ obtenemos
 $$P_f(t)=\det(tI_{n_1}-A_1)\cdots\det(tI_{n_r}-A_r)=P_{f_{V_1}}(t)\cdots P_{f_{V_r}}(t).$$
-Luego $P_1(t)^{m_1}\cdots P_r(t)^{m_r}=P_{f_{V_1}}(t)\cdots P_{f_{V_r}}(t)$. Suponga por contradicción que $P_j(t)$ divide a $P_{f_{V_1}}(t)$
+Luego $P_1(t)^{m_1}\cdots P_r(t)^{m_r}=P_{f_{V_1}}(t)\cdots P_{f_{V_r}}(t)$. Suponga por contradicción que $P_j(t)$ divide a $P_{f_{V_i}}(t)$ con $i\ne j$, entonces, por el lema anterior, $P_j(t)$ divide al polinomio minimal de $f_{V_i}$. Pero, $P_i(t)^{m_i}$ es un polinomio anulador de $f_{V_i}$, entonces el polinomio minimal de $f_{V_i}$ lo divide y así $P_j(t)$ divide a $P_i(t)^{m_i}$, lo cuál contradice el teorema \ref{factorizacionunica} de factorización única. 
 \qed 
 
 \section{Operadores nilpotentes, espacios c\'iclicos y forma de Jordan}
