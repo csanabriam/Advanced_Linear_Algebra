@@ -1,24 +1,24 @@
 \chapter{Estructura de las transformaciones lineales}
 
-Sea $\mathbb{K}$ un cuerpo.
+Sea $\K$ un cuerpo.
 
 \section{Descomposici\'on por suma directa}
 
-Sean $V$ y $W$ espacios vectoriales sobre $\mathbb{K}$.
+Sean $V$ y $W$ espacios vectoriales sobre $\K$.
 
 \begin{defn}
   Sean $V_1,\ldots,V_r$ subespacios de $V$. Cuando tenemos $V=V_1\oplus\cdots\oplus V_r$ llamamos a esta igualdad una \emph{descomposición en suma directa}, o simplemente \emph{una descomposición}, de $V$.
 \end{defn}
 
 \begin{teo}\label{descomposicionsumadirecta}
-Dada $f\in\Hom_\mathbb{K}(V,W)$, existen $V_0,V_1\le V$ y $W_1,W_2\le W$ tales que $V=V_0\oplus V_1$ y $W=W_1\oplus W_2$ con $\ker(f)=V_0$ e $\im(f)=W_1$. En particular $f$ induce un isomorfismo entre $V_1$ y $W_1$.
+Dada $f\in\Hom_\K(V,W)$, existen $V_0,V_1\le V$ y $W_1,W_2\le W$ tales que $V=V_0\oplus V_1$ y $W=W_1\oplus W_2$ con $\ker(f)=V_0$ e $\im(f)=W_1$. En particular $f$ induce un isomorfismo entre $V_1$ y $W_1$.
 \end{teo}
 
 \dem Sea $\mathcal{B}_0$ una base de $V_0=\ker(f)$, la cual extendemos a una base $\left(\mathcal{B}_0| \mathcal{B}_1\right)$ de $V$. Defina $V_1=\langle \mathcal{B}_1\rangle$. As\'i, por la observación \ref{baseparticion} se tiene $V=V_0\oplus V_1$. Por otro lado, si $v,v'\in V_1$ son tales que $f(v)=f(v')$, entonces $v-v'\in \ker(f)=V_0$, luego $v-v'\in V_0\cap V_1=\{0\}$, luego $v=v'$. Es decir la restricci\'on de $f$ a $V_1$ es inyectiva.\\
 Sea $\mathcal{B}'_1=f(\mathcal{B}_1)$. Como la restricción de $f$ a $V_1$ es inyectiva, es decir que $f(v)=0$ con $v\in V_1$ si y solo si $v=0$, entonces $\mathcal{B}'_1$ es linealmente independiente. Defina $W_1=\langle \mathcal{B}'_1\rangle$, de forma que $\mathcal{B}'_1$ es una base de $W_1$ y $W_1=f(V_1)$. Por construcci\'on $\im(f)=W_1$; pues, dado $w\in\im(f)$, existe $v\in V$ tal que $w=f(v)$, si $v=v_0+v_1$ con $(v_0,v_1)\in V_0\times V_1$, se tiene $w=f(v)=f(v_0)+f(v_1)=f(v_1)$. Finalmente, extienda $\mathcal{B}'_1$ a una base $\left(\mathcal{B}'_1| \mathcal{B}'_2\right)$ de $W$. Si $W_2=\langle \mathcal{B}'_2\rangle$ se tiene $W=W_1\oplus W_2$. Como $f$ es inyectiva en $V_1$ y $f(V_1)=W_1$, $f$ induce un isomorfismo entre $V_1$ y $W_1$.\qed
 
 \begin{obs}
-Suponga que en el teorema \ref{descomposicionsumadirecta} los espacios $V$ y $W$ tienen dimensi\'on finita, con $n=\dim(V)$, $m=\dim(W)$ y $r=\dim(\im(f))$. Si, como en la demostración, $\mathcal{B}_0$, $\mathcal{B}_1$ son bases de $V_0$ y $V_1$, y $\mathcal{B}'_1$ y $\mathcal{B}'_2$ son bases de $W_1$ y $W_2$. sea $f\in\Hom_\mathbb{K}(V,W)$, y denote $n=\dim(V)$, $m=\dim(W)$ y $r=\dim(\im(f))$. Entonces para las bases $\mathcal{B}=\left(\mathcal{B}_1|\mathcal{B}_0\right)$ y $\mathcal{B}'=\left(\mathcal{B}'_1|\mathcal{B}'_2\right)$ de $V$ y $W$, para
+Suponga que en el teorema \ref{descomposicionsumadirecta} los espacios $V$ y $W$ tienen dimensi\'on finita, con $n=\dim(V)$, $m=\dim(W)$ y $r=\dim(\im(f))$. Si, como en la demostración, $\mathcal{B}_0$, $\mathcal{B}_1$ son bases de $V_0$ y $V_1$, y $\mathcal{B}'_1$ y $\mathcal{B}'_2$ son bases de $W_1$ y $W_2$. Entonces, para las bases $\mathcal{B}=\left(\mathcal{B}_1|\mathcal{B}_0\right)$ y $\mathcal{B}'=\left(\mathcal{B}'_1|\mathcal{B}'_2\right)$ de $V$ y $W$, en la matriz de $f$
 \[
 A=\Big[f\Big]^{\mathcal{B}'}_{\mathcal{B}}=(a_{ij}),
 \]
@@ -30,10 +30,28 @@ I_r & 0\\
 0   & 0
 \end{array}\right]
 \]
-donde $I_r$ denota la matriz $r\times r$ con unos en diagonal y ceros en el resto de entradas y $0$ denota los or\'igenes de $M_{r\times (n-r)}(\mathbb{K})$, $M_{(m-r)\times r}(\mathbb{K})$ y $M_{(m-r)\times(n-r)}(\mathbb{K})$.
+donde $I_r$ denota la matriz identidad $r\times r$ y $0$ denota los or\'igenes de $M_{r\times (n-r)}(\K)$, $M_{(m-r)\times r}(\K)$ y $M_{(m-r)\times(n-r)}(\K)$.
 \end{obs}
 
-\section{Espacios estables y propios}
+\section*{Ejercicios}
+
+\begin{enumerate}
+  \item Para cada una de las siguientes transformaciones lineales $f$ encuentre bases para el dominio y el rango respecto a las cuales la matriz de $f$ tiene un matriz identidad en la esquina superior izquierda y ceros en el resto.
+  \begin{enumerate}[(i)]
+  \item $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^2,\mathbb{Q}^3)$ donde
+  $$f(x,y)=(y,x,-x).$$
+  \item $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^2,\mathbb{Q}^3)$ donde
+  $$f(x,y)=\dfrac{1}{2}(x+y,x+y,-x-y).$$
+  \item $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^2,\mathbb{Q}^4)$ donde
+  $$f(x,y)=\dfrac{1}{3}(2y,2y,3x-y,-3x-y).$$
+  \item $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^3,\mathbb{Q}^4)$ donde
+  $$f(x,y)=\dfrac{1}{3}(2x+y+z,2x+y+z,-x+y-2z,-x-2y+z).$$
+  \end{enumerate}
+
+  \item Suponga que $f\in\Hom_\K(V,W)$ es una transformación linea entre espacios finito-dimensionales y sean $V_0,V_1\le V$ y $W_1,W_2\le W$ como en el teorema \ref{descomposicionsumadirecta}. Demuestre que $\dim(\text{cok}(f))=\dim(W_2)$ (El espacio co-núcleo $\text{cok}(f)$ está definido en el ejercicio \ref{espacios_cociente_ejercicios}.\ref{espacios_cociente_ejercicios_conucleo}).
+\end{enumerate}
+
+\section{Espacios estables, cíclicos y propios}
 
 Sea $V$ un espacio vectorial sobre $\K$ y $f$ un operador de $V$, e.d. $f\in\End_\K(V)$.
 
@@ -50,7 +68,7 @@ y
 \begin{eqnarray*}
   \tr(B) & = &\tr(C^{-1}AC)=\tr(ACC^{-1})\\
            & = &\tr(A)\\
-  \det(B) & = & \det(C^{-1}AC)=\det(C)^{1}\det(A)\det(C)\\
+  \det(B) & = & \det(C^{-1}AC)=\det(C)^{-1}\det(A)\det(C)\\
              & = &\det(A)
 \end{eqnarray*}
 Es decir que la traza y el determinante de la matriz de un operador lineal, tomando la misma base para el dominio y el rango, es independiente de la base escogida.
@@ -61,11 +79,11 @@ Suponga que $V$ tiene dimensi\'on finita. Definimos el \emph{determinante} y la 
 \[
 \det(f)=\det\left(\Big[f\Big]^{\mathcal{B}}_{\mathcal{B}}\right)\qquad \tr(f)=\tr\left(\Big[f\Big]^{\mathcal{B}}_{\mathcal{B}}\right).
 \]
-donde $\mathcal{B}$ cualquier base de $V$.
+donde $\mathcal{B}$ es cualquier base de $V$.
 \end{defn}
 
 \begin{defn}
-Sea $V_0\le V$. Decimos que $V_0$ es \emph{estable bajo $f$} (ó \emph{$f$-estable}) si $f(V_0)\le V_0$. En tal caso, a la restricci\'on de $f$ a $V_0$ la denotamos $f_{V_0}$, esto es $f_{V_0}\in\Hom_\mathbb{K}(V_0,V_0)$ es el operador definido por:
+Sea $V_0\le V$. Decimos que $V_0$ es \emph{estable bajo $f$} (ó \emph{$f$-estable}) si $f(V_0)\le V_0$. En tal caso, a la restricci\'on de $f$ a $V_0$ la denotamos $f_{V_0}$, esto es $f_{V_0}\in\Hom_\K(V_0,V_0)$ es el operador definido por:
 \begin{eqnarray*}
 f_{V_0}: V_0 & \longrightarrow & V_0\\
  v_0 & \longmapsto & f(v_0)
@@ -77,7 +95,7 @@ f_{V_0}: V_0 & \longrightarrow & V_0\\
 \end{obs}
 
 \begin{obs}\label{festablecompa}
-  Suponga que $V$ es finito-dimensional. Dado $v\in V$ no nulo, existe un entero $r$ maximal tal que $\{v,f(v),\ldots,f^{r-1}(v)\}$ es linealmente independiente. Luego, por la propiedad \ref{inddep}, existen $a_0,\ldots,a_{r-1}\in\K$ tal que
+  Suponga que $V$ es finito-dimensional. Dado $v\in V$ no nulo, existe un entero $r$ maximal tal que $\{v,f(v),\ldots,f^{r-1}(v)\}$ es linealmente independiente. Luego, por la propiedad \ref{inddep}, existen $a_0,\ldots,a_{r-1}\in\K$ tales que
   $$f^r(v)=a_{r-1}f^{r-1}(v)+\ldots+a_{1}f(v)+a_0v.$$
 De esta forma, $V_0=\langle v,f(v),\ldots,f^{r-1}(v)\rangle$ es $f$-estable. Más aún, sí $\B$ es una base de $V$ que extiende la base $\B_0=(v,f(v),\ldots,f^{r-1}(v))$ de $V_0$, entonces la matrix de $f$ para $\B$ es de la forma
   $$
@@ -100,15 +118,15 @@ donde $A$ es la matriz compañera
 \end{obs}
 
 \begin{defn}
-  Si $V_0\le V$ es tal que $V_0=\langle f^i(v)|\ i\in\Z_{\ge 0} \rangle$ decimos que $V_0$ es un subespacio \emph{$f$-cíclico}. 
+  Si $V_0\le V$ es tal que $V_0=\langle f^i(v)|\ i\in\Z_{\ge 0} \rangle$ para algún vector $v\in V$, decimos que $V_0$ es un subespacio \emph{$f$-cíclico} (o \emph{cíclico bajo $f$}). Si además $\B_0=(v,f(v),\ldots,f^{r-1}(v))$ es una base de $V_0$, decimos que $v$ es un vector \emph{$f$-cíclico} (o \emph{cíclico bajo $f$}) \emph{de $V_0$}.
 \end{defn}
 
 \begin{obs}
-  Si $V_0\le V$ es un subespacio $f$-cíclico finito-dimensional, entonces $V_0$ es $f$-estable y $\B_0=(v,f(v),\ldots,f^{r-1}(v))$ es una base de $V_0$ entonces la matrix de $f_{V_0}$ para $\B_0$ es una matrix compañera.
+  Si $V_0\le V$ es un subespacio $f$-cíclico finito-dimensional, entonces $V_0$ es $f$-estable. Si además $v\in V$ es tal que $\B_0=(v,f(v),\ldots,f^{r-1}(v))$ es una base de $V_0$, e.d. $v$ es un vector $f$-cíclico de $V_0$, entonces la matrix de $f_{V_0}$ para $\B_0$ es una matrix compañera.
 \end{obs}
 
 \begin{defn}
-  Un escalar $\lambda\in\K$ es un \emph{valor propio} de $f$ si $f(v)=\lambda v$ para algún vector no nulo $v\in V$, y en tal caso decimos que $v$ es un \emph{vector propio} de $f$ con valor propio $\lambda$. Si $\lambda$ es un valor propio de $f$, al subespacio de vectores $v\in V$ tales que $f(v)=\lambda v$ lo llamamos el espacio propio de $f$ asociado a $\lambda$.
+  Un escalar $\lambda\in\K$ es un \emph{valor propio} de $f$ si $f(v)=\lambda v$ para algún vector no nulo $v\in V$, y en tal caso decimos que $v$ es un \emph{vector propio} de $f$ con valor propio $\lambda$. Si $\lambda$ es un valor propio de $f$, al subespacio de vectores $v\in V$ tales que $f(v)=\lambda v$ lo llamamos el \emph{espacio propio de $f$ asociado a $\lambda$}.
 \end{defn}
 
 \begin{obs}
@@ -116,25 +134,40 @@ donde $A$ es la matriz compañera
 \end{obs}
 
 \begin{defn}
-Sea $A=(a_{ij})$ una matriz $n\times n$. Decimos que $A$ es \emph{diagonal} si $a_{ij}=0$ siempre que $i\ne j$. Si $V$ tiene dimensión finita, decimos que el operador $f$ es diagonalizable si $A=\Big[f\Big]^{\mathcal{B}}_{\mathcal{B}}$ es diagonal para alguna base $\mathcal{B}$ de $V$.
+Sea $A=(a_{ij})$ una matriz $n\times n$. Decimos que $A$ es \emph{diagonal} si $a_{ij}=0$ siempre que $i\ne j$. Si $V$ tiene dimensión finita, decimos que el operador $f$ es \emph{diagonalizable} si $A=\Big[f\Big]^{\mathcal{B}}_{\mathcal{B}}$ es diagonal para alguna base $\mathcal{B}$ de $V$.
 \end{defn}
 
 \begin{teo}\label{diagosiysolosi}
-Si $V$ tiene dimensión finita, el operador $f$ es diagonalizable si y solo si existe una descomposición $V=V_1\oplus\cdots\oplus V_r$ en subespacios propios. En tal caso, si, para $i\in\{1,\ldots,r\}$, $V_i$ es un espacio propio asociado a $\lambda_i$, entonces $f=\lambda_1\id_{V_1}\oplus\cdots\oplus\lambda_r\id_{V_r}$ y $f=\lambda_1p_1+\cdots+\lambda_rp_r$ donde $p_1,\ldots,p_r$ son las proyecciones de acuerdo a la descomposición $V=V_1\oplus\cdots\oplus V_r$ (ver la observación \ref{sumayproyeccion}).
+Si $V$ tiene dimensión finita, el operador $f$ es diagonalizable si y solo si existe una descomposición $V=V_1\oplus\cdots\oplus V_r$ en subespacios propios. En tal caso, si $V_i$ es el espacio propio asociado a $\lambda_i$, para $i\in\{1,\ldots,r\}$, entonces $f=\lambda_1\id_{V_1}\oplus\cdots\oplus\lambda_r\id_{V_r}$ y $f=\lambda_1p_1+\cdots+\lambda_rp_r$ donde $p_1,\ldots,p_r$ son las proyecciones de acuerdo a la descomposición $V=V_1\oplus\cdots\oplus V_r$ (ver la observación \ref{sumayproyeccion}).
 \end{teo}
 
 \dem Suponga primero que $f$ es diagonalizable y sea $\mathcal{B}=(v_1,\ldots,v_n)$ una base de $V$ tal que $A=(a_{ij})=\Big[f\Big]^{\mathcal{B}}_{\mathcal{B}}$ es diagonal. Para cada $i\in\{1,\ldots,n\}$, defina $V_i=\langle v_i\rangle$, de forma que $V=V_1\oplus\cdots\oplus V_n$ (ver la observación \ref{baseparticion}). Dado $j\in\{1,\ldots,n\}$, se tiene, por definición de $A$, $f(v_j)=a_{1j}v_1+\cdots+a_{nj}v_n$. Pero, como $A$ es diagonal, entonces $a_{ij}=0$ si $i\ne j$ y así $f(v_j)=a_{jj}v_j$. En particular, cada $V_j$ es $f$-estable, $f_{V_j}=\lambda_j\id_{V_j}$ con $\lambda_j=a_{jj}$ y tenemos que $V=V_1\oplus\cdots\oplus V_n$ es una descomposición en subespacios $f$-estables. Finalmente, los espacios $V_j$ con un mismo valor $\lambda_j$ se puede sumar para obtener un espacios propio.\\
-Suponga ahora que tenemos una descomposición $V=V_1\oplus\cdots\oplus V_r$ en espacios propios asociados a loa valores propios $\lambda_1,\ldots,\lambda_r\in\K$. Para cada $i\in\{1,\ldots,r\}$, tomamos una base $\B_i$ de $V_i$. En particular, si $v\in B_i$ entonces $f(v)=\lambda_iv$. La concatenación $\mathcal{B}=\left(\B_1|\cdots|\B_r\right)$ es una base de $V$. Sea $\B=(v_1,\ldots,v_n)$ y $A=(a_{ij})=\Big[f\Big]^{\mathcal{B}}_{\mathcal{B}}$, es decir que $f(v_j)=a_{1j}v_1+\cdots+a_{nj}v_n$. Pero si $v_j\in V_l$, como $f(v_j)=\lambda_lv_j$, entonces $a_{ij}=0$ si $i\ne j$ y $a_{jj}=\lambda_l$, y por ende $A$ es diagonal.\\
+Suponga ahora que tenemos una descomposición $V=V_1\oplus\cdots\oplus V_r$ en espacios propios asociados a loa valores propios $\lambda_1,\ldots,\lambda_r\in\K$. Para cada $i\in\{1,\ldots,r\}$, tomamos una base $\B_i$ de $V_i$. En particular, si $v\in B_i$, entonces $f(v)=\lambda_iv$. La concatenación $\mathcal{B}=\left(\B_1|\cdots|\B_r\right)$ es una base de $V$. Sea $\B=(v_1,\ldots,v_n)$ y $A=(a_{ij})=\Big[f\Big]^{\mathcal{B}}_{\mathcal{B}}$, es decir que $f(v_j)=a_{1j}v_1+\cdots+a_{nj}v_n$. Pero si $v_j\in V_l$, como $f(v_j)=\lambda_lv_j$, entonces $a_{ij}=0$ si $i\ne j$ y $a_{jj}=\lambda_l$, y por ende $A$ es diagonal.\\
 Finalmente, si $V=V_1\oplus\cdots\oplus V_r$ es una descomposición en espacios propios, entonces para $v=v_1+\cdots+v_r$ con $(v_1,\ldots,v_r)\in V_1\times\cdots\times V_r$, se tiene $f(v)=\lambda_1v_1+\cdots+\lambda_rv_r = \lambda_1p_1(v)+\cdots+\lambda_rp_r(v)$ y así $f=\lambda_1\id_{V_1}\oplus\cdots\oplus\lambda_r\id_{V_r}$ (ver definición \ref{sumadirectaoperadores}) y $f=\lambda_1p_1+\cdots+\lambda_rp_r$.\qed
 
-\section{Polinomios de operadores, polinomio anulador y polinomio minimal}
+\section*{Ejercicios}\label{espacios_estables_ejercicios}
+
+\begin{enumerate}
+  \item\label{ejercicio_diagonalizable} Demuestre que el operador de $\Q^3$ dado por $f(x,y,z)=(-2x,-2x+2z,-2x+2y)$, y cuyos valores propios son $-2$ y $2$, es diagonalizable.
+  \item\label{ejercicio_no_diagonalizable} Considere el operador de $\Q^3$ dado por $f(x,y,z)=(-x+y-z,-2x+2z,-x+3y-z)$, cuyos valores propios son $-2$ y $2$.
+    \begin{enumerate}
+      \item Demuestre que $f$ no es diagonalizable.
+      \item Demuestre que $v=(1,1,0)$ es una vector $f$-cíclico para $V_0=\ker(f+2\id_{\Q^3})$.
+      \item Encuentre una base $\B$ de $\Q^3$ que extienda a la base $\B_0=(v,f(v))$ de $V_0$ y las matrices de $f_{V_0}$ y de $f$ para estas bases.
+    \end{enumerate}
+  \item Demuestre que si $\lambda\in\K$ es un valor propio de $f\in\End_\K(V)$, entonces el espacio propio de $f$ asociado a $\lambda$ es $\ker(f-\lambda\id_V)$.
+  \item Demuestre que $\lambda\in\K$ es un valor propio de $f\in\End_\K(V)$ si y solo si $\det(f-\lambda\id_V)=0$.
+  \item Demuestre que $f\in\End_\K(V)$ es diagonalizable si y solo si el polinomio $P(\lambda)=\det(f-\lambda\id_V)$ se factoriza como $P(\lambda)=(\lambda-\lambda_1)^{m_1}\cdots(\lambda-\lambda_r)^{m_r}$ con $\lambda_1,\ldots,\lambda_r\in\K$ y $V$ se descompone como $V=V_1\oplus\cdots\oplus V_r$ donde $V_i=\ker(f-\lambda_i\id_V)$, para $i\in\{1,\ldots,r\}$.   
+\end{enumerate}
+
+\section[Polinomios de operadores]{Polinomios de operadores, polinomio anulador y polinomio minimal}
 
   \begin{defn}
-    Dado $P(t)\in \mathbb{K}[t]$, definimos el operador $P(f)\in\End_\mathbb{K}(V)$ por
+    Dado $P(t)\in \K[t]$, con $P(t)=a_nt^n+a_{n-1}t^{n-1}+\cdots+a_1t+a_0$, definimos el operador $P(f)\in\End_\K(V)$ por
     \[
-      P(f)=a_nf^n+a_{n-1}f^{n-1}+\cdots+a_1f+a_0\id_V
+      P(f)=a_nf^n+a_{n-1}f^{n-1}+\cdots+a_1f+a_0\id_V,
     \]
-    si $P(t)=a_nt^n+a_{n-1}t^{n-1}+\cdots+a_1t+a_0$, donde
+    donde
     \[
       f^k=\underbrace{f\circ\ldots\circ f}_{k-\textrm{veces}}
     \]
@@ -145,20 +178,20 @@ Finalmente, si $V=V_1\oplus\cdots\oplus V_r$ es una descomposición en espacios 
     Decimos que $P(t)$ es un \emph{polinomio anulador} de $f$ (ó de $A$) si $P(f)=\underline{O}$ (ó $P(A)=O$).
   \end{defn}
   
-  \begin{obs}
-    \begin{enumerate}
+  \begin{obs}\label{observacion_definicion_polinomios_de_operadores}
+    \begin{enumerate}[(i)]
       \item Si $V$ tiene dimensión finita, para toda base $\B$ de $V$ y todo $P(t)\in\K[t]$ se tiene
-      $$\left[P(f)\right]_{\B}^{\B}=P\left([f]_\B^\B\right)$$.
-      \item Dados $P_1(t),P_2(t)\in \mathbb{K}[t]$, si $P(t)=P_1(t)P_2(t)$, entonces $P(f)=P_1(f)\circ P_2(f)=P_2(f)\circ P_1(f)$, pues para los monomios $at^m$ y $bt^nS$ se tiene $\left(af^m\right)\circ\left( bf^n\right)=abf^{m+n}=\left( bf^n\right)\circ \left(af^m\right)$ y de esto se sigue la igualdad para polinomios más generales.
+      $$\left[P(f)\right]_{\B}^{\B}=P\left([f]_\B^\B\right).$$
+      \item\label{polinomios_de_operadores_conmutan} Dados $P_1(t),P_2(t)\in \K[t]$, si $P(t)=P_1(t)P_2(t)$, entonces $P(f)=P_1(f)\circ P_2(f)=P_2(f)\circ P_1(f)$, es decir que los operadores $P_1(f)$ y $P_2(f)$ conmutan, pues para los monomios $at^m$ y $bt^n$ se tiene $\left(af^m\right)\circ\left( bf^n\right)=abf^{m+n}=\left( bf^n\right)\circ \left(af^m\right)$ y de esto se sigue la igualdad para polinomios más generales.
     \end{enumerate}
   \end{obs}
 
   \begin{ejem}
-    Considere el operador $f\in\End_\K(\K^2)$ definido por $f(x,y)=(x+y,y)$ y el polinomio $P(t)=(t-1)^2$. Como $(f-\id_V)(x,y)=(y,0)$ entonces $P(f)=\underline{O}$ y $P(t)$ es un polinomio anulador de $f$.
+    Considere el operador $f\in\End_\K(\K^2)$ definido por $f(x,y)=(x+y,y)$ y el polinomio $P(t)=(t-1)^2$. Como $(f-\id_V)(x,y)=(y,0)$, entonces $P(f)=\underline{O}$ y $P(t)$ es un polinomio anulador de $f$.
   \end{ejem}
 
   \begin{defn}
-    El \emph{polinomio minimal} de $f$ es el polinomio anulador de $f$ mónico de menor grado.
+    El \emph{polinomio minimal} de $f$ es el polinomio mónico anulador de $f$ de menor grado.
   \end{defn}
 
   \begin{obs}
@@ -166,46 +199,53 @@ Finalmente, si $V=V_1\oplus\cdots\oplus V_r$ es una descomposición en espacios 
   \end{obs}
 
   \begin{prop}
-    Suponga que $P_0(t)\in\K[t]$ es el polinomio minimal de $f$. Si $P(t)\in\K[t]$ es un polinomio anulador de $f$ entonces $P_0(t)$ divide a $P(t)$.
+    Suponga que $P_0(t)\in\K[t]$ es el polinomio minimal de $f$. Si $P(t)\in\K[t]$ es un polinomio anulador de $f$, entonces $P_0(t)$ divide a $P(t)$.
   \end{prop}
 
-  \dem Sean $Q(t)$ y $R(t)$ el cociente y el residuo en la división de $P(t)$ por $P_0(t)$, luego $\underline{O}=P(f)=Q(f)\circ P_0(f)+R(f)=R(f)$. Por ende, $R(t)$ es un polinomio anulador de $f$ y, como es de menor grado que el polinomio minimal, entonces $R(t)=0$, es decir que $P_0(t)$ divide a $P(t)$. \qed
+  \dem Sean $Q(t)$ y $R(t)$ el cociente y el residuo en la división de $P(t)$ por $P_0(t)$, luego $\underline{O}=P(f)=Q(f)\circ P_0(f)+R(f)=R(f)$. Por ende, $R(t)$ es un polinomio anulador de $f$, y como es de menor grado que el polinomio minimal, entonces $R(t)=0$, es decir que $P_0(t)$ divide a $P(t)$. \qed
 
   \begin{prop}\label{polinomio_minimal_estable_y_cociente}
-    Suponga que $P_0(t)\in\K[t]$ es el polinomio minimal de $f$. Si $W\le V$ es $f$-estable entonces los polinomios minimales de $f_W$ y $f_{/W}$ dividen a $P_0(t)$. 
+    Suponga que $P_0(t)\in\K[t]$ es el polinomio minimal de $f$. Si $W\le V$ es $f$-estable, entonces los polinomios minimales de $f_W$ y $f_{/W}$ dividen a $P_0(t)$. 
   \end{prop}
 
-  \dem Como $P_0(f)(W)=\{\overline{O}\}$, entonces $P_0(f_W)=\underline{O}$, es decir que $P_0(t)$ es un anulador de $f_W$ y, por la proposición anterior, el polinomio minimal de $f_W$ lo divide. Similarmente, como $P_0(f)(V)=\{\overline{O}\}\le W$, entonces $P_0(f_{/W})=\underline{O}$, es decir que $P_0(t)$ es un anulador de $f_{/W}$ y, por la proposición anterior, el polinomio minimal de $f_{/W}$ lo divide.
+  \dem Como $P_0(f)(W)=\{O\}$, entonces $P_0(f_W)=\underline{O}$, es decir que $P_0(t)$ es un anulador de $f_W$ y, por la proposición anterior, el polinomio minimal de $f_W$ lo divide. Similarmente, como $P_0(f)(V)=\{O\}\le W$, entonces $P_0(f_{/W})=\underline{O}$, es decir que $P_0(t)$ es un anulador de $f_{/W}$ y, por la proposición anterior, el polinomio minimal de $f_{/W}$ lo divide.
 
-\section{El polinomio caracterísito y el teorema de Cayley-Hamilton}
+\section*{Ejercicios}
+
+\begin{enumerate}
+  \item Complete la demostración de la observación \ref{observacion_definicion_polinomios_de_operadores}.(\ref{polinomios_de_operadores_conmutan}) en la que se afirma que, dados dos polinomios $P_1(t),P_2(t)\in \K[t]$ y un operador $f\in\End_\K(V)$, los dos operadores $P_1(f)$ y $P_2(f)$ conmutan.
+  \item Considere el operador de $\Q^3$ del ejercicio \ref{espacios_estables_ejercicios}.\ref{ejercicio_no_diagonalizable} dado por $f(x,y,z)=(-x+y-z,-2x+2z,-x+3y-z)$, junto con el subespacio $f$-cíclico $W=\langle v, f(v)\rangle$ donde $v=(0,0,1)$. Demuestre que los polinomio minimales de $f$, $f_W$ y $f_{/W}$ son respectivamente $t^3+2t^2+8t$, $t^2+2t+8$ y $t$.
+\end{enumerate}
+
+\section{El polinomio característico y el teorema de Cayley-Hamilton}
 
 El teorema de Cayley-Hamilton (teorema \ref{cayleyhamilton} abajo) nos permitirá generalizar la descomposición del teorema \ref{diagosiysolosi} con espacios estables más generales que los espacios propios. Esto se hace con el lema de los núcleos (proposición \ref{propdescomp} abajo).\\
-Como en la sección anterior, $V$ denota un espacio sobre $\K$ y $f$ un operador de $V$.
+Como en la sección anterior, $V$ denotará un espacio sobre $\K$ y $f$ un operador de $V$.
 
 \begin{obs}
-Del mismo modo en que definimos una matriz sobre los escalares como una familia de escalares indexados por dos índices, podemos definir matrices sobre $\K[t]$. A este conjunto lo denotaremos $M_{m\times n}(\mathbb{K}[t])$. Podemos sumar y multiplicar matrices con entradas polinomiales cuando las dimensiones de las matrices lo permiten. Además, podemos también hablar del determinante y de la traza de matrices cuadradas con entradas en $\mathbb{K}[t]$, los cuales ser\'an polinomios en $\mathbb{K}[t]$. De hecho, toda matriz con entradas en $\mathbb{K}[t]$ puede ser vista como un caso especial de una matriz con entradas en el cuerpo $\K(t)$.
+Del mismo modo en que definimos una matriz sobre los escalares como una familia de escalares indexados por dos índices, podemos definir matrices sobre $\K[t]$. A este conjunto lo denotaremos $M_{m\times n}(\K[t])$. Podemos sumar y multiplicar matrices con entradas polinomiales cuando las dimensiones de las matrices lo permiten. Además, podemos también hablar del determinante y de la traza de matrices cuadradas con entradas en $\K[t]$, los cuales ser\'an polinomios en $\K[t]$. De hecho, toda matriz con entradas en $\K[t]$ puede ser vista como un caso especial de una matriz con entradas en el cuerpo $\K(t)$.
 \end{obs}
 
 \begin{obs}
-Sea $n$ un entero positivo y $A$ una matriz en $M_{n\times n}(\mathbb{K})$. Dada cualquier $C\in M_{n\times n}(\mathbb{K})$, invertible, tenemos
+Sea $n$ un entero positivo y $A$ una matriz en $M_{n\times n}(\K)$. Dada cualquier $C\in M_{n\times n}(\K)$, invertible, tenemos
 \[
 \det(t I_n-A)=\det\Big(C^{-1}(t I_n-A)C\Big)=\det(t I_n-C^{-1}AC)
 \]
-donde $t I_n-A$ y $t I_n-C^{-1}AC$ son matrices en $M_{n\times n}(\mathbb{K}[t])$. Esta observaci\'on nos permite formular la siguiente definici\'on.
+donde $t I_n-A$ y $t I_n-C^{-1}AC$ son matrices en $M_{n\times n}(\K[t])$. Esta observaci\'on nos permite formular la siguiente definici\'on.
 \end{obs}
 
 \begin{defn}
-Suponga que $V$ tiene dimensi\'on finita $n$. Dado $f\in\End_\mathbb{K}(V)$, definimos el \emph{polinomio carater\'istico} de $f$ por
+Suponga que $V$ tiene dimensi\'on finita $n$. Dado $f\in\End_\K(V)$, definimos el \emph{polinomio carater\'istico} de $f$ por
 \[
-P_f(t)=\det(t I_n-A)\in \mathbb{K}[t]
+P_f(t)=\det(t I_n-A)\in \K[t]
 \]
-donde $A=\Big[f\Big]^{\mathcal{B}}_{\mathcal{B}}$ para cualquier base $\mathcal{B}$ de $V$. Similarmente, dada una matriz $A$ de tamaño $n\times n$, definimos su polinomio característico por
+donde $A$ es la matriz de $f$ para cualquier base $\mathcal{B}$ de $V$. Similarmente, dada una matriz $A$ de tamaño $n\times n$, definimos su polinomio característico por
 \[
-P_A(t)=\det(t I_n-A)\in \mathbb{K}[t]
+P_A(t)=\det(t I_n-A)\in \K[t]
 \]
 \end{defn}
 
-\begin{obs}
+\begin{obs}\label{dimension_y_grado_del_caracteristico}
   Si $V$ tiene dimensión finita, entonces el grado del polinomio característico de $f$ coincide con la dimensión de $V$.
 \end{obs}
 
@@ -213,7 +253,7 @@ P_A(t)=\det(t I_n-A)\in \mathbb{K}[t]
 Suponga que $V$ tiene dimensi\'on finita y sea $\lambda$ un escalar. Entonces, $\lambda$ es un valor propio de $f$ si y solo si $P_f(\lambda)=0$.
 \end{teo}
 
-\dem Sea $\mathcal{B}$ una base de $v$. El escalar $\lambda$ es un valor propio de $f$ si y solo si existe $v\in V$, con $v\ne 0$, tal que $f(v)=\lambda v$, o, equivalentemente, tal que $\left(\lambda\id_V-f\right)(v)=0$. Es decir $\lambda\in \mathbb{K}$ es un valor propio de $f$ si y solo si $\lambda\id_V-f$ no es inyectiva, lo que equivale a
+\dem Sea $\mathcal{B}$ una base de $V$. El escalar $\lambda$ es un valor propio de $f$ si y solo si existe $v\in V$, con $v\ne 0$, tal que $f(v)=\lambda v$, o, equivalentemente, tal que $\left(\lambda\id_V-f\right)(v)=0$. Es decir $\lambda\in \K$ es un valor propio de $f$ si y solo si $\lambda\id_V-f$ no es inyectiva, lo que equivale a
 \[
 0=\det(\lambda\id_V-f)=\det\left(\lambda I_n-\Big[f\Big]^{\mathcal{B}}_{\mathcal{B}}\right)=P_f(\lambda).
 \]
@@ -255,12 +295,12 @@ donde $A$ es una matriz compañera. Ahora, $P_f(t)=P_A(t)P_C(t)$, así, por las 
    = & P_C(f)(f^r(v)-a_{r-1}f^{r-1}(v)-\cdots-a_{1}f(v)+a_0v)\\
    = & P_C(f)(O)=O.
 \end{align*}
-Por ende, para todo $v\in V$, se tiene $P_f(f)(v)=\underline{O}$, es decir que $P_f(f)=\underline{O}$.\qed
+Por ende, para todo $v\in V$, se tiene $P_f(f)(v)=O$, es decir que $P_f(f)=O$.\qed
 
 \begin{obs}[Otra demostración del teorema de Cayley-Hamilton]
   Antes de mostrar la otra demostración arrancamos con una serie de observaciones.
   \begin{enumerate}[(i)]
-    \item Dada una matriz $C=\left(c_{ij}(t)\right)$ en $M_{m\times n}(\mathbb{K}[t])$ definimos la transformaci\'on lineal
+    \item Dada una matriz $C=\left(c_{ij}(t)\right)$ en $M_{m\times n}(\K[t])$ definimos la transformaci\'on lineal
       \begin{eqnarray*}
         C_f:\underbrace{V\times\cdots\times V}_{n-\textrm{veces}} &\longrightarrow & \underbrace{V\times\cdots\times V}_{m-\textrm{veces}}
       \end{eqnarray*}
@@ -268,11 +308,11 @@ Por ende, para todo $v\in V$, se tiene $P_f(f)(v)=\underline{O}$, es decir que $
       \[
         C_f(v_1,\ldots,v_n)=\left(\sum_{j=1}^nc_{1j}(f)(v_j),\ldots,\sum_{j=1}^nc_{mj}(f)(v_j)\right).
       \]
-  \item Note que si nos son dadas $C_1\in M_{m\times n}(\mathbb{K}[t])$ y $C_2\in M_{l\times m}(\mathbb{K}[t])$, entonces 
+  \item Note que si nos son dadas $C_1\in M_{m\times n}(\K[t])$ y $C_2\in M_{l\times m}(\K[t])$, entonces 
       \[
         \left(C_1C_2\right)_f=C_{1 f}\circ C_{2 f}. 
       \]
-  \item Dada $B=\left(b_{ij}(t)\right)$ en $M_{n\times n}(\mathbb{K}[t])$, denotamos por $\tilde{B}$ su matriz de cofactores, es decir la matriz $n\times n$ con entradas en $\mathbb{K}[t]$ cuya $ij$-\'esima entrada es
+  \item Dada $B=\left(b_{ij}(t)\right)$ en $M_{n\times n}(\K[t])$, denotamos por $\tilde{B}$ su matriz de cofactores, es decir la matriz $n\times n$ con entradas en $\K[t]$ cuya $ij$-\'esima entrada es
       \[
          \tilde{b}_{ij}(t)=(-1)^{i+j}\det(B_{ij})
       \]
@@ -288,7 +328,7 @@ Por ende, para todo $v\in V$, se tiene $P_f(f)(v)=\underline{O}$, es decir que $
     donde $\tilde{B}^\intercal$ denota la transpuesta de $\tilde{B}$, es decir la matriz $n\times n$ cuya $ij$-\'esima entrada es la entrada $ji$-\'esima de $\tilde{B}$.
   \end{enumerate}
   Para hacer la demostración, consideramos una base $\mathcal{B}=(v_1,\ldots,v_n)$ de $V$ y la matriz $A=(a_{ij})$ de $f$ para $\B$, de forma que $$f(v_j)=a_{1j}v_1+\cdots+a_{nj}v_n=\sum_{i=1}^na_{ij}v_i.$$
-Tomamos la matriz $B=tI_n-A$ de $M_{n\times n}(\mathbb{K}[t])$. Entonces $\tilde{B}B^\intercal=P_f(t)I_n$. Ahora, por un lado se tiene
+Al tomar para $B$ la matriz $B=tI_n-A$ en $M_{n\times n}(\K[t])$ obtenemos $\det\left(\tilde{B}B^\intercal\right)=P_f(t)I_n$, pues $\det(B)=P_f(t)$. Ahora, por un lado se tiene
 \begin{eqnarray*}
 \left(B^\intercal\right)_f(v_1,\ldots, v_n)& = & \left(f(v_1)-\left(\sum_{j=1}^na_{j1}v_j\right),\ldots, f(v_n)-\left(\sum_{j=1}^na_{jn}v_j\right)\right)\\
    & = & \left(0,\ldots, 0\right);
@@ -298,34 +338,41 @@ y, por otro,
 \left(P_f(f)(v_1),\ldots, P_f(f)(v_n)\right) & = & \left(P_f(t)I_n\right)_f(v_1,\ldots,v_n)\\
     & = & \left( \tilde{B}B^T \right)_f (v_1,\ldots, v_n)\\
     & = & \tilde{B}_f\circ\left(B^\intercal\right)_f(v_1,\ldots,v_n)\\
-    & = & \tilde{B}_f(0,\ldots, 0)\\
-    & = & (0,\ldots, 0).
+    & = & \tilde{B}_f(0,\ldots,0)\\
+    & = & (0,\ldots,0).
 \end{eqnarray*}
-Luego $\mathcal{B}\subseteq \ker\left(P_f(f)\right)$ y as\'i, por el teorema \ref{unitrlin} de rigidez de las transformaciones lineales se sigue $P_f(f)=\underline{O}$.
+Luego, todos los vectores de la base $\mathcal{B}$ se anulan con $P_f(f)$, y as\'i, por el teorema \ref{unitrlin} de rigidez de las transformaciones lineales se sigue $P_f(f)=\underline{O}$.
 \end{obs}
 
-\section{Descomposición en espacios estables}
+\section*{Ejercicios}
+\begin{enumerate}
+  \item Verifique la fórmula en la observación \ref{observacionesparacayleyhamilton} para polinomio característico de una matriz compañera.
+  \item Verifique el teorema \ref{cayleyhamilton} de Cayley-Hamilton para el operador de $\Q^3$ del ejercicio \ref{espacios_estables_ejercicios}.\ref{ejercicio_diagonalizable} dado por $f(x,y,z)=(-2x,-2x+2z,-2x+2y)$.
+  \item Verifique el teorema \ref{cayleyhamilton} de Cayley-Hamilton para el operador de $\Q^3$ del ejercicio \ref{espacios_estables_ejercicios}.\ref{ejercicio_no_diagonalizable} dado por $f(x,y,z)=(-x+y-z,-2x+2z,-x+3y-z)$.
+\end{enumerate}
+
+\section{Descomposición en espacios estables y el lema de los núcleos}
 
 Sea $V$ un espacio vectorial sobre $\K$ y $f$ un operador de $V$.
 
 \begin{prop}
-Para todo $P(t)\in \mathbb{K}[t]$, el subespacio $V_0=\ker\left(P(f)\right)$ es estable bajo $f$.
+Para todo $P(t)\in \K[t]$, el subespacio $V_0=\ker\left(P(f)\right)$ es estable bajo $f$.
 \end{prop}
 
-\dem Dado $v\in V_0$, por la observación \ref{observacionesparacayleyhamilton}(i), se tiene
+\dem Dado $v\in V_0$, por la observación \ref{observacion_definicion_polinomios_de_operadores}.(\ref{polinomios_de_operadores_conmutan}), se tiene
 $$P(f)\left(f(v)\right)=P(f)\circ f(v)=f\circ P(f)(v)=f(O)=O.$$
 Es decir que $f(v)\in\ker\left(P(f)\right)=V_0$.\qed
 
 \begin{prop}
-Suponga que $P(t)\in \mathbb{K}[t]$ es tal que
+Suponga que $P(t)\in \K[t]$ es tal que
 \begin{enumerate}[(i)]
   \item $P(f)=0$,
   \item $P(t)=P_1(t)P_2(t)$ con $\left(P_1(t),P_2(t)\right)=1$ y $P_1(t),P_2(t)\in\K[t]$.
 \end{enumerate}
-Entonces $V=V_1\oplus V_2$ y $f=f_{V_1}\oplus f_{V_2}$, donde $V_1=\ker\left(P_1(f)\right)$ y $V_2=\ker\left(P_2(f)\right)$. M\'as a\'un, existen polinomios $\Pi_1(t),\Pi_2(t)\in \mathbb{K}[t]$, tales que $p_1=\Pi_1(f)$ y $p_2=\Pi_2(f)$ son las proyecciones en $V_1$ y $V_2$ relativas a la descomposición $V=V_1\oplus V_2$ (ver la observación \ref{sumayproyeccion}).
+Entonces, $V=V_1\oplus V_2$ y $f=f_{V_1}\oplus f_{V_2}$, donde $V_1=\ker\left(P_1(f)\right)$ y $V_2=\ker\left(P_2(f)\right)$. M\'as a\'un, existen polinomios $\Pi_1(t),\Pi_2(t)\in \K[t]$, tales que $p_1=\Pi_1(f)$ y $p_2=\Pi_2(f)$ son las proyecciones en $V_1$ y $V_2$ relativas a la descomposición $V=V_1\oplus V_2$ (ver la observación \ref{sumayproyeccion}).
 \end{prop}
 
-\dem Como $\left(P_1(t),P_2(t)\right)=1$, entonces existen $Q_1,Q_2\in \mathbb{K}[t]$ tales que $Q_1(t)P_1(t)+P_2(t)Q_2(t)=1$, luego
+\dem Como $\left(P_1(t),P_2(t)\right)=1$, entonces existen $Q_1,Q_2\in \K[t]$ tales que $Q_1(t)P_1(t)+P_2(t)Q_2(t)=1$, luego
 \[
 Q_1(f)\circ P_1(f)+P_2(f)\circ Q_2(f)=\id_V,
 \]
@@ -342,22 +389,22 @@ P_2(f)(v_2)=P_2(f)\circ Q_1(f)\circ P_1(f)(v)=Q_1(f)\circ P_1(f)\circ P_2(f) (v)
 \]
 y
 \[
-P_1(f)(v_1)=P_1(f)\circ Q_2(f)\circ P_2(f)(v)=Q_2(f)\circ P_1(f)\circ P_2(f) (v)=Q_2(f)\circ P(f)(v)=0
+P_1(f)(v_1)=P_1(f)\circ Q_2(f)\circ P_2(f)(v)=Q_2(f)\circ P_1(f)\circ P_2(f) (v)=Q_2(f)\circ P(f)(v)=0,
 \]
-luego $v_2\in V_2$ y $v_1\in V_1$. As\'i $V=V_1+V_2$. Pero, si asumimos que $v\in V_1\cap V_2$, es decir que $P_1(f)(v)=O=P_2(f)(v)$, entonces en la descomposición $v=v_2+v1$, se tiene $v_2=O=v_1$, luego $v=O$. Por ende, $V_1\cap V_2=\{O\}$ y $V=V_1\oplus V_2$. Por la proposición anterior $V_1$ y $V_2$ son $f$-estables luego $f=f_{V_1}\oplus f_{V_2}$.\\
+luego $v_2\in V_2$ y $v_1\in V_1$. As\'i, $V=V_1+V_2$. Pero, si asumimos que $v\in V_1\cap V_2$, es decir que $P_1(f)(v)=O=P_2(f)(v)$, entonces en la descomposición $v=v_2+v_1$, se tiene $v_2=O=v_1$, luego $v=O$. Por ende, $V_1\cap V_2=\{O\}$ y $V=V_1\oplus V_2$. Por la proposición anterior $V_1$ y $V_2$ son $f$-estables, luego $f=f_{V_1}\oplus f_{V_2}$.\\
 Finalmente, si $\Pi_1(t)=Q_2(t)P_2(t)$ y $\Pi_2(t)=Q_1(t)P_1(t)$, tenemos $\Pi_2(t)+\Pi_1(t)=1$ y así
 $\Pi_2(f)+\Pi_1(f)=\id_V$, es decir $p_1+p_2=\id_V$, para $p_1=\Pi_1(f)$ y $p_2=\Pi_2(f)$. Ahora, como
 \[
-\Pi_1(t)\Pi_2(t)=Q_2(t)P_2(t)Q_1(t)P_1(t)=Q_2(t)Q_1(t)P(t)
+\Pi_1(t)\Pi_2(t)=Q_2(t)P_2(t)Q_1(t)P_1(t)=Q_2(t)Q_1(t)P(t),
 \]
-entonces $\Pi_1(f)\circ\Pi_2(f)=0$, es decir $p_1\circ p_2=\underline{O}$, y como
+entonces $\Pi_1(f)\circ\Pi_2(f)=\underline{O}$, es decir $p_1\circ p_2=\underline{O}$, y como
 \[
-\Pi_2(t)=\Pi_2(t)\left(\Pi_2(t)+\Pi_1(t)\right)=\left(\Pi_2(t)\right)^2+\Pi_2(t)\Pi_1(t)
+\Pi_2(t)=\Pi_2(t)\left(\Pi_2(t)+\Pi_1(t)\right)=\left(\Pi_2(t)\right)^2+\Pi_2(t)\Pi_1(t),
 \]
-entonces $\Pi_2(f)=\left(\Pi_2(f)\right)^2$, es decir $p_2^2=p_2$. Similarmente, $p_1^2=p_1$. Por el teorema \ref{proysumadir}, basta ver que $\im(p_1)=V_1$ y $\im(p_2)=V_2$. Pero, si $v_1\in V_1=\ker(P_1(f))$ entonces $v_1=p_1(v_1)+p_2(v_1)=p_1(v_1)+Q_1(f)\circ P_1(f)(v_1)=p_1(v_1)$, luego $v_1\in\im(p_1)$; y si $v_1\in\im(p_1)$ entonces para algún $v\in V$ tenemos $v_1=p_1(v)$, así $P_1(f)(v_1)=P_1(f)\circ p_1(v)=P_1(f)\circ Q_2(f)\circ P_2(f)=Q_2(f)\circ P(f)(v)=O$, luego $v_1\in\ker(P_1(f))$. Similarmente se establece $\im(p_2)=V_2$.\qed
+entonces $\Pi_2(f)=\left(\Pi_2(f)\right)^2$, es decir $p_2^2=p_2$. Similarmente, $p_1^2=p_1$. Por el teorema \ref{proysumadir}, basta ver que $\im(p_1)=V_1$ y $\im(p_2)=V_2$. Pero, si $v_1\in V_1=\ker(P_1(f))$, entonces $v_1=p_1(v_1)+p_2(v_1)=p_1(v_1)+Q_1(f)\circ P_1(f)(v_1)=p_1(v_1)$, luego $v_1\in\im(p_1)$; y si $v_1\in\im(p_1)$, entonces para algún $v\in V$ tenemos $v_1=p_1(v)$, así $P_1(f)(v_1)=P_1(f)\circ p_1(v)=P_1(f)\circ Q_2(f)\circ P_2(f)=Q_2(f)\circ P(f)(v)=O$, luego $v_1\in\ker(P_1(f))$. Similarmente se establece $\im(p_2)=V_2$.\qed
 
 \begin{ejem}
-Sea $p\in\End_\mathbb{K}(V)$ una proyecci\'on, es decir que $p^2=p$. Luego, si $P(t)=t^2-t$ entonces $P(p)=p^2-p=\underline{O}$ y $P(t)=P_1(t)P_2(t)$ con $P_1(t)=t-1$ y $P_2(t)=t$. Note que $\left(P_1(t),P_2(t)\right)=1$ y $$-P_1(t)+P_2(t)=1.$$
+Sea $p\in\End_\K(V)$ una proyecci\'on, es decir que $p^2=p$. Luego, si $P(t)=t^2-t$, entonces $P(p)=p^2-p=\underline{O}$ y $P(t)=P_1(t)P_2(t)$ con $P_1(t)=t-1$ y $P_2(t)=t$. Note que $\left(P_1(t),P_2(t)\right)=1$ y $$-P_1(t)+P_2(t)=1.$$
 As\'i, por la demostraci\'on de la propiedad anterior obtenemos que, para
 \begin{align*}
 V_1 & =\ker\left(P_1(p)\right)=\ker\left(p-\id_V\right)\\
@@ -372,35 +419,35 @@ entonces $p_1=\Pi_2(p)=p$ y $p_2=\Pi_1(p)=\id_V-p$ son proyecciones sobre $V_1$ 
 \end{ejem}
 
 \begin{ejem}
-Suponga que $\chara(\mathbb{K})\ne 2$, de forma que $-1\ne 1$ y sea $f\in\End_\mathbb{K}\left(\mathbb{K}^2\right)$ el operador
+Suponga que $\chara(\K)\ne 2$, de forma que $-1\ne 1$ y sea $f\in\End_\K\left(\K^2\right)$ el operador
 $$f(x,y)=(y,x).$$
 La matriz canónica de $f$ es
 $$\left[ f\right]^{\mathcal{C}}_{\mathcal{C}}=
 \left[\begin{array}{rr}
 0 & 1\\ 1 & 0
 \end{array}\right]$$
-y así su polinomio característico es $P_f(t)=t^2-1$. Note que $P_f(t)=P_1(t)P_2(t)$ con $P_1(t)=t-1$ y $P_2(t)=t+1$. Por el teorema de Cayley-Hamilton se tiene $P_f(f)=0$, y por la proposición, $\mathbb{K}^2=V_1\oplus V_2$ donde $V_1=\ker\left(f-\id_{\mathbb{K}^2}\right)$ y $V_2=\ker\left(f+\id_{\mathbb{K}^2}\right)$. Como
-$$-\frac{1}{2}P_1(t)+\frac{1}{2}P_2(t)=1$$
+y así su polinomio característico es $P_f(t)=t^2-1$. Note que $P_f(t)=P_1(t)P_2(t)$ con $P_1(t)=t-1$ y $P_2(t)=t+1$. Por el teorema de Cayley-Hamilton se tiene $P_f(f)=0$, y por la proposición, $\K^2=V_1\oplus V_2$ donde $V_1=\ker\left(f-\id_{\K^2}\right)$ y $V_2=\ker\left(f+\id_{\K^2}\right)$. Como
+$$-\frac{1}{2}P_1(t)+\frac{1}{2}P_2(t)=1,$$
 entonces
-$$p_1=\frac{1}{2}\left(f+\id_{\mathbb{K}^2}\right)\quad\textrm{ y }\quad p_2=-\frac{1}{2}\left(f-\id_{\mathbb{K}^2}\right)$$
+$$p_1=\frac{1}{2}\left(f+\id_{\K^2}\right)\quad\textrm{ y }\quad p_2=-\frac{1}{2}\left(f-\id_{\K^2}\right)$$
 son las proyecciones sobre $V_1$ y $V_2$. Expl\'icitamente:
 $$p_1(x,y)=\frac{1}{2}(x+y,x+y)\quad\textrm{ y }\quad p_2(x,y)=\frac{1}{2}(x-y,y-x).$$
 \end{ejem}
 
 \begin{obs}
-Bajo las hipótesis de la proposición, para $i\{1,2\}$, tenemos $P_i(f_{V_i})=\underline{O}$, pues $V_i=\ker\left(P_i(f)\right)$. As\'i, podemos a su vez aplicar el resultado a $f_{V_i}$ dada un factorización de $P_i(t)$ en factores primos relativos. Inductivamente, obtenemos el siguiente resultado. 
+Bajo las hipótesis de la proposición, para $i\in\{1,2\}$, tenemos $P_i(f_{V_i})=\underline{O}$, pues $V_i=\ker\left(P_i(f)\right)$. As\'i, podemos a su vez aplicar el resultado a $f_{V_i}$ dada un factorización de $P_i(t)$ en factores primos relativos. Inductivamente, obtenemos el siguiente resultado. 
 \end{obs}
 
 \begin{prop}[Lema de los núcleos]\label{propdescomp}
-  Suponga que $P(t)\in \mathbb{K}[t]$ es tal que
+  Suponga que $P(t)\in \K[t]$ es tal que
   \begin{enumerate}[(i)]
     \item $P(f)=0$,
     \item $P(t)=P_1(t)\cdots P_r(t)$ con $P_1(t),\ldots,P_r(t)\in\K[t]$ y $\left(P_i(t),P_j(t)\right)=1$ si $i\ne j$.
   \end{enumerate}
-  Entonces $V=V_1\oplus\cdots\oplus V_r$ y $f=f_{V_1}\oplus\cdots\oplus f_{V_r}$, donde $V_i=\ker\left(P_i(f)\right)$ para $i\in\{1,\ldots,r\}$. M\'as a\'un, existen polinomios $\Pi_1(t),\ldots,\Pi_r(t)\in \mathbb{K}[t]$, tales que $p_i=\Pi_i(f)$ es la proyección sobre $V_i$ relativa a la descomposición $V=V_1\oplus\cdots,\oplus V_r$ (ver la observación \ref{sumayproyeccion}).
+  Entonces, $V=V_1\oplus\cdots\oplus V_r$ y $f=f_{V_1}\oplus\cdots\oplus f_{V_r}$, donde $V_i=\ker\left(P_i(f)\right)$ para $i\in\{1,\ldots,r\}$. M\'as a\'un, existen polinomios $\Pi_1(t),\ldots,\Pi_r(t)\in \K[t]$, tales que $p_i=\Pi_i(f)$ es la proyección sobre $V_i$ relativa a la descomposición $V=V_1\oplus\cdots\oplus V_r$ (ver la observación \ref{sumayproyeccion}).
 \end{prop}
 
-\dem Aunque la demostración se sigue por inducción de la proposición anterior, se puede hacer directamente de forma similar. Para $i=1,\ldots,r$ tomamos $R_i(t)=\prod_{j\ne i}P_j(t)$, y de esta forma se obtiene $(R_1(t),\ldots,R_r(t))=1$. Así que existen $Q_1(t),\ldots, Q_n(t)\in \mathbb{K}[t]$ para los cuales $Q_1(t)R_1(t)+\cdots Q_n(t)R_n(t)=1$. Si para $i\in\{1,\ldots,r\}$ definimos $\Pi_i(t)=Q_i(t)R_i(t)$ y $p_i=\Pi_i(f)$, entonces tenemos $p_1+\cdots+p_r=\id_V$,
+\dem Aunque la demostración se sigue por inducción de la proposición anterior, se puede hacer directamente de forma similar. Para $i=1,\ldots,r$ tomamos $R_i(t)=\prod_{j\ne i}P_j(t)$, y de esta forma se obtiene $(R_1(t),\ldots,R_r(t))=1$. Así que existen $Q_1(t),\ldots, Q_n(t)\in \K[t]$ para los cuales $Q_1(t)R_1(t)+\cdots Q_n(t)R_n(t)=1$. Si para $i\in\{1,\ldots,r\}$ definimos $\Pi_i(t)=Q_i(t)R_i(t)$ y $p_i=\Pi_i(f)$, entonces tenemos $p_1+\cdots+p_r=\id_V$,
 $p_i\circ p_j=\underline{O}$ cuando $i\ne j$, y $p_i^2=p_i$. El resultado se sigue del teorema \ref{proysumadir} si demostramos que $\im(p_i)=V_i$. Para ello, dado $v_i\in V_i=\ker(P_i(f))$ se tiene
 $$v_i=p_1(v_i)+\cdots+p_r(v_i)=p_i(v_i)+\sum_{j\ne i} Q_j(f)\circ R_j(f)(v_i),$$
 pero $P_i(t)$ es factor de los $R_j(t)$, así $R_j(f)(v_i)=O$, luego $v_i=p_i(v_i)$ y $v_i\in\im(p_i)$. Recíprocamente, dado $v_i\in\im(p_i)$, tenemos $v_i=p_i(v)$ para algún $v\in V$, entonces 
@@ -445,7 +492,7 @@ $$\Big[ p_3\Big]_\mathcal{C}^\mathcal{C}=\left[\begin{array}{rrrr}
 1 & -1 & 1 & 0\\
 -1 & 0 & 1 & 1\\
 3 & -2 & 1 & -1
-\end{array}\right] $$
+\end{array}\right],$$
 as\'i pues $V_1=\im(p_1)=\langle (1,2,1,0)\rangle$, $V_2=\im(p_2)=\langle (1,1,0,1)\rangle$ y $V_3=\im(p_3)=\langle (1,1,1,1),(1,0,-1,1)\rangle$. Para $\mathcal{B}=\left((1,2,1,0),(1,1,0,1),(1,1,1,1),(1,0,-1,1)\right)$, la matriz de $f$ es
 $$\Big[ f\Big]_\mathcal{B}^\mathcal{B}=\left[\begin{array}{r|r|rr}
 -1 & 0 & 0 & 0\\
@@ -466,7 +513,7 @@ la cual es una matriz diagonal por bloques, donde cada bloque describe la restri
   Si $V$ tiene dimensión finita, entonces todo factor irreducible del polinomio característico de $f$ es un factor del polinomio minimal de $f$.
 \end{lema}
 
-\dem Denotemos el polinomio minimal de $f$ por $Q(t)$. Sea $P(t)$ un factor irreducible del polinomio característico $P_f(t)$. Por inducción en la dimensión $n$ de $\dim_\K(V)$, estableceremos que $P(t)$ divide a $Q(t)$; siendo el caso $n=1$ inmediato, pues en él $P(t)=P_f(t)=Q(t)$. Como en la demostración del teorema \ref{cayleyhamilton} de Cayley-Hamilton, tomamos un $v\in V$ no nulo y así existe un entero $r$ maximal tal que $\{v,f(v),\ldots,f^{r-1}(v)\}$ es linealmente independiente. El subespacio $W=\langle v,f(v),\ldots,f^{r-1}(v)\rangle$ es $f$-estable y si $\B$ es una base de $V$ que extiende la base $\B_0$ de $W$, entonces la matrix de $f$ para $\B$ es de la forma
+\dem Denotemos el polinomio minimal de $f$ por $Q(t)$. Sea $P(t)$ un factor irreducible del polinomio característico $P_f(t)$. Por inducción en la dimensión $n=\dim_\K(V)$, estableceremos que $P(t)$ divide a $Q(t)$; siendo el caso $n=1$ inmediato, pues en él $P(t)=P_f(t)=Q(t)$. Como en la demostración del teorema \ref{cayleyhamilton} de Cayley-Hamilton, tomamos un $v\in V$ no nulo y así existe un entero $r$ maximal tal que $\{v,f(v),\ldots,f^{r-1}(v)\}$ es linealmente independiente. El subespacio $W=\langle v,f(v),\ldots,f^{r-1}(v)\rangle$ es $f$-estable y si $\B$ es una base de $V$ que extiende la base $\B_0$ de $W$, entonces la matrix de $f$ para $\B$ es de la forma
 $$
   \left[f\right]_\B^\B=\left[\begin{array}{c|c}
     A & B\\
@@ -474,10 +521,10 @@ $$
     O & C
   \end{array}\right]
 $$
-donde $A$ es una matrix de $f_W$ y $C$ corresponde una matrix de $f_{/W}$. En particular, se tiene $P_f(t)=P_A(t)P_C(t)$ con $P_A(t)=P_{f_W}(t)$ y $P_C(t)=P_{f_{/W}}(t)$. Ahora, como $P(t)$ es un polinomio irreducible que divide a $P_f(t)$, entonces, por el lema \ref{factorizacionunica} $P(t)$ divide a unos de los factores $P_{f_W}(t)$ ó $P_{f_{/W}}(t)$, que son ambos polinomios característicos. Luego, como $W$ y $V/W$ tienen dimensión estrictamente menor que $V$, por hipótesis de inducción se sigue que $P(t)$ divide al polinomio minimal de $f_W$ ó de $f_{/W}$ y como estos, por la proposición \ref{polinomio_minimal_estable_y_cociente}, dividen a $Q(t)$, se sigue que $P(t)$ divide a $Q(t)$.\qed
+donde $A$ es una matrix de $f_W$ y $C$ corresponde una matrix de $f_{/W}$. En particular, se tiene $P_f(t)=P_A(t)P_C(t)$ con $P_A(t)=P_{f_W}(t)$ y $P_C(t)=P_{f_{/W}}(t)$. Ahora, como $P(t)$ es un polinomio irreducible que divide a $P_f(t)$, entonces, por el lema \ref{factorizacionunica}, $P(t)$ divide a unos de los factores $P_{f_W}(t)$ ó $P_{f_{/W}}(t)$, que son ambos polinomios característicos. Luego, como $W$ y $V/W$ tienen dimensión estrictamente menor que $V$, por hipótesis de inducción se sigue que $P(t)$ divide al polinomio minimal de $f_W$ ó de $f_{/W}$ y como estos, por la proposición \ref{polinomio_minimal_estable_y_cociente}, dividen a $Q(t)$, se sigue que $P(t)$ divide a $Q(t)$.\qed
 
 \begin{teo}
-  Si $V$ tiene dimensión finita y $$P_f(t)=P_1(t)^{m_1}\cdots P_r(t)^{m_r}$$ es una factorización del polinomio característico donde los $P_i(t)$ son polinomios irreducibles dos a dos distintos, entonces el operador $f$ se descompone como $$f=f_{V_1}\oplus\cdots\oplus f_{V_r}$$ donde, para $i\in\{1,\ldots,r\}$, los espacios $f$-estables $V_i=\ker\left(P_i(f)^{m_i}\right)$ son tales que $\dim(V_i)=\deg\left(P_i(t)^{m_i}\right)$ y el polinomio característico de las restricciones $f_{V_i}$ es $P_{f_{V_i}}(t)=P_i(t)^{m_i}$. Además, si $\B_i$ es una base de $V_i$ entonces la concatenación $\B=(\B_1|\cdots|\B_r)$ es una base de $V$ para la cual la matriz de $f$ es la matriz diagonal por bloques
+  Si $V$ tiene dimensión finita y $$P_f(t)=P_1(t)^{m_1}\cdots P_r(t)^{m_r}$$ es una factorización del polinomio característico donde los $P_i(t)$ son polinomios irreducibles dos a dos distintos, entonces el operador $f$ se descompone como $$f=f_{V_1}\oplus\cdots\oplus f_{V_r}$$ donde, para $i\in\{1,\ldots,r\}$, los espacios $f$-estables $V_i=\ker\left(P_i(f)^{m_i}\right)$ tienen dimensión $\dim(V_i)=m_i\deg\left(P_i(t)\right)$ y los polinomios característicos de las restricciones $f_{V_i}$ son $P_{f_{V_i}}(t)=P_i(t)^{m_i}$. Además, si $\B_i$ es una base de $V_i$, entonces la concatenación $\B=(\B_1|\cdots|\B_r)$ es una base de $V$ para la cual la matriz de $f$ es la matriz diagonal por bloques
   \[
     \Big[f\Big]^\mathcal{B}_\mathcal{B}=\left[\begin{array}{c|c|c}
       A_1 & \cdots & 0\\
@@ -490,64 +537,98 @@ donde $A$ es una matrix de $f_W$ y $C$ corresponde una matrix de $f_{/W}$. En pa
   donde cada bloque $A_i$ es la matriz de $f_{V_i}$ para $\B_i$. 
 \end{teo}
 
-\dem Del teorema \ref{cayleyhamilton} de Cayley-Hamilton y la proposición \ref{propdescomp} se sigue la descomposición $f=f_{V_1}\oplus\cdots\oplus f_{V_r}$ donde, para $i\in\{1,\ldots,r\}$, los espacios $V_i=\ker\left(P_i(f)^{m_i}\right)$ son $f$-estables. Por ello, si $\B_i$ es una base de $V_i$ entonces la concatenación $\B=(\B_1|\cdots|\B_r)$ es una base de $V$ para la cual la matriz de $f$ es una matriz diagonal por bloques donde cada bloque $A_i$ es la matriz de $f_{V_i}$ para $\B_i$. Falta ver que $\dim(V_i)=\deg\left(P_i(t)^{m_i}\right)$ y el polinomio característico de las restricciones $f_{V_i}$ es $P_{f_{V_i}}=P_i(f)^{m_i}$. De hecho, si $n_i=\dim(V_i)$, al calcular el polinomio característico $P_f(t)$ con la matriz de $f$ para $\B$ obtenemos
+\dem Del teorema \ref{cayleyhamilton} de Cayley-Hamilton y la proposición \ref{propdescomp} se sigue la descomposición $f=f_{V_1}\oplus\cdots\oplus f_{V_r}$ donde, para $i\in\{1,\ldots,r\}$, los espacios $V_i=\ker\left(P_i(f)^{m_i}\right)$ son $f$-estables. Por ello, si $\B_i$ es una base de $V_i$, entonces la concatenación $\B=(\B_1|\cdots|\B_r)$ es una base de $V$ para la cual la matriz de $f$ es una matriz diagonal por bloques donde cada bloque $A_i$ es la matriz de $f_{V_i}$ para $\B_i$. Falta ver que $\dim(V_i)=\deg\left(P_i(t)^{m_i}\right)$ y el polinomio característico de las restricciones $f_{V_i}$ es $P_{f_{V_i}}=P_i(f)^{m_i}$.\\
+De hecho, si $n_i=\dim(V_i)$, al calcular el polinomio característico $P_f(t)$ con la matriz de $f$ para $\B$ obtenemos
 $$P_f(t)=\det(tI_{n_1}-A_1)\cdots\det(tI_{n_r}-A_r)=P_{f_{V_1}}(t)\cdots P_{f_{V_r}}(t).$$
-Luego $P_1(t)^{m_1}\cdots P_r(t)^{m_r}=P_{f_{V_1}}(t)\cdots P_{f_{V_r}}(t)$. Suponga por contradicción que $P_j(t)$ divide a $P_{f_{V_i}}(t)$ con $i\ne j$, entonces, por el lema anterior, $P_j(t)$ divide al polinomio minimal de $f_{V_i}$. Pero, $P_i(t)^{m_i}$ es un polinomio anulador de $f_{V_i}$, entonces el polinomio minimal de $f_{V_i}$ lo divide y así $P_j(t)$ divide a $P_i(t)^{m_i}$, lo cuál contradice el teorema \ref{factorizacionunica} de factorización única. 
-\qed 
+Luego, $P_1(t)^{m_1}\cdots P_r(t)^{m_r}=P_{f_{V_1}}(t)\cdots P_{f_{V_r}}(t)$. Suponga por contradicción que $P_j(t)$ divide a $P_{f_{V_i}}(t)$ con $i\ne j$, entonces, por el lema anterior, $P_j(t)$ divide al polinomio minimal de $f_{V_i}$. Pero, $P_i(t)^{m_i}$ es un polinomio anulador de $f_{V_i}$, entonces el polinomio minimal de $f_{V_i}$ lo divide y así $P_j(t)$ divide a $P_i(t)^{m_i}$, lo cuál contradice el teorema \ref{factorizacionunica} de factorización única. Así, $P_{f_{V_i}}(t)=P_i(t)^{m_i}$ y se sigue que $\dim(V_i)=m_i\deg\left(P_i(t)\right)$ (ver la observación \ref{dimension_y_grado_del_caracteristico}). 
+\qed
 
-\section{Operadores nilpotentes, espacios c\'iclicos y forma de Jordan}
+\section*{Ejercicios}
+Considere los siguientes operadores:
+\begin{enumerate}[(i)]
+\item $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^3,\mathbb{Q}^3)$ donde
+$$f(x,y,z)=(4x,3x+y-3z,3x-3y+z),$$
+\item $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^3,\mathbb{Q}^3)$ donde
+$$f(x,y,z)=\frac{1}{2}(5x-y+z,5x-y-3z,4x-4y)$$
+\item $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^4,\mathbb{Q}^4)$ donde
+$$f(x,y,z,w)=\frac{1}{3}(11x-y-z+2w,14x+2y-7z-4w,13x-5y+z-5w,13x-8y-5z+4w)$$
+\item $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^4,\mathbb{Q}^4)$ donde
+$$f(x,y,z,w)=\dfrac{1}{3}(-2x+y+4z-2w,3x-6y+6z,2x-4y+5z+2w,-6y+6z+3w),$$
+\item $f\in\textrm{Hom}_{\mathbb{R}}(\mathbb{R}^4,\mathbb{R}^4)$ donde
+$$f(x,y,z,w)=\dfrac{1}{3}(-2x+y+4z-2w,3x-6y+6z,2x-4y+5z+2w,-6y+6z+3w),$$
+\item $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^4,\mathbb{Q}^4)$ donde
+$$f(x,y,z,w)=\dfrac{1}{3}(9x-3y-6w,3x-3y+6z,8x-10y+5z-w,10x-8y+z+w),$$
+\item $f\in\textrm{Hom}_{\mathbb{C}}(\mathbb{C}^4,\mathbb{C}^4)$ donde
+$$f(x,y,z,w)=\dfrac{1}{3}(9x-3y-6w,3x-3y+6z,8x-10y+5z-w,10x-8y+z+w).$$
+\end{enumerate}
 
-Sea $f\in\End_\mathbb{K}(V)$ un operador.
+Para cada operador:
+\begin{enumerate}[(a)]
+\item encuentre la representaci\'on matricial de $f$ en la base can\'onica;
+\item encuentre la factorizaci\'on del polinomio caracter\'istico $P_f(t)$ como producto de potencias de polinomios irreducibles de $K[t]$:
+$$P_f(t)=\prod_{i=1}^n P_i(t)^{r_i}$$
+donde cada $P_i(t)\in\mathbb{K}[t]$ es irreducible;
+\item sean $V_i=\ker \left(P_i(f)^{r_i}\right)$, $i=1,\ldots,n$, y $p_1,\ldots,p_n$ las proyecciones sobre $V_1,\ldots,V_n$ respecto a la descomposici\'on
+$V=\bigoplus_{i=1}^n V_i,$
+encuentre polinomios $\Pi_1(t),\ldots,\Pi_n(t)\in K[t]$ tales que $\Pi_i(f)=p_i$, $i=1,\ldots,n$;
+\item encuentre una base de $V$ respecto a la cual la representaci\'on matricial de $f$ es diagonal por bloques de tama\~no $\dim(V_i)$, $i=1,\ldots,n$, y cada bloque corresponde a una representaci\'on matricial de $f\!\upharpoonright_{V_i}$.
+\end{enumerate}
 
-\begin{obs}
-Note que si $V$ tiene dimensi\'on finita y tomamos $f\in\End_\mathbb{K}(V)$, $P_f(f)=0$. Ahora suponga que $P_f(t)$ se descompone en factores lineales
+\section{Operadores nilpotentes y forma normal de Jordan}
+
+Sea $V$ un espacio vectorial sobre $\K$ y $f$ un operador de $V$.
+
+Suponga que $V$ tiene dimensi\'on finita y que $P_f(t)$ se descompone en factores lineales, es decir
 \[
-P_f(t)=(t-\lambda_1)^{m_1}(t-\lambda_2)^{m_2}\ldots(t-\lambda_n)^{m_n}, \quad \lambda_1,\lambda_2,\ldots,\lambda_n\in \mathbb{K}.
+P_f(t)=(t-\lambda_1)^{m_1}(t-\lambda_2)^{m_2}\ldots(t-\lambda_r)^{m_r}, \quad \lambda_1,\lambda_2,\ldots,\lambda_r\in \K.
 \]
 con $\lambda_i\ne\lambda_j$ si $i\ne j$. De esta forma, si $V_i=\ker\left((f-\lambda_i\id_V)^{m_i}\right)$, para $i=1,\ldots,n$,
 \[
-V=V_1\oplus V_2\oplus\cdots\oplus V_n
+V=V_1\oplus V_2\oplus\cdots\oplus V_n.
 \]
-y si adem\'as denotamos $g_i\in\Hom_K(V_i,V_i)$ a la restricci\'on de $f-\lambda_i\id_V$ a $V_i$, tenemos $g_i^{m_i}=0$. Este tipo de operadores, cuya potencia se anula, motivan la siguiente definici\'on.
-\end{obs}
+En particular, si $g_i\in\Hom_\K(V_i,V_i)$ es la restricci\'on de $f-\lambda_i\id_V$ a $V_i$, tenemos que para todo $v_i\in V_i$
+$$g_i^{m_i}(v_i)=(f-\lambda_i\id_V)^{m_i}(v_i)=O$$
+es decir que $g_i^{m_i}=\underline{O}$, y se tiene
+$$f=(\lambda_1\id_{V_1}+g_1)\oplus\ldots\oplus(\lambda_r\id_{V_r}+g_r).$$
+Esto justifica el estudio de operadores que se anulan a partir de una potencia.
 
 \begin{defn}
-Decimos que $f$ es nilpotente si existe $r\in\mathbb{Z}_{>0}$ tal que $f^r=0$, y al m\'inimo entre estos lo llamamos el grado de $f$.
+Decimos que $f$ es \emph{nilpotente} si existe $r\in\mathbb{Z}_{>0}$ tal que $f^r=\underline{O}$, y al m\'inimo entre estos lo llamamos el \emph{índice de nilpotencia} de $f$. Similarmente, una matriz $n\times n$ es \emph{nilpotencia} si alguna potencia se anula, y a la mínima potencia que la anula la llamamos el \emph{índice de nilpotencia}.
 \end{defn}
 
-\begin{pro}
-Suponga que $f$ es nilpotente de grado $r$, y $V\ne\{0\}$, entonces tenemos una cadena de contenencias estrictas
+\begin{prop}\label{contenencia_estricta}
+Suponga que $f$ es nilpotente de índice $r$, y que $V\ne\{O\}$, entonces tenemos una cadena de contenencias estrictas
 \[
-\{0\}<\ker(f)<\ker(f^2)<\ldots<\ker(f^r)=V.
+\{O\}<\ker(f)<\ker(f^2)<\ldots<\ker(f^r)=V.
 \]
-En particular si $V$ tiene dimensi\'on finita, $r\le\dim(V)$.
-\end{pro}
+En particular, si $V$ tiene dimensi\'on finita, entonces $r\le\dim(V)$.
+\end{prop}
 
-\dem Note primero que para todo $i\in\mathbb{Z}_{>0}$, si $v\in V$ es tal que $f^i(v)=0$, entonces $f^{i+1}(v)=0$, luego $\ker(f^i)\le\ker(f^{i+1})$.\\
-Si $r=1$, no hay nada que demostrar pues $f=0$ y as\'i la cadena corresponde a $\{0\}<V$. Ahora suponga que $r>1$, luego $f^{r-1}\ne 0$ y as\'i existe $v\in V$ tal que $f^{r-1}(v)\ne 0$. Note que para $i=1,\ldots,r-1$
+\dem Note primero que para todo $j\in\mathbb{Z}_{>0}$, si $v\in V$ es tal que $f^j(v)=0$, entonces $f^{j+1}(v)=0$, luego $\ker(f^j)\le\ker(f^{j+1})$.\\
+Si $r=1$, no hay nada que demostrar pues $f=\underline{O}$, y as\'i la cadena corresponde a $\{O\}<V$. Ahora suponga que $r>1$, luego $f^{r-1}\ne \underline{O}$, y as\'i existe $v\in V$ tal que $f^{r-1}(v)\ne O$. Note que para $j=1,\ldots,r-1$
 \begin{align*}
-f^{i-1}\left(f^{r-i}(v)\right) & =f^{r-1}(v)\ne 0,\textrm{ y }\\
-  f^i\left(f^{r-i}(v)\right) & =f^r(v)=0
+  f^{j-1}\left(f^{r-j}(v)\right) & =f^{r-1}(v)\ne O,\textrm{ y }\\
+  f^j\left(f^{r-j}(v)\right) & =f^r(v)=O,
 \end{align*}
-as\'i $f^{r-i}(v)\in \ker(f^i)\setminus \ker(f^{i-1})$ y tenemos una contenencia estricta $\ker(f^{i-1})<\ker(f^i)$.\\
-Suponga ahora que $V$ tiene dimensi\'on finita y denote, para $i=1,\ldots,r$, $n_i=\dim(\ker(f^i))$. Entonces
+luego se tiene $f^{r-j}(v)\in \ker(f^j)\setminus \ker(f^{j-1})$, y obtenemos la contenencia estricta $\ker(f^{i-1})<\ker(f^i)$.\\
+Suponga ahora que $V$ tiene dimensi\'on finita y denote $n_j=\dim(\ker(f^j))$. Entonces,
 \[
 0<n_1<n_2<\ldots<n_r=\dim(V)
 \]
 es una cadena de $r+1$ enteros estrictamente creciente que arranca en $0$, luego $1\le n_1$, $2\le n_2$, $\ldots$, $r\le n_r=\dim(V)$.\qed
 
 \begin{ejem}\label{ejnil1}
-Sea $f\in\Hom_K(K^4,K^4)$ definido por
+Sea $f\in\Hom_\K(\K^4,\K^4)$ el operador nilpotente de índice $4$ definido por
 $$f(x,y,z,w)=(y,z,w,0).$$
-As\'i
+As\'i,
 \begin{align*}
 f^2(x,y,z,w) & = (z,w,0,0),\\
 f^3(x,y,z,w) & = (w,0,0,0),\\
 f^4(x,y,z,w) & = (0,0,0,0)
 \end{align*}
-y si $n_i=\dim(\ker(f^i))$ entonces
+y
 $$n_1=1,\quad n_2=2,\quad n_3=3,\quad n_4=4.$$
-La representaci\'on matricial de $f$ en la base can\'onica $\mathcal{C}$ es
+La matriz canónica de $f$ es
 $$
 \left[f\right]^{\mathcal{C}}_{\mathcal{C}}=\left[\begin{array}{rrrr}
 0 & 1 & 0 & 0\\
@@ -556,20 +637,20 @@ $$
 0 & 0 & 0 & 0
 \end{array}\right]
 $$
-y el polinomio caracter\'istico es $P_f(t)=t^4$.
+y su polinomio caracter\'istico es $P_f(t)=t^4$.
 \end{ejem}
 
 \begin{ejem}\label{ejnil2}
-Sea $f\in\Hom_K(K^4,K^4)$ definido por
+Sea $f\in\Hom_\K(\K^4,\K^4)$ el operador nilpotente de índice $3$ definido por
 $$f(x,y,z,w)=(y,z,0,0).$$
-As\'i
+As\'i,
 \begin{align*}
 f^2(x,y,z,w) & = (z,0,0,0),\\
 f^3(x,y,z,w) & = (0,0,0,0)
 \end{align*}
-y si $n_i=\dim(\ker(f^i))$ entonces
+y
 $$n_1=2,\quad n_2=3,\quad n_3=4.$$
-La representaci\'on matricial de $f$ en la base can\'onica $\mathcal{C}$ es
+La matriz canónica de $f$ es
 $$
 \left[f\right]^{\mathcal{C}}_{\mathcal{C}}\left[\begin{array}{rrr|r}
 0 & 1 & 0 & 0\\
@@ -579,19 +660,19 @@ $$
 0 & 0 & 0 & 0
 \end{array}\right]
 $$
-y el polinomio caracter\'istico es $P_f(t)=t^4$.
+y su polinomio caracter\'istico es $P_f(t)=t^4$.
 \end{ejem}
 
 \begin{ejem}\label{ejnil3}
-Sea $f\in\Hom_K(K^4,K^4)$ definido por
+Sea $f\in\Hom_\K(\K^4,\K^4)$ el operador nilpotente de índice $2$ definido por
 $$f(x,y,z,w)=(y,0,w,0).$$
-As\'i
+As\'i,
 \begin{align*}
 f^2(x,y,z,w) & = (0,0,0,0)
 \end{align*}
-y si $n_i=\dim(\ker(f^i))$ entonces
+y
 $$n_1=2,\quad n_2=4$$
-La representaci\'on matricial de $f$ en la base can\'onica $\mathcal{C}$ es
+La matriz canónica de $f$ es
 $$
 \left[f\right]^{\mathcal{C}}_{\mathcal{C}}\left[\begin{array}{rr|rr}
 0 & 1 & 0 & 0\\
@@ -605,15 +686,15 @@ y el polinomio caracter\'istico es $P_f(t)=t^4$.
 \end{ejem}
 
 \begin{ejem}\label{ejnil4}
-Sea $f\in\Hom_K(K^4,K^4)$ definido por
+Sea $f\in\Hom_\K(\K^4,\K^4)$ el operador nilpotente de índice $2$ definido por
 $$f(x,y,z,w)=(y,0,0,0).$$
-As\'i
+As\'i,
 \begin{align*}
 f^2(x,y,z,w) & = (0,0,0,0)
 \end{align*}
-y si $n_i=\dim(\ker(f^i))$ entonces
-$$n_1=3,\quad n_2=4$$
-La representaci\'on matricial de $f$ en la base can\'onica $\mathcal{C}$ es
+y
+$$n_1=3,\quad n_2=4.$$
+La matriz canónica de $f$ es
 $$
 \left[f\right]^{\mathcal{C}}_{\mathcal{C}}\left[\begin{array}{rr|r|r}
 0 & 1 & 0 & 0\\
@@ -628,25 +709,47 @@ y el polinomio caracter\'istico es $P_f(t)=t^4$.
 \end{ejem}
 
 \begin{defn}
-Sea $v\in V$, si existe $k\in\mathbb{Z}_{>0}$ tal que $f^k(v)=0$, al m\'inimo entre estos los llamamos el orden de $v$ bajo $f$ y lo denotamos por $\ord_f(v)$.
+  Suponga que $f$ es nilpotente. Dado $v\in V$, al mínimo $k\in\mathbb{Z}_{>0}$ tal que $f^k(v)=O$ lo llamamos el \emph{índice} de $v$ (bajo $f$).
 \end{defn}
 
-\begin{pro}
-Sea $v\in V$, $v\ne 0$, y suponga que $k=\ord_f(v)$, entonces $S=\{v,f(v),\ldots,f^{k-1}(v)\}$ es linealmente independiente.
-\end{pro}
-
-\dem Suponga que $a_0,a_1,\ldots,a_{k-1}\in K$ son tales que
+\begin{obs}\label{descomposicion_de_nucleos}
+  Suponga que $f$ es nilpotente de índice $r$ y denotemos $K_j$ al núcleo $\ker(f^j)$, para $j\in\{0,1,\ldots,r\}$. En particular se tiene $K_0=\{O\}$ y $K_r=V$. Para $j=2,\ldots r$, la propiedad \ref{contenencia_estricta} indica que $K_{j-1}<K_{j}$, luego podemos tomar subespacios $K'_j\le K_j$ transversales a $K_{j-1}$, para así descomponer los núcleos $K_j$ como
 \[
-a_0v+a_1f(v)+\cdots+a_{k-1}f^{{k-1}}(v)=0.
+K_j=K_{j-1}\oplus K'_j.
 \]
-Aplicando $f^{k-1}$ a esta igualdad obtenemos $a_0f^{k-1}(v)=0$, pero $f^{k-1}(v)\ne 0$ luego $a_0=0$. Inductivamente, si hemos establecido que $a_0=a_1=\ldots=a_{i-1}=0$ para $0<i<k-1$, aplicando $f^{k-i-1}$ a la misma igualdad, obtenemos $a_if^{k-1}(v)=0$, luego $a_i=0$. As\'i $a_0=a_1=\ldots=a_{k-1}=0$.\qed
+  Ahora, note que el índice de todo $v\in K'_j$, salvo el origen, es $j$ y que el índice de $f(v)$ es $j-1$. Luego, podemos tomar los espacios $K'_j$ de forma tal que cumplan
+  \[
+  f\left(K'_j\right)\le K'_{j-1}.
+  \]
+  La manera de hacer esto es inductivamente: se toma primero $K'_{r}$ y una vez definido $K'_{j}$, se toma $K'_{j-1}$ que contenga $f(K'_j)$. Tenemos entonces
+  \begin{eqnarray*}
+  V & = & K_r\\
+     & = & K_{r-1}\oplus K'_r\\
+     & \vdots &\\
+     & = & K_1\oplus K'_2\oplus\cdots\oplus K'_r
+  \end{eqnarray*}
+  y
+  \[
+  K'_r\overset{f}\longrightarrow K'_{r-1}\overset{f}\longrightarrow\ldots\overset{f}\longrightarrow K'_2\overset{f}\longrightarrow K_1\overset{f}\longrightarrow \{O\}
+  \]
+\end{obs}
+
+\begin{prop}
+  Suponga que $f$ es nilpotente y que $v\in V$ tiene índice $k$. Entonces, $C=\{v,f(v),\ldots,f^{k-1}(v)\}$ es linealmente independiente.
+\end{prop}
+
+\dem Suponga que $c_0,c_1,\ldots,c_{k-1}\in K$ son tales que
+\[
+c_0v+c_1f(v)+\cdots+c_{k-1}f^{{k-1}}(v)=O.
+\]
+Aplicando $f^{k-1}$ a esta igualdad obtenemos $c_0f^{k-1}(v)=O$. Pero $f^{k-1}(v)\ne O$, luego $c_0=0$. Inductivamente, si hemos establecido que $c_0=c_1=\ldots=c_{i-1}=0$, al aplicar $f^{k-i-1}$ obtenemos $c_if^{k-1}(v)=O$ y así $c_i=0$. Por ende, obtenemos $c_0=c_1=\ldots=c_{k-1}=0$.\qed
 
 \begin{obs}\label{obsformajordannil}
-Suponga que $V$ tiene dimensi\'on finita y $f$ es nilpotente de grado $r=\dim(V)$. Si $v\in V$ es tal que $v\not\in\ker(f^{r-1})$ entonces $\ord_f(v)=r$, luego si $v_i=f^{r-i}(v)$ para $i=1,\ldots,r$, por la propiedad anterior
+Suponga que $V$ tiene dimensi\'on finita y $f$ es nilpotente de índice $r=\dim(V)$. Si $v\in V$ es tal que $v\not\in\ker(f^{r-1})$, entonces $v$ tiene índice $r$. Luego, si denotamos $v_i=f^{r-i}(v)$ para $i=1,\ldots,r$, por la propiedad anterior se obtiene que $V$ es cíclico bajo $f$,
 \[
-\mathcal{B}=\{v_1,\ldots,v_r\}=\{f^{r-1}(v),\ldots,f(v),v\}
+\mathcal{B}=(v_1,\ldots,v_r)=(f^{r-1}(v),\ldots,f(v),v)
 \]
-es una base de $V$; m\'as a\'un
+es una base de $V$, y
 \[
 \Big[f\Big]^{\mathcal{B}}_{\mathcal{B}}=\left[\begin{array}{ccccc}
 0 & 1 & 0 &\cdots & 0\\
@@ -656,62 +759,41 @@ es una base de $V$; m\'as a\'un
 0 & 0 & 0 & \cdots & 0
 \end{array}\right].
 \]
+Una matriz $n\times n$ como la anterior, con ceros en todas las entradas salvo en las entradas inmediatamente encima de la diagonal en donde hay unos, se denotará por $J_n(0)$.
 \end{obs}
 
-\begin{defn}
-Decimos que $V$ es c\'iclico bajo $f$ si
+\begin{defn}\label{base_de_jordan_0}
+Suponga que $V$ tiene dimensi\'on finita y $f$ es nilpotente de índice $r=\dim(V)$. Una \emph{base de Jordan de $V$ (relativa a $f$)} es una base de la forma
 \[
-S=\left\{f^i(v)\right\}_{i\in\mathbb{Z}_{>0}}
+\mathcal{B}_J=(f^{r-1}(v),\ldots,f(v),v),
 \]
-genera a $V$, es decir $\langle S\rangle=V$, para alg\'un $v\in V$ . En tal caso decimos que $v$ es un \emph{vector c\'iclico} relativo a $f$.
+o equivalentemente, una base $\B_J$ para la cual la matriz de $f$ es $J_n(0)$.
 \end{defn}
 
 \begin{obs}
-Si $V$ tiene dimensi\'on finita y $f\ne 0$ es nilpotente de grado $r=\dim(V)$, la observaci\'on anterior explica que $V$ es c\'iclico bajo $f$. 
+En caso de que $f$ sea nilpotente de índice estrictamente inferior a $\dim(V)$, el espacio $V$ no es c\'iclico, pero, como veremos en el siguiente teorema, se puede descomponer en subespacios cíclicos. Para su demostración establecemos un lema.
 \end{obs}
 
-\begin{defn}
-Suponga que $V$ tiene dimensi\'on finita y $f\ne 0$ es nilpotente de grado $r=\dim(V)$, una base de la forma
-\[
-\mathcal{B}=\{v_1,\ldots,v_r\},\qquad v_i=f^{r-i}(v_r)
-\]
-se llama una \emph{base de Jordan de $V$ relativa a $f$}.  
-\end{defn}
+\begin{lema}\label{independientes_van_a_independientes}
+  Suponga que $f$ es nilpotente de grado $r>1$. Fijamos un indice $j\in\{2,\ldots,r\}$, y consideramos los núcleos $K_j=\ker(f^j)$ y $K_{j-1}=\ker(f^{j-1})$. Si $K'_{j}\le K_j$ es tal que $K_j=K_{k-1}\oplus K'_i$, entonces, para toda colección $v_1,\ldots,v_{n'_j}\in K'_j$ linealmente independiente, se tiene que $f(v_1),\ldots,f(v_{n'_j})$ es linealmente independiente.
+\end{lema}
 
-\begin{obs}
-En caso de que $f$ sea nilpotente de grado inferior, $V$ no es c\'iclico, pero se puede descomponer en subespacios invariantes bajo $f$ y c\'iclicos bajo la restricci\'on de $f$ a ellos. Esto es el contenido del siguiente teorema.
-\end{obs}
+\dem En la observación \ref{descomposicion_de_nucleos} vimos que por construcción todos los vectores en $K'_j$, a excepción de $O$, tienen indice bajo $f$ igual a $j$. Suponga ahora que $c_1,\ldots,c_m$ son escalares tales que $c_1f(v_1)+\ldots+c_{n'_j}f(v_{n'_j})=O$, entonces $f(c_1v_1+\ldots+c_{n'_j}v_{n'_j})=O$, luego el vector $c_1v_1+\ldots+c_mv_m$ tiene indice $1$ y así, $c_1v_1+\ldots+c_{n'_j}v_{n'_j}=O$. Por ende, se sigue que $c_1=\ldots=c_{n'_j}=0$.\qed
 
 \begin{teo}\label{formajordannil}
-Suponga que $V$ tiene dimensi\'on finita y que $f\ne 0$ es nilpotente de grado $r$. Sea $n=\dim\left(\ker(f)\right)$. Entonces existen $n$ subespacios invariantes bajo $f$, $V_1,\ldots, V_n$ tales que  
-\[
-V=V_1\oplus\cdots\oplus V_n
-\]
-y si $f_i\in\Hom_K(V_i,V_i)$ es la restricci\'on de $f$ a $V_i$, para $i=1,\ldots,n$, entonces $V_i$ c\'iclico bajo $f_i$.
+  Suponga que $V$ tiene dimensi\'on finita y $f$ es nilpotente de grado $r>1$. Si $m=\dim\left(\ker(f)\right)$, entonces $V$ se descompone en $m$ subespacios $f$-cíclicos.
 \end{teo}
 
 \dem
-Denotemos $K_i=\ker(f^i)$, de forma que $K_0=\{0\}$ y $K_r=V$. Note que para $i=1,\ldots,r-1$, $K_i<K_{i+1}$. Podemos as\'i descomponer para cada $i=2,\ldots r$
-\[
-K_i=K_{i-1}\oplus K'_i.
-\]
-De forma que si $v\in K'_i$, $v\ne 0$, entonces $\ord_f(v)=i$. Por lo tanto
-\[
-f\left(K'_i\right)\le K'_{i-1}.
-\]
-Tenemos entonces
-\begin{eqnarray*}
-V & = & K_r\\
-   & = & K_{r-1}\oplus K'_r\\
-   & \vdots &\\
-   & = & K_1\oplus K'_2\oplus\cdots\oplus K'_r
-\end{eqnarray*}
+Para $i\in\{0,1,\ldots,r\}$, denotamos $K_j=\ker(f^j)$. Como en la observación \ref{descomposicion_de_nucleos}, para $,\in\{2,\ldots,n\}$, tomamos subespacios espacios $K'_j\le K_j$ tales que $f\left(K'_j\right)\le K'_{j-1}$ y así,
+$$V =  K_1\oplus K'_2\oplus\cdots\oplus K'_r$$
 y
 \[
-K'_r\overset{f}\longrightarrow K'_{r-1}\overset{f}\longrightarrow\ldots\overset{f}\longrightarrow K'_2\overset{f}\longrightarrow K_1\overset{f}\longrightarrow \{0\}
+K'_r\overset{f}\longrightarrow K'_{r-1}\overset{f}\longrightarrow\ldots\overset{f}\longrightarrow K'_2\overset{f}\longrightarrow K_1\overset{f}\longrightarrow \{O\}.
 \]
-Se trata entonces de escoger una base de $V$ que sea compatible con esta descomposici\'on y esta cadena de im\'agenes bajo $f$. Denote $n_i=\dim(K_i)$ y $n'_i=\dim(K'_i)$, para $i=2,\ldots,r$, y $n_1=n=\dim(K_1)$ de forma que
-$$n_i=n'_i+n_{i-1}$$
+Para identificar los $m$ subespacios cíclicos, construiremos una base de $V$ arrancando por una base $\B_r$ de $K'_r$ que una vez extendida a una base $\B_j$ de $K'_{j}\oplus\cdots\oplus K'_{r-1}\oplus K'_{r}$ la extenderemos a una de $K'_{j-1}\oplus K'_{j}\oplus\cdots\oplus K'_{r}$ que contenga $f(\B_j)$; lo cual se puede hacer gracias al lema \ref{independientes_van_a_independientes} anterior.\\
+Para $j=2,\ldots,r$, denotaremos $n_j=\dim(K_j)$ y $n'_j=\dim(K'_j)$, y $n_1=n'_1=m=\dim(K_1)$ de forma que
+$$n_j=n'_j+n_{j-1}$$
 y
 \begin{align*}
 \dim(V)& =n_r\\
@@ -719,30 +801,26 @@ y
  & \vdots\\
  & =n'_r+n'_{r-1}+\cdots+n_2\\
  & =n'_r+n'_{r-1}+\cdots+n'_2+n_1\\
- & =n'_r+n'_{r-1}+\cdots+n'_2+n
+ & =n'_r+n'_{r-1}+\cdots+n'_2+n'_1\\
+ & =n'_r+n'_{r-1}+\cdots+n'_2+m
 \end{align*}
-Sea $\mathcal{B}_r=\{v_{r,1},\ldots,v_{r,n'_r}\}\subseteq V$ una base de $K'_r$. Para $i=1,\ldots n'_r$, sea $$v_{r-1,i}=f(v_{r,i}).$$ Note que $f(\mathcal{B}_r)=\{v_{r-1,1},\ldots,v_{r-1,n'_r}\}\subseteq K'_{r-1}$ es linealmente independiente. De hecho si
+Sea $\mathcal{B}_r=(v_{r,1},\ldots,v_{r,n'_r})$ una base de $K'_r$. Para $i\in\{1,\ldots,n'_r\}$, denotamos $v_{r-1,i}=f(v_{r,i})$. Entonces, por el lema \ref{independientes_van_a_independientes}, $f(\mathcal{B}_r)=(v_{r-1,1},\ldots,v_{r-1,n'_r})$ forman un conjunto de vectores en $K'_{r-1}$ linealmente independiente.\\
+Sea $\mathcal{B}_{r-1}=(v_{r-1,1},\ldots,v_{r-1,n'_{r-1}})$ un base de $K'_{r-1}$ que extiende a $f(\mathcal{B}_r)$. Para $i\in\{1,\ldots,n'_{r-1}\}$, denotamos $v_{r-2,i}=f(v_{r-1,i})$. Entonces, por el lema \ref{independientes_van_a_independientes}, $f(\mathcal{B}_{r-1})=(v_{r-2,1},\ldots,v_{r-2,n'_{r-1}})$ forman un conjunto de vectores en $K'_{r-2}$ linealmente independiente.\\
+Iterativamente, obtenemos bases $\B_r$, $\B_{r-1}$, $\ldots$, $\B_2$ y $\B_1$ respectivamente de $K'_r$, $K'_{r-1}$, $\ldots$, $K'_2$ y $K_1$ tales que $f(\mathcal{B}_{j+1})\subseteq\mathcal{B}_j$ para $i\in\{1,\ldots,r-1\}$. Además, la concatenación
 \[
-a_1v_{r-1,1}+\cdots+a_{n'_r}v_{r-1,n'_r}=0,
+\mathcal{B}=\left(\mathcal{B}_1| \mathcal{B}_2|\ldots| \mathcal{B}_r\right)
 \]
-entonces
-\[
-a_1f(v_{r,1})+\cdots+a_{n'_r}f(v_{r,n'_r})=0
-\]
-luego $a_1v_{r,1}+\cdots+a_{n'_r}v_{r,n'_r}\in K_1\cap K'_r$; por lo tanto $a_1v_{r,1}+\cdots+a_{n'_r}v_{r,n'_r}=0$ y $a_1=\ldots=a_{n'_r}=0$.\\
-Sea $\mathcal{B}_{r-1}=\{v_{r-1,1},\ldots,v_{r-1,n'_{r-1}}\}$ un base de $K'_{r-1}$ que contiene a $f(\mathcal{B}_r)$. Para $i=1,\ldots n'_{r-1}$, sea $$v_{r-2,i}=f(v_{r-1,i}).$$ Similarmente, note que $f(\mathcal{B}_{r-1})=\{v_{r-2,1},\ldots,v_{r-2,n'_{r-1}}\}\subseteq K'_{r-2}$ es linealmente independiente.\\
-Iterativamente obtenemos bases $\mathcal{B}_1,\mathcal{B}_2,\ldots,\mathcal{B}_r$ respectivamente de $K_1,K'_2,\ldots,K'_r$ con $f(\mathcal{B}_{i+1})\subseteq\mathcal{B}_i$ para $i=1,\ldots,r-1$. En particular
-\[
-\mathcal{B}=\mathcal{B}_1\cup \mathcal{B}_2\cup\ldots\cup \mathcal{B}_r
-\]
-es una base de $V$. Defina (ver Figura \ref{edificios})
+es una base de $V$.\\
+Note que en la notación de los vectores que componen a $\B$, el subíndice $j$ de $v_{j,i}$ determina su indice bajo $f$ y el espacio $K'_j$ al que pertenece, y el subíndice $i$ indica que es el $i$-ésimo vector entre los $n'_j$ de la base $\B_j$ de $K'_j$. Definimos (ver la figura \ref{ciclicos})
 \begin{eqnarray*}
-V_1 & = & \langle v_{j,1}\in \mathcal{B}\ |\ 1\le \dim(K'_j)\rangle \\
-V_2 & = & \langle v_{j,2}\in \mathcal{B}\ |\ 2\le \dim(K'_j)\rangle \\
+V_1 & = & \langle v_{j,1}\in \mathcal{B}\ |\ 1\le n'_j\rangle \\
+V_2 & = & \langle v_{j,2}\in \mathcal{B}\ |\ 2\le n'_j\rangle \\
        & \vdots & \\
-V_n & = & \langle v_{j,n}\in \mathcal{B}\ |\ n\le \dim(K'_j)\rangle
+V_m & = & \langle v_{j,m}\in \mathcal{B}\ |\ m\le n'_j\rangle
 \end{eqnarray*}
-de esta forma por construcci\'on cada $V_i$, $i=1,\ldots, n$, son invariantes bajo $f$ y c\'iclicos bajo $f_i$.\qed 
+de esta forma, por construcci\'on, obtenemos la descomposición
+$$V=V_1\oplus V_2\oplus \cdots\oplus V_m$$
+en subespacios $f$-c\'iclicos.\qed 
 
 \begin{figure}[!hbp]
 \centering
@@ -792,7 +870,7 @@ de esta forma por construcci\'on cada $V_i$, $i=1,\ldots, n$, son invariantes ba
     \node (vdots31) [right of=vnr-11] {$\cdots$};
     \node (vn21) [right of=vdots31] {$v_{1,n'_2}$};
     \node (vdots41) [right of=vn21] {$\cdots$};
-    \node (vn11) [right of=vdots41] {$v_{1,n}$};
+    \node (vn11) [right of=vdots41] {$v_{1,m}$};
     
     \node (v10) [below of=v11] {$0$};    
     \node (v20) [below of=v21] {$0$};
@@ -814,7 +892,7 @@ de esta forma por construcci\'on cada $V_i$, $i=1,\ldots, n$, son invariantes ba
     \node (Vdots3) [below of=vdots30] {$\cdots$};
     \node (Vn2) [below of=vn20] {$V_{n'_2}$};
     \node (Vdots4) [below of=vdots40] {$\cdots$};
-    \node (Vn1) [below of=vn10] {$V_n$};
+    \node (Vn1) [below of=vn10] {$V_m$};
     
     \path[->] (Kr) edge node {} (Kr-1);
     \path[->] (v1r) edge  node {} (v1r-1);
@@ -849,67 +927,105 @@ de esta forma por construcci\'on cada $V_i$, $i=1,\ldots, n$, son invariantes ba
     \path[->] (vn11) edge node {} (vn10);    
 \end{tikzpicture}
 }
-\caption{Edificios colapsando}
-\label{edificios}
+\caption{Subespacios cíclicos colapsando}
+\label{ciclicos}
 \end{figure}
 
+\begin{obs}
+  \item Si nos apegamos a la notación de la demostración, el lema \ref{independientes_van_a_independientes} implica que $\dim_(K'_j)\le\dim(K'_{j-1})$, o equivalentemente $n'_j\le n'_{j-1}$, para $j\in\{2,\ldots,r\}$. En particular, el $j$-ésimo piso en la figura \ref{ciclicos} tiene menos vectores que el piso $j-1$.
+  \item Aunque el diagrama en la figura \ref{ciclicos} es algo complejo porque busca representar la situación genérica, en la práctica es bastante más concreto y sencillo. De hecho, lo usual es simplificarlo representando cada vector $v_{j,i}$ por un punto en la coordenada $(i,j)$ en el plano cartesiano. Note que, fijado un $j$, hay $n'_j=n_j-n_{j-1}$ puntos en el nivel $j$. 
+\end{obs}
+
 \begin{ejem}
-Si $f\in\Hom_K(K^4,K^4)$ est\'a definido como en Ejemplo \ref{ejnil1}
-$$f(x,y,z,w)=(y,z,w,0),$$
-entonces
-$$n=1,\quad n'_2=1,\quad n'_3=1,\quad n'_4=1.$$
+Para el operador $f(x,y,z,w)=(y,z,w,0)$ del ejemplo \ref{ejnil1} se tiene
+$$m=n'_1=1,\quad n'_2=1,\quad n'_3=1,\quad n'_4=1$$
+y así, el diagrama es\\
+\begin{center}
+  \begin{tikzpicture}[auto, node distance=0.6cm,>=latex']
+    \node (14) {$\bullet$};
+    \node (13) [below of=14]{$\bullet$};
+    \node (12) [below of=13]{$\bullet$};
+    \node (11) [below of=12]{$\bullet$};
+
+    \path[-] (14) edge node {} (13);
+    \path[-] (13) edge node {} (12);
+    \path[-] (12) edge node {} (11);
+  \end{tikzpicture}
+\end{center}
 \end{ejem}
 
 \begin{ejem}
-Si $f\in\Hom_K(K^4,K^4)$ est\'a definido como en Ejemplo \ref{ejnil2}
-$$f(x,y,z,w)=(y,z,0,0),$$
-entonces
-$$n=2,\quad n'_2=1,\quad n'_3=1.$$
+Para el operador $f(x,y,z,w)=(y,z,0,0)$ del ejemplo \ref{ejnil2} se tiene
+$$m=n'_1=2,\quad n'_2=1,\quad n'_3=1$$
+y así, el diagrama es\\
+\begin{center}
+  \begin{tikzpicture}[auto, node distance=0.6cm,>=latex']
+    \node (13) {$\bullet$};
+    \node (12) [below of=13]{$\bullet$};
+    \node (11) [below of=12]{$\bullet$};
+    \node (21) [right of=11]{$\bullet$};
+
+    \path[-] (13) edge node {} (12);
+    \path[-] (12) edge node {} (11);
+  \end{tikzpicture}
+\end{center}
 \end{ejem}
 
 \begin{ejem}
-Si $f\in\Hom_K(K^4,K^4)$ est\'a definido como en Ejemplo \ref{ejnil3}
-$$f(x,y,z,w)=(y,0,w,0),$$
-entonces
-$$n=2,\quad n'_2=2.$$
+Para el operador $f(x,y,z,w)=(y,0,w,0)$ del ejemplo \ref{ejnil3} se tiene
+$$m=n'_1=2,\quad n'_2=2$$
+y así, el diagrama es\\
+\begin{center}
+  \begin{tikzpicture}[auto, node distance=0.6cm,>=latex']
+    \node (12) {$\bullet$};
+    \node (22) [right of=12]{$\bullet$};
+    \node (11) [below of=12]{$\bullet$};
+    \node (21) [below of=22]{$\bullet$};
+
+    \path[-] (12) edge node {} (11);
+    \path[-] (22) edge node {} (21);
+  \end{tikzpicture}
+\end{center}
 \end{ejem}
 
 \begin{ejem}
-Si $f\in\Hom_K(K^4,K^4)$ est\'a definido como en Ejemplo \ref{ejnil4}
-$$f(x,y,z,w)=(y,0,0,0),$$
-entonces
-$$n=3,\quad n'_2=1.$$
+Para el operador $f(x,y,z,w)=(y,0,0,0)$ del ejemplo \ref{ejnil4} se tiene
+$$m=n_1'=3,\quad n'_2=1$$
+y así, el diagrama es\\
+\begin{center}
+  \begin{tikzpicture}[auto, node distance=0.6cm,>=latex']
+    \node (12) {$\bullet$};
+    \node (11) [below of=12]{$\bullet$};
+    \node (21) [right of=11]{$\bullet$};
+    \node (31) [right of=21]{$\bullet$};
+
+    \path[-] (12) edge node {} (11);
+  \end{tikzpicture}
+\end{center}
 \end{ejem}
 
 \begin{obs}\label{bloquesjordannil}
-Bajo la hip\'otesis del teorema, y usando la notaci\'on en \'el, obtenemos que para cada $V_i$, $i=1,\ldots,n$, tenemos una base de Jordan $\mathcal{B}_i$ relativa a $f_i$. De esta forma la uni\'on de ella forma una base $\mathcal{B}$ de $V$. La representaci\'on matricial de $f$ en la base $T$ es una matriz diagonal por bloques:
+Bajo la hip\'otesis y notación del teorema \ref{formajordannil} obtenemos que para cada $V_i$, $i=1,\ldots,m$, tenemos una base de Jordan $\mathcal{B}_{J,i}$ de $V_i$ relativa a $f_{V_i}$. De esta forma la uni\'on de ella forma una base $\mathcal{B}$ de $V$. La representaci\'on matricial de $f$ en la base $\B$ es una matriz diagonal por bloques:
 \[
-\Big[f\Big]^\mathcal{B}_\mathcal{B}=\left[\begin{array}{c|c|c|c}
-J_1 & 0 & \cdots & 0\\
+\Big[f\Big]^\mathcal{B}_\mathcal{B}=\left[\begin{array}{c|c|c}
+J_{r_1}(0) & \cdots & 0\\
 \hline
-0 & J_2 & \cdots & 0\\
+\vdots & \ddots & \vdots\\
 \hline
-\vdots & \vdots & \ddots & \vdots\\
-\hline
-0 & 0 & \cdots & J_n
+0 & \cdots & J_{r_m}(0)
 \end{array}\right] 
 \]
-donde cada $J_i=\Big[f\Big]^{\mathcal{B}_i}_{\mathcal{B}_i}$ es una matriz $\dim(V_i)\times\dim(V_i)$ de la forma en Observaci\'on \ref{obsformajordannil}.
+donde cada $J_{r_i}(0)$, con $r_i=\dim(V_i)$, es una matriz como en la observaci\'on \ref{obsformajordannil}.
 \end{obs}
 
 \begin{obs}
-Como corolario de la prueba del teorema tenemos que cuando $V$ tiene dimensi\'on finita y $f$ es nilpotente, la informaci\'on subministrada por las cantidades 
-\begin{eqnarray*}
-\dim(K_1) & = & n\\
-\dim(K_i)-\dim(K_{i-1}) & = & n'_i,\qquad i=2,\ldots,r
-\end{eqnarray*}
-son tales que  $n\ge n'_2\ge \ldots \ge n'_r$ y determinan univocamente la transformaci\'on $f$, salvo cambio de coordenadas. De hecho dadas dos transformaciones con igual informaci\'on, para cada una podemos encontrar una base de $V$ que arrojan la misma representaci\'on matricial. Espec\'ificamente, $n$ indica el n\'umero de bloques de Jordan y $n'_i$ el n\'umero de bloques de Jordan de tama\~no mayor o igual a $i$.
+Como corolario de la prueba del teorema y por la observación \ref{bloquesjordannil} anterior tenemos que cuando $V$ tiene dimensi\'on finita y $f$ es nilpotente de índice $r$, la informaci\'on subministrada por las cantidades $m=n'_1$, $n'_2$,  $\ldots$, $n'_r$ determinan univocamente la transformaci\'on $f$, salvo cambio de coordenadas. De hecho dadas dos transformaciones con igual informaci\'on, para cada una podemos encontrar una base de $V$ que arrojan la misma representaci\'on matricial. Espec\'ificamente, $m=n'_1$ indica el n\'umero de bloques de Jordan y $n'_j$ el n\'umero de bloques de Jordan de tama\~no mayor o igual a $j$.
 \end{obs}
 
 \begin{defn}
 Se le llama \emph{matriz en bloque de Jordan} a una matriz cuadrada $n\times n$ de la forma
 \[
-J_{\lambda,n}=\left[\begin{array}{ccccc}
+J_n(\lambda)=\left[\begin{array}{ccccc}
 \lambda & 1 & 0 &\cdots & 0\\
 0 & \lambda & 1 &\cdots & 0\\
 \vdots & \vdots & \ddots &\ddots & \vdots\\
@@ -917,151 +1033,176 @@ J_{\lambda,n}=\left[\begin{array}{ccccc}
 0 & 0 & 0 & \cdots & \lambda
 \end{array}\right].
 \]
+En particular, se tiene $J_n(\lambda)=J_n(0)+\lambda I_n$.
 \end{defn}
 
 \begin{lema}
-Suponga que $V$ tiene dimensi\'on finita y que $P(t)=(t-\lambda)^m\in K[t]$, es tal que $P(f)=0$. Entonces existe una base $\mathcal{B}$ de $V$ tal que la representaci\'on matricial de $f$ en esta base es
-es una matriz diagonal por bloques:
+Suponga que $V$ tiene dimensi\'on finita igual a $n$ y que $P(t)=(t-\lambda)^r\in \K[t]$ es un polinomio anulador de $f$. Entonces, existe una base $\mathcal{B}$ de $V$ para la cual la matriz de $f$ es
+es una matriz diagonal por bloques de Jordan:
 \[
-\Big[f\Big]^{\mathcal{B}}_{\mathcal{B}}=\left[\begin{array}{c|c|c|c}
-J_1 & 0 & \cdots & 0\\
+\Big[f\Big]^\mathcal{B}_\mathcal{B}=\left[\begin{array}{c|c|c}
+J_{r_1}(\lambda) & \cdots & 0\\
 \hline
-0 & J_2 & \cdots & 0\\
+\vdots & \ddots & \vdots\\
 \hline
-\vdots & \vdots & \ddots & \vdots\\
-\hline
-0 & 0 & \cdots & J_n
+0 & \cdots & J_{r_m}(\lambda)
 \end{array}\right] 
 \]
-donde cada $J_i$, $i=1,\ldots,n$ es una matriz en bloque de Jordan.
+con $r_1+r_2+\ldots+r_m=n$.
 \end{lema}
 
-\dem Tenemos $P(f)=(f-\lambda\id_V)^m=0$. Luego el operador $g=f-\lambda\id_V$ es nilpotente. Por Teorema \ref{formajordannil},
-\[
-V=V_1\oplus V_2\oplus\cdots\oplus V_n
-\]
-donde para cada $V_i$, $i=1,\ldots, n$, hay una base de la forma $\mathcal{B}_i=\{v_{1,i},\ldots,v_{m_i,i}\}$, con $\dim(V_i)=m_i$ y
-\[
-\begin{array}{rcccl}
-v_{m_i-1,i} & = & g(v_{m_i,i}) & = & f(v_{m_i,i})-\lambda v_{m_i,i}\\
-v_{m_i-2,i} & = & g(v_{m_i-1,i}) & = & f(v_{m_i-1,i})-\lambda v_{m_i-1,i}\\
- & \vdots & & \vdots & \\
-v_{1,i} & = & g(v_{2,i}) & = & f(v_{2,i})-\lambda v_{2,i}\\
-0 & = & g(v_{1,i}) & = & f(v_{1,i})-\lambda v_{1,i}.
-\end{array}
-\]
-As\'i,
-\begin{eqnarray*}
-f(v_{m_i,i}) & = & v_{m_i-1,i}+\lambda v_{m_i,i}\\
-f(v_{m_i-1,i}) & = & v_{m_i-2,i}+\lambda v_{m_i-1,i}\\
- & \vdots & \\
-f(v_{2,i}) & = & v_{1,i}+\lambda v_{2,i}\\
-f(v_{1,i}) & = & \lambda v_{1,i}.
-\end{eqnarray*}
-En particular, cada $V_i$ es invariante bajo $f$, luego, si $f_i\in\Hom_K(V_i,V_i)$ denota la restricci\'on de $f$ a $V_i$,
-$\Big[f_i\Big]^{\mathcal{B}_i}_{\mathcal{B}_i}=J_i$ es una matriz en bloque de Jordan. De esto, si $\mathcal{B}=\mathcal{B}_1\cup\ldots\cup \mathcal{B}_n$, la representaci\'on matricial $\Big[f\Big]^{\mathcal{B}}_{\mathcal{B}}$ tiene la forma buscada.\qed
+\dem Como $P(f)=(f-\lambda\id_V)^r=0$, entonces el operador $g=f-\lambda\id_V$ es nilpotente. Por el teorema \ref{formajordannil} $V$ se descompone en $m$ espacios $g$-cíclicos, y por la observación \ref{bloquesjordannil}, existe una base $\B$ para la cual la matriz de $g$ es diagonal por $m$ bloques de Jordan $J_{r_1}(0)$, $\ldots$, $J_{r_m}(0)$. Luego,
+\begin{align*}
+  \Big[f\Big]^\mathcal{B}_\mathcal{B} & = \Big[g+\lambda\id_V\Big]^\mathcal{B}_\mathcal{B}= \Big[g\Big]^\mathcal{B}_\mathcal{B}+\Big[\lambda\id_V\Big]^\mathcal{B}_\mathcal{B}\\
+   & = \left[\begin{array}{c|c|c}
+    J_{r_1}(0) & \cdots & 0\\
+    \hline
+    \vdots & \ddots & \vdots\\
+    \hline
+    0 & \cdots & J_{r_m}(0)
+    \end{array}\right] + \lambda I_m \\
+  & = \left[\begin{array}{c|c|c}
+    J_{r_1}(\lambda) & \cdots & 0\\
+    \hline
+    \vdots & \ddots & \vdots\\
+    \hline
+    0 & \cdots & J_{r_m}(\lambda)
+    \end{array}\right]
+\end{align*}
 
-\begin{teo}[Teorema de Jordan]
+\qed
+
+\begin{teo}[Teorema de Jordan]\label{teorema_de_jordan}
 Suponga que $V$ tiene dimensi\'on finita y que
 \[
-P_f(t)=(t-\lambda_1)^{m_1}(t-\lambda_2)^{m_2}\ldots(t-\lambda_r)^{m_r}, \quad \lambda_1,\lambda_2,\ldots,\lambda_r\in K.
+P_f(t)=(t-\lambda_1)^{m_1}(t-\lambda_2)^{m_2}\ldots(t-\lambda_r)^{m_r}, \quad \lambda_1,\lambda_2,\ldots,\lambda_r\in \K.
 \]
-Entonces existe una base $\mathcal{B}$ de $V$ tal que la representaci\'on matricial de $f$ en esta base es
-es una matriz diagonal por bloques de Jordan. 
+Entonces, existe una base $\mathcal{B}$ de $V$ tal que la matriz de $f$ es una matriz diagonal por bloques de Jordan. 
 \end{teo}
 
-\dem Sin perdida de generalidad podemos asumir que $\lambda_i\ne\lambda_j$ si $i\ne j$. As\'i
+\dem Sin perdida de generalidad podemos asumir que $\lambda_i\ne\lambda_j$ si $i\ne j$. As\'i,
 \[
 \left( (t-\lambda_i)^{m_i},(t-\lambda_j)^{m_j}\right)=1
 \]
-si $i\ne j$. Por el teorema de Caley-Hamilton $P_f(f)=0$, luego por Propiedad \ref{prodescomp},
+si $i\ne j$. Por el teorema de Cayley-Hamilton $P_f(f)=0$, luego por el lema de los núcleos (proposición \ref{propdescomp}), $V$ se descompone en
 \[
 V=V_1\oplus \ldots \oplus V_r
 \]
-donde cada $V_i=\ker\left((f-\lambda_i\id_V)^{m_i}\right)$, $i=1,\ldots,r$, es invariante bajo $f$. En particular, si $f_i\in\Hom_K(V_i,V_i)$ es la restricci\'on de $f$ a $V_i$, $i=1,\ldots,r$, $P_i(f_i)=0$, donde $P_i(t)=(t-\lambda_i)^{m_i}$. Por lo tanto, el lema implica que existe una base $\mathcal{B}_i$ de $V_i$ para la cual $\Big[f_i\Big]^{\mathcal{B}_i}_{\mathcal{B}_i}$ es una matriz diagonal por bloques de Jordan. Finalmente si $\mathcal{B}=\mathcal{B}_1\cup\ldots\cup \mathcal{B}_n$, la representaci\'on matricial $\Big[f\Big]^{\mathcal{B}}_{\mathcal{B}}$ tiene la forma afirmada.\qed
+donde cada $V_i=\ker\left((f-\lambda_i\id_V)^{m_i}\right)$, para $i\in\{1,\ldots,r\}$, es $f$-estable. En particular, el polinomio $P_i=(t-\lambda_i)^{m_i}$ es un anulador de $f_{V_i}$. Por lo tanto, el lema anterior implica que existe una base $\mathcal{B}_i$ de $V_i$ para la cual $\Big[f_i\Big]^{\mathcal{B}_i}_{\mathcal{B}_i}$ es una matriz diagonal por bloques de Jordan. Finalmente, para la concatenación de bases $\mathcal{B}=(\mathcal{B}_1|\ldots|\mathcal{B}_r)$, la matriz de $f$ tiene la forma buscada.\qed
 
-\begin{defn}
-Generalizamos la definici\'on anterior de base de Jordan. Si $V$ tiene dimensi\'on finita, decimos que una base de $V$ es una \emph{base de Jordan relativa a $f$} si la representaci\'on matricial de este operador en aquella base es diagonal en bloques de Jordan.
+\begin{defn}\label{base_de_jordan}
+Generalizamos la definici\'on \ref{base_de_jordan_0} de base de Jordan. Si $V$ tiene dimensi\'on finita, decimos que una base de $V$ es una \emph{base de Jordan (relativa a $f$)} si la matriz para aquella base es diagonal en bloques de Jordan, y a esta matriz la llamamos \emph{forma normal de Jordan de $f$}.
 \end{defn}
 
-\begin{lema}
-Sea $f\in\End_K(V)$. Si $\lambda_1,\ldots,\lambda_n\in K$ son valores propios, todos distintos, de $f$, y, para $i=1,\ldots,n$, $v_i\in V$ es un vector propio de $\lambda_i$, entonces $\{v_1,\ldots,v_n\}$ es linealmente independiente. 
-\end{lema}
+\section{Descomposición diagonalizable-nilpotente}
 
-\dem Por inducci\'on en $n$, siendo el caso base $n=1$ inmediato, pues $\{v_1\}$ es linealmente independiente si $v_1\ne 0$, la cual se cumple pues $v_1$ es vector propio. Para el paso inductivo, si $a_1,\ldots,a_n$ son tales que $a_1v_1+\cdots+a_nv_n=0$,por contradicci\'on podemos asumir que cada $a_i\ne 0$, o de lo contrario, por hipotesis de inducci\'on, si alg\'un $a_i$  es $0$ el resto tambi\'en lo son. Entonces
-\[
-0=(f-\lambda_n\id_V)(a_1v_1+\cdots+a_nv_n)=a_1(\lambda_1-\lambda_n)v_1+\cdots+a_{n-1}(\lambda_{n-1}-\lambda_n)v_{n-1};
-\]
-y as\'i, por hip\'otesis de inducci\'on, para $i=1,\ldots,n-1$, $a_i(\lambda_i-\lambda_n)=0$. Pero $a_i\ne 0$ y $\lambda_i-\lambda_n\ne 0$,  si $i\in\{1,\ldots,n-1\}$ , lo cual es una contradicci\'on.\qed
+Sea $V$ un espacio vectorial sobre $\K$ de dimensión finita y $f$ un operador de $V$.
 
-\begin{lema}
-Suponga que $f\in\End_K(V)$ es diagonalizable, entonces:
-\begin{enumerate}
-\item Si $V_0\ne\{0\}$ es invariante bajo $f$, su restricci\'on a $V_0$, $f_0\in\Hom_K(V_0,V_0)$, tambi\'en es diagonalizable. 
-\item Si  $g\in\End_K(V)$ es diagonalizable y $f\circ g=g\circ f$, entonces existe una familia $\{V_i\}_{i\in I}$ de espacios propios simult\'aneamente de $f$ y $g$ tal que $V=\bigoplus_{i\in I}V_i$. En particular si $v$ es un vector propio simult\'aneamente de $f$ y $g$, $v$ es un vector propio de $af+bg$ para todo $a,b\in K$.
-\end{enumerate}
-\end{lema} 
-
-\dem \begin{enumerate}
-\item Dado un valor propio $\lambda\in K$ de $f$, definimos $E_\lambda\le V$ como el subespacio generado por los vectores propios de $f$ asociados a $\lambda$, es decir $E_\lambda=\ker(f-\lambda\id_V)$, y $F_\lambda=V_0\cap E_\lambda$. Note que, como $f$ es diagonalizable, por el lema anterior,
+Suponga que el polinomio caracteristico de $f$ se factoriza en factores lineales
 \[
-V=\bigoplus_{i\in I} E_{\lambda_i}
+P_f(t)=(t-\lambda_1)^{m_1}(t-\lambda_2)^{m_2}\ldots(t-\lambda_r)^{m_r}, \quad \lambda_1,\lambda_2,\ldots,\lambda_r\in \K.
 \]
-donde $\{\lambda_i\}_{i\in I}$ es la colecci\'on de valores propios de $f$. Sea $v\in V_0$, $v\ne 0$, y
-\[
-v=v_1+\cdots+v_n
-\]
-una descomposici\'on en vectores propios asociados respectivamente a valores propios $\lambda_1, \ldots , \lambda_n\in K$. Por inducci\'on en $n$ veamos que $v_1,\ldots,v_n\in V_0$ siendo el caso base $n=1$ inmediato pues en tal caso $v_0=v_1$. Para el paso inductivo, como $V_0$ es invariante bajo $f$
-\[
-(f-\lambda_n\id_V)(v)=(\lambda_1-\lambda_n)v_1+\cdots+(\lambda_{n-1}-\lambda_{n})v_{n-1}
-\]
-tambi\'en pertenece a $V_0$. Luego por hip\'otesis inductiva , $(\lambda_1-\lambda_n)v_1, \ldots, (\lambda_{n-1}-\lambda_{n})v_{n-1}\in V_0$, as\'i pues $v_1, \ldots, v_{n-1}\in V_0$ y $v_n=v-v_1-\ldots-v_{n-1}\in V_0$. De donde
-\[
-V_0=\bigoplus_{i\in J} F_{\lambda_i},
-\]
-donde $J$ es la colecci\'on de $i\in I$ tales que $F_{\lambda_i}\ne\{0\}$. Entonces $f_0$ es diagonalizable tomando bases de cada $F_{\lambda_i}$, $i\in J$.
-\item Usando la notaci\'on de la demostraci\'on de la primera afirmaci\'on del lema, si $v\in E_{\lambda_i}$, $i\in I$,
-\[
-f\left(g(v)\right)=g\left(f(v)\right)=\lambda_ig(v),
-\]
-luego $E_{\lambda_i}$ es invariante bajo $g$. Por la primera parte del lema, la restricci\'on de $g$ a $E_{\lambda_i}$, $g_i\in\Hom_K (E_{\lambda_i},E_{\lambda_i})$ es diagonalizable. Luego $g$ es diagonalizable tomando bases de cada $E_{\lambda_i}$, $i\in I$. Los espacios propios generados por cada uno de estos elementos de estas bases forman una colecci\'on de espacios propios simult\'aneos cuya suma es una suma directa igual a $V$. \qed 
-\end{enumerate}   
+Por el teorema \ref{teorema_de_jordan} de Jordan, existe una base $\B$ de Jordan de $V$ relativa a $f$. En particular, si la forma normal de Jordan de $f$ tiene $s$ bloques, cada uno de tamaño $d_i$, con los primeros bloques con $\lambda_1$ en la diagonal, los siguientes $\lambda_2$, y así hasta los últimos con $\lambda_r$, entonces
+\begin{align*}
+  A & =\Big[f\Big]^\B_\B=
+  \left[\begin{array}{c|c|c}
+    J_{d_1}(\lambda_1) & \cdots & 0\\
+    \hline
+    \vdots & \ddots & \vdots\\
+    \hline
+    0 & \cdots & J_{d_s}(\lambda_r)
+  \end{array}\right]\\
+   & =
+  \underbrace{\left[\begin{array}{c|c|c}
+    \lambda_1I_{d_1}(0) & \cdots & 0\\
+    \hline
+    \vdots & \ddots & \vdots\\
+    \hline
+    0 & \cdots & \lambda_rI_{d_s}(0)
+  \end{array}\right]}_D+
+  \underbrace{\left[\begin{array}{c|c|c}
+    J_{d_1}(0) & \cdots & 0\\
+    \hline
+    \vdots & \ddots & \vdots\\
+    \hline
+    0 & \cdots & J_{d_s}(0)
+  \end{array}\right]}_N,
+\end{align*}
+así, $A=D+N$ donde $D$ es una matriz diagonal y $N$ una nilpotente.
 
 \begin{teo}[Descomposici\'on de Jordan-Chevalley]\label{descjorche}
-Suponga que $V$ tiene dimensi\'on finita y que
-\[
-P_f(t)=(t-\lambda_1)^{m_1}(t-\lambda_2)^{m_2}\ldots(t-\lambda_r)^{m_r}, \quad \lambda_1,\lambda_2,\ldots,\lambda_r\in K.
-\]
-donde $\lambda_i\ne\lambda_j$ si $i\ne j$. Entonces existen operadores $f_N,f_D\in\End_K(V)$, tales que
-\begin{enumerate}
-\item $f_D$ es diagonalizable y $f_N$ es nilpotente;
-\item $f_D+f_N=f$; y,
-\item $f_D\circ f_N=f_N\circ f_D$.
-\end{enumerate}
-M\'as a\'un, esta descomposici\'on es \'unica respecto a estas tres propiedades. Adem\'as existen polinomios $P_D(t),P_N(t)\in K[t]$ tales que $f_N=P_N(f)$ y $f_D=P_D(f)$.
+  Suponga que $V$ tiene dimensi\'on finita y que
+  \[
+  P_f(t)=(t-\lambda_1)^{m_1}(t-\lambda_2)^{m_2}\ldots(t-\lambda_r)^{m_r}, \quad \lambda_1,\lambda_2,\ldots,\lambda_r\in \K.
+  \]
+  Entonces, existen operadores $f_D,f_N\in\End_\K(V)$, tales que
+  \begin{enumerate}
+  \item $f_D$ es diagonalizable y $f_N$ es nilpotente;
+  \item $f_D+f_N=f$; y,
+  \item $f_D\circ f_N=f_N\circ f_D$.
+  \end{enumerate}
+  M\'as a\'un, esta descomposici\'on es \'unica respecto a estas tres propiedades. Adem\'as existen polinomios $P_D(t),P_N(t)\in \K[t]$ tales que $f_N=P_N(f)$ y $f_D=P_D(f)$.
 \end{teo}
+  
+  \dem \emph{(Existencia)} Defina $P_i(t)=(t-\lambda_i)^{m_i}$, $i=1,\ldots,n$. Por Propiedad \ref{propdescomp}, existen polinomios $\Pi_1(t),\ldots,\Pi_n(t)\in \K[t]$ tales que los operadores $\Pi_i(f)=p_i$, para $i\in\{1,\ldots,n\}$, son las proyecciones sobre los subespacios $V_i=\ker\left((f-\lambda_i\id_V)^{m_i}\right)$ respecto a la descomposici\'on 
+  \[
+  V=V_1\oplus \ldots \oplus V_r.
+  \]
+  Defina $P_D(t)=\lambda_1\Pi_1(t)+\cdots+\lambda_n\Pi_n(t)$, y $f_D=P_D(f)$. De esta forma, si $v_i\in V_i$,
+  \[
+  f_D(v_i)=\lambda_1p_1(v_i)+\cdots+\lambda_np_n(v_i)=\lambda_iv_i,
+  \]
+  y as\'i $f_D$ es diagonalizable por el teorema \ref{diagosiysolosi}. Defina $P_N(t)=t-P_D(t)$ y $f_N=P_N(f)=f-f_D$, luego se tiene $f_D+f_N=f$. Dado $v_i\in V_i$
+  \[
+  f_N(v_i)=f(v_i)-f_D(v_i)=f(v_i)-\lambda_i(v_i)=\left(f-\lambda_i\id_V\right)(v_i),
+  \]
+  luego la restricci\'on de $f_N$ a $V_i$ es nilpotente con índice $\le m_i$. Entonces, $f_N$ es nilpotente de grado $\le\max\{m_1,\ldots,m_n\}$. Finalmente, como dos operadores definidos por polinomios de un mismo operador conmutan se tiene
+  \[
+  f_D\circ f_N=P_D(f)\circ P_N(f)=P_N(f)\circ P_D(f)=f_N\circ f_D.
+  \]
+  Para la demostración de la unicidad de esta descomposición necesitamos los siguientes lemas.\qed
 
-\dem Defina $P_i(t)=(t-\lambda_i)^{m_i}$, $i=1,\ldots,n$. Por Propiedad \ref{prodescomp}, existen $\Pi_1(t),\ldots,\Pi_n(t)\in K[t]$ tales que $\Pi_i(f)=p_i$, $i=1,\ldots,n$, son las proyecciones sobre $V_i=\ker\left((f-\lambda_i\id_V)^{m_i}\right)$ respecto a la descomposici\'on 
-\[
-V=V_1\oplus \ldots \oplus V_r.
-\]
-Defina $P_D(t)=\lambda_1\Pi_1(t)+\cdots+\lambda_n\Pi_n(t)$, y $f_D=P_D(f)$. De esta forma, si $v_i\in V_i$,
-\[
-f_D(v_i)=\lambda_1p_1(v_i)+\cdots+\lambda_np_n(v_i)=\lambda_iv_i,
-\]
-y as\'i $f_D$ es diagonalizable por Teorema \ref{diagosiysolosi}. Defina $P_N(t)=t-P_D(t)$ y $f_N=P_N(f)=f-f_D$. De esta forma, $f_D+f_N=f$, y si $v_i\in V_i$
-\[
-f_N(v_i)=f(v_i)-f_D(v_i)=f(v_i)-\lambda_i(v_i)=\left(f-\lambda_i\id_V\right)(v_i),
-\]
-luego la restricci\'on de $f_N$ a $V_i$ es nilpotente de grado $\le m_i$. De donde $f_N$ es nilpotente de grado $\le\max\{m_1,\ldots,m_n\}$. Finalmente,
-\[
-f_D\circ f_N=P_D(f)\circ P_N(f)=P_N(f)\circ P_D(f)=f_N\circ f_D.
-\]
-Si $f'_D,f'_N\in\End_K(V)$ conmutan y son respectivamente diagonalizable y nilpotente tales que $f=f'_D+f'_N$, entonces
-\[
-f\circ f'_D=(f'_D+f'_N)f'_D=f'_D\circ f'_D+f'_N\circ f'_D=f'_D\circ f'_D+f'_D\circ f'_N=f'_D\circ f,
-\]
-es decir $f$ y $f'_D$ conmutan. Por lo cual, $P_D(f)=f_D$ y $f'_D$ tambi\'en lo hacen.\\
-Entonces $f_D$ y $f'_D$ son diagonalizables y conmutan. Ahora, si $v$ es un vector propio com\'un, entonces $v$ es un vector propio de $f_D-f'_D$. Pero $f_D-f'_D=f'_N-f_N$, y, como $f'_N$ y $f_N$ igualmente conmutan, $f'_N-f_N$ es igualmente nilpotente. As\'i $f_D-f'_D$ es diagonalizable y, a su vez, nilpotente, el valor propio asociado a $v$ es $0$. Por el lema anterior existe una base de $V$ de vectores propios simult\'aneos de $f_D$ y $f'_D$, luego todos los valores propios de $f_D-f'_D$ son $0$. Es decir $f_D-f'_D=0=f'_N-f_N$; y, $f'_D=f_D$ y $f'_N=f_N$.\qed
+\begin{lema}
+Si $\lambda_1,\ldots,\lambda_r\in \K$ son valores propios de $f$ dos a dos distintos, y $v_1,\ldots,v_r\in V$ son vectores propios de $f$, con $f(v_i)=\lambda_iv_i$ para $i=1,\ldots,r$, entonces $\{v_1,\ldots,v_r\}$ es un conjunto linealmente independiente. 
+\end{lema}
 
-\section{Polinomio minimal y transformaciones semi-simples} 
+\dem Por inducci\'on en $r$, siendo el caso base $r=1$ inmediato, pues $\{v_1\}$ es linealmente independiente si $v_1\ne 0$, lo cual se cumple pues $v_1$ es vector propio. Para el paso inductivo, tomamos $c_1,\ldots,c_r$ son tales que $c_1v_1+\cdots+c_rv_r=O$, y por contradicci\'on asumimos que cada $c_i\ne 0$ (pues de lo contrario, por hipotesis de inducci\'on, si alg\'un $c_i$ es $0$ el resto tambi\'en lo son). Entonces,
+\[
+0=(f-\lambda_n\id_V)(c_1v_1+\cdots+c_rv_r)=c_1(\lambda_1-\lambda_r)v_1+\cdots+c_{r-1}(\lambda_{r-1}-\lambda_r)v_{r-1};
+\]
+y as\'i, por la hip\'otesis de inducci\'on, se sigue que $c_i(\lambda_i-\lambda_n)=0$ para $i=1,\ldots,r-1$. Pero como asumimos que $c_i\ne 0$ y se tiene que $\lambda_i-\lambda_r\ne 0$ para $i\in\{1,\ldots,r-1\}$, entonces $c_i(\lambda_i-\lambda_n)\ne 0$, lo cual es una contradicci\'on.\qed
+
+\begin{lema}
+Si $f$ es diagonalizable, se siguen las siguientes propiedades.
+\begin{enumerate}
+\item Si $W\ne\{0\}$ es $f$-estable, entonces la restricci\'on $f_{W}$ tambi\'en es diagonalizable. 
+\item Si $g\in\End_\K(V)$ es diagonalizable y $f\circ g=g\circ f$, entonces existe una descomposición $V=V_1\oplus\cdots\oplus V_s$ para la cual $f_{V_i}=\lambda_i\id_{V_i}$ y $g_{V_i}=\mu_i\id_{V_i}$ con $\lambda_i,\mu_i\in \K$ para cada $i\in\{1,\ldots,s\}$. En particular, existe una base de $V$ para la cual las matrices $f$ y $g$ son simultaneamente diagonales. Más aún, si $v$ es un vector propio simult\'aneamente de $f$ y $g$, entonces $v$ es un vector propio de $af+bg$ para todo $a,b\in \K$.
+\end{enumerate}
+\end{lema}
+
+\dem Por el teorema \ref{diagosiysolosi}, $f=\lambda_1\id_{V_1}\oplus\cdots\oplus\lambda_r\id_{V_r}$ donde $\lambda_1,\ldots,\lambda_r\in\K$ son los valores propios de $f$ y $V_1,\ldots,V_r\le V$ son los respectivos espacios propios.
+  \begin{enumerate} 
+    \item Para $i\in\{1,\ldots,r\}$, sea $W_i=W\cap V_i$. De esta forma, $f_W=\lambda_1\id_{W_1}\oplus\cdots\oplus\lambda_r\id_{W_r}$, y así, por el teorema \ref{diagosiysolosi}, $f_W$ es diagonalizable.
+    \item Para $i\in\{1,\ldots,r\}$, si $v\in V_i$, entonces
+      \[
+      f\left(g(v)\right)=g\left(f(v)\right)=\lambda_ig(v),
+      \]
+      y así $V_i$ es invariante bajo $g$. Por la primera parte del lema, sigue que la restricci\'on $g_{V_i}$ es diagonalizable. Luego, si tomamos para cada $V_i$ una base $\B_i$ para la cual la matriz de $g_{V_i}$ es diagonal, por el lema anterior, para la concatenación $\B=(\B_1|\cdots|\B_r)$ se obtiene una base para la cual las matrices de $f$ y $g$ son simultaneamente diagonales. Finalmente, si para $v\in V$ se tiene $f(v)=\lambda v$ y $g(v)=\mu v$, entonces $(af+bg)(v)=(a\lambda+b\mu)v$.\qed 
+\end{enumerate}
+
+\begin{lema}
+  Suponga que $f$ es nilpotente y que $g$ es otro operador de $V$ nilpotente que conmuta con $f$. Entonces, $af+bg$ es nilpotente para todo $a,b\in\K$.
+\end{lema}
+
+\dem Sean $r$ y $s$ respectivamente los índices de nilpotencia de $f$ y $g$. Como $f$ y $g$ conmutan entonces, para todo entero positivo $m$, se tiene
+$$ (af+bg)^n=\sum_{i=1}^m\binom{m}{i}a^ib^{m-i}f^i\circ g^{m-i}.$$
+En particular, para $m=r+s$ se tiene $(af+bg)^m=\underline{O}$.
+
+\dem\emph{(Unicidad en el teorema \ref{descjorche})} Si $f'_D,f'_N\in\End_\K(V)$ conmutan y son respectivamente diagonalizable y nilpotente tales que $f=f'_D+f'_N$, entonces
+  \[
+  f\circ f'_D=(f'_D+f'_N)\circ f'_D=f'_D\circ f'_D+f'_N\circ f'_D=f'_D\circ f'_D+f'_D\circ f'_N=f'_D\circ f,
+  \]
+  es decir que $f$ y $f'_D$ conmutan. Por lo cual, $P_D(f)=f_D$ y $f'_D$ tambi\'en lo hacen. Similarmente, $f_N$ y $f'_N$ conmutan.\\
+  Como $f_D$ y $f'_D$ son diagonalizables y conmutan, por los lemas anteriores, $V$ admite una base de vectores simultaneamente propios, que son todos vectores propios de $f_D-f'_D$. Pero $f_D-f'_D=f'_N-f_N$, y, como $f'_N$ y $f_N$ igualmente conmutan, entonces por los lemas $f'_N-f_N$ es también nilpotente. As\'i, $f_D-f'_D$ es diagonalizable y, a su vez, nilpotente, luego el único valor propio del operador diagonalizable $f_D-f'_D$ es $0$, y por el teorema \ref{diagosiysolosi} $f_D-f'_D=\underline{O}$. , $\underline{O}=f_D-f'_D=f'_N-f_N$ y entonces, $f'_D=f_D$ y $f'_N=f_N$.\qed
+
+\section{Polinomio minimal y transformaciones semi-simples}

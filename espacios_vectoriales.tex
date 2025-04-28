@@ -536,7 +536,7 @@ Suponga que $V$ tiene dimensi\'on finita. Para todo $f\in\Hom_{\mathbb{K}}(V,W)$
 \end{teo}
 
 \dem Note que para el caso $\rho(f)=0$ el teorema se sigue inmediatamente. Asumamos que $\rho(f)>0$. Como $\ker(f)\le V$, por la monoton\'ia de la dimensi\'on tenemos $\nu(f)=\dim\left(\ker(f)\right)\le\dim(V)$. Sean $n=\nu(f)$ y $n+m=\dim (V)$. Sea $\mathcal{B}_0=(v_1,\ldots,v_n)\subseteq V$ una base de $\ker(f)$ (si $n=0$ tomamos $\mathcal{B}_0=\emptyset$). Extendemos $\mathcal{B}_0$ a una base $\mathcal{B}=(v_1,\ldots,v_n,v_{n+1},\ldots,v_{n+m})$ de $V$.\\
-Para $i\in\{1,\ldots,m\}$, defina $w_i=f(v_{n+i})$. Basta demostrar que $\{w_1,\ldots,w_m\}$ es una base de $\im(f)$, pues en tal caso tendr\'iamos que $m=\dim\left(im(f)\right)=\rho(f)=\dim (V)-\nu(f)$. Para establecerlo usaremos la proposici\'on \ref{defbase2}.\\
+Para $i\in\{1,\ldots,m\}$, defina $w_i=f(v_{n+i})$. Basta demostrar que $\{w_1,\ldots,w_m\}$ es una base de $\im(f)$, pues en tal caso tendr\'iamos que $m=\dim\left(\im(f)\right)=\rho(f)=\dim (V)-\nu(f)$. Para establecerlo usaremos la proposici\'on \ref{defbase2}.\\
 Veamos primero que $\{w_1,\ldots,w_m\}$ es linealmente independiente. Suponga que $a_1,\ldots,a_m\in \mathbb{K}$ son tales que
 \[
 a_1w_1+\cdots+a_mw_m=O.
@@ -1166,7 +1166,7 @@ En general, se tiene
   \item Demuestre que las funciones $\prod_{i\in I} f_i$ y $\bigoplus_{i\in I} f_i$ definidas en la definición \ref{productoysumadefunciones} son transformaciones lineales.
 \end{enumerate}
 
-\section{Espacios cocientes}
+\section{Espacios cociente}\label{espacios_cociente}
 
 Sean $V$, $W$ espacios vectoriales sobre $\mathbb{K}$.
 
@@ -1266,15 +1266,16 @@ donde $A$, $B$ y $C$ son respectivamente matrices $n_0\times n_0$, $n_0\times n_
   $$
 \end{obs}
 
-\section*{Ejercicios}
+\section*{Ejercicios}\label{espacios_cociente_ejercicios}
 \begin{enumerate}
   \item Considere el operador $f$ de $\Q^3$ dado por $f(x,y,z)=(-2x+4z,-x+3y,-3x+2y+3z)$. Verifique que para  $V_0=\langle (1,1,1)\rangle$ se tiene $f(V_0)=V_0$. Encuentre una base de $V/V_0$ y la matriz de $f_{/V_0}$ para esta base.
   \item Considere el operador $f$ de $\Q^4$ dado por $f(x,y,z,w)=(5x+5z+w,-3x-3y,-3x+y,x-y+w)$. Verifique que para  $V_0=\langle e_1,e_4 \rangle$ se tiene $f(V_0)=V_0$. Encuentre una base de $V/V_0$ y la matriz de $f_{/V_0}$ para esta base.
-  \item Dada $f\in\Hom_\mathbb{K}(V,W)$ definimos el co-núcleo de $f$ por $\text{cok}(f)=W/\im(f)$. Demuestre que $f$ es sobreyectiva si y solo si el $\text{cok}(f)=\{O+\im(f)\}$.
+  \item\label{espacios_cociente_ejercicios_conucleo} Dada $f\in\Hom_\mathbb{K}(V,W)$ definimos el co-núcleo de $f$ por $\text{cok}(f)=W/\im(f)$. Demuestre que $f$ es sobreyectiva si y solo si $\text{cok}(f)=\{O+\im(f)\}$.
+  \item Suponga que $f\in\Hom_\K(V,W)$ es una transformación linea donde $W$ es un espacio finito-dimensional. Demuestre que $\rho(f)+\dim(\text{cok}(f))=\dim(W)$. Compare esta igualdad con el teorema \ref{teorango} del rango.
   \item Sea $f\in\Hom_\mathbb{K}(V,W)$ y suponga que $\dim(W)<\infty$. Demuestre que las siguientes propiedades son equivalentes.
     \begin{enumerate}[(i)]
       \item $\dim(\text{cok}(f))=0$
       \item $\dim(\im(f))=\dim(W)$
     \end{enumerate}
-  Compare esta equivalencia con el corolario al teorema del rango \ref{corteorango}.
+  Compare esta equivalencia con el corolario \ref{corteorango} del teorema \ref{teorango} del rango.
 \end{enumerate}
