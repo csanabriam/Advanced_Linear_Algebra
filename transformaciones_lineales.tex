@@ -582,9 +582,9 @@ Suponga que $V$ tiene dimensi\'on finita y que $P_f(t)$ se descompone en factore
 \[
 P_f(t)=(t-\lambda_1)^{m_1}(t-\lambda_2)^{m_2}\ldots(t-\lambda_r)^{m_r}, \quad \lambda_1,\lambda_2,\ldots,\lambda_r\in \K.
 \]
-con $\lambda_i\ne\lambda_j$ si $i\ne j$. De esta forma, si $V_i=\ker\left((f-\lambda_i\id_V)^{m_i}\right)$, para $i=1,\ldots,n$,
+con $\lambda_i\ne\lambda_j$ si $i\ne j$. De esta forma, si $V_i=\ker\left((f-\lambda_i\id_V)^{m_i}\right)$, para $i=1,\ldots,r$, tenemos
 \[
-V=V_1\oplus V_2\oplus\cdots\oplus V_n.
+V=V_1\oplus V_2\oplus\cdots\oplus V_r.
 \]
 En particular, si $g_i\in\Hom_\K(V_i,V_i)$ es la restricci\'on de $f-\lambda_i\id_V$ a $V_i$, tenemos que para todo $v_i\in V_i$
 $$g_i^{m_i}(v_i)=(f-\lambda_i\id_V)^{m_i}(v_i)=O$$
@@ -1094,6 +1094,33 @@ donde cada $V_i=\ker\left((f-\lambda_i\id_V)^{m_i}\right)$, para $i\in\{1,\ldots
 Generalizamos la definici\'on \ref{base_de_jordan_0} de base de Jordan. Si $V$ tiene dimensi\'on finita, decimos que una base de $V$ es una \emph{base de Jordan (relativa a $f$)} si la matriz para aquella base es diagonal en bloques de Jordan, y a esta matriz la llamamos \emph{forma normal de Jordan de $f$}.
 \end{defn}
 
+\section*{Ejercicios}\label{forma_de_jordan_ejercicios}
+
+Considere los siguientes operadores:
+\begin{enumerate}[(i)]
+\item $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^4,\mathbb{Q}^4)$ donde
+$$f(x,y,z,w)=(3x-3y+3w,\ 2x-y-z+2w,\ 2x-y-z+2w,\ 2x-4y+2z+2w),$$
+\item $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^4,\mathbb{Q}^4)$ donde
+$$f(x,y,z,w)=(-x+2y-z+2w,\ x+y-2z+w,\ -x+2y-z+2w,\ -2x+y+z+w),$$
+\item $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^5,\mathbb{Q}^5)$ donde
+\begin{align*}
+f(x_1,x_2,x_3,x_4,x_5) & =(4x_1-4x_2-4x_3+8x_5,\ -4x_3+8x_5,\ -x_1-x_2-x_3-x_4+7x_5,\\
+ &\quad -x_1-5x_2-x_3+3x_4+7x_5,\ 2x_1-2x_2-2x_3+2x_4+6x_5),
+\end{align*}
+\item $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^5,\mathbb{Q}^5)$ donde
+\begin{align*}
+f(x_1,x_2,x_3,x_4,x_5) & =(x_1-3x_2-3x_3+x_4+9x_5,\ -4x_3+8x_5,\ -4x_1+8x_5,\\
+ &\quad -4x_1-4x_2+4x_4+8x_5,\ -x_1-x_2-x_3+3x_4+7x_5).
+\end{align*}
+\end{enumerate}
+
+Para cada operador:
+\begin{enumerate}[(a)]
+\item encuentre la representaci\'on matricial de $f$ en la base can\'onica,
+\item encuentre una base de Jordan para $f$,
+\item encuentre la representaci\'on matricial de $f$ respecto a la base de Jordan encontrada.
+\end{enumerate}
+
 \section{Descomposición diagonalizable-nilpotente}
 
 Sea $V$ un espacio vectorial sobre $\K$ de dimensión finita y $f$ un operador de $V$.
@@ -1205,4 +1232,68 @@ En particular, para $m=r+s$ se tiene $(af+bg)^m=\underline{O}$.
   es decir que $f$ y $f'_D$ conmutan. Por lo cual, $P_D(f)=f_D$ y $f'_D$ tambi\'en lo hacen. Similarmente, $f_N$ y $f'_N$ conmutan.\\
   Como $f_D$ y $f'_D$ son diagonalizables y conmutan, por los lemas anteriores, $V$ admite una base de vectores simultaneamente propios, que son todos vectores propios de $f_D-f'_D$. Pero $f_D-f'_D=f'_N-f_N$, y, como $f'_N$ y $f_N$ igualmente conmutan, entonces por los lemas $f'_N-f_N$ es también nilpotente. As\'i, $f_D-f'_D$ es diagonalizable y, a su vez, nilpotente, luego el único valor propio del operador diagonalizable $f_D-f'_D$ es $0$, y por el teorema \ref{diagosiysolosi} $f_D-f'_D=\underline{O}$. , $\underline{O}=f_D-f'_D=f'_N-f_N$ y entonces, $f'_D=f_D$ y $f'_N=f_N$.\qed
 
-\section{Polinomio minimal y transformaciones semi-simples}
+  \section*{Ejercicios}
+
+  \begin{enumerate}
+    \item Considere los siguientes operadores de los ejercicios de la sección \ref{forma_de_jordan_ejercicios}:
+      \begin{enumerate}[(i)]
+        \item $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^4,\mathbb{Q}^4)$ donde
+        $$f(x,y,z,w)=(3x-3y+3w,\ 2x-y-z+2w,\ 2x-y-z+2w,\ 2x-4y+2z+2w),$$
+        \item $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^4,\mathbb{Q}^4)$ donde
+        $$f(x,y,z,w)=(-x+2y-z+2w,\ x+y-2z+w,\ -x+2y-z+2w,\ -2x+y+z+w),$$
+        \item $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^5,\mathbb{Q}^5)$ donde
+        \begin{align*}
+        f(x_1,x_2,x_3,x_4,x_5) & =(4x_1-4x_2-4x_3+8x_5,\ -4x_3+8x_5,\ -x_1-x_2-x_3-x_4+7x_5,\\
+        &\quad -x_1-5x_2-x_3+3x_4+7x_5,\ 2x_1-2x_2-2x_3+2x_4+6x_5),
+        \end{align*}
+        \item $f\in\textrm{Hom}_{\mathbb{Q}}(\mathbb{Q}^5,\mathbb{Q}^5)$ donde
+        \begin{align*}
+        f(x_1,x_2,x_3,x_4,x_5) & =(x_1-3x_2-3x_3+x_4+9x_5,\ -4x_3+8x_5,\ -4x_1+8x_5,\\
+        &\quad -4x_1-4x_2+4x_4+8x_5,\ -x_1-x_2-x_3+3x_4+7x_5).
+        \end{align*}
+      \end{enumerate}
+      
+      Encuentre para cada operador:
+      \begin{enumerate}[(a)]
+        \item polinomios $P_D(t)$ y $P_N(t)$, tales que $f=f_D+f_N$ donde $f_D=P_D(f)$ es diagonalizable y $f_N=P_N(f)$ es nilpotente,
+        \item las matrices canónica de $f_D$ y $f_N$. 
+      \end{enumerate}
+    \item Decimos que un operador $f$ es \emph{simple} si los \'unicos espacios invariantes bajo $f$ son $\{0\}$ y $V$. Decimos que $f$ es \emph{semi-simple} si para todo $V_1\le V$ invariante bajo $f$ existe $V_2\le V$ invariante bajo $f$ tal que $V=V_1\oplus V_2$.
+      \begin{enumerate}[(a)]
+        \item Suponga que $f$ es semi-simple y sea $V_1\le V$ un subespacio invariante bajo $f$. Demuestre que la restricci\'on de $f$ a $V_1$, $f_1\in\Hom_K(V_1,V_1)$, es semi-simple.
+        \item Suponga que $f$ es semi-simple, demuestre que existe una descomposici\'on
+        \[
+        V=V_1\oplus\ldots\oplus V_r
+        \]
+        tal que, para $i=1,\ldots,r$, $V_i$ es invariante bajo $f$ y la restricci\'on de este a $V_i$, $f_i\in\Hom_K(V_i,V_i)$, es simple. (\emph{Ayuda}: Use inducci\'on fuerte en $n=\dim_K(V)$, es decir asuma que el resultado es cierto para todo operador en un espacio de dimensi\'on estrictamente menor que $n$ y use el punto anterior).
+        \item Demuestre que el polinomio minimal de un operador semi-simple es un producto de polinomios irreducibles ninguno de ellos repetido (es decir, elevados \'unicamente a la primera potencia; es decir, sin cuadrados que lo dividan) usando los siguientes pasos:
+        \begin{enumerate}[(i)]
+          \item Usando la descomposici\'on del punto anterior, demuestre que el polinomio minimal de $f_i$ divide al polinomio minimal de $f$. (\emph{Ayuda}: divida el polinomio minimal de $f$ por el de $f_i$ y evalue el residuo en $f_i$; demuestre que es cero.)
+          \item Demuestre que el m\'inimo com\'un multiplo de los polinimios minimales de $f_1,\ldots,f_r$ es el polinomio minimal de $f$. (\emph{Ayuda}: Sea $P(t)$ este m\'inimo com\'un multiplo, dado $v\in V$, tome $v_i\in V_i$, $i=1,\ldots,r$, tales que $v=v_1+\ldots+v_r$, demuestre que $P(f)(v)=P(f)(v_1)+\ldots+P(f)(v_r)=O+\ldots+O=O$.) 
+          \item Concluya. (\emph{Ayuda}: El polinomio minimal de un operador simple es irreducible.)
+        \end{enumerate} 
+      \end{enumerate}
+    \item Sea $\lambda\in \K$ y $f\in\Hom_K(\K^2,\K^2)$ definido por $f(x,y)=(\lambda x+y,\lambda y)$. Verifique que $f$ no es semi-simple. Encuentre el polinomio minimal de $f$.
+    
+    \item Sea $\lambda\in K$ y $f\in\Hom_K(\K^2,\K^2)$ definido por $f(x,y)=(\lambda x,\lambda y)$. Encuentre el polinomio minimal de $f$. Verifique que $f$ es semi-simple.
+    
+    \item Considere los operadores $g,h\in\Hom_\mathbb{R}(\mathbb{R}^4,\mathbb{R}^4)$ definidos por
+    \begin{eqnarray*}
+    g(x,y,z,w) & = & (\frac{\sqrt{3}}{2}x+\frac{1}{2}w,\frac{\sqrt{3}}{2}y+\frac{1}{2}z,-\frac{1}{2}y+\frac{\sqrt{3}}{2}z,-\frac{1}{2}x+\frac{\sqrt{3}}{2}w)\\
+    h(x,y,z,w) & = & (\frac{\sqrt{3}}{2}x+\frac{1}{2}z,\frac{\sqrt{3}}{2}y+z-\frac{1}{2}w,\frac{1}{2}x-y+\frac{\sqrt{3}}{2}z,-\frac{1}{2}y+\frac{\sqrt{3}}{2}w),
+    \end{eqnarray*}
+    y los operadores $g_\mathbb{C},h_{\mathbb{C}}\in\Hom_\mathbb{C}(\mathbb{C}^4,\mathbb{C}^4)$ dadas por las mismas f\'ormulas.
+    \begin{enumerate}[(a)]
+    \item Verifique que $g$ y $h$ no tienen valores propios y que los valores propios de $g_\mathbb{C}$ y $h_\mathbb{C}$ son $\lambda=\frac{1}{2}(\sqrt{3}+i)$ y $\bar{\lambda}=\frac{1}{2}(\sqrt{3}-i)$.
+    \item Verifique que si $u+iv$, con $u,v\in\mathbb{R}^4$, es un vector propio de $g_\mathbb{C}$ (resp. de $h_\mathbb{C}$) asociado a $\lambda$, entonces $u-iv$ es un vector propio de $g_\mathbb{C}$ (resp. de $h_\mathbb{C}$) asociado a $\bar{\lambda}$.
+    \item Encuentre bases de Jordan para $g_\mathbb{C}$ y $h_\mathbb{C}$ de la forma $\mathcal{B}_\C=(u_1+iv_1,u_2+iv_2,u_1-iv_1,u_2-iv_2)$.
+    \item Usando la notaci\'on de los vectores en el literal anterior, encuentre las matrices de $g$ y $h$ para las bases $\mathcal{B}=(u_1,-v_1,u_2,-v_2)$.
+    (\emph{Ayuda}: Por bloques $2\times 2$ estas se deben ver
+    \[
+    \Big[g\Big]^\mathcal{B}_\mathcal{B}=\left[\begin{array}{cc} R & 0\\ 0 & R\end{array}\right]\quad\text{ y }\quad\Big[h\Big]^\mathcal{B}_\mathcal{B}=\left[\begin{array}{cc} R & I\\ 0 & R\end{array}\right],
+    \]
+    donde $R$ es una matriz de rotaci\'on e $I$ es la matriz identidad.)
+    \item Encuentre los polinomios minimales de $g$ y $h$.
+    \item Identifique entre los operadores $g$ y $h$ cual es semi-simple.
+    \end{enumerate}
+  \end{enumerate}
